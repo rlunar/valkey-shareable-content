@@ -1,0 +1,50 @@
+/* Canonical Valkey palette. Hex values are authoritative (Brand Guidelines §2). */
+:root{
+  /* Core */
+  --valkey-blue-aura:#6983FF;
+  --valkey-black-denim:#1A2026;
+  --valkey-best-white:#FFFDFA;
+  /* Supporting */
+  --valkey-purple-indigo:#30176E;
+  --valkey-palace-burgundy:#642637;
+  --valkey-candy:#E0A2AF;
+  --valkey-summer-lavender:#BCB5E7;
+  /* Neutral and logo tints */
+  --valkey-cold-cream-3:#F7FBFE;
+  --valkey-misty-ice:#D3DDE7;
+  --valkey-logo-light:#E7E4F4;
+  --valkey-pure-white:#FFFFFF;
+
+  /* Website-derived surfaces (valkey.io implementation) */
+  --valkey-deep-purple:#2D2471;      /* dark card + banner surface */
+  --valkey-page-shade:#E2E8F0;       /* article page background */
+  --valkey-aside-shade:#F1F0FA;      /* aside background */
+  --valkey-aside-link:#D1D9FF;       /* aside link block */
+  --valkey-aside-link-hover:#B9C6FF;
+  --valkey-community-shade:#E9EEF7;  /* community/leadership section */
+  --valkey-link-blue:#2054B2;        /* breadcrumb + body link on light */
+  --valkey-ink-soft:#2D3748;         /* pill button label */
+  --valkey-ink-muted:#718096;        /* metadata */
+  --valkey-hairline:#E2E8F0;         /* pill button + card border */
+
+  /* Semantic aliases */
+  --color-canvas:var(--valkey-best-white);
+  --color-surface:var(--valkey-cold-cream-3);
+  --color-surface-raised:var(--valkey-pure-white);
+  --color-surface-shaded:var(--valkey-page-shade);
+  --color-surface-dark:var(--valkey-black-denim);
+  --color-surface-dark-alt:var(--valkey-purple-indigo);
+  --color-surface-card-dark:var(--valkey-deep-purple);
+  --color-border:var(--valkey-misty-ice);
+  --color-border-subtle:var(--valkey-hairline);
+  --color-text:var(--valkey-black-denim);
+  --color-text-muted:var(--valkey-ink-muted);
+  --color-heading:var(--valkey-purple-indigo);
+  --color-accent:var(--valkey-blue-aura);
+  --color-accent-editorial:var(--valkey-palace-burgundy);
+  --color-on-dark:var(--valkey-cold-cream-3);
+  --color-on-dark-highlight:var(--valkey-candy);
+  --color-link:var(--valkey-link-blue);
+  --color-link-on-dark:var(--valkey-blue-aura);
+  --color-focus:var(--valkey-blue-aura);
+}

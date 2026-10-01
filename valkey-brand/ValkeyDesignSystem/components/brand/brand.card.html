@@ -1,0 +1,34 @@
+<!-- @dsCard group="Components" viewport="700x300" name="Brand" subtitle="Logo variants, site icons, participant tile" -->
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:16px;background:var(--valkey-best-white)}.wrap{display:flex;flex-direction:column;gap:16px}.row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}.dark{background:var(--valkey-purple-indigo);padding:12px;border-radius:10px;display:flex;gap:16px;align-items:center}</style>
+</head><body><div id="root"></div>
+<script type="text/babel">
+const { Logo, Icon, iconNames, ParticipantCard } = window.ValkeyDesignSystem_d3b98f;
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <div className="wrap">
+    <div className="row">
+      <Logo variant="horizontal-color" width={200} />
+      <Logo variant="stacked-color" width={96} />
+      <Logo variant="icon-periwinkle" width={40} />
+      <div className="dark">
+        <Logo variant="horizontal-color-light" width={160} />
+        <Logo variant="icon-white" width={32} />
+      </div>
+    </div>
+    <div className="row" style={{gap:'14px'}}>
+      {iconNames.map(n => <Icon key={n} name={n} size={20} alt="" />)}
+      <Icon name="bug" size={48} alt="" />
+      <Icon name="question" size={48} alt="" />
+    </div>
+    <div className="row" style={{alignItems:'stretch'}}>
+      <ParticipantCard name="Amazon Web Services" logoSrc="../../assets/participants/aws.svg" offering="Amazon ElastiCache and Amazon MemoryDB support Valkey." style={{flex:'1 1 200px',border:'1px solid var(--color-border)'}} />
+      <ParticipantCard name="Google Cloud" logoSrc="../../assets/participants/gcp.svg" offering="Memorystore for Valkey." style={{flex:'1 1 200px',border:'1px solid var(--color-border)'}} />
+      <ParticipantCard name="Percona" logoSrc="../../assets/participants/percona.svg" offering="Support and services for Valkey." style={{flex:'1 1 200px',border:'1px solid var(--color-border)'}} />
+    </div>
+  </div>
+);
+</script></body></html>

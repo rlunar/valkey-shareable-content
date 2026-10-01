@@ -1,0 +1,62 @@
+{
+  "schema": "hyperframes.capture.icons.v1",
+  "headline": {
+    "file": "assets/favicon.svg",
+    "source": "assets/icon-mask-icon-unsized.svg",
+    "rank": 4,
+    "shape": "bare-mark",
+    "reason": "bare mark preferred over 3 badge(s)"
+  },
+  "icons": [
+    {
+      "file": "assets/icon-apple-touch-icon-180x180.png",
+      "url": "https://valkey.io/img/favicon/apple-touch-icon.png",
+      "rel": "apple-touch-icon",
+      "sizes": "180x180",
+      "type": null,
+      "rank": 0,
+      "shape": "badge",
+      "shapeReason": "4 of 4 edge midpoints are opaque, so the drawing carries a backdrop"
+    },
+    {
+      "file": "assets/icon-icon-32x32.png",
+      "url": "https://valkey.io/img/favicon/favicon-32x32.png",
+      "rel": "icon",
+      "sizes": "32x32",
+      "type": "image/png",
+      "rank": 1,
+      "shape": "badge",
+      "shapeReason": "4 of 4 edge midpoints are opaque, so the drawing carries a backdrop"
+    },
+    {
+      "file": "assets/icon-icon-16x16.png",
+      "url": "https://valkey.io/img/favicon/favicon-16x16.png",
+      "rel": "icon",
+      "sizes": "16x16",
+      "type": "image/png",
+      "rank": 2,
+      "shape": "badge",
+      "shapeReason": "4 of 4 edge midpoints are opaque, so the drawing carries a backdrop"
+    },
+    {
+      "file": "assets/icon-shortcut-icon-unsized.ico",
+      "url": "https://valkey.io/img/favicon/favicon.ico",
+      "rel": "shortcut icon",
+      "sizes": null,
+      "type": null,
+      "rank": 3,
+      "shape": "unknown",
+      "shapeReason": "image format could not be decoded for inspection"
+    },
+    {
+      "file": "assets/icon-mask-icon-unsized.svg",
+      "url": "https://valkey.io/img/favicon/safari-pinned-tab.svg",
+      "rel": "mask-icon",
+      "sizes": null,
+      "type": null,
+      "rank": 4,
+      "shape": "bare-mark",
+      "shapeReason": "first painted element is <path> with margins"
+    }
+  ]
+}

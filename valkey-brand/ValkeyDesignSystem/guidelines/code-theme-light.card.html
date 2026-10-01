@@ -1,0 +1,8 @@
+<!-- @dsCard group="Code" viewport="700x190" name="Light code theme" subtitle="ColdCream3 ground · PurpleIndigo keywords · Burgundy strings, italic comments" -->
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css"><style>body{margin:0;padding:16px;background:var(--valkey-best-white);font-family:var(--font-body)}pre{margin:0;padding:18px;border-radius:10px;background:var(--code-light-bg);border:1px solid var(--valkey-misty-ice);font:400 15px/1.6 var(--font-code);font-variant-ligatures:none;color:var(--code-light-text)}.k{color:var(--code-light-keyword)}.d{color:var(--code-light-definition)}.s{color:var(--code-light-string)}.c{color:var(--code-light-comment);font-style:italic}.n{color:var(--code-light-number)}</style></head><body>
+<pre><span class="c"># cache a value with a 60 second TTL</span>
+<span class="d">127.0.0.1:6379&gt;</span> <span class="k">SET</span> session:42 <span class="s">"active"</span> EX <span class="n">60</span>
+OK
+<span class="d">127.0.0.1:6379&gt;</span> <span class="k">TTL</span> session:42
+(integer) <span class="n">60</span></pre>
+</body></html>

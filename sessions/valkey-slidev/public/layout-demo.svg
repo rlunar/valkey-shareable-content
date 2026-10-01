@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Abstract Valkey data-path illustration</title>
+  <desc id="desc">A dark technical field with cache, queue, and database cards connected by blue data paths.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a2026"/>
+      <stop offset="0.58" stop-color="#30176e"/>
+      <stop offset="1" stop-color="#4346a3"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7fbfe" stop-opacity="0.98"/>
+      <stop offset="1" stop-color="#e7e4f4" stop-opacity="0.94"/>
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#bcb5e7" stroke-opacity="0.10" stroke-width="1"/>
+    </pattern>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#background)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <circle cx="1370" cy="130" r="260" fill="none" stroke="#6983ff" stroke-opacity="0.16" stroke-width="2"/>
+  <circle cx="1370" cy="130" r="190" fill="none" stroke="#bcb5e7" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="120" y="145" fill="#bcb5e7" font-family="ui-monospace, monospace" font-size="22" font-weight="700" letter-spacing="6">LAYOUT GALLERY / IMAGE FIXTURE</text>
+  <text x="120" y="240" fill="#f7fbfe" font-family="Arial, sans-serif" font-size="78" font-weight="700">Open data paths.</text>
+  <text x="120" y="295" fill="#d3dde7" font-family="Arial, sans-serif" font-size="30">One deterministic visual for every image layout.</text>
+
+  <path d="M 355 580 C 530 445, 680 445, 800 580 S 1090 715, 1245 580" fill="none" stroke="#6983ff" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 355 580 C 530 445, 680 445, 800 580 S 1090 715, 1245 580" fill="none" stroke="#f7fbfe" stroke-opacity="0.5" stroke-width="2" stroke-dasharray="8 18"/>
+
+  <g filter="url(#shadow)">
+    <g transform="translate(155 445)">
+      <rect width="360" height="250" rx="22" fill="url(#panel)"/>
+      <rect width="8" height="250" rx="4" fill="#6983ff"/>
+      <text x="40" y="64" fill="#30176e" font-family="ui-monospace, monospace" font-size="18" font-weight="700" letter-spacing="3">CACHE</text>
+      <text x="40" y="116" fill="#1a2026" font-family="Arial, sans-serif" font-size="34" font-weight="700">Hot reads</text>
+      <g fill="#6983ff">
+        <rect x="40" y="154" width="18" height="18"/><rect x="70" y="154" width="18" height="18"/><rect x="100" y="154" width="18" height="18"/>
+        <rect x="40" y="184" width="18" height="18"/><rect x="70" y="184" width="18" height="18"/><rect x="100" y="184" width="18" height="18"/>
+      </g>
+    </g>
+
+    <g transform="translate(620 445)">
+      <rect width="360" height="250" rx="22" fill="url(#panel)"/>
+      <rect width="8" height="250" rx="4" fill="#e0a2af"/>
+      <text x="40" y="64" fill="#642637" font-family="ui-monospace, monospace" font-size="18" font-weight="700" letter-spacing="3">QUEUE</text>
+      <text x="40" y="116" fill="#1a2026" font-family="Arial, sans-serif" font-size="34" font-weight="700">Ordered work</text>
+      <path d="M 42 170 H 300" stroke="#642637" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="72" cy="170" r="13" fill="#e0a2af"/><circle cx="140" cy="170" r="13" fill="#e0a2af"/><circle cx="208" cy="170" r="13" fill="#e0a2af"/><circle cx="276" cy="170" r="13" fill="#e0a2af"/>
+    </g>
+
+    <g transform="translate(1085 445)">
+      <rect width="360" height="250" rx="22" fill="url(#panel)"/>
+      <rect width="8" height="250" rx="4" fill="#bcb5e7"/>
+      <text x="40" y="64" fill="#30176e" font-family="ui-monospace, monospace" font-size="18" font-weight="700" letter-spacing="3">DATABASE</text>
+      <text x="40" y="116" fill="#1a2026" font-family="Arial, sans-serif" font-size="34" font-weight="700">Primary state</text>
+      <ellipse cx="172" cy="158" rx="98" ry="28" fill="#bcb5e7"/>
+      <path d="M 74 158 V 202 C 74 218 118 231 172 231 C 226 231 270 218 270 202 V 158" fill="#bcb5e7" stroke="#30176e" stroke-opacity="0.25" stroke-width="2"/>
+      <ellipse cx="172" cy="202" rx="98" ry="28" fill="none" stroke="#30176e" stroke-opacity="0.35" stroke-width="2"/>
+    </g>
+  </g>
+
+  <text x="120" y="830" fill="#bcb5e7" font-family="ui-monospace, monospace" font-size="18">LOCAL SVG · NO NETWORK REQUIRED · 16:9</text>
+</svg>

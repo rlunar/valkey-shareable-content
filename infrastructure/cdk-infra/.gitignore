@@ -1,0 +1,12 @@
+*.swp
+__pycache__
+.pytest_cache
+.venv
+*.egg-info
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+
+# CDK CLI installed locally through npm/pnpm
+node_modules

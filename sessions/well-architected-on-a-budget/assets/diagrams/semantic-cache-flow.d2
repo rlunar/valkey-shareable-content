@@ -1,0 +1,44 @@
+# Semantic cache flow — Valkey vector search in front of an LLM
+# Light theme for lavender-background slides (#BCB5E7).
+# Render: theme 0, then swap canvas fill #FFFFFF -> #BCB5E7 to blend into slide bg.
+direction: right
+
+prompt: User Prompt {
+  shape: person
+  style: { fill: "#30176E"; font-color: "#FFFDFA"; stroke: "#30176E" }
+}
+embed: Embedding Model {
+  shape: hexagon
+  style: { fill: "#BCB5E7"; font-color: "#1A2026"; stroke: "#30176E" }
+}
+valkey: Valkey Vector Search {
+  shape: hexagon
+  style: { fill: "#6983FF"; font-color: "#1A2026"; stroke: "#30176E"; bold: true }
+}
+llm: LLM {
+  shape: cloud
+  style: { fill: "#642637"; font-color: "#FFFDFA"; stroke: "#642637" }
+}
+
+prompt -> embed: "1. text to embedding" {
+  style.stroke: "#30176E"
+  style.font-color: "#1A2026"
+}
+embed -> valkey: "2. KNN similarity search" {
+  style.stroke: "#30176E"
+  style.font-color: "#1A2026"
+}
+valkey -> prompt: "3. HIT: cached answer (no LLM call)" {
+  style.stroke: "#6983FF"
+  style.font-color: "#30176E"
+  style.bold: true
+}
+valkey -> llm: "4. MISS: invoke model once" {
+  style.stroke: "#642637"
+  style.font-color: "#642637"
+}
+llm -> valkey: "5. store embedding + answer" {
+  style.stroke: "#642637"
+  style.font-color: "#642637"
+  style.stroke-dash: 3
+}

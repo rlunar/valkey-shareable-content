@@ -1,0 +1,11 @@
+node_modules/
+dist/
+*.pdf
+*.pptx
+*.png
+# Slide images imported by slides.md and the TSC logo set must stay tracked (QA screenshots elsewhere remain ignored)
+!assets/images/*.png
+!assets/public/logos/tsc/*.png
+.env
+.playwright/
+.playwright-mcp/

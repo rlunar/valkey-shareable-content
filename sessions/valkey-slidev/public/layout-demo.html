@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Embedded data-path panel</title>
+  <style>
+    :root { color-scheme: dark; font-family: ui-sans-serif, system-ui, sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: linear-gradient(145deg, #1a2026, #30176e 72%, #4549a5); color: #f7fbfe; }
+    main { min-height: 100vh; padding: clamp(24px, 5vw, 68px); display: grid; align-content: center; gap: 28px; }
+    header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgb(188 181 231 / 30%); padding-bottom: 20px; }
+    .eyebrow { color: #bcb5e7; font: 700 12px ui-monospace, monospace; letter-spacing: .15em; }
+    .status { display: inline-flex; align-items: center; gap: 8px; color: #d3dde7; font-size: 12px; }
+    .status::before { width: 9px; height: 9px; border-radius: 50%; background: #7de0b2; content: ''; box-shadow: 0 0 14px #7de0b2; }
+    h1 { margin: 0; max-width: 720px; font-size: clamp(42px, 7vw, 86px); line-height: .98; letter-spacing: -.04em; }
+    h1 span { color: #e0a2af; }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    article { min-height: 145px; padding: 20px; border: 1px solid rgb(188 181 231 / 35%); background: rgb(26 32 38 / 38%); }
+    article code { color: #6983ff; font: 700 12px ui-monospace, monospace; }
+    article strong { display: block; margin-top: 28px; font-size: 22px; }
+    article p { margin: 8px 0 0; color: #d3dde7; font-size: 13px; line-height: 1.45; }
+    footer { color: #bcb5e7; font: 700 11px ui-monospace, monospace; letter-spacing: .08em; }
+    @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header><span class="eyebrow">SLIDEV / LOCAL IFRAME FIXTURE</span><span class="status">Embedded page ready</span></header>
+    <h1>IFRAME · A web page,<br><span>inside the slide.</span></h1>
+    <section class="grid">
+      <article><code>GET product:42</code><strong>Cache hit</strong><p>The hot value returns without leaving the fast path.</p></article>
+      <article><code>TTL product:42</code><strong>284 seconds</strong><p>Expiration keeps the cached representation fresh.</p></article>
+      <article><code>CLUSTER SHARDS</code><strong>4 active</strong><p>Each shard has one primary and two replicas.</p></article>
+    </section>
+    <footer>DETERMINISTIC · OFFLINE · EXPORT-FRIENDLY</footer>
+  </main>
+</body>
+</html>

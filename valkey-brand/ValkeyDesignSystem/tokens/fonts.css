@@ -1,0 +1,11 @@
+/* Valkey webfonts. Files ship in /assets/fonts. Roles per Valkey Brand Guidelines v2.0 §3. */
+@font-face{font-family:"Play";src:url("../assets/fonts/Play-Regular.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:"Play";src:url("../assets/fonts/Play-Bold.woff2") format("woff2");font-style:normal;font-weight:700;font-display:swap}
+@font-face{font-family:"Open Sans";src:url("../assets/fonts/OpenSans-VariableFont_wdth,wght.woff2") format("woff2");font-style:normal;font-weight:300 800;font-display:swap}
+@font-face{font-family:"Open Sans";src:url("../assets/fonts/OpenSans-Italic-VariableFont_wdth,wght.woff2") format("woff2");font-style:italic;font-weight:300 800;font-display:swap}
+@font-face{font-family:"Cascadia Code";src:url("../assets/fonts/CascadiaCode-VariableFont_wght.woff2") format("woff2");font-style:normal;font-weight:200 700;font-display:swap}
+@font-face{font-family:"Cascadia Code";src:url("../assets/fonts/CascadiaCode-Italic-VariableFont_wght.woff2") format("woff2");font-style:italic;font-weight:200 700;font-display:swap}
+/* Logo-adjacent lockups only — never for retyping the wordmark. */
+@font-face{font-family:"Inter";src:url("../assets/fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2");font-style:normal;font-weight:100 900;font-display:swap}
+/* Legacy compatibility with pre-2026 Valkey materials. Cascadia Code is the standard for new work. */
+@font-face{font-family:"Source Code Pro";src:url("../assets/fonts/SourceCodePro-VariableFont_wght.woff2") format("woff2");font-style:normal;font-weight:200 900;font-display:swap}

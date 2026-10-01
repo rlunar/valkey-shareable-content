@@ -1,0 +1,23 @@
+{
+  "name": "valkey-well-architected-budget-talk",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "slidev slides.md --open=false",
+    "build": "slidev build slides.md",
+    "export": "slidev export slides.md",
+    "export:clicks": "slidev export slides.md --with-clicks --output valkey-budget-talk-with-clicks.pdf"
+  },
+  "devDependencies": {
+    "@slidev/cli": "52.19.1",
+    "@slidev/theme-default": "0.25.0",
+    "playwright-chromium": "1.63.0",
+    "qrcode": "1.5.4",
+    "vite": "8.2.2",
+    "vue": "3.5.42"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

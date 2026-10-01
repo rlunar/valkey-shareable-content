@@ -1,0 +1,12 @@
+:root {
+  --valkey-light-ice-aura: linear-gradient(135deg, #FFFDFA 0%, #D3DDE7 52%, #6983FF 100%);
+  --valkey-light-lavender-sky: linear-gradient(120deg, #F7FBFE 0%, #BCB5E7 58%, #6983FF 100%);
+  --valkey-light-candy-bloom: linear-gradient(145deg, #FFFDFA 0%, #E0A2AF 50%, #BCB5E7 100%);
+  --valkey-light-misty-lavender: linear-gradient(105deg, #F7FBFE 0%, #D3DDE7 48%, #BCB5E7 100%);
+  --valkey-light-candy-frost: linear-gradient(160deg, #D3DDE7 0%, #FFFDFA 46%, #E0A2AF 100%);
+  --valkey-dark-midnight-aura: linear-gradient(135deg, #1A2026 0%, #30176E 58%, #6983FF 100%);
+  --valkey-dark-blue-descent: linear-gradient(180deg, #6983FF 0%, #30176E 40%, #1A2026 100%);
+  --valkey-dark-indigo-pulse: linear-gradient(105deg, #1A2026 0%, #30176E 46%, #6983FF 100%);
+  --valkey-dark-indigo-dusk: linear-gradient(155deg, #1A2026 0%, #30176E 72%, #BCB5E7 100%);
+  --valkey-dark-lavender-descent: linear-gradient(180deg, #BCB5E7 0%, #30176E 38%, #1A2026 100%);
+}

@@ -1,0 +1,56 @@
+# ── Project-specific ──────────────────────────────────────────────
+~$*.pptx          # PowerPoint lock files
+*.woff2           # bundled fonts (shipped via each deck's build, not source)
+*.ttf
+
+# ── macOS ─────────────────────────────────────────────────────────
+.DS_Store
+.localized
+__MACOSX/
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+
+# ── Secrets / environment ─────────────────────────────────────────
+.env
+.env.*
+!.env.example
+.envrc
+
+# ── Python / CDK (infrastructure/cdk-infra) ───────────────────────
+__pycache__/
+*.py[codz]
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+coverage.xml
+*.egg-info/
+.Python
+cdk.out/
+
+# ── Node / pnpm / Vite (Slidev decks) ─────────────────────────────
+node_modules/
+dist/
+.output/
+.vite/
+.pnpm-store/
+*.tsbuildinfo
+vite.config.*.timestamp-*
+
+# ── Logs ──────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ── Tooling scratch output ────────────────────────────────────────
+# Playwright MCP per-session console logs and page snapshots
+.playwright-mcp/
+.playwright/

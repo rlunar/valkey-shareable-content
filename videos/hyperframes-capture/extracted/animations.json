@@ -1,0 +1,14 @@
+{
+  "summary": {
+    "webAnimations": 0,
+    "cssDeclarations": 31,
+    "scrollTargets": 2,
+    "cdpAnimations": 23,
+    "canvases": 0
+  },
+  "namedAnimations": [
+    "delay-overflow"
+  ],
+  "scrollTriggeredElements": 2,
+  "representativeAnimations": []
+}

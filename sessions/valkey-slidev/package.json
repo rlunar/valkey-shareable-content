@@ -1,0 +1,27 @@
+{
+  "name": "valkey-slidev",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "slidev slides.md --open=false",
+    "build": "slidev build slides.md",
+    "export": "slidev export slides.md"
+  },
+  "devDependencies": {
+    "@slidev/cli": "52.19.1",
+    "@slidev/theme-default": "0.25.0",
+    "d3": "7.9.0",
+    "playwright-chromium": "^1.63.0",
+    "vite": "8.2.2",
+    "vue": "3.5.42"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "dependencies": {
+    "slidev-addon-animated-text": "^0.4.0",
+    "slidev-addon-stem": "^0.1.3",
+    "slidev-addon-window-mockup": "^0.3.1"
+  }
+}

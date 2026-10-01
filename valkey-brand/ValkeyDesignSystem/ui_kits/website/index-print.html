@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Valkey — website UI kit (print)</title>
+<meta name="omelette-print-source" content="v1788822491434837 ui_kits/website/index.html">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+*{animation-delay:-99s !important;animation-duration:.001s !important;animation-iteration-count:1 !important;animation-fill-mode:both !important;animation-play-state:running !important;transition-duration:0s !important}
+doc-page:not(:defined){visibility:hidden}
+a{color:var(--color-link)}a:hover{color:var(--valkey-purple-indigo)}
+.screen{break-before:page}.screen:first-child{break-before:auto}
+.screen-label{font-family:var(--font-body);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-muted);padding:6px 20px;border-bottom:1px solid var(--color-border);background:var(--valkey-best-white)}
+img,pre,blockquote,table{break-inside:avoid}</style>
+</head><body>
+<doc-page orientation="landscape" margin="0">
+<div id="root"></div>
+</doc-page>
+<script type="text/babel" src="page-shell.jsx"></script>
+<script type="text/babel" src="screen-home.jsx"></script>
+<script type="text/babel" src="screen-docs.jsx"></script>
+<script type="text/babel" src="screen-commands.jsx"></script>
+<script type="text/babel" src="screen-blog.jsx"></script>
+<script type="text/babel" src="screen-community.jsx"></script>
+<script type="text/babel">
+function PrintDoc(){
+  const screens=[["Home",window.HomeScreen],["Documentation: Quickstart",window.DocsScreen],["Documentation: Command Reference",window.CommandsScreen],["Blog",window.BlogScreen],["Community",window.CommunityScreen]];
+  return <div>{screens.map(([label,S])=> <section className="screen" key={label}><div className="screen-label">valkey.io — {label}</div><S /></section>)}</div>;
+}
+(function boot(){
+  const ns=window.ValkeyDesignSystem_d3b98f;
+  if(!ns||!ns.Button||!window.HomeScreen||!window.CommunityScreen){return setTimeout(boot,30);}
+  ReactDOM.createRoot(document.getElementById("root")).render(<PrintDoc />);
+})();
+</script>
+<script src="../../doc-page.js"></script>
+</body></html>

@@ -1,0 +1,23 @@
+/* Syntax token colors (Brand Guidelines §5). */
+:root{
+  --code-dark-bg:var(--valkey-black-denim);
+  --code-dark-text:var(--valkey-cold-cream-3);
+  --code-dark-keyword:var(--valkey-candy);
+  --code-dark-definition:var(--valkey-blue-aura);
+  --code-dark-number:var(--valkey-blue-aura);
+  --code-dark-string:var(--valkey-misty-ice);
+  --code-dark-comment:var(--valkey-summer-lavender);
+  --code-dark-punctuation:var(--valkey-cold-cream-3);
+  --code-dark-variable:var(--valkey-summer-lavender);
+  --code-dark-attribute:var(--valkey-candy);
+
+  --code-light-bg:var(--valkey-cold-cream-3);
+  --code-light-text:var(--valkey-black-denim);
+  --code-light-keyword:var(--valkey-purple-indigo);
+  --code-light-definition:var(--valkey-purple-indigo);
+  --code-light-string:var(--valkey-palace-burgundy);
+  --code-light-number:var(--valkey-palace-burgundy);
+  --code-light-comment:var(--valkey-palace-burgundy);
+  --code-light-punctuation:var(--valkey-black-denim);
+  --code-light-selection:rgb(105 131 255 / 0.14);
+}

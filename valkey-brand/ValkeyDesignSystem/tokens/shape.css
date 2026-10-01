@@ -1,0 +1,28 @@
+/* Radii, borders, shadows and motion (Brand Guidelines §4.2–4.4). */
+:root{
+  --radius-card:20px;
+  --radius-card-sm:18px;
+  --radius-inner:10px;
+  --radius-control:8px;
+  --radius-control-sm:4px;
+  --radius-pill:999px;
+  --radius-round:50%;
+
+  --border-hairline:1px solid var(--color-border-subtle);
+  --border-neutral:1px solid var(--color-border);
+  --border-accent:1px solid var(--color-accent);
+
+  --shadow-card:0 4px 24px 0 rgb(105 131 255 / 0.10);
+  --shadow-card-hover:0 8px 32px 0 rgb(105 131 255 / 0.18);
+  --shadow-raised:0 2px 8px rgb(0 0 0 / 0.10);
+  --shadow-menu:0 2px 5px rgb(0 0 0 / 0.20);
+  --shadow-pill:0 4px 10px rgb(0 0 0 / 0.25);
+
+  --focus-ring:0 0 0 2px var(--color-focus);
+
+  --ease-standard:cubic-bezier(0.4,0,0.2,1); /* @kind other */
+  --duration-fast:150ms; /* @kind other */
+  --duration-base:200ms; /* @kind other */
+  --duration-slow:300ms; /* @kind other */
+  --transition-control:all var(--duration-base) var(--ease-standard);
+}

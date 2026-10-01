@@ -1,0 +1,7 @@
+node_modules/
+dist/
+*.pdf
+*.pptx
+*.png
+.env
+.playwright/

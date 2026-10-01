@@ -1,0 +1,23 @@
+/* 10px spacing rhythm and layout widths from the Valkey website (Brand Guidelines §4.1). */
+:root{
+  --space-1:10px;
+  --space-2:20px;
+  --space-3:30px;
+  --space-4:40px;
+  --space-6:60px;
+  --space-8:80px;
+
+  --layout-max:1400px;
+  --hero-max:1200px;
+  --content-max:890px;
+  --aside-max:420px;
+
+  --bp-md:768px;
+  --bp-lg:1024px;
+  --bp-xl:1400px;
+
+  --pad-card:20px;
+  --pad-card-lg:30px;
+  --pad-section:80px;
+  --header-height:80px;
+}

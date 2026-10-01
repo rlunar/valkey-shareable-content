@@ -1,0 +1,627 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Valkey — website UI kit</title>
+<meta name="ext-resource-dependency" content="../../assets/icons/IconGithub.svg" data-resource-id="icons_IconGithub_svg" />
+<meta name="ext-resource-dependency" content="../../assets/icons/IconSlack.svg" data-resource-id="icons_IconSlack_svg" />
+<meta name="ext-resource-dependency" content="../../assets/icons/IconLinkedin.svg" data-resource-id="icons_IconLinkedin_svg" />
+<meta name="ext-resource-dependency" content="../../assets/icons/IconMail.svg" data-resource-id="icons_IconMail_svg" />
+<meta name="ext-resource-dependency" content="../../assets/icons/IconX.svg" data-resource-id="icons_IconX_svg" />
+<meta name="ext-resource-dependency" content="../../assets/icons/IconYoutube.svg" data-resource-id="icons_IconYoutube_svg" />
+<meta name="ext-resource-dependency" content="../../assets/icons/icon-outline-close.svg" data-resource-id="icons_icon_outline_close_svg" />
+<meta name="ext-resource-dependency" content="../../assets/icons/caret-right.svg" data-resource-id="icons_caret_right_svg" />
+<meta name="ext-resource-dependency" content="../../assets/icons/icon-question.svg" data-resource-id="icons_icon_question_svg" />
+<meta name="ext-resource-dependency" content="../../assets/icons/icon-bug.svg" data-resource-id="icons_icon_bug_svg" />
+<meta name="ext-resource-dependency" content="../../assets/icons/icon-users.svg" data-resource-id="icons_icon_users_svg" />
+<meta name="ext-resource-dependency" content="../../assets/icons/icon-bulb.svg" data-resource-id="icons_icon_bulb_svg" />
+<meta name="ext-resource-dependency" content="../../assets/icons/icon-sheild.svg" data-resource-id="icons_icon_sheild_svg" />
+<meta name="ext-resource-dependency" content="../../assets/icons/icon-book.svg" data-resource-id="icons_icon_book_svg" />
+<meta name="ext-resource-dependency" content="../../assets/participants/aws.svg" data-resource-id="participants_aws_svg" />
+<meta name="ext-resource-dependency" content="../../assets/participants/gcp.svg" data-resource-id="participants_gcp_svg" />
+<meta name="ext-resource-dependency" content="../../assets/participants/aiven.svg" data-resource-id="participants_aiven_svg" />
+<meta name="ext-resource-dependency" content="../../assets/participants/percona.svg" data-resource-id="participants_percona_svg" />
+<meta name="ext-resource-dependency" content="../../assets/participants/momento.svg" data-resource-id="participants_momento_svg" />
+<meta name="ext-resource-dependency" content="../../assets/participants/ericsson.svg" data-resource-id="participants_ericsson_svg" />
+<meta name="ext-resource-dependency" content="../../assets/participants/bytedance.svg" data-resource-id="participants_bytedance_svg" />
+<meta name="ext-resource-dependency" content="../../assets/participants/digitalocean.svg" data-resource-id="participants_digitalocean_svg" />
+<meta name="ext-resource-dependency" content="../../assets/participants/heroku.svg" data-resource-id="participants_heroku_svg" />
+<meta name="ext-resource-dependency" content="../../assets/img/hero-bg.webp" data-resource-id="img_hero_bg_webp" />
+<meta name="ext-resource-dependency" content="../../assets/img/aside-banner.webp" data-resource-id="img_aside_banner_webp" />
+<meta name="ext-resource-dependency" content="../../assets/img/favicon-32x32.png" data-resource-id="img_favicon_32x32_png" />
+<meta name="ext-resource-dependency" content="../../assets/logos/valkey-horizontal-color.png" data-resource-id="logos_valkey_horizontal_color_png" />
+<link rel="icon" href="../../assets/img/favicon-32x32.png">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script>
+(function(){
+  var map = {"assets/icons/IconGithub.svg":"icons_IconGithub_svg","assets/icons/IconSlack.svg":"icons_IconSlack_svg","assets/icons/IconLinkedin.svg":"icons_IconLinkedin_svg","assets/icons/IconMail.svg":"icons_IconMail_svg","assets/icons/IconX.svg":"icons_IconX_svg","assets/icons/IconYoutube.svg":"icons_IconYoutube_svg","assets/icons/icon-outline-close.svg":"icons_icon_outline_close_svg","assets/icons/caret-right.svg":"icons_caret_right_svg","assets/icons/icon-question.svg":"icons_icon_question_svg","assets/icons/icon-bug.svg":"icons_icon_bug_svg","assets/icons/icon-users.svg":"icons_icon_users_svg","assets/icons/icon-bulb.svg":"icons_icon_bulb_svg","assets/icons/icon-sheild.svg":"icons_icon_sheild_svg","assets/icons/icon-book.svg":"icons_icon_book_svg","assets/participants/aws.svg":"participants_aws_svg","assets/participants/gcp.svg":"participants_gcp_svg","assets/participants/aiven.svg":"participants_aiven_svg","assets/participants/percona.svg":"participants_percona_svg","assets/participants/momento.svg":"participants_momento_svg","assets/participants/ericsson.svg":"participants_ericsson_svg","assets/participants/bytedance.svg":"participants_bytedance_svg","assets/participants/digitalocean.svg":"participants_digitalocean_svg","assets/participants/heroku.svg":"participants_heroku_svg","assets/img/hero-bg.webp":"img_hero_bg_webp","assets/img/aside-banner.webp":"img_aside_banner_webp","assets/img/favicon-32x32.png":"img_favicon_32x32_png","assets/logos/valkey-horizontal-color.png":"logos_valkey_horizontal_color_png"};
+  function blobFor(path){
+    var key = String(path).replace(/^(\.\.\/)+/, "").replace(/^\.\//, "");
+    var rid = map[key];
+    return (rid && window.__resources && window.__resources[rid]) || null;
+  }
+  function fixEl(el){
+    if (!el || el.nodeType !== 1) return;
+    if (el.tagName === "IMG") {
+      var s = el.getAttribute("src");
+      if (s && s.indexOf("assets/") !== -1) { var b = blobFor(s); if (b) el.setAttribute("src", b); }
+    }
+    var bg = el.style && el.style.backgroundImage;
+    if (bg && bg.indexOf("assets/") !== -1) {
+      el.style.backgroundImage = bg.replace(/url\((['"]?)([^'")]+)\1\)/g, function(m, q, u){
+        var b = blobFor(u); return b ? "url('" + b + "')" : m;
+      });
+    }
+  }
+  function sweep(root){
+    if (!root || root.nodeType !== 1) return;
+    fixEl(root);
+    var all = root.querySelectorAll("img,[style]");
+    for (var i = 0; i < all.length; i++) fixEl(all[i]);
+  }
+  window.__fixAssets = sweep;
+  function start(){
+    sweep(document.body);
+    new MutationObserver(function(muts){
+      for (var i = 0; i < muts.length; i++) {
+        var m = muts[i];
+        if (m.type === "attributes") fixEl(m.target);
+        for (var j = 0; j < m.addedNodes.length; j++) sweep(m.addedNodes[j]);
+      }
+    }).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["src","style"] });
+    var n = 0, iv = setInterval(function(){ sweep(document.body); if (++n > 40) clearInterval(iv); }, 100);
+  }
+  if (document.body) start(); else document.addEventListener("DOMContentLoaded", start);
+})();
+</script>
+<style>body{margin:0;background:var(--valkey-best-white)}a{color:var(--color-link)}a:hover{color:var(--valkey-purple-indigo)}</style>
+</head><body>
+<template id="__bundler_thumbnail" data-bg-color="#30176E">
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#30176E"/><path d="M600 210 L800 325 L800 555 L600 670 L400 555 L400 325 Z" fill="none" stroke="#6983FF" stroke-width="46" stroke-linejoin="round"/><circle cx="600" cy="400" r="56" fill="#FFFDFA"/><rect x="576" y="400" width="48" height="150" fill="#FFFDFA"/></svg>
+</template>
+<div id="root"></div>
+<script type="text/babel">
+const { Banner, SiteHeader, SiteFooter } = (function(ns){var o={};ns.forEach(function(n){o[n]=function(p){return React.createElement(window.ValkeyDesignSystem_d3b98f[n], p);};});return o;})(["Banner","SiteHeader","SiteFooter"]);
+
+function StyledTitle({ title, description }) {
+  return (
+    <div style={{ backgroundImage: "var(--valkey-gradient-page-title)", padding: "80px 20px", textAlign: "center", color: "#fff" }}>
+      <h1 style={{ fontFamily: "var(--font-display)", fontSize: "48px", fontWeight: 700, lineHeight: 1, color: "#fff", margin: "0 auto", padding: 0 }}>{title}</h1>
+      {description ? <p style={{ margin: "20px auto 0", maxWidth: "800px", color: "#fff", lineHeight: 1.4, fontSize: "18px" }}>{description}</p> : null}
+    </div>
+  );
+}
+
+/** Two-column page: white rounded content card on the #E2E8F0 field, #F1F0FA aside. */
+function ArticleLayout({ children, aside, asideImage, squareInner = false }) {
+  return (
+    <div style={{ background: "var(--valkey-page-shade)" }}>
+      <div style={{ display: "flex", maxWidth: "var(--layout-max)", margin: "0 auto", flexDirection: "row-reverse", alignItems: "stretch" }}>
+        <aside style={{
+          background: asideImage ? "transparent" : "var(--valkey-aside-shade)", padding: "20px", width: "100%", maxWidth: "420px",
+          fontFamily: "var(--font-body)", fontSize: "15px", color: "#4C636F",
+          ...(asideImage ? { backgroundImage: "url('" + asideImage + "')", backgroundColor: "var(--valkey-aside-shade)", backgroundSize: "cover", backgroundPosition: "center bottom" } : null)
+        }}>{aside}</aside>
+        <main style={{ flex: 1, padding: "20px", width: "67%" }}>
+          <div style={{ width: "100%", background: "#fff", borderRadius: squareInner ? 0 : "20px", padding: "10px 20px 20px" }}>
+            {children}
+          </div>
+        </main>
+      </div>
+    </div>
+  );
+}
+
+function AsideLinkList({ items }) {
+  return (
+    <ul style={{ listStyle: "none", padding: 0, margin: "0 0 20px" }}>
+      {items.map((i) => (
+        <li key={i}>
+          <a href="#" style={{
+            display: "block", background: "var(--valkey-aside-link)", padding: "12px", marginBottom: "10px",
+            color: "#000", textTransform: "uppercase", cursor: "pointer", fontWeight: 600, textDecoration: "none", fontSize: "14px"
+          }}>{i}</a>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function AsideHeading({ children }) {
+  return <h2 style={{ fontSize: "15px", margin: "0 0 4px", fontWeight: 700, color: "#000", textTransform: "uppercase", fontFamily: "var(--font-body)" }}>{children}</h2>;
+}
+
+function PageChrome({ children, active }) {
+  return (
+    <div>
+      <Banner><strong>Save Your Spot for ValkeyConf 2026</strong> | October 5, 2026 | Prague, Czechia</Banner>
+      <SiteHeader active={active} logoSrc="../../assets/logos/valkey-horizontal-color.png" starCount="21.4k" />
+      {children}
+      <SiteFooter iconBase="../../assets/icons/" />
+    </div>
+  );
+}
+
+Object.assign(window, { StyledTitle, ArticleLayout, AsideLinkList, AsideHeading, PageChrome });
+
+</script>
+<script type="text/babel">
+const { Banner, SiteHeader, SiteFooter, Button, Card, ParticipantCard, ReadMoreLink, CodeBlock } = (function(ns){var o={};ns.forEach(function(n){o[n]=function(p){return React.createElement(window.ValkeyDesignSystem_d3b98f[n], p);};});return o;})(["Banner","SiteHeader","SiteFooter","Button","Card","ParticipantCard","ReadMoreLink","CodeBlock"]);
+
+const homeDocCards = [
+  { title: "Install", description: "Step-by-step instructions on how to install and configure Valkey for first-time users.", cta: "See Installation Guide" },
+  { title: "Usage guide", description: "Detailed documentation on the various datatype supported by Valkey and best practices.", cta: "Documentation by topic" },
+  { title: "Valkey API", description: "View the full list of Valkey commands including first party modules.", cta: "Command Reference" },
+  { title: "Clients", description: "Official Valkey client libraries include support for:", features: ["Python", "Java", "Go", "Node.js", "PHP", "C#", "Ruby"], cta: "Learn More" }
+];
+
+const homeParticipants = [
+  { name: "Amazon Web Services", logo: "aws.svg", offering: "Amazon ElastiCache and Amazon MemoryDB offer Valkey-compatible in-memory services." },
+  { name: "Google Cloud", logo: "gcp.svg", offering: "Memorystore for Valkey provides a fully managed Valkey service." },
+  { name: "Aiven", logo: "aiven.svg", offering: "Aiven for Valkey is a fully managed in-memory datastore." },
+  { name: "Percona", logo: "percona.svg", offering: "Percona provides support, services and packaging for Valkey." },
+  { name: "Momento", logo: "momento.svg", offering: "Momento Cache offers a serverless Valkey-compatible cache." },
+  { name: "Ericsson", logo: "ericsson.svg", offering: "Ericsson contributes to Valkey for telecom-scale workloads." },
+  { name: "ByteDance", logo: "bytedance.svg", offering: "ByteDance runs and contributes to Valkey at large scale." },
+  { name: "DigitalOcean", logo: "digitalocean.svg", offering: "DigitalOcean Managed Caching supports Valkey." },
+  { name: "Heroku", logo: "heroku.svg", offering: "Heroku Key-Value Store is built on Valkey." }
+];
+
+const homeSidebar = [
+  { title: "Featured repositories", links: ["valkey-io/valkey", "valkey-io/valkey-glide", "valkey-io/valkey-bloom", "valkey-io/valkey-json"], more: "All repos in the Valkey GitHub organization" }
+];
+
+function HomeHero() {
+  return (
+    <div style={{
+      position: "relative", display: "flex", alignItems: "center", justifyContent: "center",
+      overflow: "hidden", padding: "100px 20px", textAlign: "center",
+      backgroundColor: "#30186E",
+      backgroundImage: "linear-gradient(to bottom, rgba(48,24,110,0.15), rgba(48,24,110,0.75)), url('../../assets/img/hero-bg.webp')",
+      backgroundSize: "cover", backgroundPosition: "right center"
+    }}>
+      <div style={{ maxWidth: "1200px", zIndex: 1, color: "#fff" }}>
+        <h1 style={{ fontFamily: "var(--font-display)", fontSize: "70px", fontWeight: 700, margin: 0, lineHeight: 1, letterSpacing: "2px", color: "#fff" }}>FAST. RELIABLE.</h1>
+        <h1 style={{ fontFamily: "var(--font-display)", fontSize: "70px", fontWeight: 700, margin: 0, lineHeight: 1, letterSpacing: "2px", color: "#fff" }}>OPEN SOURCE, FOREVER.</h1>
+        <p style={{ fontFamily: "var(--font-body)", fontSize: "18px", fontWeight: 700, maxWidth: "800px", margin: "20px auto 40px", lineHeight: 1.6, color: "rgba(255,255,255,0.9)" }}>
+          Valkey is an open source (BSD) high-performance key/value datastore that supports a variety of workloads such as caching, message queues, and can act as a primary database. The project is backed by the Linux Foundation, ensuring it will remain open source forever.
+        </p>
+        <Button variant="hero" size="lg" href="#" style={{ minWidth: "380px" }}>GET STARTED</Button>
+      </div>
+    </div>
+  );
+}
+
+function WhatsNew() {
+  return (
+    <div style={{ backgroundImage: "var(--valkey-gradient-whats-new)", padding: "0 0 80px" }}>
+      <div style={{ display: "flex", flexWrap: "wrap", margin: "0 auto", width: "100%", maxWidth: "var(--layout-max)", padding: "40px 20px 0" }}>
+        <div style={{ display: "flex", flexWrap: "wrap", width: "100%", padding: "40px", borderRadius: "20px", background: "rgba(255,255,255,0.2)" }}>
+          <div style={{ flex: "1 1 50%", padding: "0 20px", minWidth: "300px" }}>
+            <h3 style={{ color: "#fff", fontSize: "27.5px", fontWeight: 700, width: "100%", margin: "0 0 10px", fontFamily: "var(--font-display)" }}>Version 9.x.x</h3>
+            <div style={{ background: "#fff", padding: "30px", borderRadius: "10px", margin: "0 0 30px", fontSize: "16px", lineHeight: 1.6 }}>
+              <p style={{ margin: 0 }}><strong>Release Date:</strong> 2026-08-12<br /><strong>GitHub Release:</strong> <a href="#" style={{ color: "var(--valkey-link-blue)" }}>9.0.0</a></p>
+              <hr style={{ margin: "20px 0", border: 0, height: "1px", background: "var(--color-border)" }} />
+              <h4 style={{ margin: "0 0 10px", fontFamily: "var(--font-display)", fontSize: "16px", color: "var(--color-heading)" }}>Docker Hub <small style={{ fontWeight: 400 }}>(valkey/valkey)</small></h4>
+              <CodeBlock theme="light" code="docker run --rm valkey/valkey:9" style={{ fontSize: "14px" }} />
+            </div>
+            <h3 style={{ color: "#fff", fontSize: "27.5px", fontWeight: 700, margin: "0 0 10px", fontFamily: "var(--font-display)" }}>Latest supported version of past releases</h3>
+            <div style={{ background: "#fff", padding: "30px", borderRadius: "10px", fontSize: "16px", lineHeight: 1.6 }}>
+              <h4 style={{ margin: "0 0 10px", fontFamily: "var(--font-display)", fontSize: "16px", color: "var(--color-heading)" }}>Version 8.x.x</h4>
+              <p style={{ margin: 0 }}><strong>Release Date:</strong> 2026-04-02<br /><strong>GitHub Release:</strong> <a href="#" style={{ color: "var(--valkey-link-blue)" }}>8.1.4</a></p>
+            </div>
+          </div>
+          <div style={{ flex: "1 1 25%", padding: "0 20px", minWidth: "240px" }}>
+            <h3 style={{ color: "#fff", fontSize: "27.5px", fontWeight: 700, margin: "0 0 10px", fontFamily: "var(--font-display)" }}>Performance</h3>
+            <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              {[["Throughput dashboard", "Track operations per second across releases and instance types."], ["Latency dashboard", "Compare p50 and p99 latency for common command mixes."]].map(([t, d]) => (
+                <div key={t} style={{ background: "#fff", borderRadius: "10px", boxShadow: "var(--shadow-raised)", overflow: "hidden" }}>
+                  <div style={{ padding: "15px", display: "flex", flexDirection: "column" }}>
+                    <h4 style={{ margin: "0 0 10px", fontSize: "16px", lineHeight: 1.3, fontFamily: "var(--font-display)", color: "#002A3A" }}>{t}</h4>
+                    <p style={{ margin: "0 0 15px", fontSize: "14px", lineHeight: 1.4, color: "#4A5568" }}>{d}</p>
+                    <Button variant="outline" size="sm" style={{ alignSelf: "flex-start" }}>Explore</Button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div style={{ flex: "1 1 25%", padding: "0 20px", minWidth: "240px" }}>
+            <h3 style={{ color: "#fff", fontSize: "27.5px", fontWeight: 700, margin: "0 0 10px", fontFamily: "var(--font-display)" }}>Latest Blog Posts</h3>
+            <div style={{ display: "flex", flexDirection: "column", gap: "20px", marginBottom: "30px" }}>
+              {[["Valkey 9.0 is here", "Dual channel replication, atomic slot migration, and a smaller memory footprint."], ["Inside the Valkey cluster bus", "How nodes gossip, fail over, and agree on slot ownership."]].map(([t, d]) => (
+                <div key={t} style={{ background: "#fff", borderRadius: "10px", boxShadow: "var(--shadow-raised)", overflow: "hidden" }}>
+                  <div style={{ padding: "15px", display: "flex", flexDirection: "column" }}>
+                    <h4 style={{ margin: "0 0 10px", fontSize: "16px", lineHeight: 1.3, fontFamily: "var(--font-display)", color: "#002A3A" }}>{t}</h4>
+                    <p style={{ margin: "0 0 15px", fontSize: "14px", lineHeight: 1.4, color: "#4A5568" }}>{d}</p>
+                    <Button variant="outline" size="sm" style={{ alignSelf: "flex-start" }}>Read More</Button>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {homeSidebar.map((cat) => (
+              <div key={cat.title}>
+                <h3 style={{ color: "#fff", fontSize: "27.5px", fontWeight: 700, margin: "0 0 10px", fontFamily: "var(--font-display)" }}>{cat.title}</h3>
+                <div style={{ background: "#fff", padding: "20px 30px", borderRadius: "10px" }}>
+                  <ul style={{ paddingLeft: 0, listStyle: "none", margin: 0, fontSize: "16px", lineHeight: 2 }}>
+                    {cat.links.map((l) => <li key={l}><a href="#" style={{ color: "var(--valkey-link-blue)" }}>{l}</a></li>)}
+                  </ul>
+                  <ReadMoreLink>{cat.more}</ReadMoreLink>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DocumentationBand() {
+  return (
+    <div style={{ padding: "40px 20px 80px", background: "#6983FF", textAlign: "center", color: "#fff" }}>
+      <div style={{ maxWidth: "890px", margin: "0 auto" }}>
+        <h2 style={{ fontFamily: "var(--font-display)", fontSize: "60px", fontWeight: 700, lineHeight: 1.2, margin: "0 0 17.5px", color: "#fff" }}>Documentation</h2>
+        <p style={{ marginBottom: "20px", fontSize: "18px", lineHeight: 1.6 }}>
+          Valkey can run as either a <strong>standalone</strong> daemon or in a <strong>cluster</strong>, with options for <strong>replication</strong> and <strong>high availability</strong>. Valkey natively supports a rich collection of datatypes, including <strong>strings</strong>, <strong>numbers</strong>, <strong>hashes</strong>, <strong>lists</strong>, <strong>sets</strong>, <strong>sorted sets</strong>, <strong>bitmaps</strong>, <strong>hyperloglogs</strong> and more.
+        </p>
+        <p style={{ margin: 0, fontSize: "18px", lineHeight: 1.6 }}>
+          Valkey also supports native extensibility with built-in scripting support for <strong>Lua</strong> and supports <strong>module</strong> plugins to create new commands, data types, and more.
+        </p>
+      </div>
+      <div style={{ display: "flex", flexWrap: "wrap", margin: "40px auto 0", maxWidth: "var(--layout-max)" }}>
+        {homeDocCards.map((c) => (
+          <div key={c.title} style={{ flex: "1 1 25%", minWidth: "260px", padding: "0 20px 30px" }}>
+            <Card surface="dark" padding="lg" title={c.title} style={{ minHeight: "100%" }}
+              actions={<Button variant="outline-dark" fullWidth>{c.cta}</Button>}>
+              <p style={{ textAlign: "left", margin: 0, fontSize: "18px", lineHeight: 1.6 }}>{c.description}</p>
+              {c.features ? (
+                <ul style={{ textAlign: "left", padding: "0 0 0 18px", margin: "10px 0 20px", fontSize: "18px", lineHeight: 1.6 }}>
+                  {c.features.map((ft) => <li key={ft}>{ft}</li>)}
+                </ul>
+              ) : null}
+            </Card>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ParticipantsBand() {
+  const [slide, setSlide] = React.useState(0);
+  const slides = Math.ceil(homeParticipants.length / 3);
+  return (
+    <section style={{ background: "var(--valkey-gradient-participants)", padding: "80px 0" }}>
+      <div style={{ maxWidth: "var(--layout-max)", margin: "0 auto", padding: "0 20px" }}>
+        <div style={{ textAlign: "center", marginBottom: "60px" }}>
+          <h2 style={{ color: "#fff", fontFamily: "var(--font-display)", fontSize: "48px", fontWeight: 700, margin: "0 0 20px", letterSpacing: "-1px" }}>Participants</h2>
+          <p style={{ color: "#fff", fontSize: "18px", lineHeight: 1.6, maxWidth: "800px", margin: "0 auto", opacity: 0.95 }}>
+            The Valkey project participants are a diverse group of organizations that have come together to maintain and contribute to the project. Valkey participants are more than vendors, they are dedicated to continuously strengthening the long-term health and viability of this project so that everyone can benefit from it.
+          </p>
+        </div>
+        <div style={{ background: "#fff", borderRadius: "20px", overflow: "hidden" }}>
+          <div style={{ overflow: "hidden" }}>
+            <div style={{ display: "flex", width: "100%", transition: "transform 0.5s ease-in-out", transform: "translateX(-" + slide * 100 + "%)" }}>
+              {homeParticipants.map((p) => (
+                <div key={p.name} style={{ flex: "0 0 33.33%", minWidth: 0 }}>
+                  <ParticipantCard name={p.name} logoSrc={"../../assets/participants/" + p.logo} offering={p.offering} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div style={{ display: "flex", justifyContent: "center", marginTop: "12.5px" }}>
+          <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+            {Array.from({ length: slides }).map((_, i) => (
+              <button key={i} aria-label={"Go to slide " + (i + 1)} aria-current={i === slide} onClick={() => setSlide(i)}
+                style={{
+                  width: "8px", height: "8px", borderRadius: "50%", border: "none", padding: 0, cursor: "pointer",
+                  background: i === slide ? "#000" : "rgba(0,0,0,0.25)",
+                  transform: i === slide ? "scale(1.2)" : "none", transition: "all 0.2s ease"
+                }} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function HomeScreen() {
+  return (
+    <div>
+      <Banner><strong>Save Your Spot for ValkeyConf 2026</strong> | October 5, 2026 | Prague, Czechia</Banner>
+      <SiteHeader active="Home" logoSrc="../../assets/logos/valkey-horizontal-color.png" starCount="21.4k" />
+      <HomeHero />
+      <WhatsNew />
+      <DocumentationBand />
+      <ParticipantsBand />
+      <SiteFooter iconBase="../../assets/icons/" />
+    </div>
+  );
+}
+
+Object.assign(window, { HomeScreen });
+
+</script>
+<script type="text/babel">
+const { Breadcrumbs, CodeBlock, Blockquote, DataTable } = (function(ns){var o={};ns.forEach(function(n){o[n]=function(p){return React.createElement(window.ValkeyDesignSystem_d3b98f[n], p);};});return o;})(["Breadcrumbs","CodeBlock","Blockquote","DataTable"]);
+
+const topicIndex = ["ACL", "Bitmaps", "Client eviction", "Cluster tutorial", "Configuration", "Data types", "Distributed locks", "Expiration", "Functions", "Hashes", "Keyspace notifications", "Latency monitoring", "LRU cache", "Modules", "Pipelining", "Pub/Sub", "Quickstart", "Replication", "Sentinel", "Streams", "Transactions"];
+
+function DocsScreen() {
+  const { StyledTitle, ArticleLayout, AsideLinkList, AsideHeading, PageChrome } = window;
+  return (
+    <PageChrome active="Documentation">
+      <StyledTitle title="Documentation: Quickstart" />
+      <ArticleLayout
+        asideImage="../../assets/img/aside-banner.webp"
+        aside={
+          <div>
+            <AsideHeading>On this page</AsideHeading>
+            <AsideLinkList items={["Install Valkey", "Start the server", "Connect with valkey-cli", "Next steps"]} />
+            <AsideHeading>Alphabetical Index</AsideHeading>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, lineHeight: 1.9 }}>
+              {topicIndex.map((t) => <li key={t}><a href="#" style={{ color: "var(--valkey-link-blue)" }}>{t}</a></li>)}
+            </ul>
+          </div>
+        }
+      >
+        <Breadcrumbs caretSrc="../../assets/icons/caret-right.svg" items={[{ label: "Topics", href: "#" }, { label: "Quickstart" }]} style={{ background: "var(--valkey-page-shade)" }} />
+        <h1 style={{ margin: "10px 0 5px", color: "var(--color-heading)", fontSize: "30px", fontWeight: 600, fontFamily: "var(--font-display)" }}>Quickstart</h1>
+        <span style={{ fontSize: "14px", display: "block", margin: "0 0 20px", color: "var(--color-text-muted)" }}>Updated August 12, 2026</span>
+        <p style={{ fontSize: "18px", lineHeight: 1.6 }}>This guide takes you from an empty machine to a running Valkey server with a client attached. It assumes you can run commands in a terminal and have permission to install packages.</p>
+        <h2 style={{ margin: "40px 0 5px", color: "var(--color-heading)", fontSize: "24px", fontFamily: "var(--font-display)" }}>Install Valkey</h2>
+        <p style={{ fontSize: "18px", lineHeight: 1.6 }}>Install from a container image, a package manager, or a release tarball. The container image is the fastest way to get started:</p>
+        <CodeBlock code={"docker run --rm --name valkey -p 6379:6379 valkey/valkey:9"} />
+        <h2 style={{ margin: "40px 0 5px", color: "var(--color-heading)", fontSize: "24px", fontFamily: "var(--font-display)" }}>Connect with valkey-cli</h2>
+        <p style={{ fontSize: "18px", lineHeight: 1.6 }}>Open a second terminal and start the CLI. Every command echoes its reply, so you can confirm each step as you go.</p>
+        <CodeBlock showPrompt code={"SET mykey \"Hello\"\nGET mykey\nEXPIRE mykey 60\nTTL mykey"} />
+        <Blockquote cite="Valkey Brand Guidelines v2.0">Preserve exact capitalization, commands, configuration keys, and output in technical examples.</Blockquote>
+        <h2 style={{ margin: "40px 0 5px", color: "var(--color-heading)", fontSize: "24px", fontFamily: "var(--font-display)" }}>Deployment modes</h2>
+        <DataTable
+          columns={["Mode", "Replication", "Automatic failover", "Slots"]}
+          rows={[["Standalone", "Optional", "No", "—"], ["Standalone + Sentinel", "Yes", "Yes", "—"], ["Cluster", "Yes", "Yes", "16384"]]}
+          style={{ margin: "20px 0" }}
+        />
+        <div style={{ marginTop: "30px", paddingTop: "20px", borderTop: "1px solid var(--color-border)", fontSize: "16px" }}>
+          See an error? <a href="#" style={{ color: "var(--valkey-link-blue)" }}>Update this Page on GitHub!</a>
+        </div>
+      </ArticleLayout>
+    </PageChrome>
+  );
+}
+
+Object.assign(window, { DocsScreen });
+
+</script>
+<script type="text/babel">
+const { SearchInput } = (function(ns){var o={};ns.forEach(function(n){o[n]=function(p){return React.createElement(window.ValkeyDesignSystem_d3b98f[n], p);};});return o;})(["SearchInput"]);
+
+const commandGroups = [
+  { id: "string", display: "String", description: "Commands that operate on string values.", entries: [
+    ["APPEND", "Appends a string to the value of a key. Returns the new length of the string."],
+    ["GET", "Returns the string value of a key."],
+    ["GETRANGE", "Returns a substring of the string stored at a key."],
+    ["INCR", "Increments the integer value of a key by one. Uses 0 as initial value if the key doesn't exist."],
+    ["SET", "Sets the string value of a key, ignoring its type. The key is created if it doesn't exist."]
+  ] },
+  { id: "hash", display: "Hash", description: "Commands that operate on hash fields.", entries: [
+    ["HDEL", "Deletes one or more fields and their values from a hash. Deletes the hash if no fields remain."],
+    ["HGETALL", "Returns all fields and values in a hash."],
+    ["HSET", "Creates or modifies the value of a field in a hash."]
+  ] },
+  { id: "cluster", display: "Cluster", description: "Commands for cluster management and introspection.", entries: [
+    ["CLUSTER INFO", "Returns information about the state of a node."],
+    ["CLUSTER SHARDS", "Returns the mapping of cluster slots to shards."],
+    ["CLUSTER MYID", "Returns the ID of a node."]
+  ] },
+  { id: "pubsub", display: "Pub/Sub", description: "Commands for publish and subscribe messaging.", entries: [
+    ["PUBLISH", "Posts a message to a channel."],
+    ["SUBSCRIBE", "Listens for messages published to channels."]
+  ] }
+];
+
+function CommandsScreen() {
+  const { StyledTitle, ArticleLayout, AsideHeading, PageChrome } = window;
+  const [query, setQuery] = React.useState("");
+  const q = query.trim().toLowerCase();
+  const filtered = commandGroups
+    .map((g) => ({ ...g, entries: g.entries.filter(([name]) => name.toLowerCase().includes(q)) }))
+    .filter((g) => g.entries.length > 0);
+  return (
+    <PageChrome active="Documentation">
+      <StyledTitle title="Documentation: Command Reference" />
+      <ArticleLayout
+        aside={
+          <div>
+            <AsideHeading>Command Categories</AsideHeading>
+            <ul style={{ listStyle: "none", padding: 0, margin: "0 0 20px", lineHeight: 2 }}>
+              {commandGroups.map((g) => <li key={g.id}><a href="#" style={{ color: "var(--valkey-link-blue)" }}>{g.display}</a></li>)}
+            </ul>
+            <AsideHeading>Alphabetical Command List</AsideHeading>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, lineHeight: 1.9, fontFamily: "var(--font-code)", fontSize: "14px" }}>
+              {commandGroups.flatMap((g) => g.entries.map(([n]) => n)).sort().map((n) => (
+                <li key={n}><a href="#" style={{ color: "var(--valkey-link-blue)" }}>{n}</a></li>
+              ))}
+            </ul>
+          </div>
+        }
+      >
+        <SearchInput label="Search Commands:" placeholder="Search commands..." value={query} onChange={(e) => setQuery(e.target.value)} style={{ margin: "10px 0 20px" }} />
+        {filtered.length === 0 ? (
+          <div style={{ color: "var(--color-heading)", padding: "50px 20px 70px", textAlign: "center" }}>
+            <span style={{ fontSize: "60px", fontWeight: 800, fontFamily: "var(--font-code)" }}>&lt;/&gt;</span>
+            <h4 style={{ fontSize: "17.5px", margin: "7.5px 0", fontFamily: "var(--font-display)" }}>We couldn't find any results matching your search</h4>
+            <p style={{ fontSize: "17.5px", margin: 0 }}>Check your spelling or try different keywords</p>
+          </div>
+        ) : filtered.map((g) => (
+          <div key={g.id} style={{ marginBottom: "20px" }}>
+            <h2 style={{ borderBottom: "1px solid var(--color-border)", paddingBottom: "10px", margin: "0 0 0", fontSize: "24px", fontFamily: "var(--font-display)", color: "var(--color-heading)" }}>
+              {g.display} <span style={{ fontWeight: 400, fontSize: "16px", fontFamily: "var(--font-body)", color: "var(--color-text-muted)" }}>{g.description}</span>
+            </h2>
+            {g.entries.map(([name, summary]) => (
+              <div key={name} style={{ fontSize: "15px", borderBottom: "1px solid var(--color-border)", padding: "12.5px 0", lineHeight: 1.5 }}>
+                <code style={{ fontFamily: "var(--font-code)" }}><a href="#" style={{ color: "var(--valkey-link-blue)", textDecoration: "underline" }}>{name}</a></code> {summary}
+              </div>
+            ))}
+            <div style={{ padding: "8px 0" }}><small><a href="#" style={{ color: "var(--valkey-link-blue)" }}>Back to top</a></small></div>
+          </div>
+        ))}
+      </ArticleLayout>
+    </PageChrome>
+  );
+}
+
+Object.assign(window, { CommandsScreen });
+
+</script>
+<script type="text/babel">
+const { Badge, Select, Button } = (function(ns){var o={};ns.forEach(function(n){o[n]=function(p){return React.createElement(window.ValkeyDesignSystem_d3b98f[n], p);};});return o;})(["Badge","Select","Button"]);
+
+const blogPosts = [
+  { type: "Announcements", tone: "announcements", title: "Valkey 9.0 is here", date: "Wednesday August 12, 2026", description: "Valkey 9.0 adds atomic slot migration, a smaller per-key memory footprint, and dual channel replication on by default." },
+  { type: "Technical Deep Dive", tone: "technical-deep-dive", title: "Inside the Valkey cluster bus", date: "Tuesday July 28, 2026", description: "How nodes gossip, detect failure, and agree on slot ownership, with packet-level walkthroughs and the timeouts that matter." },
+  { type: "How-to", tone: "how-to", title: "Migrating from a single node to a cluster", date: "Thursday July 9, 2026", description: "A step-by-step migration path that keeps reads available, including the client-side changes you need to plan for." },
+  { type: "Community Highlight", tone: "community-highlight", title: "Meet the contributors behind valkey-glide", date: "Monday June 22, 2026", description: "The maintainers of the official multi-language client library on API design, testing across runtimes, and what they need help with." },
+  { type: "Events", tone: "events", title: "ValkeyConf 2026 call for proposals", date: "Friday June 5, 2026", description: "Submit a talk for the Prague program. Sessions cover operations at scale, internals, client libraries, and migration stories." }
+];
+
+function BlogScreen() {
+  const { StyledTitle, ArticleLayout, AsideHeading, PageChrome } = window;
+  const [type, setType] = React.useState("All Types");
+  const shown = type === "All Types" ? blogPosts : blogPosts.filter((p) => p.type === type);
+  return (
+    <PageChrome active="Blog">
+      <StyledTitle title="Blog" description="News, deep dives and community stories from the Valkey project." />
+      <ArticleLayout
+        squareInner
+        aside={
+          <div>
+            <AsideHeading>Featured</AsideHeading>
+            {blogPosts.slice(0, 3).map((p) => (
+              <div key={p.title} style={{ display: "flex", background: "#fff", borderRadius: "10px", marginBottom: "20px", overflow: "hidden" }}>
+                <div style={{ flex: "1 1 100%", padding: "12.5px" }}>
+                  <h4 style={{ margin: "0 0 12.5px", fontSize: "16px", fontFamily: "var(--font-display)" }}><a href="#" style={{ color: "#000", textDecoration: "none" }}>{p.title}</a></h4>
+                  <p style={{ margin: "0 0 12.5px", fontSize: "14px", lineHeight: 1.45, color: "var(--color-text-muted)" }}>{p.description}</p>
+                  <Button variant="outline" size="sm" style={{ float: "right" }}>Read more</Button>
+                </div>
+              </div>
+            ))}
+          </div>
+        }
+      >
+        <div style={{ marginBottom: "15px", paddingTop: "10px" }}>
+          <Select label="Filter posts by type" value={type} onChange={(e) => setType(e.target.value)}
+            options={["All Types", ...blogPosts.map((p) => p.type)]} />
+        </div>
+        <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+          {shown.map((p) => (
+            <li key={p.title} style={{ background: "#fff", padding: "20px", marginBottom: "20px", borderBottom: "1px solid var(--color-border)" }}>
+              <Badge tone={p.tone} size="sm">{p.type}</Badge>
+              <h2 style={{ margin: "8px 0 0", fontSize: "24px", fontFamily: "var(--font-display)" }}><a href="#" style={{ color: "var(--color-heading)", textDecoration: "none" }}>{p.title}</a></h2>
+              <div style={{ marginTop: "2px", fontSize: "14px", color: "var(--color-text-muted)" }}>{p.date}</div>
+              <p style={{ fontSize: "18px", lineHeight: 1.6 }}>{p.description}</p>
+              <a href="#" style={{ fontSize: "12px", textTransform: "uppercase", fontWeight: 700, color: "#747BFF", textDecoration: "none" }}>Read more ›</a>
+            </li>
+          ))}
+        </ul>
+        {shown.length === 0 ? <p>No posts match this filter.</p> : null}
+      </ArticleLayout>
+    </PageChrome>
+  );
+}
+
+Object.assign(window, { BlogScreen });
+
+</script>
+<script type="text/babel">
+const { Card, Button, Icon } = (function(ns){var o={};ns.forEach(function(n){o[n]=function(p){return React.createElement(window.ValkeyDesignSystem_d3b98f[n], p);};});return o;})(["Card","Button","Icon"]);
+
+const communityCards = [
+  { icon: "question", title: "Ask Questions", description: "If you have any inquiries about Valkey, feel free to join the conversation on our GitHub discussions or chat with us on Slack.", links: ["GitHub Repository", "Slack"] },
+  { icon: "bug", title: "Report Bugs", description: "If you encounter any issues while using Valkey, please help us improve the project by filing a bug report at our GitHub repository.", links: ["GitHub Repository"] },
+  { icon: "users", title: "Connect on Social Media", description: "Stay updated and connect with us on our social media platforms.", links: ["LinkedIn", "Bluesky", "Twitter"] },
+  { icon: "bulb", title: "Suggest Features", description: "We value your ideas! If you have a suggestion for a new feature, please submit a feature request on our GitHub.", links: ["GitHub"] },
+  { icon: "shield", title: "Security Concerns", description: "For any potential security issues, please refer to our Security Policy.", links: ["Learn more"] },
+  { icon: "book", title: "Community Conduct", description: "If you experience any issues with community members behavior, kindly check our Code of Conduct for guidance.", links: ["Learn more"] }
+];
+
+const iconFileFor = { question: "icon-question.svg", bug: "icon-bug.svg", users: "icon-users.svg", bulb: "icon-bulb.svg", shield: "icon-sheild.svg", book: "icon-book.svg" };
+
+function CommunityScreen() {
+  const { PageChrome } = window;
+  return (
+    <PageChrome active="Community">
+      <div style={{ background: "var(--valkey-community-shade)", textAlign: "center", paddingBottom: "60px" }}>
+        <h1 style={{
+          textAlign: "center", backgroundImage: "var(--valkey-gradient-page-title)", padding: "80px",
+          margin: "0 0 50px", fontSize: "40px", fontWeight: 700, lineHeight: 1, color: "#fff", fontFamily: "var(--font-display)"
+        }}>Community</h1>
+        <h2 style={{ color: "var(--color-heading)", fontSize: "32.5px", fontWeight: 700, marginBottom: 0, fontFamily: "var(--font-display)" }}>How to Contribute with us?</h2>
+        <p style={{ color: "var(--color-heading)", margin: "10px 0 0", fontSize: "18px" }}>We welcome your involvement in the Valkey community! Here are several ways you can contribute:</p>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "25px", maxWidth: "1100px", margin: "30px auto 0", padding: "0 30px" }}>
+          {communityCards.map((c) => (
+            <Card key={c.title} surface="light" padding="md" raiseOnHover
+              iconSrc={"../../assets/icons/" + iconFileFor[c.icon]}
+              style={{ borderRadius: "18px", alignItems: "center" }}
+              actions={
+                <div style={{ display: "flex", gap: "7px", flexWrap: "wrap", justifyContent: "center", width: "100%" }}>
+                  {c.links.map((l) => <Button key={l} variant="outline-ink" size="sm">{l}</Button>)}
+                </div>
+              }>
+              <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--valkey-deep-purple)", margin: "0 0 7px", textAlign: "center", fontFamily: "var(--font-display)" }}>{c.title}</h3>
+              <p style={{ color: "#3A3A4D", fontSize: "17.5px", margin: "0 0 15px", textAlign: "left", lineHeight: 1.6 }}>{c.description}</p>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </PageChrome>
+  );
+}
+
+Object.assign(window, { CommunityScreen });
+
+</script>
+<script type="text/babel">
+const screenForLabel = {
+  Home: "home", Download: "home", Documentation: "docs", "Command Reference": "commands",
+  "Documentation by Topic": "docs", "Client Libraries": "docs", Blog: "blog",
+  Community: "community", Events: "community", Participants: "home", "Try Valkey": "home"
+};
+
+function WebsiteApp() {
+  const [screen, setScreen] = React.useState(() => localStorage.getItem("valkey-uikit-screen") || "home");
+  React.useEffect(() => { localStorage.setItem("valkey-uikit-screen", screen); }, [screen]);
+
+  function handleClick(e) {
+    const a = e.target.closest("a");
+    if (!a) return;
+    const href = a.getAttribute("href") || "";
+    if (/^https?:/.test(href)) return;
+    const label = (a.textContent || "").trim();
+    e.preventDefault();
+    if (screenForLabel[label]) setScreen(screenForLabel[label]);
+  }
+
+  function handleLogo(e) {
+    const img = e.target.closest("img[alt='Valkey Logo']");
+    if (img) { e.preventDefault(); setScreen("home"); }
+  }
+
+  const Screen = { home: window.HomeScreen, docs: window.DocsScreen, commands: window.CommandsScreen, blog: window.BlogScreen, community: window.CommunityScreen }[screen];
+  return (
+    <div onClickCapture={handleLogo} onClick={handleClick}>
+      <Screen />
+    </div>
+  );
+}
+
+(function boot(){
+  var ns = window.ValkeyDesignSystem_d3b98f;
+  if (!ns || !ns.Button || !window.HomeScreen) { return setTimeout(boot, 30); }
+  ReactDOM.createRoot(document.getElementById("root")).render(<WebsiteApp />);
+})();
+
+</script>
+</body></html>

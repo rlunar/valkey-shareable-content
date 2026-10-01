@@ -1,0 +1,38 @@
+# Slidev presentations published to the slide decks site.
+#
+# This file lives in sessions/, alongside the deck subfolders. Each entry under
+# `decks` maps a sessions/ subfolder that contains a Slidev project to a
+# subfolder (S3 key prefix) in the deployment bucket, so the deck is served at
+# https://<distribution>/<name>/.
+#
+# The CDK stack in infrastructure/cdk-infra/ reads this file at synth time,
+# uploads each deck's dist/ output under its prefix, and generates the root
+# index.html that links to every deck listed here. Build the decks with
+# `infrastructure/cdk-infra/scripts/build_decks.py` so every deck is compiled
+# with the matching `--base /<name>/`.
+#
+# Fields:
+#   name         required  sessions/ subfolder and S3 prefix (lowercase,
+#                          letters, digits, and hyphens only)
+#   title        required  display title on the root index page
+#   description  optional  one-line summary shown under the title
+#   event        optional  where or when the talk was given
+
+site:
+  title: Valkey Slide Decks
+  description: Presentations built with Slidev and the Valkey brand assets.
+
+decks:
+  - name: open-source-as-the-foundation-for-the-ai-era
+    title: "Open Source como Base para a Era da IA: da Infraestrutura Essencial às Aplicações Agênticas"
+    description: Closing keynote on why open source is the foundation of the AI era, from core infrastructure to agentic applications.
+    event: AWS Community Day Curitiba 2026
+
+  - name: well-architected-on-a-budget
+    title: "Well-Architected on a Budget: Cutting Database and AI Inference Cost with Valkey"
+    description: Cache-aside in front of a relational database and semantic caching with Valkey Search in front of an LLM, mapped to the Well-Architected pillars.
+    event: AWS Community Day Argentina 2026
+
+  - name: valkey-slidev
+    title: Valkey Slidev Capability Demo
+    description: A Valkey-branded tour of Slidev features, including click builds, Magic Move, Mermaid, D3 diagrams, and every built-in layout.
