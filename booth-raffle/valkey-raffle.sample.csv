@@ -1,0 +1,8 @@
+Timestamp,First Name,Last Name,Email Address,GitHub Alias,Primary Social Media Platform
+2026-10-19 09:00:00,Ada,Lovelace,ada@example.com,ada-demo,GitHub
+2026-10-19 09:01:00,Grace,Hopper,grace.hopper@example.org,grace-demo,LinkedIn
+2026-10-19 09:02:00,Alan,Turing,alan@example.net,,Mastodon
+2026-10-19 09:03:00,Katherine,Johnson,kat.johnson@example.com,kat-demo,GitHub
+2026-10-19 09:04:00,Dennis,Ritchie,dennis@example.com,,LinkedIn
+2026-10-19 09:05:00,Margaret,Hamilton,margaret.hamilton@example.org,,Instagram
+2026-10-19 09:06:00,Linus,,linus@example.com,linus-demo,GitHub

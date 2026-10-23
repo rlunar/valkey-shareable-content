@@ -1,0 +1,210 @@
+<template>
+  <link rel="stylesheet" href="open-sans-embedded.css">
+  <style>
+    /* 15-prague-schedule · final-only event schedule; no QR assets. */
+    #f15-root, #f15-root *, #f15-root *::before, #f15-root *::after {
+      box-sizing: border-box;
+    }
+
+    #f15-root {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      container-type: size;
+      font-family: "Open Sans";
+    }
+
+    #f15-ground,
+    #f15-content {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #f15-ground {
+      background: #30176e;
+    }
+
+    #f15-content {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      gap: 2.2cqw;
+      padding: 4.5cqw 5cqw 5cqw;
+    }
+
+    #f15-topbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: start;
+      gap: 3cqw;
+    }
+
+    #f15-title {
+      margin: 0;
+      font-size: 3.2cqw;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0.06cqw;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    #f15-location {
+      margin: 0.9cqw 0 0;
+      font-size: 1.5cqw;
+      font-weight: 400;
+      line-height: 1.2;
+      color: #fff;
+    }
+
+    #f15-site {
+      margin: 0;
+      padding-top: 0.35cqw;
+      font-size: 1.6cqw;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: 0.14cqw;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    #f15-table {
+      min-height: 0;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      overflow: hidden;
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+    }
+
+    .f15-table-row {
+      display: grid;
+      grid-template-columns: 24cqw minmax(0, 1fr);
+      align-items: center;
+      min-height: 0;
+    }
+
+    .f15-table-row + .f15-table-row {
+      border-top: 2px solid rgba(0, 42, 58, .14);
+    }
+
+    .f15-time,
+    .f15-session {
+      min-width: 0;
+      margin: 0;
+      padding: 1.15cqw 1.5cqw;
+    }
+
+    .f15-time {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0.3cqw;
+      border-right: 2px solid rgba(0, 42, 58, .14);
+      font-size: 1.4cqw;
+      font-weight: 700;
+      line-height: 1.15;
+      color: #0053b8;
+      white-space: normal;
+    }
+
+    .f15-time span,
+    .f15-session span {
+      display: block;
+    }
+
+    .f15-speaker {
+      margin-top: 0.55cqw;
+      color: #596672;
+      font-size: 0.9em;
+      font-weight: 700;
+    }
+
+    .f15-session {
+      font-size: 1.45cqw;
+      font-weight: 600;
+      line-height: 1.22;
+      color: #002a3a;
+    }
+
+    #f15-table-head {
+      background: #0053b8;
+    }
+
+    #f15-table-head .f15-time,
+    #f15-table-head .f15-session {
+      padding-top: 0.8cqw;
+      padding-bottom: 0.8cqw;
+      font-size: 1.4cqw;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0.1cqw;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    #f15-table-head .f15-time {
+      border-right-color: rgba(255, 255, 255, .3);
+    }
+
+    /* Larger session-table typography for distance viewing. */
+    #f15-table .f15-time {
+      font-size: 1.6cqw;
+    }
+
+    #f15-table .f15-session {
+      font-size: 1.65cqw;
+    }
+
+    #f15-table-head .f15-time,
+    #f15-table-head .f15-session {
+      font-size: 1.55cqw;
+    }
+  </style>
+
+  <div data-hf-id="hf-f15-root" id="f15-root" data-composition-id="15-prague-schedule" data-duration="15" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-f15-ground" id="f15-ground" class="clip" data-start="0" data-duration="15" data-track-index="0"></div>
+    <div data-hf-id="hf-f15-content" id="f15-content" class="clip" data-start="0" data-duration="15" data-track-index="1">
+      <header data-hf-id="hf-f15-topbar" id="f15-topbar">
+        <div data-hf-id="hf-f15-event" id="f15-event">
+          <h1 data-hf-studio-original-inline-translate="" style="translate: 0px 4px" data-hf-id="hf-f15-title" id="f15-title">ALL THINGS OPEN</h1>
+          <p data-hf-id="hf-f15-location" id="f15-location">Raleigh, North Carolina</p>
+        </div>
+        <p data-hf-studio-original-display="flex" data-hf-studio-original-box-sizing="" data-hf-studio-original-flex-shrink="" data-hf-studio-original-flex-grow="" data-hf-studio-original-flex-basis="" data-hf-studio-original-max-height="" data-hf-studio-original-max-width="" data-hf-studio-original-min-height="" data-hf-studio-original-min-width="" data-hf-studio-original-box-height="140" data-hf-studio-original-box-width="314" data-hf-studio-original-height="" data-hf-studio-original-width="" data-hf-studio-box-size="true" data-hf-studio-original-inline-translate="" data-hf-id="hf-f15-site" id="f15-site" data-hidden style="display: none !important; align-items: center; justify-content: flex-end; gap: 1cqw; padding-top: 0; translate: -75.027px -40.584px; --hf-studio-width: 174px; --hf-studio-height: 77px; width: 174px; height: 77px; min-width: 0px; min-height: 0px; max-width: none; max-height: none; box-sizing: border-box"><span data-hf-id="hf-f15-site-label">valkey.io</span><img data-hf-studio-original-inline-translate="" data-hf-studio-original-display="block" data-hf-studio-original-box-sizing="" data-hf-studio-original-flex-shrink="" data-hf-studio-original-flex-grow="" data-hf-studio-original-flex-basis="" data-hf-studio-original-max-height="" data-hf-studio-original-max-width="" data-hf-studio-original-min-height="" data-hf-studio-original-min-width="" data-hf-studio-original-box-height="140" data-hf-studio-original-box-width="140" data-hf-studio-original-height="min(11cqw, 140px)" data-hf-studio-original-width="min(11cqw, 140px)" data-hf-studio-box-size="true" data-hf-id="hf-f15-site-qr" id="f15-site-qr" src="assets/valkey_io.svg" alt="QR code for valkey.io" style="display: block; width: 223px; height: 223px; padding: .35cqw; border-radius: 10px; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.1); object-fit: contain; --hf-studio-width: 223px; --hf-studio-height: 223px; min-width: 0px; min-height: 0px; max-width: none; max-height: none; flex-basis: 223px; flex-grow: 0; flex-shrink: 0; box-sizing: border-box; translate: 41.5px 31.128px"></p>
+      </header>
+
+      <div data-hf-id="hf-f15-table" id="f15-table" role="table" aria-label="Valkey session at All Things Open">
+        <div data-hf-id="hf-f15-table-head" id="f15-table-head" class="f15-table-row" role="row">
+          <p style="font-size: 32px" data-hf-id="hf-f15-head-time" class="f15-time" role="columnheader">Time</p>
+          <p data-hf-id="hf-f15-head-session" class="f15-session" role="columnheader">Valkey Session</p>
+        </div>
+        <div data-hf-id="hf-f15-row-1" id="f15-row-1" class="f15-table-row f15-session-row" role="row">
+          <p style="font-size: 32px" data-hf-id="hf-f15-time-1" class="f15-time" role="cell"><span data-hf-id="hf-e2as">Tuesday, Oct 20</span><span data-hf-id="hf-0ase">2:30 PM ET</span><span data-hf-id="hf-wht6">Room 206</span></p>
+          <p style="font-size: 34px" data-hf-id="hf-f15-session-1" class="f15-session" role="cell"><span data-hf-id="hf-jvt1">You Never Know When You Need a Fork: Lessons learned building Valkey</span><span data-hf-id="hf-dr94" class="f15-speaker">Madelyn Olson</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.__timelines = window.__timelines || {};
+    var tl = gsap.timeline({ paused: true });
+    var rows = ["#f15-row-1"];
+
+    tl.set(rows, { y: 48, opacity: 0 }, 0);
+    rows.forEach(function (row, index) {
+      var revealAt = 1 + index * 1.8;
+      tl.set(row, { opacity: 1 }, revealAt);
+      tl.to(row, { y: 0, duration: 0.18, ease: "power4.out" }, revealAt);
+    });
+
+    window.__timelines["15-prague-schedule"] = tl;
+  </script>
+</template>

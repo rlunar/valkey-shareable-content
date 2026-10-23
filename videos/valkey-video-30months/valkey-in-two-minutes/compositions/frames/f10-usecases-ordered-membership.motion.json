@@ -1,0 +1,7 @@
+{
+  "scene": "f10-usecases-ordered-membership",
+  "duration_s": 6,
+  "rules": ["waterfall-entry"],
+  "exit": { "vector": "static (hold)", "still_moving": false },
+  "entry": { "vector": "title y -32px over 0.55s power3.out from t=0; four panel cells whip up from +72/+60/+48/+30px between t=0.02 and t=0.27 (power4.out, binary opacity); marker fades in at 0.5s", "from_rest": true }
+}

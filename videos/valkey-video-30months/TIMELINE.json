@@ -1,0 +1,545 @@
+{
+  "format": "editorial-handoff-v1 (not a native HyperFrames import schema)",
+  "duration_seconds": 120,
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "research_date": "2026-10-02",
+  "required_definition": "Valkey is an open source (BSD) high-performance key/value datastore that supports a variety of workloads such as caching, message queues, and can act as a primary database. The project is backed by the Linux Foundation, ensuring it will remain open source forever.",
+  "excluded_participant_names": [
+    "Apple"
+  ],
+  "releases": [
+    {
+      "version": "9.1.2",
+      "status": "featured_stable",
+      "source_id": 1
+    },
+    {
+      "version": "8.1.10",
+      "status": "supported_prior_line",
+      "source_id": 1
+    },
+    {
+      "version": "7.2.14",
+      "status": "supported_prior_line",
+      "source_id": 1
+    },
+    {
+      "version": "9.2.0-rc1",
+      "status": "preview",
+      "source_id": 2
+    }
+  ],
+  "scenes": [
+    {
+      "key": "memory-vs-disk",
+      "title": "Memory speed versus disk",
+      "narration": "Memory access is faster than disk access. Valkey keeps working data in memory, with optional disk persistence.",
+      "screen": [
+        "MEMORY vs DISK",
+        "RAM: working data",
+        "Disk: persistent storage",
+        "Conceptual comparison, not a benchmark"
+      ],
+      "use_case_ids": [],
+      "source_ids": [
+        22,
+        16,
+        26
+      ],
+      "direction": "Open with two hardware-level paths from a processor: RAM and persistent disk/SSD. Animate the memory read arriving first, with no numeric latency, bar ratio, multiplier or benchmark axis. Label the comparison Conceptual. Then put Valkey around the in-memory working dataset with an optional persistence arrow to disk. Do not portray RAM as durable, networked Valkey as local RAM speed, or every database query as a physical disk read. End on the Valkey logo for the definition.",
+      "id": 1,
+      "start": 0,
+      "end": 8
+    },
+    {
+      "id": 2,
+      "start": 8,
+      "end": 27,
+      "title": "What Valkey is",
+      "narration": "Valkey is an open source (BSD) high-performance key/value datastore that supports a variety of workloads such as caching, message queues, and can act as a primary database. The project is backed by the Linux Foundation, ensuring it will remain open source forever.",
+      "screen": [
+        "VALKEY",
+        "Open source · BSD licensed",
+        "High-performance key/value datastore",
+        "Caching · Message queues · Primary database",
+        "Backed by the Linux Foundation",
+        "OPEN SOURCE FOREVER"
+      ],
+      "use_case_ids": [],
+      "source_ids": [
+        1
+      ],
+      "direction": "Speak the exact requested definition over two phases relative to this scene: 0–12 seconds for the Valkey logo, key/value diagram and workloads; 12–19 seconds for Linux Foundation backing and OPEN SOURCE FOREVER. Attribute the commitment to valkey.io. Use phrase captions, not the entire paragraph on one frame.",
+      "key": "definition"
+    },
+    {
+      "key": "set-example",
+      "title": "SET a key and value",
+      "narration": "Start with a key and a value. SET stores it. GET reads it back.",
+      "screen": [
+        "START WITH A KEY AND VALUE",
+        "SET Key Value",
+        "OK",
+        "GET Key",
+        "\"Value\""
+      ],
+      "use_case_ids": [],
+      "source_ids": [
+        21
+      ],
+      "direction": "Show an illustrative valkey-cli transcript, not a shell command. At scene-local 0–3s reveal SET Key Value; at 3s show OK. At 4–5s reveal GET Key, then show \"Value\" and hold. Keep Key and Value capitalization intact. No TTL is implied by this basic SET. The transcript is documented expected behavior, not a recorded execution.",
+      "code_example": {
+        "language": "text",
+        "lines": [
+          "valkey> SET Key Value",
+          "OK",
+          "valkey> GET Key",
+          "\"Value\""
+        ],
+        "status": "illustrative expected output, not executed"
+      },
+      "id": 3,
+      "start": 27,
+      "end": 35
+    },
+    {
+      "key": "cache-aside",
+      "title": "Cache-aside: the everyday caching pattern",
+      "narration": "Cache-aside is a common starting point. Your app checks Valkey first. On a miss, it reads the database and caches the result with an expiry. The next hit skips the database.",
+      "screen": [
+        "CACHE-ASIDE",
+        "Application",
+        "Valkey cache",
+        "Primary database",
+        "1. Check cache",
+        "2. Miss: read database",
+        "3. Populate cache + expiry",
+        "4. Next hit: skip database",
+        "Write path: update database, then invalidate cache"
+      ],
+      "use_case_ids": [],
+      "source_ids": [
+        1,
+        21,
+        23
+      ],
+      "direction": "Give caching the featured-use-case position requested by the employee, without inventing adoption percentages or a measured most-common ranking. Show the application owning each arrow. For the first read: app → Valkey GET product:42 → miss; app → primary database → product data; app → Valkey SET product:42 \"blue mug\" EX 60 → OK; app → caller returns product. For a second read while the entry is valid, app → Valkey → hit → caller, with no database arrow lit. Never draw Valkey fetching the database on a miss; that would imply read-through caching. A final small write-path note says update database, then invalidate cache. TTL and invalidation reduce staleness but do not guarantee consistency under races. Production needs failure and stampede handling.",
+      "focus_use_case_ids": [
+        1
+      ],
+      "beats": [
+        {
+          "local_start": 0,
+          "local_end": 4,
+          "event": "app_cache_lookup_and_miss"
+        },
+        {
+          "local_start": 4,
+          "local_end": 8,
+          "event": "app_reads_primary_database"
+        },
+        {
+          "local_start": 8,
+          "local_end": 12,
+          "event": "app_populates_cache_with_expiry_and_returns"
+        },
+        {
+          "local_start": 12,
+          "local_end": 18,
+          "event": "next_request_cache_hit_skips_database"
+        }
+      ],
+      "cache_fill_command": "SET product:42 \"blue mug\" EX 60",
+      "id": 4,
+      "start": 35,
+      "end": 53
+    },
+    {
+      "id": 5,
+      "start": 53,
+      "end": 57,
+      "title": "Releases",
+      "narration": "Choose stable releases, or explore the next release candidate.",
+      "screen": [
+        "RELEASES",
+        "Featured stable: 9.1.2",
+        "Supported prior lines: 8.1.10 · 7.2.14",
+        "Preview: 9.2.0-rc1",
+        "As of 2026-10-02"
+      ],
+      "use_case_ids": [],
+      "source_ids": [
+        1,
+        2
+      ],
+      "direction": "Show a compact static release board. Keep the preview in a separate outlined region with the word PREVIEW, never in the stable row. Numbers remain visual so narration does not rush. These are the stable releases featured on the homepage, not an exhaustive support matrix. Recheck just before render/publication.",
+      "key": "releases"
+    },
+    {
+      "id": 6,
+      "start": 57,
+      "end": 62,
+      "title": "Modules",
+      "narration": "Extend Valkey with JSON, Search, Bloom, and LDAP modules.",
+      "screen": [
+        "EXTEND WITH MODULES",
+        "valkey-json: JSON documents",
+        "valkey-search: Full-text + vectors",
+        "valkey-bloom: Membership filters",
+        "valkey-ldap: Authentication"
+      ],
+      "use_case_ids": [],
+      "source_ids": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "direction": "Attach four named extension tiles to the server. Display module names as text, not invented logos. The framing must show these as loadable modules. The Search tile covers full-text and vector search; Bloom is approximate membership, not a fraud classifier.",
+      "key": "modules"
+    },
+    {
+      "id": 7,
+      "start": 62,
+      "end": 66,
+      "title": "Integrations",
+      "narration": "Connect through GLIDE, Spring Boot, Fastify, and Lambda Powertools.",
+      "screen": [
+        "CONNECT YOUR STACK",
+        "Valkey GLIDE",
+        "Spring Boot · Fastify",
+        "Powertools for AWS Lambda"
+      ],
+      "use_case_ids": [],
+      "source_ids": [
+        4,
+        5
+      ],
+      "direction": "Show applications connecting through the client/integration layer. Ground the labels in spring-data-valkey, @fastify/valkey-glide, and the GLIDE-backed idempotency integrations for Powertools. These are distinct integrations, not one universal adapter. Use text labels to avoid adding unrequested third-party integration logos.",
+      "key": "integrations"
+    },
+    {
+      "id": 8,
+      "start": 66,
+      "end": 71,
+      "title": "Use cases: application state and traffic",
+      "narration": "Cache data, manage sessions, and control traffic.",
+      "screen": [
+        "APPLICATION STATE + TRAFFIC",
+        "Cache",
+        "Sessions",
+        "Counters",
+        "Rate limiter",
+        "Global IDs"
+      ],
+      "use_case_ids": [
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "source_ids": [
+        1,
+        4,
+        12
+      ],
+      "direction": "Reveal the five use-case labels together within 0.3 seconds, then hold. Use one request diagram with cache, session and traffic-control branches. Highlight existing labels rather than replacing them. Display a small Application patterns marker so this does not imply turnkey guarantees.",
+      "key": "use-cases-state"
+    },
+    {
+      "id": 9,
+      "start": 71,
+      "end": 76,
+      "title": "Use cases: service coordination",
+      "narration": "Coordinate services and keep retries under control.",
+      "screen": [
+        "SERVICE COORDINATION",
+        "Distributed locks",
+        "Message queue",
+        "Chats / Pub/Sub",
+        "Idempotency",
+        "Microservices"
+      ],
+      "use_case_ids": [
+        3,
+        7,
+        10,
+        11,
+        13
+      ],
+      "source_ids": [
+        4,
+        13,
+        14,
+        15
+      ],
+      "direction": "Show a service-to-service request path with a lock, queued work and retry marker. Keep all five labels visible for almost the full scene. Do not suggest Pub/Sub persists chat history, distributed locks are failure-proof, or idempotency means exactly-once external effects.",
+      "key": "use-cases-coordination"
+    },
+    {
+      "id": 10,
+      "start": 76,
+      "end": 81,
+      "title": "Use cases: ordered data and membership",
+      "narration": "Track rankings and event histories. Add Bloom filters for fraud-screening prechecks.",
+      "screen": [
+        "ORDERED DATA + MEMBERSHIP",
+        "Rank / leaderboard",
+        "Time-series",
+        "Append-only log · Streams",
+        "Probabilistic membership",
+        "Fraud prechecks · Bloom module"
+      ],
+      "use_case_ids": [
+        8,
+        9,
+        12,
+        17
+      ],
+      "source_ids": [
+        9,
+        14,
+        17
+      ],
+      "direction": "Use a leaderboard and timestamped event stream. Add a Bloom membership gate feeding Verify against source, never Fraud detected. Pair Probabilistic membership with the smaller Fraud prechecks label, not a fifth independent capability. Streams is the event-log model; AOF persistence is documented separately in USE_CASES.md.",
+      "key": "use-cases-ordered"
+    },
+    {
+      "id": 11,
+      "start": 81,
+      "end": 88,
+      "title": "Use cases: documents, search and AI",
+      "narration": "Build with JSON documents and full-text search. Add vector search, KV-cache offload, and semantic caching.",
+      "screen": [
+        "DOCUMENTS, SEARCH + AI",
+        "Document database / JSON",
+        "Full-text search engine",
+        "Vector database",
+        "LLM KV cache offload",
+        "Semantic cache",
+        "Modules + integrations"
+      ],
+      "use_case_ids": [
+        14,
+        15,
+        16,
+        18,
+        19
+      ],
+      "source_ids": [
+        6,
+        7,
+        8,
+        11
+      ],
+      "direction": "Keep five large labels visible. Connect JSON documents to full-text and vector indexes. Show two distinct cache paths: inference tensor chunks for LLM KV cache offload, and similar prompts/answers for semantic cache. Embedding generation and inference live outside Valkey.",
+      "key": "use-cases-ai"
+    },
+    {
+      "key": "semantic-cache",
+      "title": "Semantic caching: vector similarity for AI",
+      "narration": "For AI, embed the prompt and search cached vectors with Valkey Search. A close, valid match reuses the answer. Otherwise, call the model and cache the result. Check context and freshness before reuse.",
+      "screen": [
+        "SEMANTIC CACHE",
+        "Prompt → embedding",
+        "Valkey Search: vector similarity",
+        "Close match + valid context + fresh answer?",
+        "Hit: reuse cached answer",
+        "Miss: call model → cache answer + embedding",
+        "Same scope · compatible model/context · expiry"
+      ],
+      "use_case_ids": [],
+      "source_ids": [
+        8,
+        11,
+        23
+      ],
+      "direction": "Use two non-sensitive illustrative prompts: What is the capital of France? and Capital city of France?, with cached answer Paris. A separate embedding model converts the second prompt into a vector. Show nearest neighbors within the correct scope in Valkey Search; animate a qualitative distance gate plus context/freshness checks, never a fabricated measured 98% match or a universal threshold. On a validated hit, return Paris and bypass response generation, not the embedding step. For a miss or failed validation, show the application invoking an external language model, storing prompt embedding and answer with expiry, and returning the answer. Keep both embedding and language models outside Valkey. A 2D point diagram is a conceptual projection, not the actual embedding dimensions. Do not reuse private answers across users or tenants.",
+      "focus_use_case_ids": [
+        19
+      ],
+      "beats": [
+        {
+          "local_start": 0,
+          "local_end": 4,
+          "event": "embed_prompt_externally"
+        },
+        {
+          "local_start": 4,
+          "local_end": 8,
+          "event": "scoped_vector_similarity_lookup"
+        },
+        {
+          "local_start": 8,
+          "local_end": 12,
+          "event": "validate_threshold_context_freshness_then_hit"
+        },
+        {
+          "local_start": 12,
+          "local_end": 18,
+          "event": "miss_calls_model_then_caches_response_and_embedding"
+        }
+      ],
+      "id": 12,
+      "start": 88,
+      "end": 106
+    },
+    {
+      "id": 13,
+      "start": 106,
+      "end": 112,
+      "title": "Participant community",
+      "narration": "Built together, by the Valkey community. Open source forever.",
+      "screen": [
+        "VALKEY PROJECT PARTICIPANTS",
+        "valkey.io",
+        "github.com/valkey-io"
+      ],
+      "use_case_ids": [],
+      "source_ids": [
+        3,
+        18
+      ],
+      "direction": "Use all 21 non-Apple participant marks from PARTICIPANT_LOGOS.json in a balanced alphabetic 7-column by 3-row wall, fully visible within 0.3 seconds and held for the scene. Keep the Valkey logo and small valkey.io / GitHub labels above it; reserve the dominant quick-start CTA for the next scene. No scrolling carousel. Label Valkey project participants, not customers, sponsors or endorsements. Apple is excluded from all imagery, transitions and backgrounds.",
+      "key": "participants"
+    },
+    {
+      "key": "docker-quickstart",
+      "title": "Run Valkey: final command",
+      "narration": "Run Valkey's core server with Docker using this command. Start building at valkey dot I O.",
+      "screen": [
+        "TRY VALKEY",
+        "docker run --rm valkey/valkey:alpine",
+        "Core server · Docker required",
+        "valkey.io",
+        "github.com/valkey-io"
+      ],
+      "use_case_ids": [],
+      "source_ids": [
+        24,
+        1
+      ],
+      "direction": "Make the corrected Docker command the final hero. Reveal it by scene-local 1s, then keep the full command unchanged through the final frame. Use large monospace type. This is a shell command, unlike the earlier SET/GET CLI example. Do not add simulated startup logs or claim a successful live run. Caption Core server · Docker required so the audience does not infer the command installs Search, JSON or other modules. No published host port or persistent volume is configured by this minimal demo command. Do not portray it as a production deployment.",
+      "shell_command": "docker run --rm valkey/valkey:alpine",
+      "id": 14,
+      "start": 112,
+      "end": 120
+    }
+  ],
+  "sources": {
+    "1": {
+      "title": "Valkey homepage and featured stable release lines",
+      "url": "https://valkey.io/"
+    },
+    "2": {
+      "title": "Valkey engine releases, including 9.2.0-rc1 marked pre-release",
+      "url": "https://github.com/valkey-io/valkey/releases"
+    },
+    "3": {
+      "title": "Valkey participant roster and logo artwork",
+      "url": "https://valkey.io/participants/"
+    },
+    "4": {
+      "title": "GLIDE clients and ecosystem integrations",
+      "url": "https://github.com/valkey-io/valkey-glide"
+    },
+    "5": {
+      "title": "Spring Data Valkey and Spring Boot starter",
+      "url": "https://github.com/valkey-io/spring-data-valkey"
+    },
+    "6": {
+      "title": "Valkey JSON module",
+      "url": "https://valkey.io/topics/valkey-json/"
+    },
+    "7": {
+      "title": "Valkey Search 1.2 full-text search announcement",
+      "url": "https://valkey.io/blog/valkey-search-1_2/"
+    },
+    "8": {
+      "title": "Valkey Search module",
+      "url": "https://github.com/valkey-io/valkey-search"
+    },
+    "9": {
+      "title": "Valkey Bloom filters",
+      "url": "https://valkey.io/topics/bloomfilters/"
+    },
+    "10": {
+      "title": "Valkey LDAP module",
+      "url": "https://github.com/valkey-io/valkey-ldap"
+    },
+    "11": {
+      "title": "AI workloads: semantic caching and KV-cache offload",
+      "url": "https://valkey.io/blog/modern-ai-workloads-mapping-to-valkey/"
+    },
+    "12": {
+      "title": "INCR counters and rate-limiter patterns",
+      "url": "https://valkey.io/commands/incr/"
+    },
+    "13": {
+      "title": "Distributed locking and failure assumptions",
+      "url": "https://valkey.io/topics/distlock/"
+    },
+    "14": {
+      "title": "Streams: append-only-log model, time-series examples, consumer groups",
+      "url": "https://valkey.io/topics/streams-intro/"
+    },
+    "15": {
+      "title": "Pub/Sub and at-most-once delivery",
+      "url": "https://valkey.io/topics/pubsub/"
+    },
+    "16": {
+      "title": "Persistence, including append-only file (AOF)",
+      "url": "https://valkey.io/topics/persistence/"
+    },
+    "17": {
+      "title": "Core structures, including sorted sets",
+      "url": "https://valkey.io/"
+    },
+    "18": {
+      "title": "Valkey GitHub organization",
+      "url": "https://github.com/valkey-io"
+    },
+    "19": {
+      "title": "Official brand guide",
+      "url": "https://github.com/valkey-io/assets/blob/main/Valkey%20Branding/valkey_brand_guidelines.pdf"
+    },
+    "20": {
+      "title": "Client library catalog",
+      "url": "https://valkey.io/clients/"
+    },
+    "21": {
+      "title": "SET syntax, examples, and EX expiry option",
+      "url": "https://valkey.io/commands/set/"
+    },
+    "22": {
+      "title": "Valkey introduction: in-memory working dataset and optional disk persistence",
+      "url": "https://valkey.io/topics/introduction/"
+    },
+    "23": {
+      "title": "Cache-aside architecture: application-owned miss, population and invalidation",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside"
+    },
+    "24": {
+      "title": "Docker Hub metadata: active alpine tag for valkey/valkey",
+      "url": "https://hub.docker.com/v2/repositories/valkey/valkey/tags/alpine"
+    },
+    "25": {
+      "title": "Requested Docker repository lookup returned 404",
+      "url": "https://hub.docker.com/v2/repositories/valkey/valkey-alpine/"
+    },
+    "26": {
+      "title": "Client-side caching: local-memory access versus network request latency",
+      "url": "https://valkey.io/topics/client-side-caching/"
+    }
+  },
+  "revision": "expanded-five-scenes",
+  "docker_command_correction": {
+    "requested": "docker run --rm valkey/valkey-alpine",
+    "used": "docker run --rm valkey/valkey:alpine",
+    "reason": "Requested repository lookup returned HTTP 404; official alpine tag metadata returned HTTP 200 and active. No container was run."
+  }
+}

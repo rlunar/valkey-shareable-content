@@ -49,7 +49,7 @@ LOGO_ASPECT = {"horizontal": 187.9 / 63.5, "stacked": 778.6 / 669.9,
 # viewBox was measured by rasterising the glyph and taking its bounding box.
 MARK_VIEWBOX = "248.0 0 282.6 326.0"
 MARK_FILES = ("valkey-mark-color", "valkey-mark-white")
-ICONS = os.path.join(HERE, "icons")
+ICONS = os.path.join(HERE, os.pardir, "valkey-brand", "icons")
 PNGS = os.path.join(ICONS, "png")
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 

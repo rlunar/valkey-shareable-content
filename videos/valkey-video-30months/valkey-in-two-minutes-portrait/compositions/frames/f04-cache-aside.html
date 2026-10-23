@@ -1,0 +1,232 @@
+<template>
+  <style>
+    @font-face { font-family: "Open Sans"; src: url("assets/fonts/OpenSans-Variable.woff2") format("woff2"); font-weight: 300 800; font-style: normal; }
+    @font-face { font-family: "Cascadia Code"; src: url("assets/fonts/CascadiaCode-Variable.woff2") format("woff2"); font-weight: 200 700; font-style: normal; }
+
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: "Open Sans", sans-serif; color: #1A2026; }
+    .clip { position: absolute; inset: 0; }
+
+    .f04-ground { background: linear-gradient(135deg, #FFFFFF 0%, #F7FBFE 62%, #F1EFFD 100%); }
+
+    .f04-title { position: absolute; left: 72px; top: 170px; margin: 0; font-size: 40px; line-height: 48px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: #30176E; opacity: 0; }
+
+    /* flow layer — sits under the cards so every arrow tip tucks against a card edge */
+    .f04-flows { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    .f04-flow { opacity: 0; }
+    .f04-line { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .f04-arrow { stroke: none; opacity: 0; }
+
+    /* node_card (300 × 150, the rotated triangle: APPLICATION top-left · VALKEY right-middle · DATABASE bottom-left) */
+    .f04-card { position: absolute; box-sizing: border-box; width: 300px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px 6px; background: #FFFDFA; border: 3px solid #BCB5E7; box-shadow: rgba(48, 23, 110, 0.08) 0px 12px 36px 0px; text-align: center; opacity: 0; }
+    .f04-eyebrow { display: flex; align-items: center; justify-content: center; gap: 10px; font-family: "Cascadia Code", monospace; font-size: 18px; line-height: 22px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #30176E; white-space: nowrap; }
+    .f04-label { margin-top: 8px; font-size: 30px; line-height: 36px; font-weight: 700; color: #1A2026; white-space: nowrap; }
+    .f04-mark { position: absolute; top: 12px; right: 12px; width: 40px; height: 40px; object-fit: contain; }
+    .f04-glyph { width: 26px; height: 26px; object-fit: contain; }
+    .f04-tag { position: absolute; left: 12px; top: 12px; padding: 4px 12px; border: 2px solid #D3DDE7; border-radius: 999px; background: #FFFDFA; font-family: "Cascadia Code", monospace; font-size: 20px; line-height: 24px; font-weight: 700; color: #30176E; opacity: 0; }
+
+    /* pill — the wrapper is a zero-size flex box, so the pill centres on a point with no CSS transform */
+    .f04-pillwrap { position: absolute; width: 0; height: 0; display: flex; align-items: center; justify-content: center; opacity: 0; }
+    .f04-pill { flex: none; box-sizing: border-box; padding: 8px 18px; border: 2px solid #6983FF; border-radius: 999px; background: #FFFDFA; font-family: "Cascadia Code", monospace; font-size: 22px; line-height: 22px; font-weight: 700; color: #30176E; white-space: nowrap; }
+
+    /* step_bar — full content width, tall enough for a two-line detail */
+    .f04-bar { position: absolute; left: 72px; top: 1340px; width: 936px; height: 88px; box-sizing: border-box; border-left: 8px solid #6983FF; background: #30176E; opacity: 0; }
+    .f04-step { position: absolute; inset: 0; display: flex; align-items: center; gap: 28px; padding: 0 28px; opacity: 0; }
+    .f04-step strong { flex: none; min-width: 200px; font-family: "Cascadia Code", monospace; font-size: 28px; line-height: 32px; font-weight: 700; letter-spacing: 0.04em; color: #E0A2AF; white-space: nowrap; }
+    .f04-step span { font-size: 28px; line-height: 32px; font-weight: 400; color: #F7FBFE; }
+
+    .f04-footnote { position: absolute; left: 72px; top: 1490px; margin: 0; font-size: 26px; line-height: 30px; font-weight: 400; color: #596672; opacity: 0; }
+  </style>
+
+  <div data-hf-id="hf-2osp" id="root" data-composition-id="f04-cache-aside" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-fbko" id="f04-cache-aside-layer-1" class="clip f04-ground" data-start="0" data-duration="14.5" data-track-index="0"></div>
+
+    <div data-hf-id="hf-116p" id="f04-cache-aside-layer-2" class="clip f04-stage" data-start="0" data-duration="14.5" data-track-index="1">
+      <h2 data-hf-id="hf-113e" id="f04-title" class="f04-title">Cache-aside</h2>
+
+      <svg data-hf-id="hf-l9j8" class="f04-flows" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- 1 · CHECK  application (right edge) → Valkey (top edge) — periwinkle, fast path -->
+        <g data-hf-id="hf-g9h7" id="f04-flow-get" class="f04-flow">
+          <path data-hf-id="hf-w9vy" id="f04-line-get" class="f04-line" d="M 408 465 C 560 465, 740 580, 740 740" stroke="#6983FF" stroke-width="5" />
+          <path data-hf-id="hf-y1o1" id="f04-arrow-get" class="f04-arrow" d="M -20 -10 L 0 0 L -20 10 Z" fill="#6983FF" />
+        </g>
+        <!-- 2 · MISS  Valkey (left edge) → application (bottom edge) — hairline grey: not periwinkle, not maroon -->
+        <g data-hf-id="hf-h9q1" id="f04-flow-miss" class="f04-flow">
+          <path data-hf-id="hf-610q" id="f04-line-miss" class="f04-line" d="M 660 850 C 480 850, 310 790, 310 530" stroke="#D3DDE7" stroke-width="5" />
+          <path data-hf-id="hf-l6h4" id="f04-arrow-miss" class="f04-arrow" d="M -20 -10 L 0 0 L -20 10 Z" fill="#D3DDE7" />
+        </g>
+        <!-- 3 · LOAD  application (bottom edge) → database (top edge), straight down the left edge — expensive maroon, the one costly step; it leaves the APPLICATION card -->
+        <g data-hf-id="hf-giol" id="f04-flow-load" class="f04-flow">
+          <path data-hf-id="hf-29ri" id="f04-line-load" class="f04-line" d="M 220 530 C 160 660, 220 900, 220 1040" stroke="#642637" stroke-width="5" />
+          <path data-hf-id="hf-c2sj" id="f04-arrow-load" class="f04-arrow" d="M -20 -10 L 0 0 L -20 10 Z" fill="#642637" />
+        </g>
+        <!-- 4 · FILL  application (right edge) → Valkey (top edge) — periwinkle, the outer arc -->
+        <g data-hf-id="hf-qjhe" id="f04-flow-fill" class="f04-flow">
+          <path data-hf-id="hf-6l4j" id="f04-line-fill" class="f04-line" d="M 408 420 C 600 420, 840 530, 840 740" stroke="#6983FF" stroke-width="5" />
+          <path data-hf-id="hf-98gs" id="f04-arrow-fill" class="f04-arrow" d="M -20 -10 L 0 0 L -20 10 Z" fill="#6983FF" />
+        </g>
+        <!-- 5 · HIT  Valkey (left edge) → application (bottom edge) — periwinkle, the inner return -->
+        <g data-hf-id="hf-i06o" id="f04-flow-hit" class="f04-flow">
+          <path data-hf-id="hf-9kly" id="f04-line-hit" class="f04-line" d="M 660 790 C 540 790, 380 740, 380 530" stroke="#6983FF" stroke-width="5" />
+          <path data-hf-id="hf-1bfm" id="f04-arrow-hit" class="f04-arrow" d="M -20 -10 L 0 0 L -20 10 Z" fill="#6983FF" />
+        </g>
+      </svg>
+
+      <!-- node_cards (300 × 150) -->
+      <div data-hf-id="hf-dqo4" id="f04-card-app" class="f04-card" style="left: 108px; top: 380px;">
+        <div data-hf-id="hf-wmni" class="f04-eyebrow">Application</div>
+        <div data-hf-id="hf-tqhs" class="f04-label">Cache-aside logic</div>
+      </div>
+
+      <div data-hf-id="hf-sfoc" id="f04-card-valkey" class="f04-card" style="left: 660px; top: 740px;">
+        <img data-hf-id="hf-0ez3" class="f04-mark" src="assets/brand/valkey-icon-periwinkle.svg" alt="" width="40" height="40">
+        <div data-hf-id="hf-dh7b" id="f04-tag-ex" class="f04-tag">EX 60</div>
+        <div data-hf-id="hf-rmra" class="f04-eyebrow">Valkey</div>
+        <div data-hf-id="hf-8nb4" class="f04-label">Fast path</div>
+      </div>
+
+      <div data-hf-id="hf-idkt" id="f04-card-db" class="f04-card" style="left: 108px; top: 1040px;">
+        <div data-hf-id="hf-6dn1" class="f04-eyebrow"><img data-hf-id="hf-rfj1" class="f04-glyph" src="assets/icons/durability.svg" alt="" width="26" height="26">Database</div>
+        <div data-hf-id="hf-wxk2" class="f04-label">Source of truth</div>
+      </div>
+
+      <!-- pills, each centred on a point of its own flow -->
+      <div data-hf-id="hf-kfj5" id="f04-pillwrap-get" class="f04-pillwrap" style="left: 582px; top: 511px;"><div data-hf-id="hf-vrn4" id="f04-pill-get" class="f04-pill">GET key</div></div>
+      <div data-hf-id="hf-jcft" id="f04-pillwrap-miss" class="f04-pillwrap" style="left: 333px; top: 674px;"><div data-hf-id="hf-7nzf" id="f04-pill-miss" class="f04-pill">MISS</div></div>
+      <div data-hf-id="hf-jhf3" id="f04-pillwrap-load" class="f04-pillwrap" style="left: 198px; top: 781px;"><div data-hf-id="hf-9ir4" id="f04-pill-load" class="f04-pill">read once</div></div>
+      <div data-hf-id="hf-0txb" id="f04-pillwrap-fill" class="f04-pillwrap" style="left: 752px; top: 544px;"><div data-hf-id="hf-lub4" id="f04-pill-fill" class="f04-pill">SET + EX 60</div></div>
+      <div data-hf-id="hf-vehs" id="f04-pillwrap-hit" class="f04-pillwrap" style="left: 547px; top: 774px;"><div data-hf-id="hf-gtjc" id="f04-pill-hit" class="f04-pill">HIT · return</div></div>
+
+      <!-- step_bar: six stacked rows, one visible at a time -->
+      <div data-hf-id="hf-wr6q" id="f04-bar" class="f04-bar">
+        <div data-hf-id="hf-dl2o" id="f04-step-0" class="f04-step" data-layout-allow-overlap="" style="opacity: 1;"><strong data-hf-id="hf-aq41">READY</strong><span data-hf-id="hf-sjue">The application owns the cache decision.</span></div>
+        <div data-hf-id="hf-hqjk" id="f04-step-1" class="f04-step" data-layout-allow-overlap=""><strong data-hf-id="hf-4qfg">1 · CHECK</strong><span data-hf-id="hf-bugk">Ask Valkey before asking the database.</span></div>
+        <div data-hf-id="hf-qeff" id="f04-step-2" class="f04-step" data-layout-allow-overlap=""><strong data-hf-id="hf-y4gj">2 · MISS</strong><span data-hf-id="hf-8t5c">The key is absent.</span></div>
+        <div data-hf-id="hf-mgbe" id="f04-step-3" class="f04-step" data-layout-allow-overlap=""><strong data-hf-id="hf-u692">3 · LOAD</strong><span data-hf-id="hf-tczr">Read the source value once.</span></div>
+        <div data-hf-id="hf-3olp" id="f04-step-4" class="f04-step" data-layout-allow-overlap=""><strong data-hf-id="hf-p670">4 · FILL</strong><span data-hf-id="hf-5syf">Store with an expiry, then return.</span></div>
+        <div data-hf-id="hf-2wxw" id="f04-step-5" class="f04-step" data-layout-allow-overlap=""><strong data-hf-id="hf-a7x1">5 · HIT</strong><span data-hf-id="hf-dw0j">The database is never touched.</span></div>
+      </div>
+
+      <p data-hf-id="hf-ra5p" id="f04-footnote" class="f04-footnote">Write path: update database, then invalidate cache</p>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      const $ = (id) => document.getElementById(id);
+      const ENTER = { duration: 0.55, ease: "power3.out" };
+      const SWAP = { duration: 0.3, ease: "power2.inOut" };
+
+      // ---- svg-path-draw setup: measure each flow once, park it fully undrawn, aim its arrowhead along the end tangent
+      const LEN = {};
+      ["get", "miss", "load", "fill", "hit"].forEach((k) => {
+        const line = $("f04-line-" + k);
+        const arrow = $("f04-arrow-" + k);
+        const n = (line.getAttribute("d").match(/-?\d*\.?\d+/g) || []).map(Number); // x0 y0 x1 y1 x2 y2 x3 y3
+        let len = 0;
+        try { len = line.getTotalLength(); } catch (e) { len = 0; }
+        if (!(len > 0)) {
+          // control-polygon length is an upper bound on the curve length (too large only finishes the draw a hair early)
+          for (let i = 2; i < n.length; i += 2) len += Math.hypot(n[i] - n[i - 2], n[i + 1] - n[i - 1]);
+        }
+        len = Math.ceil(len * 1.02);
+        LEN[k] = len;
+        line.style.strokeDasharray = String(len);
+        line.style.strokeDashoffset = String(len);
+        // end tangent of a cubic = direction from the last control point to the end point
+        const ang = (Math.atan2(n[7] - n[5], n[6] - n[4]) * 180) / Math.PI;
+        arrow.setAttribute("transform", "translate(" + n[6] + " " + n[7] + ") rotate(" + ang.toFixed(2) + ")");
+      });
+
+      // ---- component state helpers (frame.md node_card / flow / pill / step_bar)
+      const cardCurrent = (id, t) => tl.to($(id), { borderColor: "#6983FF", backgroundColor: "#F1EFFD", y: -6, boxShadow: "rgba(105, 131, 255, 0.22) 0px 16px 44px 0px", ...SWAP }, t);
+      const cardRest = (id, t) => tl.to($(id), { borderColor: "#BCB5E7", backgroundColor: "#FFFDFA", y: 0, boxShadow: "rgba(48, 23, 110, 0.08) 0px 12px 36px 0px", ...SWAP }, t);
+
+      // draw a flow as the current one: 7px at full opacity, pen-traced via stroke-dashoffset; the arrowhead lands with the stroke
+      const flowDraw = (k, t) => {
+        tl.set($("f04-line-" + k), { attr: { "stroke-width": 7 } }, t);
+        tl.fromTo($("f04-flow-" + k), { opacity: 0 }, { opacity: 1, duration: 0.1, ease: "power1.out" }, t);
+        tl.fromTo($("f04-line-" + k), { strokeDashoffset: LEN[k] }, { strokeDashoffset: 0, duration: 0.6, ease: "power2.out" }, t);
+        tl.fromTo($("f04-arrow-" + k), { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "power1.out" }, t + 0.42);
+      };
+      // a drawn flow returns to 5px; coloured flows rest at 0.32 (the hairline MISS keeps its tone — hairline is already the quiet colour)
+      const flowRest = (k, t, restOpacity) => {
+        tl.to($("f04-line-" + k), { attr: { "stroke-width": 5 }, ...SWAP }, t);
+        if (restOpacity !== undefined) tl.to($("f04-flow-" + k), { opacity: restOpacity, ...SWAP }, t);
+      };
+      const pillIn = (k, t) => tl.fromTo($("f04-pillwrap-" + k), { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power2.out" }, t);
+      const pillRest = (k, t) => {
+        tl.to($("f04-pill-" + k), { borderColor: "#D3DDE7", color: "#596672", ...SWAP }, t);
+        tl.to($("f04-pillwrap-" + k), { opacity: 0.7, ...SWAP }, t);
+      };
+      // step_bar copy swap: the outgoing row lifts away, the incoming row rises in
+      const stepSwap = (from, to, t) => {
+        tl.to($("f04-step-" + from), { opacity: 0, y: -6, ...SWAP }, t);
+        tl.fromTo($("f04-step-" + to), { opacity: 0, y: 8 }, { opacity: 1, y: 0, ...SWAP }, t);
+      };
+
+      // ---- Scene 1 (0.0–3.6): title, the three cards (0.15s stagger), the step bar reading READY. No flows yet.
+      tl.fromTo($("f04-title"), { y: 32, opacity: 0 }, { y: 0, opacity: 1, ...ENTER }, 0.1);
+      tl.fromTo($("f04-card-app"), { y: 32, opacity: 0 }, { y: 0, opacity: 1, ...ENTER }, 0.4);
+      tl.fromTo($("f04-card-valkey"), { y: 32, opacity: 0 }, { y: 0, opacity: 1, ...ENTER }, 0.55);
+      tl.fromTo($("f04-card-db"), { y: 32, opacity: 0 }, { y: 0, opacity: 1, ...ENTER }, 0.7);
+      tl.fromTo($("f04-bar"), { y: 32, opacity: 0 }, { y: 0, opacity: 1, ...ENTER }, 1.2);
+
+      // ---- Scene 2 (3.6–5.6): 1 · CHECK — "checks" @3.8
+      stepSwap(0, 1, 3.6);
+      cardCurrent("f04-card-app", 3.6);
+      flowDraw("get", 3.7);
+      pillIn("get", 4.0);
+
+      // ---- Scene 3 (5.6–6.6): 2 · MISS — "miss" @5.8 (the return flow in hairline grey)
+      stepSwap(1, 2, 5.6);
+      cardRest("f04-card-app", 5.6);
+      cardCurrent("f04-card-valkey", 5.6);
+      flowRest("get", 5.6, 0.32);
+      pillRest("get", 5.6);
+      flowDraw("miss", 5.7);
+      pillIn("miss", 6.0);
+
+      // ---- Scene 4 (6.6–8.0): 3 · LOAD — "reads" @6.5, "database" @7.0 (maroon, application → database)
+      stepSwap(2, 3, 6.5);
+      cardRest("f04-card-valkey", 6.5);
+      cardCurrent("f04-card-db", 6.5);
+      flowRest("miss", 6.5);
+      pillRest("miss", 6.5);
+      flowDraw("load", 6.55);
+      pillIn("load", 6.85);
+
+      // ---- Scene 5 (8.0–10.2): 4 · FILL — "caches" @7.7, "expiry" @9.1
+      stepSwap(3, 4, 7.85);
+      cardRest("f04-card-db", 7.85);
+      cardCurrent("f04-card-valkey", 7.85);
+      flowRest("load", 7.85, 0.32); // the maroon flow stays at 0.32 for the rest of the shot
+      pillRest("load", 7.85);
+      flowDraw("fill", 7.9);
+      pillIn("fill", 8.2);
+      tl.fromTo($("f04-tag-ex"), { y: 6, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power2.out" }, 9.1);
+
+      // ---- Scene 6 (10.2–12.8): 5 · HIT — "next" @10.4: the GET flow pulses once (a second request) … "hit" @10.8: Valkey answers
+      stepSwap(4, 5, 10.3);
+      flowRest("fill", 10.3, 0.32);
+      pillRest("fill", 10.3);
+      cardRest("f04-card-valkey", 10.3);
+      cardCurrent("f04-card-app", 10.3);
+      tl.to($("f04-flow-get"), { opacity: 1, duration: 0.25, ease: "power2.out" }, 10.3);
+      tl.to($("f04-line-get"), { attr: { "stroke-width": 7 }, duration: 0.25, ease: "power2.out" }, 10.3);
+      flowDraw("hit", 10.75);
+      cardRest("f04-card-app", 10.85);
+      cardCurrent("f04-card-valkey", 10.85);
+      tl.to($("f04-flow-get"), { opacity: 0.32, duration: 0.35, ease: "power2.inOut" }, 10.9);
+      tl.to($("f04-line-get"), { attr: { "stroke-width": 5 }, duration: 0.35, ease: "power2.inOut" }, 10.9);
+      pillIn("hit", 11.05);
+
+      // ---- Scene 7 (12.8–14.5): footnote, then hold
+      tl.fromTo($("f04-footnote"), { y: 8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power1.out" }, 12.8);
+
+      window.__timelines["f04-cache-aside"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,112 @@
+<template>
+  <style>
+    @font-face { font-family: "Open Sans"; src: url("assets/fonts/OpenSans-Variable.woff2") format("woff2"); font-weight: 300 800; font-style: normal; }
+    @font-face { font-family: "Cascadia Code"; src: url("assets/fonts/CascadiaCode-Variable.woff2") format("woff2"); font-weight: 200 700; font-style: normal; }
+
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: "Open Sans", sans-serif; color: #1A2026; }
+    .clip { position: absolute; inset: 0; }
+
+    /* ground: the film's one gradient, full-bleed on the lowest track */
+    .f10-usecases-ordered-membership-ground { background: linear-gradient(135deg, #FFFFFF 0%, #F7FBFE 62%, #F1EFFD 100%); }
+
+    /* frame_title: 40px / 800 / deep_purple / 0.04em / uppercase; title slot top-left at x 72, baseline y 200 */
+    .f10-usecases-ordered-membership-title { position: absolute; left: 72px; top: 160px; margin: 0; font-size: 40px; line-height: 48px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: #30176E; white-space: nowrap; }
+
+    /* portrait panel grid (identical cell positions to Frame 8): 2 x 3 cells of 440 x 360;
+       cell centres at x 310 / 770 and y 520 / 920 / 1320, 40px gaps, nothing drawn behind a cell */
+    .f10-usecases-ordered-membership-cell { position: absolute; width: 440px; height: 360px; opacity: 0; }
+    .f10-usecases-ordered-membership-col1 { left: 90px; }
+    .f10-usecases-ordered-membership-col2 { left: 550px; }
+    .f10-usecases-ordered-membership-row1 { top: 340px; }
+    .f10-usecases-ordered-membership-row2 { top: 740px; }
+    .f10-usecases-ordered-membership-row3 { top: 1140px; }
+
+    /* panel_cell: one 120px outline glyph centred above a 36px / 700 deep_purple label; no border, fill, or stripe */
+    .f10-usecases-ordered-membership-glyph { position: absolute; left: 160px; top: 56px; width: 120px; height: 120px; display: block; object-fit: contain; }
+    .f10-usecases-ordered-membership-labelgroup { position: absolute; left: 0; top: 200px; width: 440px; text-align: center; }
+    .f10-usecases-ordered-membership-label { margin: 0; font-size: 36px; line-height: 42px; font-weight: 700; color: #30176E; }
+    .f10-usecases-ordered-membership-sub { margin: 6px 0 0; font-size: 24px; line-height: 28px; font-weight: 400; color: #596672; }
+
+    /* layer marker in the sixth cell (row 3, column 2): caption_size secondary, sitting on the row-3 label line */
+    .f10-usecases-ordered-membership-marker { position: absolute; left: 550px; top: 1346px; width: 440px; margin: 0; text-align: center; font-size: 26px; line-height: 30px; font-weight: 400; color: #596672; opacity: 0; }
+  </style>
+
+  <div data-hf-id="hf-8bv4" id="root" data-composition-id="f10-usecases-ordered-membership" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-fdyi" id="f10-usecases-ordered-membership-ground" class="clip f10-usecases-ordered-membership-ground" data-start="0" data-duration="6" data-track-index="0"></div>
+    <div data-hf-id="hf-4h3j" id="f10-usecases-ordered-membership-stage" class="clip" data-start="0" data-duration="6" data-track-index="1">
+      <h2 data-hf-id="hf-50ct" id="f10-usecases-ordered-membership-title" class="f10-usecases-ordered-membership-title">Ordered data + membership</h2>
+
+      <!-- row 1 -->
+      <div data-hf-id="hf-am1q" id="f10-usecases-ordered-membership-c1" class="f10-usecases-ordered-membership-cell f10-usecases-ordered-membership-col1 f10-usecases-ordered-membership-row1">
+        <img data-hf-id="hf-adrt" class="f10-usecases-ordered-membership-glyph" src="assets/icons/vertical-scaling.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-6dnz" class="f10-usecases-ordered-membership-labelgroup">
+          <p data-hf-id="hf-64k4" id="f10-usecases-ordered-membership-l1" class="f10-usecases-ordered-membership-label">Rank / leaderboard</p>
+        </div>
+      </div>
+      <div data-hf-id="hf-n5tw" id="f10-usecases-ordered-membership-c2" class="f10-usecases-ordered-membership-cell f10-usecases-ordered-membership-col2 f10-usecases-ordered-membership-row1">
+        <img data-hf-id="hf-4ora" class="f10-usecases-ordered-membership-glyph" src="assets/icons/observability.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-vnin" class="f10-usecases-ordered-membership-labelgroup">
+          <p data-hf-id="hf-lm0o" id="f10-usecases-ordered-membership-l2" class="f10-usecases-ordered-membership-label">Time-series</p>
+        </div>
+      </div>
+
+      <!-- row 2 -->
+      <div data-hf-id="hf-bf9f" id="f10-usecases-ordered-membership-c3" class="f10-usecases-ordered-membership-cell f10-usecases-ordered-membership-col1 f10-usecases-ordered-membership-row2">
+        <img data-hf-id="hf-7mj8" class="f10-usecases-ordered-membership-glyph" src="assets/icons/data-list.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-v97m" class="f10-usecases-ordered-membership-labelgroup">
+          <p data-hf-id="hf-iwkx" id="f10-usecases-ordered-membership-l3" class="f10-usecases-ordered-membership-label">Append-only log ·<br data-hf-id="hf-x5px">Streams</p>
+        </div>
+      </div>
+      <div data-hf-id="hf-ewyl" id="f10-usecases-ordered-membership-c4" class="f10-usecases-ordered-membership-cell f10-usecases-ordered-membership-col2 f10-usecases-ordered-membership-row2">
+        <img data-hf-id="hf-byt2" class="f10-usecases-ordered-membership-glyph" src="assets/icons/durability.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-uuwl" class="f10-usecases-ordered-membership-labelgroup">
+          <p data-hf-id="hf-gjvg" id="f10-usecases-ordered-membership-l4" class="f10-usecases-ordered-membership-label">Probabilistic<br data-hf-id="hf-rsrt">membership</p>
+          <p data-hf-id="hf-mvp7" id="f10-usecases-ordered-membership-sub4" class="f10-usecases-ordered-membership-sub">Fraud prechecks · Bloom module</p>
+        </div>
+      </div>
+
+      <!-- row 3: the fifth cell stays empty; the layer marker sits in the sixth -->
+      <p data-hf-id="hf-wpew" id="f10-usecases-ordered-membership-marker" class="f10-usecases-ordered-membership-marker">Core + Bloom module</p>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const tl = gsap.timeline({ paused: true });
+      const PERI = "#6983FF";
+      const DEEP = "#30176E";
+      const SECONDARY = "#596672";
+      const id = (s) => "#f10-usecases-ordered-membership-" + s;
+
+      // Scene 1 (0.0-0.5s): title lands with the frame.md entrance token.
+      tl.fromTo(id("title"), { y: 32, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, 0);
+
+      // waterfall-entry (adapted to land by 0.3s): binary opacity via set, then one whip from below.
+      // Anchor cells travel further and longer, the gaps shrink across the cascade, the last cell snaps.
+      const arrive = (sel, t, offset, dur) => {
+        tl.set(sel, { opacity: 1 }, t);
+        tl.fromTo(sel, { y: offset }, { y: 0, duration: dur, ease: "power4.out" }, t);
+      };
+      arrive(id("c1"), 0.02, 72, 0.18); // settles 0.20
+      arrive(id("c2"), 0.07, 60, 0.16); // settles 0.23
+      arrive(id("c3"), 0.11, 48, 0.15); // settles 0.26
+      arrive(id("c4"), 0.14, 30, 0.13); // settles 0.27
+
+      // The layer marker fades in at 0.5s.
+      tl.fromTo(id("marker"), { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.5);
+
+      // Scene 2 (0.5-6.0s): hold. Each named label tints periwinkle for 0.6s on its voice cue, then rests again.
+      const tint = (sel, at, rest) => {
+        tl.fromTo(sel, { color: rest }, { color: PERI, duration: 0.12, ease: "power2.out", immediateRender: false }, at);
+        tl.fromTo(sel, { color: PERI }, { color: rest, duration: 0.18, ease: "power2.inOut", immediateRender: false }, at + 0.42);
+      };
+      tint(id("l1"), 0.7, DEEP);        // "rankings"
+      tint(id("l3"), 1.4, DEEP);        // "histories"
+      tint(id("l4"), 2.6, DEEP);        // "Bloom"
+      tint(id("sub4"), 4.6, SECONDARY); // "prechecks"
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["f10-usecases-ordered-membership"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,42 @@
+{
+  "animations/in-memory-explainer.html": {
+    "source": "in-memory-lab/in-memory-explainer.html",
+    "sha256": "2144fa9f2d81886ba6251bdf5cc616e5145406274a20479d53c1018305093bbb"
+  },
+  "animations/valkey-latency.html": {
+    "source": "valkey-latency-lab/valkey-latency.html",
+    "sha256": "a78c195afa7b457e641afd306636b2a885983b53a7065c61cebfe279e6480066"
+  },
+  "animations/valkey-speed.html": {
+    "source": "valkey-speed-lab/valkey-speed.html",
+    "sha256": "fe8fc402547128e12772ef378bfa1315c51592d45c07b2740383997cf7ceef53"
+  },
+  "animations/ValkeyConf_Animations.html": {
+    "source": "valkeyconf-animations/ValkeyConf_Animations.html",
+    "sha256": "a9b867282b2b1c3d100d506d7007ceda516928a9dab5861d534b20b98abd9157"
+  },
+  "animations/Valkey_Caching_Strategies.html": {
+    "source": "valkey-caching-strategies/Valkey_Caching_Strategies.html",
+    "sha256": "6836f6827909f79a6c9084c47f33fcf993186e2e33e507774513d2a5f773b7bc"
+  },
+  "animations/Valkey_Use_Cases.html": {
+    "source": "valkey-use-cases/Valkey_Use_Cases.html",
+    "sha256": "f839e0b92740f114ba0fb29afbf4f1ef3c878562aea94b6e361690ea88dc438c"
+  },
+  "archive/ValkeyConf_Animations_Original_12.html": {
+    "source": "valkey-latency-lab/ValkeyConf_Animations_Original_12.html",
+    "sha256": "8b1b2fc791a4234f395c3eacd9bc3d7059a6d1e9f027b4a4017eda4553d01989"
+  },
+  "downloads/LLM_KV_Tensor_Cache.svg": {
+    "source": "valkey-use-cases/LLM_KV_Tensor_Cache.svg",
+    "sha256": "dab9008e41530c012cb41559127cdfcaf0b70f83e1df16d25d786e44b1995651"
+  },
+  "downloads/Valkey-Caching-final-SVGs.zip": {
+    "source": "valkey-caching-strategies/Valkey-Caching-final-SVGs.zip",
+    "sha256": "bf127998ff55490c0d4ed749c8b5fb761e82058329574bb29da5846ecfdc4da3"
+  },
+  "downloads/ValkeyConf-final-SVGs.zip": {
+    "source": "valkeyconf-animations/ValkeyConf-final-SVGs.zip",
+    "sha256": "4d2b6313eecc6f63de307c6dda0760919f971d2bf969f05379e45af6810eeb0e"
+  }
+}

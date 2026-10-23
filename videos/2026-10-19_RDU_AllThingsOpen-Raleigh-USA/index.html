@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js" integrity="sha384-sG0Hv1tP1lZCk9KQmrIbY/XNwi+OY84GQqhMscbnsoBFqAz8KNCil1kvfL3Hbbk2" crossorigin="anonymous"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #000;
+      }
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        /* Opaque stage ground = FRAME.md hero-purple, NOT white. Every cut-the-curve seam
+           opens a ~12% partial-travel window where summed clip opacity is < 1; a white
+           stage would strobe white through four cuts on purple/periwinkle frames. */
+        background: #30186e;
+      }
+      .scene {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+      /* Shared feedback rail for frames 2–12. Kept in the assembled master so
+         sub-composition style scoping cannot drop or override it. */
+      #root .feedback-brand-rail {
+        position: absolute !important;
+        left: 5cqw !important;
+        right: 5cqw !important;
+        bottom: 1.6cqw !important;
+        top: auto !important;
+        width: auto !important;
+        height: 4.4cqw !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        z-index: 30 !important;
+        pointer-events: none;
+        font-family: "Open Sans";
+      }
+      #root .feedback-brand-rail::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -0.8cqw;
+        border-top: 1px solid rgba(255,255,255,.28);
+      }
+      #root .feedback-brand-rail img {
+        display: block !important;
+        width: 13.02cqw !important;
+        height: 4.4cqw !important;
+        object-fit: contain;
+        padding: 0;
+        border-radius: 0;
+        background: transparent;
+        filter: brightness(0) invert(1);
+      }
+      #root .feedback-brand-rail span {
+        display: block !important;
+        position: static !important;
+        width: auto !important;
+        font-size: 1.4cqw !important;
+        font-weight: 600 !important;
+        line-height: 1 !important;
+        letter-spacing: .2cqw !important;
+        color: #fff;
+        background: transparent;
+        padding: 0;
+        border-radius: 0;
+        white-space: nowrap;
+      }
+      #root .feedback-brand-rail.feedback-brand-rail--light::before {
+        border-top-color: rgba(0,42,58,.18);
+      }
+      #root .feedback-brand-rail.feedback-brand-rail--light img {
+        filter: none;
+      }
+      #root .feedback-brand-rail.feedback-brand-rail--light span {
+        color: #002a3a;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-kbh8" id="root" data-composition-id="main" data-start="0" data-duration="123.6" data-width="1920" data-height="1080">
+      <div data-hf-id="hf-mtvh" id="el-01-hook" class="scene" data-composition-id="01-hook" data-composition-src="compositions/frames/01-hook.html" data-start="0" data-duration="3.1" data-track-index="1"></div>
+
+      <div data-hf-id="hf-zixe" id="el-02-promise" class="scene" data-composition-id="02-promise" data-composition-src="compositions/frames/02-promise.html" data-start="3.1" data-duration="2.9" data-track-index="1"></div>
+
+      <div data-hf-id="hf-1eq3" id="el-03-capability" class="scene" data-composition-id="03-capability" data-composition-src="compositions/frames/03-capability.html" data-start="6" data-duration="5.3" data-track-index="1"></div>
+
+      <div data-hf-id="hf-jalo" id="el-04-proof" class="scene" data-composition-id="04-proof" data-composition-src="compositions/frames/04-proof.html" data-start="11.3" data-duration="3.1" data-track-index="1"></div>
+
+      <div data-hf-id="hf-npgi" id="el-05-participants" class="scene" data-composition-id="05-participants" data-composition-src="compositions/frames/05-participants.html" data-start="14.4" data-duration="3" data-track-index="1"></div>
+
+      <div data-hf-id="hf-u7ca" id="el-07-caching" class="scene" data-composition-id="07-caching" data-composition-src="compositions/frames/07-caching.html" data-start="17.4" data-duration="2.6" data-track-index="1"></div>
+
+      <div data-hf-id="hf-qrca" id="el-qr-after-caching" class="scene" data-composition-id="15-prague-schedule" data-composition-src="compositions/frames/15-prague-schedule.html" data-start="20" data-duration="10" data-track-index="1"></div>
+
+      <div data-hf-id="hf-u8se" id="el-08-sessions" class="scene" data-composition-id="08-sessions" data-composition-src="compositions/frames/08-sessions.html" data-start="30" data-duration="2.6" data-track-index="1"></div>
+
+      <div data-hf-id="hf-qrse" id="el-qr-after-sessions" class="scene" data-composition-id="15-prague-schedule" data-composition-src="compositions/frames/15-prague-schedule.html" data-start="32.6" data-duration="10" data-track-index="1"></div>
+
+      <div data-hf-id="hf-u9mq" id="el-09-message-queues" class="scene" data-composition-id="09-message-queues" data-composition-src="compositions/frames/09-message-queues.html" data-start="42.6" data-duration="2.6" data-track-index="1"></div>
+
+      <div data-hf-id="hf-qrqu" id="el-qr-after-queues" class="scene" data-composition-id="15-prague-schedule" data-composition-src="compositions/frames/15-prague-schedule.html" data-start="45.2" data-duration="10" data-track-index="1"></div>
+
+      <div data-hf-id="hf-u10l" id="el-10-leaderboards" class="scene" data-composition-id="10-leaderboards" data-composition-src="compositions/frames/10-leaderboards.html" data-start="55.2" data-duration="2.6" data-track-index="1"></div>
+
+      <div data-hf-id="hf-qrle" id="el-qr-after-leaderboards" class="scene" data-composition-id="15-prague-schedule" data-composition-src="compositions/frames/15-prague-schedule.html" data-start="57.8" data-duration="10" data-track-index="1"></div>
+
+      <div data-hf-id="hf-u11c" id="el-11-chatbots" class="scene" data-composition-id="11-chatbots" data-composition-src="compositions/frames/11-chatbots.html" data-start="67.8" data-duration="2.6" data-track-index="1"></div>
+
+      <div data-hf-id="hf-qrch" id="el-qr-after-chatbots" class="scene" data-composition-id="15-prague-schedule" data-composition-src="compositions/frames/15-prague-schedule.html" data-start="70.4" data-duration="10" data-track-index="1"></div>
+
+      <div data-hf-id="hf-u12i" id="el-12-iot" class="scene" data-composition-id="12-iot" data-composition-src="compositions/frames/12-iot.html" data-start="80.4" data-duration="2.6" data-track-index="1"></div>
+
+      <div data-hf-id="hf-qriot" id="el-qr-after-iot" class="scene" data-composition-id="15-prague-schedule" data-composition-src="compositions/frames/15-prague-schedule.html" data-start="83" data-duration="10" data-track-index="1"></div>
+
+      <div data-hf-id="hf-u13g" id="el-13-geospatial" class="scene" data-composition-id="13-geospatial" data-composition-src="compositions/frames/13-geospatial.html" data-start="93" data-duration="2.6" data-track-index="1"></div>
+
+      <div data-hf-id="hf-qrge" id="el-qr-after-geospatial" class="scene" data-composition-id="15-prague-schedule" data-composition-src="compositions/frames/15-prague-schedule.html" data-start="95.6" data-duration="10" data-track-index="1"></div>
+
+      <div data-hf-id="hf-5cik" id="el-06-call" class="scene" data-composition-id="06-call" data-composition-src="compositions/frames/06-call.html" data-start="105.6" data-duration="3" data-track-index="1"></div>
+
+      <div data-hf-id="hf-qrf1" id="el-14-qr-finale" class="scene" data-composition-id="15-prague-schedule" data-composition-src="compositions/frames/15-prague-schedule.html" data-start="108.6" data-duration="15" data-track-index="1"></div>
+
+      <!-- Persistent valkey.io lockup: every frame after the opening beat. -->
+      <div data-hf-id="hf-global-qr-overlay" id="el-global-qr-overlay" class="scene" data-composition-id="14-valkey-qr-overlay" data-composition-src="compositions/frames/14-qr-finale.html" data-start="3.1" data-duration="120.5" data-track-index="9" style="z-index:90;pointer-events:none"></div>
+
+      <!-- BGM: three overlapped source windows keep the 55s bed continuous. -->
+      <audio data-hf-id="hf-gdg2a" id="el-bgm-1" src=".media/audio/bgm/bgm_001.wav" data-start="0" data-duration="55" data-track-index="11" data-volume="0.9" data-automation='{"version":1,"lanes":[{"target":"volume","points":[{"t":0,"v":1},{"t":54,"v":1},{"t":55,"v":0}]}]}'></audio>
+      <audio data-hf-id="hf-gdg2b" id="el-bgm-2" src=".media/audio/bgm/bgm_001.wav" data-start="54" data-duration="55" data-track-index="12" data-volume="0.9" data-automation='{"version":1,"lanes":[{"target":"volume","points":[{"t":0,"v":0},{"t":1,"v":1},{"t":54,"v":1},{"t":55,"v":0}]}]}'></audio>
+      <audio data-hf-id="hf-gdg2c" id="el-bgm-3" src=".media/audio/bgm/bgm_001.wav" data-start="108" data-duration="15.6" data-track-index="13" data-volume="0.9" data-automation='{"version":1,"lanes":[{"target":"volume","points":[{"t":0,"v":0},{"t":1,"v":1},{"t":14.6,"v":1},{"t":15.6,"v":0}]}]}'></audio>
+
+      <!-- SFX -->
+      <audio data-hf-id="hf-v6uk" id="el-sfx-0" src="assets/sfx/impact-soft.mp3" data-start="0" data-duration="0.9" data-track-index="20" data-volume="0.3"></audio>
+      <audio data-hf-id="hf-iq0a" id="el-sfx-1" src="assets/sfx/impact-soft.mp3" data-start="3.1" data-duration="0.9" data-track-index="21" data-volume="0.3"></audio>
+      <audio data-hf-id="hf-d126" id="el-sfx-2" src="assets/sfx/tick.mp3" data-start="7.45" data-duration="0.3" data-track-index="22" data-volume="0.18"></audio>
+      <audio data-hf-id="hf-g0wo" id="el-sfx-3" src="assets/sfx/tick.mp3" data-start="8.53" data-duration="0.3" data-track-index="23" data-volume="0.16"></audio>
+      <audio data-hf-id="hf-buk7" id="el-sfx-4" src="assets/sfx/tick.mp3" data-start="9.61" data-duration="0.3" data-track-index="24" data-volume="0.18"></audio>
+      <audio data-hf-id="hf-dbu7" id="el-sfx-5" src="assets/sfx/keystroke-soft.mp3" data-start="12.3" data-duration="1" data-track-index="25" data-volume="0.18"></audio>
+      <audio data-hf-id="hf-4bxx" id="el-sfx-6" src="assets/sfx/riser.mp3" data-start="12.3" data-duration="1.6" data-track-index="26" data-volume="0.28"></audio>
+      <audio data-hf-id="hf-ecqh" id="el-sfx-7" src="assets/sfx/impact-soft.mp3" data-start="14.4" data-duration="0.9" data-track-index="27" data-volume="0.32"></audio>
+      <audio data-hf-id="hf-use1" id="el-sfx-9" src="assets/sfx/impact-soft.mp3" data-start="17.4" data-duration="0.9" data-track-index="29" data-volume="0.24"></audio>
+      <audio data-hf-id="hf-use2" id="el-sfx-10" src="assets/sfx/tick.mp3" data-start="30" data-duration="0.3" data-track-index="30" data-volume="0.18"></audio>
+      <audio data-hf-id="hf-use3" id="el-sfx-11" src="assets/sfx/tick.mp3" data-start="42.6" data-duration="0.3" data-track-index="31" data-volume="0.18"></audio>
+      <audio data-hf-id="hf-use4" id="el-sfx-12" src="assets/sfx/tick.mp3" data-start="55.2" data-duration="0.3" data-track-index="32" data-volume="0.18"></audio>
+      <audio data-hf-id="hf-use5" id="el-sfx-13" src="assets/sfx/tick.mp3" data-start="67.8" data-duration="0.3" data-track-index="33" data-volume="0.18"></audio>
+      <audio data-hf-id="hf-use6" id="el-sfx-14" src="assets/sfx/tick.mp3" data-start="80.4" data-duration="0.3" data-track-index="34" data-volume="0.18"></audio>
+      <audio data-hf-id="hf-use7" id="el-sfx-15" src="assets/sfx/impact-soft.mp3" data-start="93" data-duration="0.9" data-track-index="35" data-volume="0.24"></audio>
+      <audio data-hf-id="hf-w9lq" id="el-sfx-8" src="assets/sfx/impact-deep.mp3" data-start="105.6" data-duration="1.5" data-track-index="28" data-volume="0.42"></audio>
+
+      <!-- Feedback-specific use-case payoffs -->
+      <audio data-hf-id="hf-sfx-speed" id="el-sfx-speed" src=".media/audio/sfx/sfx_001.mp3" data-start="19.06" data-duration="0.9" data-track-index="40" data-volume="0.28"></audio>
+      <audio data-hf-id="hf-sfx-checkout" id="el-sfx-checkout" src=".media/audio/sfx/sfx_002.mp3" data-start="31.78" data-duration="1" data-track-index="41" data-volume="0.28"></audio>
+      <audio data-hf-id="hf-sfx-notification" id="el-sfx-notification" src=".media/audio/sfx/sfx_003.mp3" data-start="44.42" data-duration="0.7" data-track-index="42" data-volume="0.3"></audio>
+      <audio data-hf-id="hf-sfx-winner" id="el-sfx-winner" src=".media/audio/sfx/sfx_004.mp3" data-start="56.68" data-duration="0.9" data-track-index="43" data-volume="0.24"></audio>
+      <audio data-hf-id="hf-sfx-message" id="el-sfx-message" src=".media/audio/sfx/sfx_005.mp3" data-start="69.2" data-duration="0.2" data-track-index="44" data-volume="0.34"></audio>
+      <audio data-hf-id="hf-sfx-iot" id="el-sfx-iot" src=".media/audio/sfx/sfx_006.mp3" data-start="82.26" data-duration="0.1" data-track-index="45" data-volume="0.34"></audio>
+      <audio data-hf-id="hf-sfx-taxi" id="el-sfx-taxi" src=".media/audio/sfx/sfx_007.mp3" data-start="94.74" data-duration="1" data-track-index="46" data-volume="0.26"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines["main"] = tl;
+
+      // <seams:auto> — generated by seam-stamp.mjs from ledger.json; do not hand-edit.
+      // Regenerate: node <motion-doctrine>/scripts/seam-stamp.mjs --ledger ledger.json --write index.html
+      gsap.set("#el-01-hook", { autoAlpha: 1, xPercent: 0, yPercent: 0, scale: 1, filter: "blur(0px)", transformOrigin: "50% 50%" });
+      gsap.set(["#el-02-promise","#el-03-capability","#el-04-proof","#el-05-participants","#el-07-caching","#el-qr-after-caching","#el-08-sessions","#el-qr-after-sessions","#el-09-message-queues","#el-qr-after-queues","#el-10-leaderboards","#el-qr-after-leaderboards","#el-11-chatbots","#el-qr-after-chatbots","#el-12-iot","#el-qr-after-iot","#el-13-geospatial","#el-qr-after-geospatial","#el-14-qr-finale"], { autoAlpha: 0, xPercent: 0, yPercent: 0, scale: 1, filter: "blur(0px)", transformOrigin: "50% 50%" });
+      gsap.set("#el-06-call", { autoAlpha: 0, scale: 1.25, filter: "blur(18px)", xPercent: 0, yPercent: 0, transformOrigin: "50% 50%" });
+      
+      // SEAM — hook→promise : cut-the-curve LEFT (cut @3.1)
+      tl.to("#el-01-hook", { xPercent: -12, autoAlpha: 0, duration: 0.78, ease: "power3.in" }, 2.32);
+      tl.set("#el-01-hook", { autoAlpha: 0 }, 3.1);
+      tl.fromTo("#el-02-promise", { xPercent: 12, autoAlpha: 0.35 }, { xPercent: 0, autoAlpha: 1, duration: 0.84, ease: "power4.out", immediateRender: false }, 3.1);
+      
+      // SEAM — promise→capability : cut-the-curve LEFT (cut @6)
+      tl.to("#el-02-promise", { xPercent: -12, autoAlpha: 0, duration: 0.78, ease: "power3.in" }, 5.22);
+      tl.set("#el-02-promise", { autoAlpha: 0 }, 6);
+      tl.fromTo("#el-03-capability", { xPercent: 12, autoAlpha: 0.35 }, { xPercent: 0, autoAlpha: 1, duration: 0.84, ease: "power4.out", immediateRender: false }, 6);
+      
+      // SEAM — capability→proof : cut-the-curve LEFT (cut @11.3)
+      tl.to("#el-03-capability", { xPercent: -12, autoAlpha: 0, duration: 0.78, ease: "power3.in" }, 10.52);
+      tl.set("#el-03-capability", { autoAlpha: 0 }, 11.3);
+      tl.fromTo("#el-04-proof", { xPercent: 12, autoAlpha: 0.35 }, { xPercent: 0, autoAlpha: 1, duration: 0.84, ease: "power4.out", immediateRender: false }, 11.3);
+      
+      // SEAM — proof→participants : cut-the-curve UP (cut @14.4)
+      tl.to("#el-04-proof", { yPercent: -12, autoAlpha: 0, duration: 0.78, ease: "power3.in" }, 13.62);
+      tl.set("#el-04-proof", { autoAlpha: 0 }, 14.4);
+      tl.fromTo("#el-05-participants", { yPercent: 12, autoAlpha: 0.35 }, { yPercent: 0, autoAlpha: 1, duration: 0.84, ease: "power4.out", immediateRender: false }, 14.4);
+      
+      // SEAM — participants→caching : cut-the-curve LEFT (cut @17.4)
+      tl.to("#el-05-participants", { xPercent: -12, autoAlpha: 0, duration: 0.78, ease: "power3.in" }, 16.62);
+      tl.set("#el-05-participants", { autoAlpha: 0 }, 17.4);
+      tl.fromTo("#el-07-caching", { xPercent: 12, autoAlpha: 0.35 }, { xPercent: 0, autoAlpha: 1, duration: 0.84, ease: "power4.out", immediateRender: false }, 17.4);
+      
+      // SEAM — caching→qr : cut-the-curve LEFT (cut @20)
+      tl.to("#el-07-caching", { xPercent: -12, autoAlpha: 0, duration: 0.78, ease: "power3.in" }, 19.22);
+      tl.set("#el-07-caching", { autoAlpha: 0 }, 20);
+      tl.fromTo("#el-qr-after-caching", { xPercent: 12, autoAlpha: 0.35 }, { xPercent: 0, autoAlpha: 1, duration: 0.84, ease: "power4.out", immediateRender: false }, 20);
+      
+      // SEAM — qr→sessions : cut-the-curve LEFT (cut @30)
+      tl.to("#el-qr-after-caching", { xPercent: -12, autoAlpha: 0, duration: 0.78, ease: "power3.in" }, 29.22);
+      tl.set("#el-qr-after-caching", { autoAlpha: 0 }, 30);
+      tl.fromTo("#el-08-sessions", { xPercent: 12, autoAlpha: 0.35 }, { xPercent: 0, autoAlpha: 1, duration: 0.84, ease: "power4.out", immediateRender: false }, 30);
+      
+      // SEAM — sessions→qr : cut-the-curve LEFT (cut @32.6)
+      tl.to("#el-08-sessions", { xPercent: -12, autoAlpha: 0, duration: 0.78, ease: "power3.in" }, 31.82);
+      tl.set("#el-08-sessions", { autoAlpha: 0 }, 32.6);
+      tl.fromTo("#el-qr-after-sessions", { xPercent: 12, autoAlpha: 0.35 }, { xPercent: 0, autoAlpha: 1, duration: 0.84, ease: "power4.out", immediateRender: false }, 32.6);
+      
+      // SEAM — qr→queues : cut-the-curve LEFT (cut @42.6)
+      tl.to("#el-qr-after-sessions", { xPercent: -12, autoAlpha: 0, duration: 0.78, ease: "power3.in" }, 41.82);
+      tl.set("#el-qr-after-sessions", { autoAlpha: 0 }, 42.6);
+      tl.fromTo("#el-09-message-queues", { xPercent: 12, autoAlpha: 0.35 }, { xPercent: 0, autoAlpha: 1, duration: 0.84, ease: "power4.out", immediateRender: false }, 42.6);
+      
+      // SEAM — queues→qr : cut-the-curve LEFT (cut @45.2)
+      tl.to("#el-09-message-queues", { xPercent: -12, autoAlpha: 0, duration: 0.78, ease: "power3.in" }, 44.42);
+      tl.set("#el-09-message-queues", { autoAlpha: 0 }, 45.2);
+      tl.fromTo("#el-qr-after-queues", { xPercent: 12, autoAlpha: 0.35 }, { xPercent: 0, autoAlpha: 1, duration: 0.84, ease: "power4.out", immediateRender: false }, 45.2);
+      
+      // SEAM — qr→leaderboards : cut-the-curve LEFT (cut @55.2)
+      tl.to("#el-qr-after-queues", { xPercent: -12, autoAlpha: 0, duration: 0.78, ease: "power3.in" }, 54.42);
+      tl.set("#el-qr-after-queues", { autoAlpha: 0 }, 55.2);
+      tl.fromTo("#el-10-leaderboards", { xPercent: 12, autoAlpha: 0.35 }, { xPercent: 0, autoAlpha: 1, duration: 0.84, ease: "power4.out", immediateRender: false }, 55.2);
+      
+      // SEAM — leaderboards→qr : cut-the-curve LEFT (cut @57.8)
+      tl.to("#el-10-leaderboards", { xPercent: -12, autoAlpha: 0, duration: 0.78, ease: "power3.in" }, 57.02);
+      tl.set("#el-10-leaderboards", { autoAlpha: 0 }, 57.8);
+      tl.fromTo("#el-qr-after-leaderboards", { xPercent: 12, autoAlpha: 0.35 }, { xPercent: 0, autoAlpha: 1, duration: 0.84, ease: "power4.out", immediateRender: false }, 57.8);
+      
+      // SEAM — qr→chatbots : cut-the-curve LEFT (cut @67.8)
+      tl.to("#el-qr-after-leaderboards", { xPercent: -12, autoAlpha: 0, duration: 0.78, ease: "power3.in" }, 67.02);
+      tl.set("#el-qr-after-leaderboards", { autoAlpha: 0 }, 67.8);
+      tl.fromTo("#el-11-chatbots", { xPercent: 12, autoAlpha: 0.35 }, { xPercent: 0, autoAlpha: 1, duration: 0.84, ease: "power4.out", immediateRender: false }, 67.8);
+      
+      // SEAM — chatbots→qr : cut-the-curve LEFT (cut @70.4)
+      tl.to("#el-11-chatbots", { xPercent: -12, autoAlpha: 0, duration: 0.78, ease: "power3.in" }, 69.62);
+      tl.set("#el-11-chatbots", { autoAlpha: 0 }, 70.4);
+      tl.fromTo("#el-qr-after-chatbots", { xPercent: 12, autoAlpha: 0.35 }, { xPercent: 0, autoAlpha: 1, duration: 0.84, ease: "power4.out", immediateRender: false }, 70.4);
+      
+      // SEAM — qr→iot : cut-the-curve LEFT (cut @80.4)
+      tl.to("#el-qr-after-chatbots", { xPercent: -12, autoAlpha: 0, duration: 0.78, ease: "power3.in" }, 79.62);
+      tl.set("#el-qr-after-chatbots", { autoAlpha: 0 }, 80.4);
+      tl.fromTo("#el-12-iot", { xPercent: 12, autoAlpha: 0.35 }, { xPercent: 0, autoAlpha: 1, duration: 0.84, ease: "power4.out", immediateRender: false }, 80.4);
+      
+      // SEAM — iot→qr : cut-the-curve LEFT (cut @83)
+      tl.to("#el-12-iot", { xPercent: -12, autoAlpha: 0, duration: 0.78, ease: "power3.in" }, 82.22);
+      tl.set("#el-12-iot", { autoAlpha: 0 }, 83);
+      tl.fromTo("#el-qr-after-iot", { xPercent: 12, autoAlpha: 0.35 }, { xPercent: 0, autoAlpha: 1, duration: 0.84, ease: "power4.out", immediateRender: false }, 83);
+      
+      // SEAM — qr→geospatial : cut-the-curve LEFT (cut @93)
+      tl.to("#el-qr-after-iot", { xPercent: -12, autoAlpha: 0, duration: 0.78, ease: "power3.in" }, 92.22);
+      tl.set("#el-qr-after-iot", { autoAlpha: 0 }, 93);
+      tl.fromTo("#el-13-geospatial", { xPercent: 12, autoAlpha: 0.35 }, { xPercent: 0, autoAlpha: 1, duration: 0.84, ease: "power4.out", immediateRender: false }, 93);
+      
+      // SEAM — geospatial→qr : cut-the-curve LEFT (cut @95.6)
+      tl.to("#el-13-geospatial", { xPercent: -12, autoAlpha: 0, duration: 0.78, ease: "power3.in" }, 94.82);
+      tl.set("#el-13-geospatial", { autoAlpha: 0 }, 95.6);
+      tl.fromTo("#el-qr-after-geospatial", { xPercent: 12, autoAlpha: 0.35 }, { xPercent: 0, autoAlpha: 1, duration: 0.84, ease: "power4.out", immediateRender: false }, 95.6);
+      
+      // SEAM — qr→call : inverse zoom-through (cut @105.6)
+      tl.to("#el-qr-after-geospatial", { scale: 0.8, filter: "blur(18px)", duration: 0.7, ease: "power3.in" }, 104.9);
+      tl.to("#el-qr-after-geospatial", { autoAlpha: 0, duration: 0.7, ease: "none" }, 104.9);
+      tl.set("#el-qr-after-geospatial", { autoAlpha: 0 }, 105.6);
+      tl.fromTo("#el-06-call", { autoAlpha: 0.15, scale: 1.25, filter: "blur(18px)" }, { autoAlpha: 1, scale: 1.0, filter: "blur(0px)", duration: 1, ease: "expo.out", immediateRender: false }, 105.6);
+      
+      // SEAM — call→final-qr : cut-the-curve LEFT (cut @108.6)
+      tl.to("#el-06-call", { xPercent: -12, autoAlpha: 0, duration: 0.78, ease: "power3.in" }, 107.82);
+      tl.set("#el-06-call", { autoAlpha: 0 }, 108.6);
+      tl.fromTo("#el-14-qr-finale", { xPercent: 12, autoAlpha: 0.35 }, { xPercent: 0, autoAlpha: 1, duration: 0.84, ease: "power4.out", immediateRender: false }, 108.6);
+      
+      // </seams:auto>
+
+      tl.seek(0);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+<template>
+  <style>
+    @font-face { font-family: "Open Sans"; src: url("assets/fonts/OpenSans-Variable.woff2") format("woff2"); font-weight: 300 800; font-style: normal; }
+    @font-face { font-family: "Cascadia Code"; src: url("assets/fonts/CascadiaCode-Variable.woff2") format("woff2"); font-weight: 200 700; font-style: normal; }
+
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: "Open Sans", sans-serif; color: #1A2026; }
+    .clip { position: absolute; inset: 0; }
+
+    /* ground: the film's one gradient, full-bleed on the lowest track */
+    .f13-ground { background: linear-gradient(135deg, #FFFFFF 0%, #F7FBFE 62%, #F1EFFD 100%); }
+
+    /* hero-lockup zone x 640-1280, y 150-260 is left EMPTY for the master timeline's brand lockup */
+
+    /* node_eyebrow: Cascadia Code 18px / 700 / deep_purple / 0.12em / uppercase, centred at y ~300 */
+    .f13-eyebrow { position: absolute; left: 0; right: 0; top: 290px; margin: 0; text-align: center; font-family: "Cascadia Code", monospace; font-size: 18px; line-height: 22px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #30176E; opacity: 0; }
+
+    /* caption_size secondary: Open Sans 26px / 400, centred at y ~340 */
+    .f13-urls { position: absolute; left: 0; right: 0; top: 326px; margin: 0; text-align: center; font-size: 26px; line-height: 30px; font-weight: 400; color: #596672; opacity: 0; }
+
+    /* participant wall: 7 x 3 marks, each fitted (never stretched) inside the same 210 x 90 box;
+       column centres x 240..1680 on the 240px module, row tops 400 / 585 / 770 so the wall spans y 400-860 */
+    .f13-mark { position: absolute; width: 210px; height: 90px; display: block; object-fit: contain; opacity: 0; }
+    .f13-c1 { left: 135px; }
+    .f13-c2 { left: 375px; }
+    .f13-c3 { left: 615px; }
+    .f13-c4 { left: 855px; }
+    .f13-c5 { left: 1095px; }
+    .f13-c6 { left: 1335px; }
+    .f13-c7 { left: 1575px; }
+    .f13-r1 { top: 400px; }
+    .f13-r2 { top: 585px; }
+    .f13-r3 { top: 770px; }
+  </style>
+
+  <div data-hf-id="hf-400o" id="root" data-composition-id="f13-participants" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-emvz" id="f13-participants-layer-1" class="clip f13-ground" data-start="0" data-duration="5.5" data-track-index="0"></div>
+    <div data-hf-id="hf-ra30" id="f13-participants-layer-2" class="clip f13-stage" data-start="0" data-duration="5.5" data-track-index="1">
+      <p data-hf-id="hf-7i74" id="f13-eyebrow" class="f13-eyebrow">Valkey project participants</p>
+      <p data-hf-id="hf-0ao8" id="f13-urls" class="f13-urls">valkey.io · github.com/valkey-io</p>
+
+      <!-- row 1 -->
+      <img data-hf-id="hf-hhsr" id="f13-m01" class="f13-mark f13-c1 f13-r1" src="assets/participants/01-aiven.svg" alt="Aiven" width="210" height="90">
+      <img data-hf-id="hf-nd2g" id="f13-m02" class="f13-mark f13-c2 f13-r1" src="assets/participants/02-alibaba-cloud.png" alt="Alibaba Cloud" width="210" height="90">
+      <img data-hf-id="hf-33za" id="f13-m03" class="f13-mark f13-c3 f13-r1" src="assets/participants/03-aws.svg" alt="Amazon Web Services" width="210" height="90">
+      <img data-hf-id="hf-vkou" id="f13-m04" class="f13-mark f13-c4 f13-r1" src="assets/participants/04-anynines.svg" alt="anynines" width="210" height="90">
+      <img data-hf-id="hf-sj5l" id="f13-m05" class="f13-mark f13-c5 f13-r1" src="assets/participants/05-betterdb.svg" alt="BetterDB" width="210" height="90">
+      <img data-hf-id="hf-x9aw" id="f13-m06" class="f13-mark f13-c6 f13-r1" src="assets/participants/06-bytedance.svg" alt="ByteDance" width="210" height="90">
+      <img data-hf-id="hf-kld3" id="f13-m07" class="f13-mark f13-c7 f13-r1" src="assets/participants/07-digitalocean.svg" alt="DigitalOcean" width="210" height="90">
+
+      <!-- row 2 -->
+      <img data-hf-id="hf-6geu" id="f13-m08" class="f13-mark f13-c1 f13-r2" src="assets/participants/08-ericsson.svg" alt="Ericsson" width="210" height="90">
+      <img data-hf-id="hf-49hg" id="f13-m09" class="f13-mark f13-c2 f13-r2" src="assets/participants/09-freshworks.png" alt="Freshworks" width="210" height="90">
+      <img data-hf-id="hf-kmv9" id="f13-m10" class="f13-mark f13-c3 f13-r2" src="assets/participants/10-google-cloud.svg" alt="Google Cloud" width="210" height="90">
+      <img data-hf-id="hf-9dhn" id="f13-m11" class="f13-mark f13-c4 f13-r2" src="assets/participants/11-heroku.svg" alt="Heroku - Salesforce" width="210" height="90">
+      <img data-hf-id="hf-bbu3" id="f13-m12" class="f13-mark f13-c5 f13-r2" src="assets/participants/12-ionos-cloud.svg" alt="IONOS Cloud" width="210" height="90">
+      <img data-hf-id="hf-9tgh" id="f13-m13" class="f13-mark f13-c6 f13-r2" src="assets/participants/13-k0rdent.svg" alt="k0rdent" width="210" height="90">
+      <img data-hf-id="hf-yw66" id="f13-m14" class="f13-mark f13-c7 f13-r2" src="assets/participants/14-momento.svg" alt="Momento" width="210" height="90">
+
+      <!-- row 3 -->
+      <img data-hf-id="hf-fg2e" id="f13-m15" class="f13-mark f13-c1 f13-r3" src="assets/participants/15-netapp-instaclustr.svg" alt="NetApp Instaclustr" width="210" height="90">
+      <img data-hf-id="hf-7kui" id="f13-m16" class="f13-mark f13-c2 f13-r3" src="assets/participants/16-oracle.svg" alt="Oracle Cloud Infrastructure" width="210" height="90">
+      <img data-hf-id="hf-ntc3" id="f13-m17" class="f13-mark f13-c3 f13-r3" src="assets/participants/17-percona.svg" alt="Percona" width="210" height="90">
+      <img data-hf-id="hf-hd5a" id="f13-m18" class="f13-mark f13-c4 f13-r3" src="assets/participants/18-solanica.svg" alt="Solanica" width="210" height="90">
+      <img data-hf-id="hf-mivq" id="f13-m19" class="f13-mark f13-c5 f13-r3" src="assets/participants/19-tencent-cloud.svg" alt="Tencent Cloud" width="210" height="90">
+      <img data-hf-id="hf-mtgo" id="f13-m20" class="f13-mark f13-c6 f13-r3" src="assets/participants/20-upcloud.svg" alt="UpCloud" width="210" height="90">
+      <img data-hf-id="hf-jrsj" id="f13-m21" class="f13-mark f13-c7 f13-r3" src="assets/participants/21-vultr.svg" alt="Vultr" width="210" height="90">
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const tl = gsap.timeline({ paused: true });
+
+      // Scene 1 (0.0-0.5s): the wall arrives as one waterfall-entry cascade, row by row, binary opacity via set,
+      // each mark whipping up from below on power4.out. Row 1 is the anchor (longest travel), the gaps shrink
+      // down the wall, and the last mark has settled by 0.29s. Row 3 keeps a short travel so no box ever
+      // crosses the caption keep-out (y 896) mid-whip.
+      const rows = [
+        { start: 0.02, step: 0.008, offset: 64, dur: 0.17 }, // row 1: last mark starts 0.068, settles 0.238
+        { start: 0.09, step: 0.006, offset: 48, dur: 0.14 }, // row 2: last mark starts 0.126, settles 0.266
+        { start: 0.15, step: 0.005, offset: 30, dur: 0.11 }  // row 3: last mark starts 0.180, settles 0.290
+      ];
+      rows.forEach((row, r) => {
+        for (let c = 0; c < 7; c++) {
+          const sel = "#f13-m" + String(r * 7 + c + 1).padStart(2, "0");
+          const t = row.start + c * row.step;
+          tl.set(sel, { opacity: 1 }, t);
+          tl.fromTo(sel, { y: row.offset }, { y: 0, duration: row.dur, ease: "power4.out" }, t);
+        }
+      });
+
+      // The eyebrow and the two URLs enter at 0.2s beneath the (empty) hero-lockup zone.
+      tl.fromTo("#f13-eyebrow", { y: 32, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.2);
+      tl.fromTo("#f13-urls", { y: 32, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.24);
+
+      // Scene 2 (0.5-5.5s): hold, near-static. No scrolling, no borders, no hover states, no exit.
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["f13-participants"] = tl;
+    })();
+  </script>
+</template>

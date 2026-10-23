@@ -1,0 +1,324 @@
+<template>
+  <link rel="stylesheet" href="open-sans-embedded.css">
+  <link rel="stylesheet" href="brand-rail.css">
+  <style>
+    #f7-composition, #f7-composition * { box-sizing: border-box; }
+    #f7-composition {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      container-type: size;
+      font-family: 'Open Sans';
+    }
+    #f7-carrier { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; }
+    #f7-composition .clip { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; }
+    #f7-ground { background: #30176e; }
+    #f7-content { color: #fff; }
+    #f7-heading { position: absolute; left: 5cqw; top: 4.2cqw; z-index: 4; }
+    #f7-headline {
+      margin: 0;
+      font-size: 4.2cqw;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: .1cqw;
+      color: #fff;
+    }
+    #f7-subhead {
+      display: flex;
+      gap: .7cqw;
+      margin-top: 1.05cqw;
+      font-size: 1.6cqw;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: .05cqw;
+      color: #6983ff;
+    }
+    #f7-focal {
+      position: absolute;
+      left: 5cqw;
+      right: 5cqw;
+      top: 14.6cqw;
+      bottom: 5cqw;
+      display: grid;
+      grid-template-columns: 40% 60%;
+      align-items: center;
+    }
+    #f7-speedometer-stage {
+      position: relative;
+      width: 28cqw;
+      height: 28cqw;
+      display: grid;
+      place-items: center;
+      justify-self: start;
+    }
+    #f7-speedometer { width: 18cqw; height: 18cqw; display: block; }
+    #f7-speed-label {
+      position: absolute;
+      left: 50%;
+      bottom: 3.1cqw;
+      translate: -50% 0;
+      font-size: 1.4cqw;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: .2cqw;
+      color: #fff;
+      white-space: nowrap;
+    }
+    #f7-response-copy {
+      position: absolute;
+      left: 50%;
+      bottom: .55cqw;
+      translate: -50% 0;
+      font-size: 1.15cqw;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: .12cqw;
+      color: #6983ff;
+      white-space: nowrap;
+    }
+    #f7-memory {
+      position: relative;
+      width: 50cqw;
+      height: 28cqw;
+      justify-self: end;
+    }
+    #f7-memory-title {
+      position: absolute;
+      left: 17cqw;
+      top: 1.1cqw;
+      font-size: 1.4cqw;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: .2cqw;
+      color: #6983ff;
+    }
+    #f7-key {
+      position: absolute;
+      left: 1cqw;
+      top: 12.3cqw;
+      min-width: 8.8cqw;
+      padding: .8cqw 1.05cqw;
+      border: 3px solid #6983ff;
+      border-radius: 30px;
+      font-size: 1.4cqw;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: .08cqw;
+      text-align: center;
+      color: #fff;
+      background: #30176e;
+    }
+    #f7-flow {
+      position: absolute;
+      left: 10.7cqw;
+      top: 13.9cqw;
+      width: 7cqw;
+      height: 3px;
+      background: #6983ff;
+      transform-origin: 0 50%;
+    }
+    #f7-flow::after {
+      content: '';
+      position: absolute;
+      right: -1px;
+      top: -7px;
+      width: 13px;
+      height: 13px;
+      border-top: 3px solid #6983ff;
+      border-right: 3px solid #6983ff;
+      rotate: 45deg;
+    }
+    #f7-rows {
+      position: absolute;
+      left: 18cqw;
+      right: 0;
+      top: 4.2cqw;
+      display: grid;
+      gap: 1.15cqw;
+    }
+    #f7-row-1, #f7-row-2, #f7-row-3 {
+      position: relative;
+      height: 5.4cqw;
+      display: flex;
+      align-items: center;
+      gap: 1.2cqw;
+      padding: 0 1.5cqw;
+      border-top: 3px solid rgba(105, 131, 255, .76);
+      border-bottom: 3px solid rgba(105, 131, 255, .22);
+      color: #fff;
+    }
+    #f7-row-1::before, #f7-row-2::before, #f7-row-3::before {
+      content: '';
+      width: 1.15cqw;
+      height: 1.15cqw;
+      border: 3px solid #6983ff;
+      border-radius: 50%;
+      flex: 0 0 auto;
+    }
+    #f7-row-1 span, #f7-row-2 span, #f7-row-3 span {
+      font-size: 1.5cqw;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: .05cqw;
+    }
+    #f7-hit {
+      position: absolute;
+      right: 1.45cqw;
+      width: 1.55cqw;
+      height: 1.55cqw;
+      border-radius: 50%;
+      background: #0053b8;
+      box-shadow: 0 0 0 8px rgba(255, 255, 255, .16);
+    }
+    #f7-dram {
+      position: absolute;
+      left: 18cqw;
+      top: 23.2cqw;
+      width: 31cqw;
+      height: 4.4cqw;
+      display: block;
+    }
+    #f7-dram .f7-dram-board {
+      fill: rgba(105, 131, 255, .08);
+      stroke: #6983ff;
+      stroke-width: 4;
+      stroke-linejoin: round;
+    }
+    #f7-dram .f7-dram-chip {
+      fill: #30176e;
+      stroke: #fff;
+      stroke-width: 3;
+    }
+    #f7-dram .f7-dram-contact {
+      stroke: #6983ff;
+      stroke-width: 5;
+      stroke-linecap: round;
+    }
+    #f7-headline, #f7-subhead span, #f7-detail, #f7-speedometer-stage,
+    #f7-memory, #f7-row-1, #f7-row-2, #f7-row-3, #f7-key, #f7-hit { opacity: 0; }
+  </style>
+
+  <div data-hf-id="hf-f7-composition" id="f7-composition" data-composition-id="07-caching" data-duration="2.6" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-f7-carrier" id="f7-carrier">
+      <div data-hf-id="hf-f7-ground" class="clip" id="f7-ground" data-start="0" data-duration="2.6" data-track-index="0"></div>
+      <div data-hf-id="hf-f7-content" class="clip" id="f7-content" data-start="0" data-duration="2.6" data-track-index="1">
+        <div data-hf-id="hf-f7-heading" id="f7-heading">
+          <h1 data-hf-id="hf-f7-headline" id="f7-headline">CACHING</h1>
+          <div data-hf-id="hf-f7-subhead" id="f7-subhead" aria-label="HOT DATA, READY.">
+            <span data-hf-id="hf-f7-sub-hot" id="f7-sub-hot">HOT</span>
+            <span data-hf-id="hf-f7-sub-data" id="f7-sub-data">DATA,</span>
+            <span data-hf-id="hf-f7-sub-ready" id="f7-sub-ready">READY.</span>
+          </div>
+        </div>
+
+        <div data-hf-id="hf-f7-focal" id="f7-focal">
+          <div data-hf-id="hf-f7-detail" id="f7-detail">
+            <div data-hf-id="hf-f7-speedometer-stage" id="f7-speedometer-stage">
+              <img data-hf-id="hf-f7-speedometer" id="f7-speedometer" src=".media/images/icon_001.svg" alt="Performance speedometer">
+              <div data-hf-id="hf-f7-speed-label" id="f7-speed-label">HOT PATH</div>
+              <div data-hf-id="hf-f7-response-copy" id="f7-response-copy">SUB-MILLISECOND LATENCY</div>
+            </div>
+          </div>
+
+          <div data-hf-id="hf-f7-memory" id="f7-memory">
+            <div data-hf-id="hf-f7-memory-title" id="f7-memory-title">MEMORY</div>
+            <div data-hf-id="hf-f7-key" id="f7-key" data-layout-allow-occlusion>KEY / 42</div>
+            <div data-hf-id="hf-f7-flow" id="f7-flow"></div>
+            <div data-hf-id="hf-f7-rows" id="f7-rows">
+              <div data-hf-id="hf-f7-row-1" id="f7-row-1"><span data-hf-id="hf-344i">PROFILE:42</span><i data-hf-id="hf-f7-hit" id="f7-hit" aria-label="Cache hit"></i></div>
+              <div data-hf-id="hf-f7-row-2" id="f7-row-2"><span data-hf-id="hf-2imt">CATALOG:HOT</span></div>
+              <div data-hf-id="hf-f7-row-3" id="f7-row-3"><span data-hf-id="hf-sxbt">CONFIG:LIVE</span></div>
+            </div>
+            <svg data-hf-id="hf-f7-dram" id="f7-dram" viewBox="0 0 620 88" role="img" aria-label="DRAM memory module with five chips and contacts">
+              <path data-hf-id="hf-f7-dram-board" class="f7-dram-board" d="M10 8 H610 V70 H354 L342 82 H278 L266 70 H10 Z" />
+              <rect data-hf-id="hf-f7-dram-chip-1" class="f7-dram-chip" x="48" y="20" width="82" height="34" rx="4" />
+              <rect data-hf-id="hf-f7-dram-chip-2" class="f7-dram-chip" x="156" y="20" width="82" height="34" rx="4" />
+              <rect data-hf-id="hf-f7-dram-chip-3" class="f7-dram-chip" x="264" y="20" width="82" height="34" rx="4" />
+              <rect data-hf-id="hf-f7-dram-chip-4" class="f7-dram-chip" x="372" y="20" width="82" height="34" rx="4" />
+              <rect data-hf-id="hf-f7-dram-chip-5" class="f7-dram-chip" x="480" y="20" width="82" height="34" rx="4" />
+              <g data-hf-id="hf-f7-dram-contacts" aria-hidden="true">
+                <line data-hf-id="hf-f7-dram-contact-1" class="f7-dram-contact" x1="62" y1="62" x2="62" y2="72" />
+                <line data-hf-id="hf-f7-dram-contact-2" class="f7-dram-contact" x1="102" y1="62" x2="102" y2="72" />
+                <line data-hf-id="hf-f7-dram-contact-3" class="f7-dram-contact" x1="142" y1="62" x2="142" y2="72" />
+                <line data-hf-id="hf-f7-dram-contact-4" class="f7-dram-contact" x1="182" y1="62" x2="182" y2="72" />
+                <line data-hf-id="hf-f7-dram-contact-5" class="f7-dram-contact" x1="222" y1="62" x2="222" y2="72" />
+                <line data-hf-id="hf-f7-dram-contact-6" class="f7-dram-contact" x1="398" y1="62" x2="398" y2="72" />
+                <line data-hf-id="hf-f7-dram-contact-7" class="f7-dram-contact" x1="438" y1="62" x2="438" y2="72" />
+                <line data-hf-id="hf-f7-dram-contact-8" class="f7-dram-contact" x1="478" y1="62" x2="478" y2="72" />
+                <line data-hf-id="hf-f7-dram-contact-9" class="f7-dram-contact" x1="518" y1="62" x2="518" y2="72" />
+                <line data-hf-id="hf-f7-dram-contact-10" class="f7-dram-contact" x1="558" y1="62" x2="558" y2="72" />
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <div data-hf-id="hf-f7-brand-rail" class="feedback-brand-rail">
+          <img data-hf-id="hf-f7-brand-logo" src="assets/valkey-logo.svg" alt="Valkey">
+          <span data-hf-id="hf-f7-brand-url">valkey.io</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+      window.__timelines = window.__timelines || {};
+
+      var tl = gsap.timeline({ paused: true });
+      var byId = function (id) { return document.getElementById(id); };
+      var headline = byId("f7-headline");
+      var subWords = [byId("f7-sub-hot"), byId("f7-sub-data"), byId("f7-sub-ready")];
+      var detail = byId("f7-detail");
+      var speedStage = byId("f7-speedometer-stage");
+      var memory = byId("f7-memory");
+      var rows = [byId("f7-row-1"), byId("f7-row-2"), byId("f7-row-3")];
+      var key = byId("f7-key");
+      var flow = byId("f7-flow");
+      var hit = byId("f7-hit");
+
+      tl.set(headline, { opacity: 0, y: 72 }, 0);
+      tl.set(subWords, { opacity: 0, y: 46 }, 0);
+      tl.set(detail, { opacity: 0 }, 0);
+      tl.set(speedStage, { opacity: 0, y: 76 }, 0);
+      tl.set(memory, { opacity: 0, y: 62 }, 0);
+      tl.set(rows, { opacity: 0, y: 44 }, 0);
+      tl.set(key, { opacity: 0, x: 0 }, 0);
+      tl.set(flow, { scaleX: 0 }, 0);
+      tl.set(hit, { opacity: 0, scale: .62, transformOrigin: "50% 50%" }, 0);
+
+      tl.set(headline, { opacity: 1, y: 72 }, .06);
+      tl.to(headline, { y: 0, duration: .2, ease: "power4.out" }, .06);
+
+      var wordTimes = [.18, .29, .39];
+      for (var i = 0; i < subWords.length; i++) {
+        tl.set(subWords[i], { opacity: 1, y: 46 - i * 5 }, wordTimes[i]);
+        tl.to(subWords[i], { y: 0, duration: .15 - i * .01, ease: "power4.out" }, wordTimes[i]);
+      }
+
+      tl.set(detail, { opacity: 1 }, .43);
+      tl.set(speedStage, { opacity: 1, y: 76 }, .43);
+      tl.to(speedStage, { y: 0, duration: .2, ease: "power4.out" }, .43);
+      tl.set(memory, { opacity: 1, y: 62 }, .57);
+      tl.to(memory, { y: 0, duration: .19, ease: "power4.out" }, .57);
+
+      var rowTimes = [.78, .99, 1.19];
+      for (var r = 0; r < rows.length; r++) {
+        tl.set(rows[r], { opacity: 1, y: 44 - r * 5 }, rowTimes[r]);
+        tl.to(rows[r], { y: 0, duration: .16 - r * .015, ease: "power4.out" }, rowTimes[r]);
+      }
+
+      tl.set(key, { opacity: 1, x: 0 }, 1.35);
+      tl.to(flow, { scaleX: 1, duration: .2, ease: "power3.out" }, 1.35);
+      tl.to(key, { x: 132, duration: .29, ease: "power3.inOut" }, 1.37);
+      tl.set(hit, { opacity: 1, scale: .62 }, 1.66);
+      tl.to(hit, { scale: 1.38, duration: .12, ease: "power4.out" }, 1.66);
+      tl.to(hit, { scale: 1, duration: .22, ease: "power4.out" }, 1.78);
+
+      tl.seek(0);
+      window.__timelines["07-caching"] = tl;
+    })();
+  </script>
+</template>

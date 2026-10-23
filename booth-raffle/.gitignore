@@ -1,0 +1,17 @@
+# ── PII: never commit entrant lists or the live built page ────────
+# The raffle entrant CSV holds real names and email addresses. build.py
+# inlines that CSV (and the fonts/logos) into index.html, so the live
+# built page contains the same PII. Both stay local only.
+#
+# Any CSV here is treated as a real entrant list by default. The one
+# exception is valkey-raffle.sample.csv, which contains only fake data.
+*.csv
+!*.sample.csv
+
+# Live, self-contained raffle page (inlines the real entrant CSV → PII).
+# The committed, PII-safe equivalent is index.template.html, built from the
+# sample CSV with `python3 build.py --template`.
+index.html
+
+# Local Python bytecode from running or inspecting the builder.
+__pycache__/

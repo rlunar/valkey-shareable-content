@@ -1,0 +1,7 @@
+{
+  "scene": "f12-semantic-cache",
+  "duration_s": 17,
+  "rules": ["svg-path-draw"],
+  "exit": { "vector": "static (hold)", "still_moving": false },
+  "entry": { "vector": "y -32px over 0.55s power3.out", "from_rest": true }
+}

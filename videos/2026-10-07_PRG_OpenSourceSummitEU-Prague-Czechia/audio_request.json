@@ -1,0 +1,46 @@
+{
+  "lines": [
+    {
+      "id": "01",
+      "sfx": [
+        "impact-soft",
+        "riser"
+      ]
+    },
+    {
+      "id": "02",
+      "sfx": [
+        "impact-soft"
+      ]
+    },
+    {
+      "id": "03",
+      "sfx": [
+        "click-tick ×3"
+      ]
+    },
+    {
+      "id": "04",
+      "sfx": [
+        "keystroke-soft",
+        "impact-soft"
+      ]
+    },
+    {
+      "id": "05",
+      "sfx": [
+        "riser",
+        "impact-soft"
+      ]
+    },
+    {
+      "id": "06",
+      "sfx": [
+        "impact-deep"
+      ]
+    }
+  ],
+  "bgm": {
+    "mode": "none"
+  }
+}

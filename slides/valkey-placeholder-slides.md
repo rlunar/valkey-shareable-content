@@ -302,7 +302,7 @@ the donor is whatever was last saved to disk.
 
 ## Icons
 
-**16** outline icons in `slides/icons/`, with 4x PNG fallbacks in `slides/icons/png/`:
+**16** outline icons in `valkey-brand/icons/`, with 4x PNG fallbacks in `valkey-brand/icons/png/`:
 community, cost-efficiency, data-hash, data-list, durability, general-scaling, hardening,
 horizontal-scaling, memory-efficiency, migration, observability, performance, reliability,
 replication, security, vertical-scaling. Names and sizing guidance are in `../slides-skill.md`. The

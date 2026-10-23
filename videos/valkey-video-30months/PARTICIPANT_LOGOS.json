@@ -1,0 +1,220 @@
+{
+  "format": "editorial-logo-allowlist-v1",
+  "checked_on": "2026-10-02",
+  "excluded": [
+    "Apple"
+  ],
+  "logos": [
+    {
+      "name": "Aiven",
+      "url": "https://valkey.io/img/aiven.svg",
+      "source_page": "https://valkey.io/participants/",
+      "http_status_checked": 200,
+      "asset_downloaded": false,
+      "rights": "Employee requests use of non-Apple participant logos; no independent rights audit performed.",
+      "grid_row": 1,
+      "grid_column": 1
+    },
+    {
+      "name": "Alibaba Cloud",
+      "url": "https://valkey.io/img/alibaba.png",
+      "source_page": "https://valkey.io/participants/",
+      "http_status_checked": 200,
+      "asset_downloaded": false,
+      "rights": "Employee requests use of non-Apple participant logos; no independent rights audit performed.",
+      "grid_row": 1,
+      "grid_column": 2
+    },
+    {
+      "name": "Amazon Web Services",
+      "url": "https://valkey.io/img/aws.svg",
+      "source_page": "https://valkey.io/participants/",
+      "http_status_checked": 200,
+      "asset_downloaded": false,
+      "rights": "Employee requests use of non-Apple participant logos; no independent rights audit performed.",
+      "grid_row": 1,
+      "grid_column": 3
+    },
+    {
+      "name": "anynines",
+      "url": "https://valkey.io/img/anynines.svg",
+      "source_page": "https://valkey.io/participants/",
+      "http_status_checked": 200,
+      "asset_downloaded": false,
+      "rights": "Employee requests use of non-Apple participant logos; no independent rights audit performed.",
+      "grid_row": 1,
+      "grid_column": 4
+    },
+    {
+      "name": "BetterDB",
+      "url": "https://valkey.io/img/betterdb.svg",
+      "source_page": "https://valkey.io/participants/",
+      "http_status_checked": 200,
+      "asset_downloaded": false,
+      "rights": "Employee requests use of non-Apple participant logos; no independent rights audit performed.",
+      "grid_row": 1,
+      "grid_column": 5
+    },
+    {
+      "name": "ByteDance",
+      "url": "https://valkey.io/img/bytedance.svg",
+      "source_page": "https://valkey.io/participants/",
+      "http_status_checked": 200,
+      "asset_downloaded": false,
+      "rights": "Employee requests use of non-Apple participant logos; no independent rights audit performed.",
+      "grid_row": 1,
+      "grid_column": 6
+    },
+    {
+      "name": "DigitalOcean",
+      "url": "https://valkey.io/img/digitalocean.svg",
+      "source_page": "https://valkey.io/participants/",
+      "http_status_checked": 200,
+      "asset_downloaded": false,
+      "rights": "Employee requests use of non-Apple participant logos; no independent rights audit performed.",
+      "grid_row": 1,
+      "grid_column": 7
+    },
+    {
+      "name": "Ericsson",
+      "url": "https://valkey.io/img/ericsson.svg",
+      "source_page": "https://valkey.io/participants/",
+      "http_status_checked": 200,
+      "asset_downloaded": false,
+      "rights": "Employee requests use of non-Apple participant logos; no independent rights audit performed.",
+      "grid_row": 2,
+      "grid_column": 1
+    },
+    {
+      "name": "Freshworks",
+      "url": "https://valkey.io/img/freshworks.png",
+      "source_page": "https://valkey.io/participants/",
+      "http_status_checked": 200,
+      "asset_downloaded": false,
+      "rights": "Employee requests use of non-Apple participant logos; no independent rights audit performed.",
+      "grid_row": 2,
+      "grid_column": 2
+    },
+    {
+      "name": "Google Cloud",
+      "url": "https://valkey.io/img/gcp.svg",
+      "source_page": "https://valkey.io/participants/",
+      "http_status_checked": 200,
+      "asset_downloaded": false,
+      "rights": "Employee requests use of non-Apple participant logos; no independent rights audit performed.",
+      "grid_row": 2,
+      "grid_column": 3
+    },
+    {
+      "name": "Heroku - Salesforce",
+      "url": "https://valkey.io/img/heroku.svg",
+      "source_page": "https://valkey.io/participants/",
+      "http_status_checked": 200,
+      "asset_downloaded": false,
+      "rights": "Employee requests use of non-Apple participant logos; no independent rights audit performed.",
+      "grid_row": 2,
+      "grid_column": 4
+    },
+    {
+      "name": "IONOS Cloud",
+      "url": "https://valkey.io/img/ionos-cloud.svg",
+      "source_page": "https://valkey.io/participants/",
+      "http_status_checked": 200,
+      "asset_downloaded": false,
+      "rights": "Employee requests use of non-Apple participant logos; no independent rights audit performed.",
+      "grid_row": 2,
+      "grid_column": 5
+    },
+    {
+      "name": "k0rdent",
+      "url": "https://valkey.io/img/k0rdent.svg",
+      "source_page": "https://valkey.io/participants/",
+      "http_status_checked": 200,
+      "asset_downloaded": false,
+      "rights": "Employee requests use of non-Apple participant logos; no independent rights audit performed.",
+      "grid_row": 2,
+      "grid_column": 6
+    },
+    {
+      "name": "Momento",
+      "url": "https://valkey.io/img/momento.svg",
+      "source_page": "https://valkey.io/participants/",
+      "http_status_checked": 200,
+      "asset_downloaded": false,
+      "rights": "Employee requests use of non-Apple participant logos; no independent rights audit performed.",
+      "grid_row": 2,
+      "grid_column": 7
+    },
+    {
+      "name": "NetApp Instaclustr",
+      "url": "https://valkey.io/img/netapp_instaclustr.svg",
+      "source_page": "https://valkey.io/participants/",
+      "http_status_checked": 200,
+      "asset_downloaded": false,
+      "rights": "Employee requests use of non-Apple participant logos; no independent rights audit performed.",
+      "grid_row": 3,
+      "grid_column": 1
+    },
+    {
+      "name": "Oracle Cloud Infrastructure",
+      "url": "https://valkey.io/img/Oracle.svg",
+      "source_page": "https://valkey.io/participants/",
+      "http_status_checked": 200,
+      "asset_downloaded": false,
+      "rights": "Employee requests use of non-Apple participant logos; no independent rights audit performed.",
+      "grid_row": 3,
+      "grid_column": 2
+    },
+    {
+      "name": "Percona",
+      "url": "https://valkey.io/img/percona.svg",
+      "source_page": "https://valkey.io/participants/",
+      "http_status_checked": 200,
+      "asset_downloaded": false,
+      "rights": "Employee requests use of non-Apple participant logos; no independent rights audit performed.",
+      "grid_row": 3,
+      "grid_column": 3
+    },
+    {
+      "name": "Solanica",
+      "url": "https://valkey.io/img/solanica.svg",
+      "source_page": "https://valkey.io/participants/",
+      "http_status_checked": 200,
+      "asset_downloaded": false,
+      "rights": "Employee requests use of non-Apple participant logos; no independent rights audit performed.",
+      "grid_row": 3,
+      "grid_column": 4
+    },
+    {
+      "name": "Tencent Cloud",
+      "url": "https://valkey.io/img/tencent-cloud.svg",
+      "source_page": "https://valkey.io/participants/",
+      "http_status_checked": 200,
+      "asset_downloaded": false,
+      "rights": "Employee requests use of non-Apple participant logos; no independent rights audit performed.",
+      "grid_row": 3,
+      "grid_column": 5
+    },
+    {
+      "name": "UpCloud",
+      "url": "https://valkey.io/img/upcloud.svg",
+      "source_page": "https://valkey.io/participants/",
+      "http_status_checked": 200,
+      "asset_downloaded": false,
+      "rights": "Employee requests use of non-Apple participant logos; no independent rights audit performed.",
+      "grid_row": 3,
+      "grid_column": 6
+    },
+    {
+      "name": "Vultr",
+      "url": "https://valkey.io/img/vultr.svg",
+      "source_page": "https://valkey.io/participants/",
+      "http_status_checked": 200,
+      "asset_downloaded": false,
+      "rights": "Employee requests use of non-Apple participant logos; no independent rights audit performed.",
+      "grid_row": 3,
+      "grid_column": 7
+    }
+  ],
+  "usage": "Use only these participant logos. No Apple assets, visible Apple names, incidental Apple marks, or webpage composites containing Apple. Preserve original marks and clear space."
+}

@@ -1,0 +1,7 @@
+{
+  "scene": "f01-memory-vs-disk",
+  "duration_s": 8,
+  "rules": ["svg-path-draw"],
+  "exit": { "vector": "static (hold)", "still_moving": false },
+  "entry": { "vector": "y -32px over 0.55s power3.out (title at 0.10s, processor card at 0.30s); hairline paths draw rightward from 0.70s", "from_rest": true }
+}

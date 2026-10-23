@@ -1,0 +1,703 @@
+[span] Opens in a new window
+[span] Opens an external website
+[span] Opens an external website in a new window
+[a] Save Your Spot for ValkeyConf 2026
+[p] | October 5, 2026 | Prague, Czechia
+[a] Download
+[a] Documentation
+[a] Command Reference
+[a] Documentation by Topic
+[a] Client Libraries
+[a] Community
+[a] Participants
+[a] Try Valkey
+[h1] FAST. RELIABLE.
+[h1] OPEN SOURCE, FOREVER.
+[p] Valkey is an open source (BSD) high-performance key/value datastore that supports a variety of workloads such as caching, message queues, and can act as a primary database. The project is backed by the Linux Foundation, ensuring it will remain open source forever.
+[a] GET STARTED
+[h3] Version 9.x.x
+[strong] Release Date:
+[div] 2026-09-01
+[strong] GitHub Release:
+[a] 9.1.2
+[h4] Docker Hub
+[a] valkey/valkey
+[p] Tags:
+[code] valkey/valkey:9.1.2
+[code] valkey/valkey:9.1.2-trixie
+[code] valkey/valkey:9.1.2-alpine
+[code] valkey/valkey:9.1.2-alpine3.24
+[p] Example:
+[code] docker run --rm valkey/valkey:9.1.2
+[h4] Binary Artifacts
+[a] arm64 / jammy
+[a] sha256
+[a] x86_64 / jammy
+[a] sha256
+[a] arm64 / noble
+[a] sha256
+[a] x86_64 / noble
+[a] sha256
+[h3] Latest supported version of past releases
+[h4] Version 8.x.x
+[strong] Release Date:
+[div] 2026-09-01
+[strong] GitHub Release:
+[a] 8.1.10
+[h4] Docker Hub
+[a] valkey/valkey
+[p] Tags:
+[code] valkey/valkey:8.1.10
+[code] valkey/valkey:8.1.10-trixie
+[code] valkey/valkey:8.1.10-alpine
+[code] valkey/valkey:8.1.10-alpine3.24
+[p] Example:
+[code] docker run --rm valkey/valkey:8.1.10
+[h4] Binary Artifacts
+[a] arm64 / jammy
+[a] sha256
+[a] x86_64 / jammy
+[a] sha256
+[a] arm64 / noble
+[a] sha256
+[a] x86_64 / noble
+[a] sha256
+[h4] Version 7.x.x
+[strong] Release Date:
+[div] 2026-09-01
+[strong] GitHub Release:
+[a] 7.2.14
+[h4] Docker Hub
+[a] valkey/valkey
+[p] Tags:
+[code] valkey/valkey:7.2.14
+[code] valkey/valkey:7.2.14-trixie
+[code] valkey/valkey:7.2.14-alpine
+[code] valkey/valkey:7.2.14-alpine3.24
+[p] Example:
+[code] docker run --rm valkey/valkey:7.2.14
+[h4] Binary Artifacts
+[a] arm64 / jammy
+[a] sha256
+[a] x86_64 / jammy
+[a] sha256
+[a] arm64 / noble
+[a] sha256
+[a] x86_64 / noble
+[a] sha256
+[h3] Performance
+[p] Valkey Performance Dashboards
+[p] Valkey Performance Dashboards provide a consolidated view of throughput trends across versions, helping teams validate improvements and identify regressions.
+[a] Explore
+[h3] Latest Blog Posts
+[a] Monitoring Valkey with Prometheus
+[p] Learn how to expose Valkey metrics to Prometheus, visualize them in Grafana, and choose the right exporter for your deployment.
+[a] Read More
+[a] Browsing a Valkey keyspace safely: SCAN, INFO, and a read-only ACL user
+[p] Pointing a graphical client at a Valkey server that is taking traffic raises two questions: how to safely collect data from the server, and how to properly authorize the access. This post covers how LibreDB Studio answers the first and best practices for the second.
+[a] Read More
+[h2] Documentation
+[p] Valkey can run as either a
+[strong] standalone
+[p] daemon or in a
+[strong] cluster
+[p] , with options for
+[strong] replication
+[p] and
+[strong] high availability
+[p] . Valkey natively supports a rich collection of datatypes, including
+[strong] strings
+[strong] numbers
+[strong] hashes
+[strong] lists
+[strong] sets
+[strong] sorted sets
+[strong] bitmaps
+[strong] hyperloglogs
+[p] and more.
+You can operate on data structures in-place with an expressive collection of commands.
+Valkey also supports native extensibility with built-in scripting support for
+[strong] Lua
+[p] and supports
+[strong] module
+[p] plugins to create new commands, data types, and more.
+[h3] Install
+[p] Step-by-step instructions on how to install and configure Valkey for first-time users.
+[a] See Installation Guide
+[h3] Usage guide
+[p] Detailed documentation on the various datatype supported by Valkey and best practices.
+[a] Documentation by topic
+[h3] Valkey API
+[p] View the full list of Valkey commands including first party modules.
+[a] Command Reference
+[h3] Clients
+[p] Official Valkey client libraries include support for:
+[li] Python
+[li] Java
+[li] Node.js
+[li] PHP
+[li] Ruby
+[a] Learn More
+[h2] Participants
+[p] The Valkey project participants are a diverse group of organizations that have come together to maintain and contribute to the project. Valkey participants are more than vendors, they are dedicated to continuously strengthening the long-term health and viability of this project so that everyone can benefit from it. Since its inception Valkey has enjoyed steady adoption demonstrating the industry's desire for an open, community-driven database solution. We look forward to seeing our list of participants grow as more companies work on our project.
+[h3] Percona
+[p] Valkey expertise, where and when you need it.
+From day-to-day operational support to hands-on assistance for complex projects, Percona can meet your Valkey database needs.  We offer offering support and project-based consulting, so together, we can tackle any challenge and continue to keep open source, open.
+[h3] Alibaba Cloud
+[p] Established in 2009, Alibaba Cloud offers a complete suite of cloud services to customers worldwide, including elastic computing, database, storage, machine learning and artificial intelligence (AI) services, etc. Alibaba has been recognized as the leading public cloud IaaS provider in Asia-Pacific (Gartner) and globally (IDC) since 2018.
+[h3] Aiven
+[p] Aiven for Valkey is a managed, in-memory NoSQL database with a small footprint and big performance. It is built on open source Valkey and compatible with legacy Redis® OSS.
+[h3] UpCloud
+[p] Valkey on UpCloud simplifies database management with a fully managed service hosted on our GDPR-compliant cloud. Enjoy seamless deployment, expert maintenance, and high performance with minimal downtime.  Backed by UpCloud’s global reach, Valkey ensures reliability and scalability, freeing developers to focus on building great applications.
+[h3] Amazon Web Services
+[a] Amazon ElastiCache
+[p] is a fully managed, Valkey-compatible service delivering real-time, cost-optimized performance. ElastiCache scales to millions of operations per second with microsecond latency and enterprise-level security and reliability. With ElastiCache, you combine the speed, simplicity, and versatility of Valkey with the manageability, security, and scalability from Amazon to power the most demanding data-driven applications in Gaming, Ad-Tech, E-Commerce, Healthcare, Financial Services, and IoT.
+[h3] Google Cloud
+[a] Google Cloud Memorystore
+[p] is a versatile, fully-managed, in-memory database service for Valkey, offering sub-millisecond data access, scalability, and high availability.
+[h3] Ericsson
+[p] Founded in 1876, Ericsson is a Swedish communication technology and services provider. The company offers software, services, and infrastructure for information and communications technology used by telecommunications operators, including traditional telecommunications, Internet Protocol networking equipment and business support solutions. Ericsson is headquartered in Stockholm, Sweden.
+[h3] Oracle Cloud Infrastructure
+[p] Achieve sub-millisecond latency with
+[a] Oracle Cloud Infrastructure (OCI) Cache
+[h3] NetApp Instaclustr
+[a] NetApp® Instaclustr for Valkey™
+[p] gives you a powerful combination of automated features within our platform, 24x7 expert support, and enterprise-grade processes that can handle the most demanding customer requirements.
+[h3] ByteDance
+[p] Founded in 2012, ByteDance's mission is to inspire creativity and enrich life. With a suite of more than a dozen products, including TikTok, CapCut, Lark, and Pico, as well as platforms specific to the China market, including Toutiao, Douyin, Fanqie Novel and Xigua Video, ByteDance has made it easier and more fun for people to connect with, consume, and create content.
+[h3] k0rdent
+[p] Valkey is now available as a
+[a] service template on the k0rdent application catalog
+[p] . The application catalog features a selection of best-in-class solutions designed to enhance k0rdent managed clusters. These services have been validated on k0rdents clusters and have existing templates for easy deployment.
+[h3] Momento
+[p] Momento expertly tunes the Valkey storage engine for performance and compatibility without the operational burden. Momento Cache is a globally resilient, zero-operations service built for real-time applications at any scale. It ensures enterprises can instantly handle unpredictable load spikes and distributed workloads with high-throughput, guaranteed low latency, and the complete freedom to focus on innovation, not cluster maintenance.
+[h3] Heroku - Salesforce
+[p] Heroku Key-Value Store delivers a robust, scalable, and developer-friendly in-memory datastore, powered by Valkey and compatible with Redis® OSS. It brings enhanced performance and greater efficiency to supercharge your applications. Heroku Key-Value Store lets you gain greater visibility into performance and better manage your instances with a powerful CLI.
+[h3] DigitalOcean
+[p] DigitalOcean offers a managed database service for Valkey, known as DigitalOcean Managed Caching for Valkey. This service provides a fully managed, high-performance, in-memory key-value datastore.
+[h3] BetterDB
+[p] BetterDB is the first monitoring platform built specifically for Valkey. It persists the operational data Valkey exposes but doesn't retain - COMMANDLOG, per-slot metrics, per-thread I/O, and more - then actively analyzes client activity and ACL audit trails to surface anomalies, so teams can debug what happened at 3am, understand what's happening now, and forecast what will come next. It works both ways with OpenTelemetry, exports to Prometheus, and fires webhooks on anomalies - correlating your app's traces with live Valkey state. Migrate freely between Redis and Valkey, from self-hosted to cloud, or vice versa. Run it
+[a] self-hosted
+[p] , including fully air-gapped, or as
+[a] managed cloud
+[h3] anynines
+[a] a9s KeyValue
+[p] is a managed in-memory NoSQL database that delivers high-performance data storage with minimal overhead. Delivered by
+[a] anynines
+[p] , it is built on open-source Valkey and fully compatible with legacy Redis® OSS.
+[h3] Tencent Cloud
+[a] Tencent Cloud Distributed Cache
+[a] English
+[p] ) is a caching and storage service developed by Tencent Cloud, compatible with Redis® OSS, Valkey, and Memcached engines.  Its rich data structures help you develop various business scenarios.  It supports primary-replica hot standby and provides a full suite of database services including automatic disaster recovery failover, data backup, fault migration, instance monitoring, online scaling, and data rollback.
+[h3] Vultr
+[p] Vultr Managed Databases for Valkey provides a fully managed, It is built on open source Valkey and compatible with legacy Redis® OSS-compatible Valkey service with automated provisioning, high availability, automated backups, monitoring, and point-in-time recovery, enabling developers to deploy and operate production-ready Valkey clusters without managing the underlying infrastructure.
+[h3] Freshworks
+[p] Freshworks (NASDAQ: FRSH) is a leading provider of uncomplicated, AI-powered software that delivers exceptional employee and customer experiences. Its service, IT, and CRM solutions are designed to be quick to deploy and easy to use, and are trusted by organizations of all sizes worldwide.
+Freshworks authored
+[a] valkey-glide-ruby
+[p] (gem:
+[code] valkey-rb
+[p] ), the official Ruby client for Valkey GLIDE, and contributed to the underlying GLIDE Rust core that powers it. Built on the same valkey-glide Rust FFI foundation as the Python, Java, Node.js, and Go clients, the Ruby client offers a redis-rb-compatible API, standalone and cluster modes, TLS/SSL, native OpenTelemetry tracing and metrics, client statistics, and comprehensive command coverage.
+Beyond Ruby, Freshworks has contributed across the GLIDE ecosystem, extending the Java client and its Jedis compatibility layer, the Go client, and shared Rust core capabilities. After rigorous evaluation, Freshworks adopted Valkey in production for one of its major workloads.
+[h3] IONOS Cloud
+[a] IONOS Cloud In-Memory DB
+[p] now runs on Valkey, supporting versions 8, 8.1, and 9, while staying compatible with legacy Redis® OSS. It is a fully managed key-value store for caching, real-time data, and session management, with data persistence and TLS-secured connections.
+[h3] Solanica
+[p] With the Solanica Platform, you can run your Valkey workloads on any Kubernetes cluster without pain. No more struggling with day-2 operations: you can now deploy, provision, and manage your instances, and you don’t have to worry about backups, monitoring, etc.; everything can be controlled from one GUI.
+[a] Learn more
+[a] Slack
+[a] GitHub
+[a] LinkedIn
+[a] X.com
+[a] YouTube
+[a] Connect
+[a] Code of Conduct
+[a] Meetup Groups
+[a] Forum
+[a] About
+[a] Leadership
+[a] FAQ
+[h2] Subscribe for updates, event info, and the latest Valkey news
+[p] Stay connected with everything happening in the Valkey ecosystem: news, community stories, updates, and opportunities to get involved.
+[p] Subscriptions are open to all, so invite a friend or teammate. Thanks for joining and happy reading!
+[span] First name
+[span] Last name
+[span] Email
+[span] Country
+[option] Select country
+[option] Afghanistan
+[option] Åland Islands
+[option] Albania
+[option] Algeria
+[option] American Samoa
+[option] Andorra
+[option] Angola
+[option] Anguilla
+[option] Antarctica
+[option] Antigua and Barbuda
+[option] Argentina
+[option] Armenia
+[option] Aruba
+[option] Asia/Pacific Region
+[option] Australia
+[option] Austria
+[option] Azerbaijan
+[option] Bahamas
+[option] Bahrain
+[option] Bangladesh
+[option] Barbados
+[option] Belarus
+[option] Belgium
+[option] Belize
+[option] Benin
+[option] Bermuda
+[option] Bhutan
+[option] Bolivia
+[option] Bosnia and Herzegovina
+[option] Botswana
+[option] Bouvet Island
+[option] Brazil
+[option] British Indian Ocean Territory
+[option] British Virgin Islands
+[option] Brunei
+[option] Bulgaria
+[option] Burkina Faso
+[option] Burundi
+[option] Cambodia
+[option] Cameroon
+[option] Canada
+[option] Canary Islands
+[option] Cape Verde
+[option] Caribbean Netherlands
+[option] Cayman Islands
+[option] Central African Republic
+[option] Chad
+[option] Chile
+[option] China
+[option] Christmas Island
+[option] Cocos (Keeling) Islands
+[option] Colombia
+[option] Comoros
+[option] Congo
+[option] Cook Islands
+[option] Costa Rica
+[option] Cote d'Ivoire
+[option] Croatia
+[option] Cuba
+[option] Curaçao
+[option] Cyprus
+[option] Czech Republic
+[option] Democratic Republic of the Congo
+[option] Denmark
+[option] Djibouti
+[option] Dominica
+[option] Dominican Republic
+[option] East Timor
+[option] Ecuador
+[option] Egypt
+[option] El Salvador
+[option] Equatorial Guinea
+[option] Eritrea
+[option] Estonia
+[option] Ethiopia
+[option] Europe
+[option] Falkland Islands
+[option] Faroe Islands
+[option] Fiji
+[option] Finland
+[option] France
+[option] French Guiana
+[option] French Polynesia
+[option] French Southern and Antarctic Lands
+[option] Gabon
+[option] Gambia
+[option] Georgia
+[option] Germany
+[option] Ghana
+[option] Gibraltar
+[option] Greece
+[option] Greenland
+[option] Grenada
+[option] Guadeloupe
+[option] Guam
+[option] Guatemala
+[option] Guernsey
+[option] Guinea
+[option] Guinea-Bissau
+[option] Guyana
+[option] Haiti
+[option] Heard Island and McDonald Islands
+[option] Honduras
+[option] Hong Kong
+[option] Hungary
+[option] Iceland
+[option] India
+[option] Indonesia
+[option] Iran
+[option] Iraq
+[option] Ireland
+[option] Isle of Man
+[option] Israel
+[option] Italy
+[option] Jamaica
+[option] Japan
+[option] Jersey
+[option] Jordan
+[option] Kazakhstan
+[option] Kenya
+[option] Kiribati
+[option] Kosovo
+[option] Kuwait
+[option] Kyrgyzstan
+[option] Laos
+[option] Latvia
+[option] Lebanon
+[option] Lesotho
+[option] Liberia
+[option] Libya
+[option] Liechtenstein
+[option] Lithuania
+[option] Luxembourg
+[option] Macau
+[option] Macedonia (FYROM)
+[option] Madagascar
+[option] Malawi
+[option] Malaysia
+[option] Maldives
+[option] Mali
+[option] Malta
+[option] Marshall Islands
+[option] Martinique
+[option] Mauritania
+[option] Mauritius
+[option] Mayotte
+[option] Mexico
+[option] Micronesia
+[option] Moldova
+[option] Monaco
+[option] Mongolia
+[option] Montenegro
+[option] Montserrat
+[option] Morocco
+[option] Mozambique
+[option] Myanmar (Burma)
+[option] Namibia
+[option] Nauru
+[option] Nepal
+[option] Netherlands
+[option] Netherlands Antilles
+[option] New Caledonia
+[option] New Zealand
+[option] Nicaragua
+[option] Niger
+[option] Nigeria
+[option] Niue
+[option] Norfolk Island
+[option] North Korea
+[option] Northern Mariana Islands
+[option] Norway
+[option] Oman
+[option] Pakistan
+[option] Palau
+[option] Palestine
+[option] Panama
+[option] Papua New Guinea
+[option] Paraguay
+[option] Peru
+[option] Philippines
+[option] Pitcairn Islands
+[option] Poland
+[option] Portugal
+[option] Puerto Rico
+[option] Qatar
+[option] Réunion
+[option] Romania
+[option] Russia
+[option] Rwanda
+[option] Saint Barthélemy
+[option] Saint Helena
+[option] Saint Kitts and Nevis
+[option] Saint Lucia
+[option] Saint Martin
+[option] Saint Pierre and Miquelon
+[option] Saint Vincent and the Grenadines
+[option] Samoa
+[option] San Marino
+[option] Sao Tome and Principe
+[option] Saudi Arabia
+[option] Senegal
+[option] Serbia
+[option] Seychelles
+[option] Sierra Leone
+[option] Singapore
+[option] Sint Maarten
+[option] Slovakia
+[option] Slovenia
+[option] Solomon Islands
+[option] Somalia
+[option] South Africa
+[option] South Georgia and the South Sandwich Islands
+[option] South Korea
+[option] South Sudan
+[option] Spain
+[option] Sri Lanka
+[option] Sudan
+[option] Suriname
+[option] Svalbard and Jan Mayen
+[option] Swaziland
+[option] Sweden
+[option] Switzerland
+[option] Syria
+[option] Taiwan
+[option] Tajikistan
+[option] Tanzania
+[option] Thailand
+[option] Togo
+[option] Tokelau
+[option] Tonga
+[option] Trinidad and Tobago
+[option] Tunisia
+[option] Türkiye
+[option] Turkmenistan
+[option] Turks and Caicos Islands
+[option] Tuvalu
+[option] U.S. Virgin Islands
+[option] Uganda
+[option] Ukraine
+[option] United Arab Emirates
+[option] United Kingdom
+[option] United States
+[option] United States Minor Outlying Islands
+[option] Uruguay
+[option] Uzbekistan
+[option] Vanuatu
+[option] Vatican City
+[option] Venezuela
+[option] Vietnam
+[option] Wallis and Futuna
+[option] Western Sahara
+[option] Yemen
+[option] Zambia
+[option] Zimbabwe
+[span] Preferred language
+[option] Please Select
+[option] Afrikaans
+[option] Albanian
+[option] Albanian - Albania
+[option] Arabic
+[option] Arabic - Algeria
+[option] Arabic - Bahrain
+[option] Arabic - Egypt
+[option] Arabic - Iraq
+[option] Arabic - Jordan
+[option] Arabic - Kuwait
+[option] Arabic - Lebanon
+[option] Arabic - Libya
+[option] Arabic - Morocco
+[option] Arabic - Oman
+[option] Arabic - Qatar
+[option] Arabic - Saudi Arabia
+[option] Arabic - Sudan
+[option] Arabic - Syria
+[option] Arabic - Tunisia
+[option] Arabic - United Arab Emirates
+[option] Arabic - Yemen
+[option] Armenian
+[option] Assamese
+[option] Azerbaijani
+[option] Basque
+[option] Belarusian
+[option] Belarusian - Belarus
+[option] Bengali
+[option] Bosnian
+[option] Bulgarian
+[option] Bulgarian - Bulgaria
+[option] Burmese
+[option] Burmese - Myanmar (Burma)
+[option] Catalan
+[option] Catalan - Catalan
+[option] Cebuano - Philippines
+[option] Chinese
+[option] Chinese - China
+[option] Chinese - Hong Kong SAR
+[option] Chinese - Macau SAR
+[option] Chinese - Singapore
+[option] Chinese - Taiwan
+[option] Chinese (Simplified)
+[option] Chinese (Traditional)
+[option] Croatian
+[option] Croatian - Croatia
+[option] Czech
+[option] Czech - Czech Republic
+[option] Danish
+[option] Danish - Denmark
+[option] Dutch
+[option] Dutch - Belgium
+[option] Dutch - The Netherlands
+[option] English
+[option] English - Australia
+[option] English - Canada
+[option] English - Hong Kong
+[option] English - India
+[option] English - Ireland
+[option] English - Malaysia
+[option] English - Malta
+[option] English - New Zealand
+[option] English - Philippines
+[option] English - Singapore
+[option] English - South Africa
+[option] English - United Kingdom
+[option] English - United States
+[option] English - Zimbabwe
+[option] Estonian
+[option] Estonian - Estonia
+[option] Faroese
+[option] Farsi
+[option] Finnish
+[option] Finnish - Finland
+[option] French
+[option] French - Belgium
+[option] French - Canada
+[option] French - France
+[option] French - Luxembourg
+[option] French - Monaco
+[option] French - Switzerland
+[option] Galician
+[option] Georgian
+[option] German
+[option] German - Austria
+[option] German - Germany
+[option] German - Greece
+[option] German - Liechtenstein
+[option] German - Luxembourg
+[option] German - Switzerland
+[option] Greek
+[option] Greek - Cyprus
+[option] Greek - Greece
+[option] Gujarati
+[option] Haitian Creole
+[option] Hausa
+[option] Hebrew
+[option] Hebrew - Israel
+[option] Hebrew - Israel (Legacy)
+[option] Hindi
+[option] Hindi - India
+[option] Hungarian
+[option] Hungarian - Hungary
+[option] Icelandic
+[option] Icelandic - Iceland
+[option] Indonesian
+[option] Indonesian - Indonesia
+[option] Irish
+[option] Irish - Ireland
+[option] Italian
+[option] Italian - Italy
+[option] Italian - Switzerland
+[option] Japanese
+[option] Japanese - Japan
+[option] Kannada
+[option] Kazakh
+[option] Kinyarwanda
+[option] Kiswahili
+[option] Konkani
+[option] Korean
+[option] Korean - South Korea
+[option] Kurdish
+[option] Kyrgyz
+[option] Lao
+[option] Latvian
+[option] Latvian - Latvia
+[option] Lithuanian
+[option] Lithuanian - Lithuania
+[option] Macedonian
+[option] Macedonian - Macedonia
+[option] Malagasy
+[option] Malay
+[option] Malayalam
+[option] Malay - Brunei
+[option] Malay - Malaysia
+[option] Maltese
+[option] Maltese - Malta
+[option] Marathi
+[option] Mongolian
+[option] Norwegian
+[option] Norwegian Bokmal
+[option] Norwegian - Norway
+[option] Nyanja
+[option] ʻŌlelo Hawaiʻi
+[option] Polish
+[option] Polish - Poland
+[option] Portuguese
+[option] Portuguese - Brazil
+[option] Portuguese - Portugal
+[option] Punjabi
+[option] Romanian
+[option] Romanian - Romania
+[option] Russian
+[option] Russian - Russia
+[option] Sanskrit
+[option] Serbian
+[option] Serbian - Bosnia and Herzegovina
+[option] Serbian - Montenegro
+[option] Serbian - Serbia
+[option] Serbian - Serbia and Montenegro (Former)
+[option] Slovak
+[option] Slovak - Slovakia
+[option] Slovenian
+[option] Slovenian - Slovenia
+[option] Spanish
+[option] Spanish - Argentina
+[option] Spanish - Bolivia
+[option] Spanish - Chile
+[option] Spanish - Colombia
+[option] Spanish - Costa Rica
+[option] Spanish - Cuba
+[option] Spanish - Dominican Republic
+[option] Spanish - Ecuador
+[option] Spanish - El Salvador
+[option] Spanish - Guatemala
+[option] Spanish - Honduras
+[option] Spanish - Mexico
+[option] Spanish - Nicaragua
+[option] Spanish - Panama
+[option] Spanish - Paraguay
+[option] Spanish - Peru
+[option] Spanish - Puerto Rico
+[option] Spanish - Spain
+[option] Spanish - United States
+[option] Spanish - Uruguay
+[option] Spanish - Venezuela
+[option] Swahili
+[option] Swedish
+[option] Swedish - Finland
+[option] Swedish - Sweden
+[option] Syriac
+[option] Tagalog
+[option] Tamil
+[option] Tatar
+[option] Telugu
+[option] Thai
+[option] Thai - Thailand
+[option] Turkish
+[option] Turkish - Türkiye
+[option] Ukrainian
+[option] Ukrainian - Ukraine
+[option] Urdu
+[option] Uzbek
+[option] Vietnamese
+[option] Vietnamese - Vietnam
+[option] Yoruba
+[p] By submitting this form, I consent to receive marketing emails from the LF and its projects regarding their events, training, research, developments, and related announcements. I understand that I can unsubscribe at any time using the links in the footers of the emails I receive.
+[a] Privacy Policy
+[p] © Valkey contributors.
+[p] Valkey and the Valkey logo are trademarks of LF Projects, LLC.
+[a] Trademark Policy
+[a] Privacy Policy
+[a] Terms of Use
+[p] .
+          For other policies, please see
+[a] lfprojects.org
+[p] Valkey includes certain 3-Clause BSD-licensed Redis code from Redis Ltd. and other source code. Redis Ltd. is
+          not the source of that other source code. Redis is a registered trademark of Redis Ltd.
+[p] Logo design by
+[a] Ziyang.

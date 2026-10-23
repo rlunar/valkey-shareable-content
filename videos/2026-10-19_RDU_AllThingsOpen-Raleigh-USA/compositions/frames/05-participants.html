@@ -1,0 +1,244 @@
+<template>
+  <link rel="stylesheet" href="open-sans-embedded.css">
+  <link rel="stylesheet" href="brand-rail.css">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+    /* ------------------------------------------------------------------
+       Frame 5 — Credibility: the industry runs on it
+       FRAME.md treatment family: 4 · Performance Ledger / 6 · Catalog Sheet
+       ground-light (#fff) + ink (#002a3a) — the deliberate tonal break that
+       lets the real participant trademarks appear in their OWN colors.
+       Tokens used: colors.white, colors.ink, colors.action-blue,
+       typography.section-head / micro-label, spacing.frame-pad / l / m / s,
+       components.ground-light + components.participants-wall.
+       ------------------------------------------------------------------ */
+
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+    }
+
+    /* ---- the wall group -------------------------------------------------
+       #f5-wall is the frame's single full-bleed clip layer AND the stable
+       handle the master seam block (stamped from ledger.json) drives:
+       UP entry at 10.0s (y +230 -> 0, opacity .35 -> 1, power4.out) and the
+       Z-pull exit at 12.5s (scale 1 -> 0.8, blur 0 -> 18px, power3.in).
+       Nothing in THIS file touches #f5-wall — no transform, no filter, no
+       CSS transform either (gsap_css_transform_conflict). The white ground
+       rides here, never on #root.
+       -------------------------------------------------------------------- */
+    #f5-wall {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: #fff;              /* components.ground-light */
+      container-type: size;          /* cqw resolves against 1920 */
+    }
+
+    /* ---- section title (composed at t=0, left-anchored top) ------------- */
+    .f5-title {
+      position: absolute;
+      left: 5cqw;                    /* spacing.frame-pad */
+      top: 5cqw;
+      font-family: "Open Sans";      /* typography.section-head */
+      font-size: 4.2cqw;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0.1cqw;
+      color: #002a3a;                /* colors.ink — ink on white only */
+      white-space: nowrap;
+    }
+
+    /* ---- participants wall: 6-column grid, gap spacing.m ---------------
+       FRAME.md's named dense-exception. Every cell is an IDENTICAL box
+       (1fr wide x 5.6cqw tall, ~2.37:1) and each trademark is CONTAINED
+       inside it — uniform scale, centered on both axes. Near-square marks
+       (Ericsson, Percona, UpCloud, AWS) grow to the cell height; long
+       wordmarks (Oracle, IONOS, Momento, Alibaba) are limited by width, so
+       optical mass balances across the wall instead of Oracle rendering ~7x
+       Ericsson. Position + opacity only: never tinted, recoloured,
+       monochromed, cropped or non-uniformly scaled.
+       -------------------------------------------------------------------- */
+    .f5-grid {
+      position: absolute;
+      left: 5cqw;
+      right: 5cqw;
+      top: calc(5cqw + 4.2cqw + 80px);   /* title block + spacing.l */
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-auto-rows: 5.6cqw;
+      column-gap: 40px;                    /* spacing.m */
+      row-gap: 100px;                      /* feedback: air between logo rows */
+    }
+
+    .f5-cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 5.6cqw;
+      opacity: 0;                         /* binary reveal is owned by the timeline */
+    }
+
+    .f5-logo {
+      display: block;
+      width: 100%;
+      height: 5.6cqw;
+      max-width: 100%;
+      max-height: 5.6cqw;
+      object-fit: contain;                /* uniform scale, never cropped */
+      object-position: 50% 50%;
+    }
+
+    /* ---- bottom rail ---------------------------------------------------- */
+    .f5-rule {
+      position: absolute;
+      left: 5cqw;
+      right: 5cqw;
+      top: 43.9cqw;
+      height: 1px;
+      background: rgba(0, 42, 58, 0.16);  /* rule-hairline, ink on light ground */
+      transform-origin: left center;
+      opacity: 0;
+    }
+
+    /* Reserve the top-right lockup footprint without covering the title. */
+    .f5-title {
+      right: 32cqw;
+      font-size: 3.6cqw;
+      white-space: normal;
+    }
+  </style>
+
+  <div data-hf-id="hf-jkp1" id="root" data-composition-id="05-participants" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-9dpj" id="f5-wall" class="clip" data-start="0" data-duration="3.0" data-track-index="0">
+
+      <div data-hf-id="hf-tewk" class="f5-title">THE INDUSTRY RUNS ON VALKEY</div>
+
+      <div data-hf-id="hf-855k" class="f5-grid">
+        <div data-hf-id="hf-mbto" class="f5-cell" id="f5-c01"><img data-hf-id="hf-91ua" class="f5-logo" src="assets/p-aws.svg" alt="Amazon Web Services"></div>
+        <div data-hf-id="hf-x7bb" class="f5-cell" id="f5-c02"><img data-hf-id="hf-4o3o" class="f5-logo" src="assets/p-google-cloud.svg" alt="Google Cloud"></div>
+        <div data-hf-id="hf-r1li" class="f5-cell" id="f5-c03"><img data-hf-id="hf-4tu5" class="f5-logo" src="assets/p-oracle.svg" alt="Oracle Cloud Infrastructure"></div>
+        <div data-hf-id="hf-1x35" class="f5-cell" id="f5-c04"><img data-hf-id="hf-by6f" class="f5-logo" src="assets/p-ericsson.svg" alt="Ericsson"></div>
+        <div data-hf-id="hf-15fc" class="f5-cell" id="f5-c05"><img data-hf-id="hf-w77l" class="f5-logo" src="assets/p-bytedance.svg" alt="ByteDance"></div>
+        <div data-hf-id="hf-9tb7" class="f5-cell" id="f5-c06"><img data-hf-id="hf-zepj" class="f5-logo" src="assets/p-percona.svg" alt="Percona"></div>
+
+        <div data-hf-id="hf-5v76" class="f5-cell" id="f5-c07"><img data-hf-id="hf-2su1" class="f5-logo" src="assets/p-aiven.svg" alt="Aiven"></div>
+        <div data-hf-id="hf-vnvx" class="f5-cell" id="f5-c08"><img data-hf-id="hf-3veb" class="f5-logo" src="assets/p-digitalocean.svg" alt="DigitalOcean"></div>
+        <div data-hf-id="hf-uw84" class="f5-cell" id="f5-c09"><img data-hf-id="hf-dfx3" class="f5-logo" src="assets/p-heroku.svg" alt="Heroku"></div>
+        <div data-hf-id="hf-3aei" class="f5-cell" id="f5-c10"><img data-hf-id="hf-hw4t" class="f5-logo" src="assets/p-vultr.svg" alt="Vultr"></div>
+        <div data-hf-id="hf-78ij" class="f5-cell" id="f5-c11"><img data-hf-id="hf-0avl" class="f5-logo" src="assets/p-netapp.svg" alt="NetApp Instaclustr"></div>
+        <div data-hf-id="hf-ykmo" class="f5-cell" id="f5-c12"><img data-hf-id="hf-r8gv" class="f5-logo" src="assets/p-upcloud.svg" alt="UpCloud"></div>
+
+        <div data-hf-id="hf-zcah" class="f5-cell" id="f5-c13"><img data-hf-id="hf-yxsi" class="f5-logo" src="assets/p-ionos.svg" alt="IONOS Cloud"></div>
+        <div data-hf-id="hf-qoem" class="f5-cell" id="f5-c14"><img data-hf-id="hf-mjhl" class="f5-logo" src="assets/p-momento.svg" alt="Momento"></div>
+        <div data-hf-id="hf-umin" class="f5-cell" id="f5-c15"><img data-hf-id="hf-mjkb" class="f5-logo" src="assets/p-anynines.svg" alt="anynines"></div>
+        <div data-hf-id="hf-jr10" class="f5-cell" id="f5-c16"><img data-hf-id="hf-5yo8" class="f5-logo" src="assets/p-tencent.svg" alt="Tencent Cloud"></div>
+        <div data-hf-id="hf-kiot" class="f5-cell" id="f5-c17"><img data-hf-id="hf-mnbp" class="f5-logo" src="assets/p-alibaba.png" alt="Alibaba Cloud"></div>
+      </div>
+
+      <div data-hf-id="hf-m942" class="f5-rule" id="f5-rule"></div>
+
+      <div data-hf-id="hf-f5-brand-rail" class="feedback-brand-rail feedback-brand-rail--light">
+        <img data-hf-id="hf-f5-brand-logo" src="assets/valkey-logo.svg" alt="Valkey">
+        <span data-hf-id="hf-f5-brand-url">valkey.io</span>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      /* ------------------------------------------------------------------
+         Waterfall ENTRY (waterfall-entry), not a seam.
+         - reading order, one direction (from below)
+         - opacity is BINARY 0 -> 1 via tl.set; never a fade on an arrival
+         - Y offset + duration vary by logo WEIGHT (rendered optical mass in
+           its cell): heavy marks travel further and settle longer, light
+           wordmarks snap
+         - inter-cell gaps shrink x0.84 so the cascade ACCELERATES and the
+           last cell (Alibaba Cloud) snaps
+         - every start time derives from element INDEX, so the cascade is
+           fully deterministic and byte-identical on every render
+         ------------------------------------------------------------------ */
+      var CELLS = [
+        /* row 1 */
+        { el: "#f5-c01", y: 78, dur: 0.20 },  /* AWS — focal anchor, heaviest travel */
+        { el: "#f5-c02", y: 48, dur: 0.15 },  /* Google Cloud */
+        { el: "#f5-c03", y: 34, dur: 0.12 },  /* Oracle — light wordmark, snaps */
+        { el: "#f5-c04", y: 50, dur: 0.15 },  /* Ericsson */
+        { el: "#f5-c05", y: 46, dur: 0.14 },  /* ByteDance */
+        { el: "#f5-c06", y: 52, dur: 0.15 },  /* Percona */
+        /* row 2 */
+        { el: "#f5-c07", y: 68, dur: 0.18 },  /* Aiven — heavy */
+        { el: "#f5-c08", y: 46, dur: 0.14 },  /* DigitalOcean */
+        { el: "#f5-c09", y: 74, dur: 0.19 },  /* Heroku — heaviest mass in the wall */
+        { el: "#f5-c10", y: 64, dur: 0.17 },  /* Vultr */
+        { el: "#f5-c11", y: 64, dur: 0.17 },  /* NetApp Instaclustr */
+        { el: "#f5-c12", y: 66, dur: 0.18 },  /* UpCloud */
+        /* row 3 */
+        { el: "#f5-c13", y: 34, dur: 0.12 },  /* IONOS — light wordmark */
+        { el: "#f5-c14", y: 44, dur: 0.14 },  /* Momento */
+        { el: "#f5-c15", y: 70, dur: 0.18 },  /* anynines — heavy */
+        { el: "#f5-c16", y: 44, dur: 0.13 },  /* Tencent Cloud */
+        { el: "#f5-c17", y: 36, dur: 0.11 }   /* Alibaba Cloud — LAST cell, snaps */
+      ];
+
+      var CASCADE_START = 0.5;   /* first arrival lands inside the hero-visibility window */
+      var FIRST_GAP = 0.201;     /* tuned so the wall is composed by ~1.83s */
+      var GAP_RATIO = 0.84;      /* gaps SHRINK -> the cascade accelerates */
+
+      /* Scene 1 (0.0-0.6s): white ground rides in on the seam's UP entry, the
+         section title is already composed, the wall cells are empty. */
+      var i, c, ids = [];
+      for (i = 0; i < CELLS.length; i++) { ids.push(CELLS[i].el); }
+      tl.set(ids, { opacity: 0 }, 0);
+      tl.set("#f5-rule", { opacity: 0 }, 0);
+
+      /* Scene 2 (0.6-1.8s): the cascade. */
+      var t = CASCADE_START;
+      var gap = FIRST_GAP;
+      for (i = 0; i < CELLS.length; i++) {
+        c = CELLS[i];
+        tl.set(c.el, { opacity: 1 }, t);
+        tl.fromTo(
+          c.el,
+          { y: c.y },
+          { y: 0, duration: c.dur, ease: "power4.out", immediateRender: false },
+          t
+        );
+        t += gap;
+        gap *= GAP_RATIO;
+      }
+
+      /* Scene 3 (1.8-3.0s): the wall resolves, then the frame holds dead
+         still through the added half-second before the host Z-pull transition. No
+         exit tween here — the seam IS the exit. */
+      tl.set("#f5-rule", { opacity: 1 }, 1.88);
+      tl.fromTo(
+        "#f5-rule",
+        { scaleX: 0 },
+        { scaleX: 1, duration: 0.22, ease: "power3.out", immediateRender: false },
+        1.88
+      );
+
+      /* Explicit final-state re-assert at 2.5s; the framework then holds that
+         composed state through the frame's full 3.0s. The wall is DEAD STILL
+         from 2.10s (no idle wobble, no float) before the host Z-pull transition.
+         Never an exit tween: the seam IS the exit. */
+      tl.set("#f5-rule", { opacity: 1, scaleX: 1 }, 2.5);
+
+      tl.seek(0);
+      window.__timelines["05-participants"] = tl;
+    })();
+  </script>
+</template>

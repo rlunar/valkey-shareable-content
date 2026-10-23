@@ -1,0 +1,120 @@
+<template>
+  <style>
+    @font-face { font-family: "Open Sans"; src: url("assets/fonts/OpenSans-Variable.woff2") format("woff2"); font-weight: 300 800; font-style: normal; }
+    @font-face { font-family: "Cascadia Code"; src: url("assets/fonts/CascadiaCode-Variable.woff2") format("woff2"); font-weight: 200 700; font-style: normal; }
+
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: "Open Sans", sans-serif; color: #1A2026; }
+    .clip { position: absolute; inset: 0; }
+
+    .f06-ground { background: linear-gradient(135deg, #FFFFFF 0%, #F7FBFE 62%, #F1EFFD 100%); }
+
+    .f06-title { position: absolute; left: 72px; top: 170px; margin: 0; font-size: 40px; line-height: 48px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: #30176E; opacity: 0; }
+
+    /* connectors — under the cards so each end tucks against a card edge */
+    .f06-links { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    .f06-link { fill: none; stroke: #6983FF; stroke-width: 4; stroke-linecap: round; opacity: 0; }
+
+    /* node_card (module tiles 400 × 140 at the four corners of the 2×2, resting state) */
+    .f06-card { position: absolute; box-sizing: border-box; width: 400px; height: 140px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px 8px; background: #FFFDFA; border: 3px solid #BCB5E7; box-shadow: rgba(48, 23, 110, 0.08) 0px 12px 36px 0px; text-align: center; opacity: 0; }
+    .f06-eyebrow { font-family: "Cascadia Code", monospace; font-size: 18px; line-height: 22px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #30176E; white-space: nowrap; }
+    .f06-module { text-transform: none; }
+    .f06-label { margin-top: 8px; font-size: 30px; line-height: 36px; font-weight: 700; color: #1A2026; white-space: nowrap; }
+
+    /* the hub: a 300 × 140 node_card in its current state for the whole shot, centred between the four tiles */
+    .f06-hub { width: 300px; background: #F1EFFD; border-color: #6983FF; box-shadow: rgba(105, 131, 255, 0.22) 0px 16px 44px 0px; }
+    .f06-mark { width: 56px; height: 56px; object-fit: contain; }
+    .f06-hub .f06-eyebrow { margin-top: 10px; }
+  </style>
+
+  <div data-hf-id="hf-z4g5" id="root" data-composition-id="f06-modules" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-5dn9" id="f06-modules-layer-1" class="clip f06-ground" data-start="0" data-duration="6.5" data-track-index="0"></div>
+
+    <div data-hf-id="hf-9t4i" id="f06-modules-layer-2" class="clip f06-stage" data-start="0" data-duration="6.5" data-track-index="1">
+      <h2 data-hf-id="hf-zrac" id="f06-title" class="f06-title">Extend with modules</h2>
+
+      <!-- connectors: from each tile's inner edge to the hub's top / bottom edge -->
+      <svg data-hf-id="hf-orla" class="f06-links" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path data-hf-id="hf-483w" id="f06-link-json" class="f06-link" d="M 340 630 L 460 830" />
+        <path data-hf-id="hf-9c00" id="f06-link-search" class="f06-link" d="M 740 630 L 620 830" />
+        <path data-hf-id="hf-1f6u" id="f06-link-bloom" class="f06-link" d="M 340 1170 L 460 970" />
+        <path data-hf-id="hf-816c" id="f06-link-ldap" class="f06-link" d="M 740 1170 L 620 970" />
+      </svg>
+
+      <!-- hub -->
+      <div data-hf-id="hf-rsz8" id="f06-hub" class="f06-card f06-hub" style="left: 390px; top: 830px;">
+        <img data-hf-id="hf-rman" class="f06-mark" src="assets/brand/valkey-icon-periwinkle.svg" alt="" width="56" height="56">
+        <div data-hf-id="hf-u6kk" class="f06-eyebrow">Valkey</div>
+      </div>
+
+      <!-- module tiles at the four corners of the 2×2 -->
+      <div data-hf-id="hf-cpg3" id="f06-card-json" class="f06-card" style="left: 108px; top: 490px;">
+        <div data-hf-id="hf-9f0q" class="f06-eyebrow f06-module">valkey-json</div>
+        <div data-hf-id="hf-x82p" class="f06-label">JSON documents</div>
+      </div>
+      <div data-hf-id="hf-utfw" id="f06-card-search" class="f06-card" style="left: 572px; top: 490px;">
+        <div data-hf-id="hf-5t5g" class="f06-eyebrow f06-module">valkey-search</div>
+        <div data-hf-id="hf-mll1" class="f06-label">Full-text + vectors</div>
+      </div>
+      <div data-hf-id="hf-6ncc" id="f06-card-bloom" class="f06-card" style="left: 108px; top: 1170px;">
+        <div data-hf-id="hf-owlf" class="f06-eyebrow f06-module">valkey-bloom</div>
+        <div data-hf-id="hf-vh22" class="f06-label">Membership filters</div>
+      </div>
+      <div data-hf-id="hf-h4fr" id="f06-card-ldap" class="f06-card" style="left: 572px; top: 1170px;">
+        <div data-hf-id="hf-ld69" class="f06-eyebrow f06-module">valkey-ldap</div>
+        <div data-hf-id="hf-d7w9" class="f06-label">Authentication</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      const $ = (id) => document.getElementById(id);
+      const ENTER = { duration: 0.55, ease: "power3.out" };
+
+      // ---- svg-path-draw setup: measure each connector once and park it fully undrawn
+      const LEN = {};
+      ["json", "search", "bloom", "ldap"].forEach((k) => {
+        const p = $("f06-link-" + k);
+        const n = (p.getAttribute("d").match(/-?\d*\.?\d+/g) || []).map(Number); // x0 y0 x1 y1
+        let len = 0;
+        try { len = p.getTotalLength(); } catch (e) { len = 0; }
+        if (!(len > 0)) len = Math.hypot(n[2] - n[0], n[3] - n[1]);
+        len = Math.ceil(len * 1.02);
+        LEN[k] = len;
+        p.style.strokeDasharray = String(len);
+        p.style.strokeDashoffset = String(len);
+      });
+
+      // a module docks: the tile slides in from its edge toward the hub, and the connector
+      // pen-draws toward the hub as the tile lands (0.3s, finishing on the tile's settle)
+      const dock = (k, dx, dy, t) => {
+        tl.fromTo($("f06-card-" + k), { x: dx, y: dy, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, t);
+        tl.fromTo($("f06-link-" + k), { opacity: 0 }, { opacity: 1, duration: 0.08, ease: "power1.out" }, t + 0.2);
+        tl.fromTo($("f06-link-" + k), { strokeDashoffset: LEN[k] }, { strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, t + 0.2);
+      };
+      // a docked connector rests at 0.32 once the next module takes the light
+      const rest = (k, t) => tl.to($("f06-link-" + k), { opacity: 0.32, duration: 0.3, ease: "power2.inOut" }, t);
+
+      // ---- Scene 1 (0.0–1.5): title; the hub enters already current at 0.4
+      tl.fromTo($("f06-title"), { y: 32, opacity: 0 }, { y: 0, opacity: 1, ...ENTER }, 0.1);
+      tl.fromTo($("f06-hub"), { y: 32, opacity: 0 }, { y: 0, opacity: 1, ...ENTER }, 0.4);
+
+      // ---- Scene 2 (1.5–4.4): one module per voice cue — "JSON" 1.7, "Search" 2.4, "Bloom" 3.0, "LDAP" 4.0
+      dock("json", -120, -90, 1.6);
+      rest("json", 2.3);
+      dock("search", 120, -90, 2.3);
+      rest("search", 2.9);
+      dock("bloom", -120, 90, 2.9);
+      rest("bloom", 3.9);
+      dock("ldap", 120, 90, 3.9);
+      rest("ldap", 4.4);
+
+      // ---- Scene 3 (4.4–6.5): hold composed — four connectors at 0.32, the hub stays current
+
+      window.__timelines["f06-modules"] = tl;
+    })();
+  </script>
+</template>

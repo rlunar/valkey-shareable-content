@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         '@valkey-assets': resolve(repositoryRoot, 'valkey-brand/ValkeyDesignSystem/assets'),
-        '@valkey-slide-icons': resolve(repositoryRoot, 'slides/icons'),
+        '@valkey-slide-icons': resolve(repositoryRoot, 'valkey-brand/icons'),
       },
     },
     server: {

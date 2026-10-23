@@ -1,0 +1,7 @@
+{
+  "scene": "f13-participants",
+  "duration_s": 5.5,
+  "rules": ["waterfall-entry"],
+  "exit": { "vector": "static (hold)", "still_moving": false },
+  "entry": { "vector": "upward: 21 marks whip y +64px (row 1) tapering to +28px (row 7) to 0 over 0.17-0.11s power4.out with binary opacity, row by row from t=0.02, all settled by 0.27s; eyebrow and URLs y +32px to 0 over 0.5s power3.out from 0.2s and 0.24s; nothing moves at t=0", "from_rest": true }
+}

@@ -1,0 +1,121 @@
+<template>
+  <style>
+    @font-face { font-family: "Open Sans"; src: url("assets/fonts/OpenSans-Variable.woff2") format("woff2"); font-weight: 300 800; font-style: normal; }
+    @font-face { font-family: "Cascadia Code"; src: url("assets/fonts/CascadiaCode-Variable.woff2") format("woff2"); font-weight: 200 700; font-style: normal; }
+
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: "Open Sans", sans-serif; color: #1A2026; }
+    .clip { position: absolute; inset: 0; }
+
+    /* ground: the film's one gradient, on its own full-duration clip */
+    .f09-ground { background: linear-gradient(135deg, #FFFFFF 0%, #F7FBFE 62%, #F1EFFD 100%); }
+
+    /* frame_title: 44px / 800 / deep_purple / 0.04em / uppercase, top-left slot */
+    .f09-title { position: absolute; left: 96px; top: 88px; margin: 0; font-size: 44px; line-height: 52px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: #30176E; white-space: nowrap; }
+
+    /* panel grid: 3 x 2 cells of 480 x 300; cell centres at x 480 / 960 / 1440 and y 400 / 700.
+       This geometry is shared verbatim by Frames 8-11 so the four use-case frames cut as one grid. */
+    .f09-cell { position: absolute; width: 480px; height: 300px; }
+    .f09-col1 { left: 240px; }
+    .f09-col2 { left: 720px; }
+    .f09-col3 { left: 1200px; }
+    .f09-row1 { top: 250px; }
+    .f09-row2 { top: 550px; }
+
+    /* panel_cell: one 120px outline glyph centred above a 40px / 700 deep_purple label; no border, fill, or stripe */
+    .f09-glyph { position: absolute; left: 180px; top: 44px; width: 120px; height: 120px; display: block; object-fit: contain; }
+    .f09-labelgroup { position: absolute; left: 8px; top: 188px; width: 464px; text-align: center; }
+    .f09-label { margin: 0; font-size: 40px; line-height: 46px; font-weight: 700; color: #30176E; }
+
+    /* layer marker in the sixth cell: caption_size secondary, sitting on the row-2 label line */
+    .f09-marker { position: absolute; left: 1208px; top: 746px; width: 464px; margin: 0; text-align: center; font-size: 26px; line-height: 30px; font-weight: 400; color: #596672; }
+  </style>
+
+  <div data-hf-id="hf-1skd" id="root" data-composition-id="f09-usecases-coordination" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-p96m" id="f09-usecases-coordination-layer-1" class="clip f09-ground" data-start="0" data-duration="5" data-track-index="0"></div>
+
+    <div data-hf-id="hf-xxnt" id="f09-usecases-coordination-layer-2" class="clip" data-start="0" data-duration="5" data-track-index="1">
+      <h2 data-hf-id="hf-wdn7" id="f09-title" class="f09-title">Service coordination</h2>
+
+      <!-- row 1 -->
+      <div data-hf-id="hf-z16i" id="f09-c1" class="f09-cell f09-col1 f09-row1">
+        <img data-hf-id="hf-xb8n" class="f09-glyph" src="assets/icons/hardening.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-93b7" class="f09-labelgroup">
+          <p data-hf-id="hf-0t81" id="f09-l1" class="f09-label">Distributed locks</p>
+        </div>
+      </div>
+      <div data-hf-id="hf-ylnc" id="f09-c2" class="f09-cell f09-col2 f09-row1">
+        <img data-hf-id="hf-bzh3" class="f09-glyph" src="assets/icons/horizontal-scaling.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-iw03" class="f09-labelgroup">
+          <p data-hf-id="hf-g92p" id="f09-l2" class="f09-label">Message queue</p>
+        </div>
+      </div>
+      <div data-hf-id="hf-wwbq" id="f09-c3" class="f09-cell f09-col3 f09-row1">
+        <img data-hf-id="hf-wkg7" class="f09-glyph" src="assets/icons/replication.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-ihp2" class="f09-labelgroup">
+          <p data-hf-id="hf-awqy" id="f09-l3" class="f09-label">Chats / Pub/Sub</p>
+        </div>
+      </div>
+
+      <!-- row 2: two more cells and the layer marker in the sixth slot -->
+      <div data-hf-id="hf-e6ng" id="f09-c4" class="f09-cell f09-col1 f09-row2">
+        <img data-hf-id="hf-1jf1" class="f09-glyph" src="assets/icons/reliability.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-i3e1" class="f09-labelgroup">
+          <p data-hf-id="hf-ay02" id="f09-l4" class="f09-label">Idempotency</p>
+        </div>
+      </div>
+      <div data-hf-id="hf-f7f0" id="f09-c5" class="f09-cell f09-col2 f09-row2">
+        <img data-hf-id="hf-7e7e" class="f09-glyph" src="assets/icons/community.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-hp30" class="f09-labelgroup">
+          <p data-hf-id="hf-j4ig" id="f09-l5" class="f09-label">Microservices</p>
+        </div>
+      </div>
+      <p data-hf-id="hf-av38" id="f09-marker" class="f09-marker">Application patterns</p>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const ID = "f09-usecases-coordination";
+      const F = 1 / 30; // one frame at the project's 30 fps
+      const PERI = "#6983FF";
+      const DEEP = "#30176E";
+      const tl = gsap.timeline({ paused: true });
+
+      // Scene 1 (0.0-0.5s): title lands with the frame.md entrance token.
+      tl.fromTo("#f09-title", { y: 32, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, 0);
+
+      // waterfall-entry (adapted to land by 0.3s): five cells whip in from below as one accelerating cascade.
+      // Opacity is binary, never a fade: a one-frame step from an explicit from-state (opacity 0) that completes
+      // exactly on the arrival frame, so a cell first appears at its full y offset and reverts cleanly on a
+      // backward seek. Starts are frame-aligned one frame apart; the anchor travels furthest and longest, each
+      // later cell travels less and settles sooner, and the last one snaps. Timing is identical to Frame 8 so
+      // the two frames read as a cut, not a rebuild.
+      const arrive = (sel, frame, offset, dur) => {
+        const at = frame * F;
+        tl.fromTo(sel, { opacity: 0 }, { opacity: 1, duration: F, ease: "none" }, at - F);
+        tl.fromTo(sel, { y: offset }, { y: 0, duration: dur, ease: "power4.out" }, at);
+      };
+      arrive("#f09-c1", 1, 72, 0.18); // anchor: visible 0.033, settles 0.213
+      arrive("#f09-c2", 2, 60, 0.16); // visible 0.067, settles 0.227
+      arrive("#f09-c3", 3, 48, 0.15); // visible 0.100, settles 0.250
+      arrive("#f09-c4", 4, 40, 0.13); // visible 0.133, settles 0.263 (row 2 travels shorter: its labels stay clear of the caption band)
+      arrive("#f09-c5", 5, 30, 0.12); // visible 0.167, settles 0.287 (last one snaps)
+
+      // The layer marker fades in at 0.5s.
+      tl.fromTo("#f09-marker", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.5);
+
+      // Scene 2 (0.5-5.0s): hold. On each voice cue the matching label tints periwinkle, holds, and is back at
+      // deep purple 0.6s after the cue. Labels never swap; nothing is drawn behind the grid.
+      // (immediateRender: false keeps each leg's from-state from pre-rendering over the resting colour.)
+      const tint = (sel, at) => {
+        tl.fromTo(sel, { color: DEEP }, { color: PERI, duration: 0.12, ease: "power2.out", immediateRender: false }, at);
+        tl.fromTo(sel, { color: PERI }, { color: DEEP, duration: 0.18, ease: "power2.inOut", immediateRender: false }, at + 0.42);
+      };
+      tint("#f09-l5", 0.4); // "Coordinate services"
+      tint("#f09-l4", 2.3); // "retries"
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

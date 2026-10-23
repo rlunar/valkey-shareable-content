@@ -1,0 +1,7 @@
+{
+  "scene": "f05-releases",
+  "duration_s": 6,
+  "rules": ["waterfall-entry"],
+  "exit": { "vector": "static (hold)", "still_moving": false },
+  "entry": { "vector": "y -32px over 0.55s power3.out (title); cards whip y -80/-48/-40px over 0.16/0.13/0.11s power4.out from 0.45s", "from_rest": true }
+}

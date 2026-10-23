@@ -1,0 +1,313 @@
+<template>
+  <!--
+    Frame 04 — Proof: shipping, right now.  1920x1080 @ 30fps · 3.1s
+    blueprint: typewriter-reveal (Adapt) — the command types itself inside a
+    card-documentation on the film's SINGLE periwinkle plate (ground-feature).
+
+      Scene 1  0.00–0.70  ground + version block composed AT REST (the LEFT seam
+                          carries #f4-left in; no internal tween here).
+      Scene 2  0.70–1.00  card-documentation surface lands on the LEFT current,
+                          power3.out — the surface before its content.
+      Scene 3  1.00–2.00  install line types itself (discrete-text-sequence)
+                          behind the blinking action-blue caret
+                          (context-sensitive-cursor); "Released 2026-09-01"
+                          stamps in 1.767–1.967.
+      Scene 4  2.00–3.10  THE DEAD-STILL BEAT. Typing done, caret at rest solid,
+                          every tween landed. Nothing moves. The ledger's UP exit
+                          on #f4-root takes it from here (NOT authored below).
+
+    Exposed for the master seam block (stamped from ledger.json — do not author):
+      #f4-left  LEFT entry, mid-flight at 7.4s
+      #f4-root  UP exit at 10.0s
+    Neither carries a CSS transform, and neither is tweened internally.
+  -->
+  <link rel="stylesheet" href="open-sans-embedded.css">
+  <link rel="stylesheet" href="brand-rail.css">
+
+  <style>
+    /* root styled by #root — never by a class on the data-composition-id element */
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      container-type: size;          /* 1cqw = 19.2px at 1920 */
+      font-family: 'Open Sans';
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* seam target — no CSS transform, no internal tween */
+    #f4-root {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .clip {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    /* ground-feature — the film's one periwinkle plate, full-bleed on a clip layer */
+    #f4-ground {
+      background: #6983ff;
+    }
+
+    #f4-plate {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5cqw;                              /* spacing.frame-pad */
+      padding-bottom: calc(5cqw + 80px);          /* spacing.l lift — row centre ~0.46 x height */
+    }
+
+    /* ---- left column: the version block (seam target — no CSS transform) ---- */
+    #f4-left {
+      flex: 0 0 30cqw;
+    }
+
+    #f4-version-label {                           /* enlarged feedback label */
+      font-family: 'Open Sans';
+      font-size: 2.8cqw;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: 0.4cqw;
+      color: #fff;
+      margin-bottom: 20px;                        /* spacing.s */
+    }
+
+    #f4-version {                                 /* stat-numeral */
+      font-family: 'Open Sans';
+      font-size: 8cqw;
+      font-weight: 700;
+      line-height: 0.9;
+      letter-spacing: -0.1cqw;
+      color: #fff;
+    }
+
+    /* ---- right column: one Linux terminal plane, still using the locked
+       documentation-panel radius and the sequence's only card shadow ---- */
+    #f4-card {
+      box-sizing: border-box;
+      flex: 0 0 60cqw;
+      background: #fff;
+      color: #002a3a;
+      border-radius: 20px;
+      padding: 0;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+    }
+
+    #f4-terminal-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      padding: 23px 34px;
+      font-family: 'Open Sans';
+      font-size: 2cqw;
+      font-weight: 600;
+      line-height: 1;
+      color: #002a3a;
+      white-space: nowrap;
+    }
+
+    #f4-terminal-title {
+      letter-spacing: 0.12cqw;
+    }
+
+    #f4-terminal-shell {
+      letter-spacing: 0.03cqw;
+      opacity: 0.68;
+    }
+
+    #f4-terminal-body {
+      box-sizing: border-box;
+      padding: 40px 34px 46px;
+      background: #002a3a;
+      color: #fff;
+    }
+
+    /* Larger than ui-frame while preserving the source-locked Open Sans face.
+       The 60cqw panel and 34px body gutters keep the verbatim command on one line. */
+    #f4-cmd {
+      font-family: 'Open Sans';
+      font-size: 2.5cqw;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.05cqw;
+      color: #fff;
+      white-space: pre;
+      min-height: 1.2em;
+    }
+
+    #f4-prompt {
+      display: inline-block;
+      margin-right: 0.34em;
+      color: #fff;
+    }
+
+    #f4-cmd-text {
+      white-space: pre;
+    }
+
+    /* the frame's ONE action-blue atom */
+    #f4-caret {
+      display: inline-block;
+      width: 0.34em;
+      height: 0.95em;
+      background: #0053b8;
+      vertical-align: -0.14em;
+    }
+
+    #f4-released {
+      font-family: 'Open Sans';
+      font-size: 2cqw;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: 0.2cqw;
+      color: rgba(255, 255, 255, 0.72);
+      margin-top: 46px;
+    }
+  </style>
+
+  <div data-hf-id="hf-fpya" id="root" data-composition-id="04-proof" data-start="0" data-duration="3.1" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-2f54" id="f4-root">
+      <div data-hf-id="hf-e648" id="f4-ground" class="clip" data-start="0" data-duration="3.1" data-track-index="0"></div>
+
+      <div data-hf-id="hf-bpla" id="f4-plate" class="clip" data-start="0" data-duration="3.1" data-track-index="1">
+        <div data-hf-id="hf-mgiz" id="f4-left">
+          <div data-hf-id="hf-yy5n" id="f4-version-label">VERSION</div>
+          <div data-hf-id="hf-erhq" id="f4-version">9.1.2</div>
+        </div>
+
+        <div data-hf-id="hf-nbfm" id="f4-card" role="group" aria-label="Linux terminal showing a Valkey Docker command">
+          <div data-hf-id="hf-tbar" id="f4-terminal-bar">
+            <span data-hf-id="hf-tttl" id="f4-terminal-title">LINUX TERMINAL</span>
+            <span data-hf-id="hf-tshl" id="f4-terminal-shell">valkey@linux:~ — bash</span>
+          </div>
+          <div data-hf-id="hf-tbdy" id="f4-terminal-body">
+            <div data-hf-id="hf-hbe0" id="f4-cmd"><span data-hf-id="hf-tpmt" id="f4-prompt" aria-hidden="true">$</span><span data-hf-id="hf-nisd" id="f4-cmd-text"></span><span data-hf-id="hf-vheq" id="f4-caret"></span></div>
+            <div data-hf-id="hf-vkdo" id="f4-released">Released 2026-09-01</div>
+          </div>
+        </div>
+        <div data-hf-id="f4-feedback-brand-rail" class="feedback-brand-rail">
+          <img data-hf-id="f4-feedback-brand-logo" src="assets/valkey-logo.svg" alt="Valkey">
+          <span data-hf-id="f4-feedback-brand-url">valkey.io</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+      window.__timelines = window.__timelines || {};
+
+      var FPS = 30;
+      var DUR = 2.6;
+
+      // at(n)  exact frame time — used to schedule tweens on the frame grid.
+      // th(n)  half-frame-early threshold — a discrete state authored for frame n
+      //        lands ON frame n regardless of float rounding in the seek.
+      function at(n) { return n / FPS; }
+      function th(n) { return (n - 0.5) / FPS; }
+
+      // Source-verified, verbatim (incl. --rm). Every state is a prefix of this
+      // one string, so the line can never drift from the source.
+      var CMD = "docker run --rm valkey/valkey:9.1.2";
+      var CARET = "#0053b8";                       // action-blue
+
+      // discrete-text-sequence: sparse {t, text} states, reverse-searched each
+      // frame. Realism comes from the schedule shape — keystroke clusters with
+      // two-frame holds at every word break, then "9.1.2" pasted as one unit.
+      // Single segment (context-sensitive-cursor): the brand rations action-blue
+      // to one atom per frame, so the caret colour is carried on the entry but
+      // never changes value.
+      var STROKES = [
+        [31, 2], [32, 3], [33, 4], [34, 5], [35, 6],            // docker
+        [37, 7], [38, 8], [39, 9], [40, 10],                    // ' run'
+        [42, 11], [43, 12], [44, 13], [45, 14], [46, 15],       // ' --rm'
+        [48, 16], [49, 19], [50, 22], [51, 24], [52, 29],       // ' valkey/valkey'
+        [53, 30],                                               // ':'
+        [55, 35]                                                // '9.1.2' lands whole
+      ];
+
+      var SEQUENCE = [{ t: 0, text: "", color: CARET }];
+      for (var s = 0; s < STROKES.length; s++) {
+        SEQUENCE.push({ t: th(STROKES[s][0]), text: CMD.slice(0, STROKES[s][1]), color: CARET });
+      }
+
+      function stateAt(time) {
+        for (var i = SEQUENCE.length - 1; i >= 0; i--) {
+          if (time >= SEQUENCE[i].t) return SEQUENCE[i];
+        }
+        return SEQUENCE[0];
+      }
+
+      var T_CARET_ON = th(30);      // caret arrives as the card surface finishes settling
+      var T_TYPE_IN = th(31);       // first keystroke
+      var T_TYPE_OUT = th(55);      // last keystroke — 9.1.2
+      var BLINK_CYCLES = 2;         // whole number over the typing window
+
+      // Finite deterministic blink: a pure function of the driver's time over the
+      // typing window only — no repeat, no yoyo, no CSS animation, no mutable
+      // tracker (so it is identical at any seek, either direction). cos() is used
+      // instead of sin() so the wave both STARTS and ENDS on-state: the caret is
+      // solid the instant 9.1.2 lands and stays solid through the dead-still beat.
+      function caretOpacityAt(time) {
+        if (time < T_CARET_ON) return 0;           // card surface only
+        if (time < T_TYPE_IN) return 1;            // solid, waiting to type
+        if (time > T_TYPE_OUT) return 1;           // Scene 4 — at rest, dead still
+        var u = (time - T_TYPE_IN) / (T_TYPE_OUT - T_TYPE_IN);
+        return Math.cos(Math.PI * 2 * BLINK_CYCLES * u) >= 0 ? 1 : 0;
+      }
+
+      var textEl = document.getElementById("f4-cmd-text");
+      var caretEl = document.getElementById("f4-caret");
+
+      function apply(time) {
+        var entry = stateAt(time);
+        textEl.textContent = entry.text;
+        caretEl.style.background = entry.color;
+        caretEl.style.opacity = String(caretOpacityAt(time));
+      }
+      apply(0);
+
+      var tl = gsap.timeline({ paused: true });
+
+      // Scene 2 — the card-documentation surface lands, riding the film's LEFT
+      // current so it reads as the same curve the version block arrived on.
+      tl.fromTo("#f4-card",
+        { x: 88, opacity: 0 },
+        { x: 0, opacity: 1, duration: at(9), ease: "power3.out" },
+        at(21));
+
+      // Scene 3 — ONE linear driver owns every discrete state (text + caret).
+      // ease "none" is the sequencer, not a motion ease.
+      var driver = { t: 0 };
+      tl.to(driver, {
+        t: DUR,
+        duration: DUR,
+        ease: "none",
+        onUpdate: function () { apply(driver.t); }
+      }, 0);
+
+      // Scene 3 close — the release stamp settles UP into place, pre-echoing the
+      // ledger's UP exit. Lands on frame 59; frame 60 onward is untouched.
+      tl.fromTo("#f4-released",
+        { y: 12, opacity: 0 },
+        { y: 0, opacity: 1, duration: at(59) - at(53), ease: "power3.out" },
+        at(53));
+
+      tl.seek(0);
+      window.__timelines["04-proof"] = tl;
+    })();
+  </script>
+</template>

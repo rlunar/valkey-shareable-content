@@ -1,0 +1,144 @@
+<template>
+  <style>
+    @font-face { font-family: "Open Sans"; src: url("assets/fonts/OpenSans-Variable.woff2") format("woff2"); font-weight: 300 800; font-style: normal; }
+    @font-face { font-family: "Cascadia Code"; src: url("assets/fonts/CascadiaCode-Variable.woff2") format("woff2"); font-weight: 200 700; font-style: normal; }
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: "Open Sans", sans-serif; color: #1A2026; }
+    .clip { position: absolute; inset: 0; }
+    .f01-ground { background: linear-gradient(135deg, #FFFFFF 0%, #F7FBFE 62%, #F1EFFD 100%); }
+
+    .f01-title { position: absolute; left: 96px; top: 88px; margin: 0; font-size: 44px; line-height: 60px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: #30176E; white-space: nowrap; }
+    .f01-title-vs { text-transform: none; font-weight: 600; }
+
+    .f01-wires { position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow: visible; }
+    .f01-path { fill: none; stroke: #D3DDE7; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .f01-outline { fill: none; stroke: #6983FF; stroke-width: 3; stroke-linejoin: miter; }
+    .f01-arrow { fill: none; stroke: #596672; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 12 10; }
+    .f01-arrow-reveal { fill: none; stroke: #FFFFFF; stroke-width: 48; stroke-linecap: round; }
+    .f01-pulse { fill: #6983FF; }
+
+    .f01-node { position: absolute; left: 140px; top: 470px; width: 320px; height: 150px; box-sizing: border-box; background: #FFFDFA; border: 3px solid #BCB5E7; box-shadow: 0 12px 36px rgba(48, 23, 110, 0.08); display: flex; align-items: center; justify-content: center; }
+    .f01-node-label { font-size: 30px; line-height: 1; font-weight: 700; color: #1A2026; letter-spacing: 0.02em; }
+
+    .f01-glyph { position: absolute; width: 120px; height: 120px; object-fit: contain; }
+    .f01-glyph-ram { left: 1320px; top: 340px; }
+    .f01-glyph-disk { left: 1320px; top: 660px; }
+
+    .f01-endlabel { position: absolute; left: 1080px; width: 600px; margin: 0; text-align: center; font-size: 40px; line-height: 48px; font-weight: 700; color: #30176E; white-space: nowrap; }
+    .f01-endlabel-ram { top: 472px; }
+    .f01-endlabel-disk { top: 792px; }
+
+    .f01-caption { position: absolute; margin: 0; font-size: 26px; line-height: 36px; font-weight: 400; color: #596672; white-space: nowrap; }
+    .f01-caption-concept { left: 96px; top: 842px; }
+    .f01-caption-persist { left: 1540px; top: 640px; }
+  </style>
+  <div data-hf-id="hf-tuky" id="root" data-composition-id="f01-memory-vs-disk" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-100o" id="f01-memory-vs-disk-layer-1" class="clip f01-ground" data-start="0" data-duration="8" data-track-index="0"></div>
+    <div data-hf-id="hf-b385" id="f01-memory-vs-disk-layer-2" class="clip f01-stage" data-start="0" data-duration="8" data-track-index="1">
+      <h2 data-hf-id="hf-kajj" id="f01-title" class="f01-title">MEMORY <span data-hf-id="hf-kuu4" class="f01-title-vs">vs</span> DISK</h2>
+
+      <svg data-hf-id="hf-8dyu" class="f01-wires" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs data-hf-id="hf-mh0t">
+          <marker data-hf-id="hf-k4ut" id="f01-arrowhead" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+            <path data-hf-id="hf-wvix" d="M 1 1 L 7 5 L 1 9" fill="none" stroke="#596672" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+          </marker>
+          <mask data-hf-id="hf-1nf2" id="f01-arrow-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1920" height="1080">
+            <path data-hf-id="hf-xt2n" id="f01-arrow-reveal" class="f01-arrow-reveal" d="M 1450 548 L 1550 784" />
+          </mask>
+        </defs>
+        <path data-hf-id="hf-pqo7" id="f01-path-ram" class="f01-path" d="M 460 505 C 590 505 590 400 720 400 L 1296 400" />
+        <path data-hf-id="hf-412x" id="f01-path-disk" class="f01-path" d="M 460 585 C 590 585 590 720 720 720 L 1296 720" />
+        <path data-hf-id="hf-6zro" id="f01-outline" class="f01-outline" d="M 1156 316 H 1604 V 544 H 1156 Z" />
+        <path data-hf-id="hf-i8d6" id="f01-arrow" class="f01-arrow" d="M 1450 548 L 1550 784" marker-end="url(#f01-arrowhead)" mask="url(#f01-arrow-mask)" />
+        <circle data-hf-id="hf-o8x9" id="f01-pulse-ram" class="f01-pulse" r="7" cx="460" cy="505" />
+        <circle data-hf-id="hf-2t2k" id="f01-pulse-disk" class="f01-pulse" r="7" cx="460" cy="585" />
+      </svg>
+
+      <div data-hf-id="hf-b6bm" id="f01-node" class="f01-node"><span data-hf-id="hf-534w" class="f01-node-label">PROCESSOR</span></div>
+
+      <img data-hf-id="hf-72mp" id="f01-glyph-ram" class="f01-glyph f01-glyph-ram" src="assets/icons/memory-efficiency.svg" alt="">
+      <p data-hf-id="hf-q2d7" id="f01-endlabel-ram" class="f01-endlabel f01-endlabel-ram">RAM · <span data-hf-id="hf-s3ho" id="f01-ram-emph">working data</span></p>
+
+      <img data-hf-id="hf-ej1n" id="f01-glyph-disk" class="f01-glyph f01-glyph-disk" src="assets/icons/durability.svg" alt="">
+      <p data-hf-id="hf-f5ig" id="f01-endlabel-disk" class="f01-endlabel f01-endlabel-disk">Disk · persistent storage</p>
+
+      <p data-hf-id="hf-hed5" id="f01-caption-concept" class="f01-caption f01-caption-concept">Conceptual comparison, not a benchmark</p>
+      <p data-hf-id="hf-gg46" id="f01-caption-persist" class="f01-caption f01-caption-persist">optional persistence</p>
+    </div>
+  </div>
+  <script>
+    (() => {
+      const el = (id) => document.getElementById(id);
+      const tl = gsap.timeline({ paused: true });
+
+      // frame.md entrance token: fromTo, y 32 -> 0 + opacity 0 -> 1, 0.55s, power3.out
+      const enter = (target, at, y = 32, duration = 0.55) => {
+        tl.fromTo(target, { y: y, opacity: 0 }, { y: 0, opacity: 1, duration: duration, ease: "power3.out" }, at);
+      };
+
+      // svg-path-draw setup: measured length, dash pushed fully out of view.
+      // The gap is padded past the length so a round cap never leaks a dot at the path start.
+      const prepDraw = (path, extra) => {
+        const len = path.getTotalLength();
+        path.style.strokeDasharray = len + " " + (len + extra * 2);
+        path.style.strokeDashoffset = String(len + extra);
+      };
+      const pathRam = el("f01-path-ram");
+      const pathDisk = el("f01-path-disk");
+      const outline = el("f01-outline");
+      const arrowReveal = el("f01-arrow-reveal");
+      prepDraw(pathRam, 6);
+      prepDraw(pathDisk, 6);
+      prepDraw(outline, 2);
+      prepDraw(arrowReveal, 30);
+
+      // Pulses ride their own path: position is a pure function of the proxy progress (seek-safe).
+      const ramLen = pathRam.getTotalLength();
+      const diskLen = pathDisk.getTotalLength();
+      const pulseRam = el("f01-pulse-ram");
+      const pulseDisk = el("f01-pulse-disk");
+      const place = (dot, path, len, p) => {
+        const pt = path.getPointAtLength(len * p);
+        dot.setAttribute("cx", pt.x.toFixed(2));
+        dot.setAttribute("cy", pt.y.toFixed(2));
+      };
+      const ramProg = { p: 0 };
+      const diskProg = { p: 0 };
+      place(pulseRam, pathRam, ramLen, 0);
+      place(pulseDisk, pathDisk, diskLen, 0);
+
+      // ---- Scene 1 (0.0-2.4s): title, processor, two hairline paths draw rightward, endpoints enter
+      enter("#f01-title", 0.1);
+      enter("#f01-node", 0.3);
+      tl.to(pathRam, { strokeDashoffset: 0, duration: 0.7, ease: "power2.out" }, 0.7);
+      enter("#f01-glyph-ram", 1.1);
+      enter("#f01-endlabel-ram", 1.2);
+      tl.to(pathDisk, { strokeDashoffset: 0, duration: 0.75, ease: "power2.out" }, 1.25);
+      enter("#f01-glyph-disk", 1.7);
+      enter("#f01-endlabel-disk", 1.8);
+
+      // ---- Scene 2 (2.4-3.6s): pulses leave together; RAM lands at 3.3 and its path lights periwinkle
+      tl.fromTo([pulseRam, pulseDisk], { opacity: 0 }, { opacity: 1, duration: 0.12, ease: "power1.out" }, 2.4);
+      tl.to(ramProg, { p: 1, duration: 0.9, ease: "power1.out", onUpdate: () => place(pulseRam, pathRam, ramLen, ramProg.p) }, 2.4);
+      tl.to(diskProg, { p: 1, duration: 2.8, ease: "power1.out", onUpdate: () => place(pulseDisk, pathDisk, diskLen, diskProg.p) }, 2.4);
+      enter("#f01-caption-concept", 3.0, 24, 0.5);
+      tl.to(pathRam, { stroke: "#6983FF", strokeWidth: 5, duration: 0.3, ease: "power2.inOut" }, 3.3);
+      tl.to(pulseDisk, { fill: "#596672", duration: 0.3, ease: "power2.inOut" }, 3.3);
+
+      // ---- Scene 3 (3.6-5.6s): periwinkle outline wraps the RAM working set; "working data" tints
+      tl.to(outline, { strokeDashoffset: 0, duration: 0.7, ease: "power2.out" }, 3.6);
+      tl.to("#f01-ram-emph", { color: "#6983FF", duration: 0.3, ease: "power2.inOut" }, 4.1);
+      // disk pulse arrives at 5.2s inside its own tween, no colour change
+
+      // ---- Scene 4 (5.6-8.0s): dashed grey arrow draws from the outline down-right to disk, labelled
+      tl.to(arrowReveal, { strokeDashoffset: 0, duration: 0.7, ease: "power2.out" }, 5.8);
+      enter("#f01-caption-persist", 6.55, 24, 0.5);
+
+      // hold composed to the frame's full 8s
+      const hold = { v: 0 };
+      tl.set(hold, { v: 1 }, 8);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["f01-memory-vs-disk"] = tl;
+    })();
+  </script>
+</template>

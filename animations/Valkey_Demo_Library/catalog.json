@@ -1,0 +1,302 @@
+[
+  {
+    "id": "load",
+    "title": "Load & traffic simulations",
+    "description": "Adjust offered traffic and database capacity. These are illustrative models, not actual benchmark runs.",
+    "file": "animations/Valkey_Caching_Strategies.html",
+    "entries": [
+      {
+        "code": "C12",
+        "title": "Cache on/off: architecture + traffic",
+        "description": "Start here. Toggle Valkey at a fixed workload and compare database pressure.",
+        "href": "animations/Valkey_Caching_Strategies.html#C12"
+      },
+      {
+        "code": "C09",
+        "title": "Cache-aside capacity lab",
+        "description": "Trace cache hits, source reads and incomplete requests through a Sankey diagram.",
+        "href": "animations/Valkey_Caching_Strategies.html#C09"
+      },
+      {
+        "code": "C10",
+        "title": "Write-through capacity lab",
+        "description": "Compare synchronous writes under low, busy and surge traffic.",
+        "href": "animations/Valkey_Caching_Strategies.html#C10"
+      },
+      {
+        "code": "C11",
+        "title": "Write-back buffering & overload",
+        "description": "Watch a bounded buffer fill when writes outpace database capacity.",
+        "href": "animations/Valkey_Caching_Strategies.html#C11"
+      }
+    ]
+  },
+  {
+    "id": "caching",
+    "title": "Caching strategies",
+    "description": "Eight patterns and trade-offs. Choose architecture or sequence views inside the player where available.",
+    "file": "animations/Valkey_Caching_Strategies.html",
+    "entries": [
+      {
+        "code": "C01",
+        "title": "Cache-aside reads",
+        "description": "Follow a cold miss, cache refill and warm hit.",
+        "href": "animations/Valkey_Caching_Strategies.html#C01"
+      },
+      {
+        "code": "C02",
+        "title": "Write-through",
+        "description": "Successful dual writes, partial failure and repair.",
+        "href": "animations/Valkey_Caching_Strategies.html#C02"
+      },
+      {
+        "code": "C03",
+        "title": "Cache-aside writes",
+        "description": "Commit, invalidate and refill; explore a stale-refill race.",
+        "href": "animations/Valkey_Caching_Strategies.html#C03"
+      },
+      {
+        "code": "C04",
+        "title": "Write-back",
+        "description": "Asynchronous flush and the risk of losing unflushed writes.",
+        "href": "animations/Valkey_Caching_Strategies.html#C04"
+      },
+      {
+        "code": "C05",
+        "title": "Distributed consistency",
+        "description": "Missed Pub/Sub events, Streams recovery and versioned keys.",
+        "href": "animations/Valkey_Caching_Strategies.html#C05"
+      },
+      {
+        "code": "C06",
+        "title": "Stampede control",
+        "description": "Compare independent misses with coalesced refresh.",
+        "href": "animations/Valkey_Caching_Strategies.html#C06"
+      },
+      {
+        "code": "C07",
+        "title": "Eviction & expiration",
+        "description": "LRU, LFU, noeviction and TTL, with separate theoretical policies.",
+        "href": "animations/Valkey_Caching_Strategies.html#C07"
+      },
+      {
+        "code": "C08",
+        "title": "Choose a caching strategy",
+        "description": "Compare acknowledgement contracts and correctness trade-offs.",
+        "href": "animations/Valkey_Caching_Strategies.html#C08"
+      }
+    ]
+  },
+  {
+    "id": "use-cases",
+    "title": "20 Valkey use cases",
+    "description": "72 six-step scenarios, including multiple sources of truth, semantic answers and LLM attention KV tensors.",
+    "file": "animations/Valkey_Use_Cases.html",
+    "entries": [
+      {
+        "code": "U01",
+        "title": "Query and result caching",
+        "description": "The application retrieves original data and decides how to store, reuse and invalidate it.",
+        "href": "animations/Valkey_Use_Cases.html#U01"
+      },
+      {
+        "code": "U02",
+        "title": "Shared session store",
+        "description": "Any application instance can load the same server-side session from one shared record.",
+        "href": "animations/Valkey_Use_Cases.html#U02"
+      },
+      {
+        "code": "U03",
+        "title": "Distributed coordination with locks",
+        "description": "One worker claims temporary ownership of a task while the others defer or retry.",
+        "href": "animations/Valkey_Use_Cases.html#U03"
+      },
+      {
+        "code": "U04",
+        "title": "Atomic counters",
+        "description": "Concurrent instances increment one shared number without their own read-modify-write.",
+        "href": "animations/Valkey_Use_Cases.html#U04"
+      },
+      {
+        "code": "U05",
+        "title": "Distributed rate limiting",
+        "description": "Several gateways enforce one shared request budget instead of one budget each.",
+        "href": "animations/Valkey_Use_Cases.html#U05"
+      },
+      {
+        "code": "U06",
+        "title": "Shared sequence allocation",
+        "description": "A shared atomic counter hands consecutive numbers to many services during normal operation.",
+        "href": "animations/Valkey_Use_Cases.html#U06"
+      },
+      {
+        "code": "U07",
+        "title": "Work queues with Streams",
+        "description": "Delivered jobs stay pending until acknowledged, so failed work can be reclaimed.",
+        "href": "animations/Valkey_Use_Cases.html#U07"
+      },
+      {
+        "code": "U08",
+        "title": "Real-time leaderboards",
+        "description": "A sorted set keeps members ordered by score as updates arrive.",
+        "href": "animations/Valkey_Use_Cases.html#U08"
+      },
+      {
+        "code": "U09",
+        "title": "Recent time-series and rolling metrics",
+        "description": "A hot window of recent observations modelled with core data types, backed by an archive.",
+        "href": "animations/Valkey_Use_Cases.html#U09"
+      },
+      {
+        "code": "U10",
+        "title": "Live chat and notifications",
+        "description": "One publish reaches every subscribed gateway, which forwards to its own connected users.",
+        "href": "animations/Valkey_Use_Cases.html#U10"
+      },
+      {
+        "code": "U11",
+        "title": "Idempotency and duplicate-request control",
+        "description": "Retries of the same operation converge on one record instead of repeating the side effect.",
+        "href": "animations/Valkey_Use_Cases.html#U11"
+      },
+      {
+        "code": "U12",
+        "title": "Replayable event log with Streams",
+        "description": "Several applications read the same retained event history at their own speed and position.",
+        "href": "animations/Valkey_Use_Cases.html#U12"
+      },
+      {
+        "code": "U13",
+        "title": "Shared real-time infrastructure for services",
+        "description": "Each service uses a specific Valkey facility while keeping its own authoritative database.",
+        "href": "animations/Valkey_Use_Cases.html#U13"
+      },
+      {
+        "code": "U14",
+        "title": "JSON document storage with JSONPath access",
+        "description": "The server understands structure, so a nested field changes without rewriting the whole value.",
+        "href": "animations/Valkey_Use_Cases.html#U14"
+      },
+      {
+        "code": "U15",
+        "title": "Full-text search over indexed documents",
+        "description": "Text matching combines with tag and numeric filters to select documents by content.",
+        "href": "animations/Valkey_Use_Cases.html#U15"
+      },
+      {
+        "code": "U16",
+        "title": "Vector storage and similarity search",
+        "description": "Stored vectors plus a query vector return nearest candidates under a chosen distance metric.",
+        "href": "animations/Valkey_Use_Cases.html#U16"
+      },
+      {
+        "code": "U17",
+        "title": "Probabilistic membership with Bloom filters",
+        "description": "A compact filter rules items out cheaply and sends only possible matches to the exact source.",
+        "href": "animations/Valkey_Use_Cases.html#U17"
+      },
+      {
+        "code": "U18",
+        "title": "Object and key-value caching",
+        "description": "One reusable object, many possible authorities: SQL, NoSQL, object/file stores or an API.",
+        "href": "animations/Valkey_Use_Cases.html#U18"
+      },
+      {
+        "code": "U19",
+        "title": "Semantic caching for AI responses",
+        "description": "A reworded question reuses an answer only when scope, distance, and validity rules all permit it.",
+        "href": "animations/Valkey_Use_Cases.html#U19"
+      },
+      {
+        "code": "U20",
+        "title": "LLM inference: shared KV tensor cache",
+        "description": "Reuse exact-prefix attention state; Valkey holds bytes, while GPU memory holds active tensors.",
+        "href": "animations/Valkey_Use_Cases.html#U20"
+      }
+    ]
+  },
+  {
+    "id": "conference",
+    "title": "ValkeyConf diagrams",
+    "description": "The current six-diagram collection. Published performance results are distinct from the synthetic load labs above.",
+    "file": "animations/ValkeyConf_Animations.html",
+    "entries": [
+      {
+        "code": "A01",
+        "title": "Project portfolio",
+        "description": "Commits, author memberships and production / preview releases.",
+        "href": "animations/ValkeyConf_Animations.html#A01"
+      },
+      {
+        "code": "A04",
+        "title": "Core release timeline",
+        "description": "Dated milestones with stable, preview and roadmap context.",
+        "href": "animations/ValkeyConf_Animations.html#A04"
+      },
+      {
+        "code": "A06",
+        "title": "Server, modules & application drivers",
+        "description": "Follow the platform boundary and application connection path.",
+        "href": "animations/ValkeyConf_Animations.html#A06"
+      },
+      {
+        "code": "A07",
+        "title": "Search capabilities",
+        "description": "Capability introductions across Search 1.0, 1.1 and 1.2.",
+        "href": "animations/ValkeyConf_Animations.html#A07"
+      },
+      {
+        "code": "A08",
+        "title": "GLIDE client ecosystem",
+        "description": "Language maturity and operational capabilities.",
+        "href": "animations/ValkeyConf_Animations.html#A08"
+      },
+      {
+        "code": "A10",
+        "title": "Server performance & mechanisms",
+        "description": "Published throughput, memory savings, I/O offload, migration, TTLs, ACLs and TLS reload.",
+        "href": "animations/ValkeyConf_Animations.html#A10"
+      }
+    ]
+  },
+  {
+    "id": "foundations",
+    "title": "Foundations & explainers",
+    "description": "The original interactive introductions to caching, latency and the in-memory data path.",
+    "file": "Three separate standalone HTML files",
+    "entries": [
+      {
+        "code": "01",
+        "title": "In-memory database explainer",
+        "description": "Cache misses and hits, modeled database load, stale data and recovery.",
+        "href": "animations/in-memory-explainer.html"
+      },
+      {
+        "code": "02",
+        "title": "Latency pyramid",
+        "description": "Reference orders of magnitude, a guided tour and latency comparisons.",
+        "href": "animations/valkey-latency.html"
+      },
+      {
+        "code": "03",
+        "title": "Why Valkey is so fast",
+        "description": "RAM, connections and command execution, plus efficient data structures.",
+        "href": "animations/valkey-speed.html"
+      }
+    ]
+  },
+  {
+    "id": "archive",
+    "title": "Historical archive",
+    "description": "Kept for reference. Use the current conference collection above for the latest diagrams in this library.",
+    "file": "archive/ValkeyConf_Animations_Original_12.html",
+    "entries": [
+      {
+        "code": "OLD",
+        "title": "Original 12-scene ValkeyConf collection",
+        "description": "The unchanged historical version, preserved separately.",
+        "href": "archive/ValkeyConf_Animations_Original_12.html"
+      }
+    ]
+  }
+]

@@ -1,0 +1,88 @@
+<template>
+  <style>
+    @font-face { font-family: "Open Sans"; src: url("assets/fonts/OpenSans-Variable.woff2") format("woff2"); font-weight: 300 800; font-style: normal; }
+    @font-face { font-family: "Cascadia Code"; src: url("assets/fonts/CascadiaCode-Variable.woff2") format("woff2"); font-weight: 200 700; font-style: normal; }
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: "Open Sans", sans-serif; color: #1A2026; }
+    .clip { position: absolute; inset: 0; }
+    .f02-ground { background: linear-gradient(135deg, #FFFFFF 0%, #F7FBFE 62%, #F1EFFD 100%); }
+
+    /* hero-lockup zone x 560-1360, y 300-430 is intentionally EMPTY: the master timeline flies the brand lockup there */
+
+    /* one phrase at a time, centred on y 560 (phrase_caption) */
+    .f02-phrase { position: absolute; left: 96px; width: 1728px; top: 526px; margin: 0; text-align: center; font-size: 56px; line-height: 68px; font-weight: 600; color: #30176E; white-space: nowrap; }
+    .f02-phrase-next { opacity: 0; }
+
+    /* Linux Foundation mark, as shipped, directly on the ground, centred on y 700 */
+    .f02-lf { position: absolute; left: 660px; top: 682px; width: 600px; height: 36px; object-fit: contain; }
+
+    /* closing statement (hero_statement) centred on y 580, words arrive by waterfall */
+    .f02-hero { position: absolute; left: 96px; width: 1728px; top: 536px; margin: 0; text-align: center; font-size: 88px; line-height: 88px; font-weight: 800; color: #6983FF; white-space: nowrap; letter-spacing: 0.01em; }
+    .f02-hero-w { display: inline-block; opacity: 0; }
+
+    .f02-attrib { position: absolute; left: 96px; width: 1728px; top: 652px; margin: 0; text-align: center; font-size: 26px; line-height: 36px; font-weight: 400; color: #596672; }
+  </style>
+  <div data-hf-id="hf-0c9x" id="root" data-composition-id="f02-definition" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-bcou" id="f02-definition-layer-1" class="clip f02-ground" data-start="0" data-duration="20" data-track-index="0"></div>
+    <div data-hf-id="hf-6xsn" id="f02-definition-layer-2" class="clip f02-stage" data-start="0" data-duration="20" data-track-index="1">
+      <p data-hf-id="hf-zx61" id="f02-p1" class="f02-phrase">Open source · BSD licensed</p>
+      <p data-hf-id="hf-bmrn" id="f02-p2" class="f02-phrase f02-phrase-next">High-performance key/value datastore</p>
+      <p data-hf-id="hf-11xb" id="f02-p3" class="f02-phrase f02-phrase-next"><span data-hf-id="hf-lx5j" id="f02-w-caching">Caching</span> · <span data-hf-id="hf-e46a" id="f02-w-queues">Message queues</span> · <span data-hf-id="hf-7zfk" id="f02-w-primary">Primary database</span></p>
+      <p data-hf-id="hf-x421" id="f02-p4" class="f02-phrase f02-phrase-next">Backed by the Linux Foundation</p>
+      <img data-hf-id="hf-rtyc" id="f02-lf" class="f02-lf" src="assets/external/lf-horizontal-color.svg" alt="">
+      <p data-hf-id="hf-hntl" id="f02-hero" class="f02-hero"><span data-hf-id="hf-apgh" id="f02-hw-open" class="f02-hero-w">OPEN</span> <span data-hf-id="hf-aqe7" id="f02-hw-source" class="f02-hero-w">SOURCE</span> <span data-hf-id="hf-citd" id="f02-hw-for" class="f02-hero-w">FOR</span><span data-hf-id="hf-suap" id="f02-hw-ever" class="f02-hero-w">EVER</span></p>
+      <p data-hf-id="hf-m447" id="f02-attrib" class="f02-attrib">valkey.io</p>
+    </div>
+  </div>
+  <script>
+    (() => {
+      const tl = gsap.timeline({ paused: true });
+      const F = 1 / 30; // one frame at the project's 30 fps
+
+      // ---- Scene 1 (0.0-4.0s): phrase 1 enters with the frame.md entrance token; hero zone stays empty
+      tl.fromTo("#f02-p1", { y: 32, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, 0.45);
+
+      // ---- Scene 2 (4.0-8.2s): hard token swap in place (kinetic-type-beats) - binary, no crossfade
+      tl.set("#f02-p1", { opacity: 0 }, 4.0);
+      tl.set("#f02-p2", { opacity: 1 }, 4.0);
+
+      // ---- Scene 3 (8.2-13.4s): workloads line; each word tints periwinkle on its voice cue, separators stay deep purple
+      tl.set("#f02-p2", { opacity: 0 }, 8.2);
+      tl.set("#f02-p3", { opacity: 1 }, 8.2);
+      tl.to("#f02-w-caching", { color: "#6983FF", duration: 0.3, ease: "power2.inOut" }, 8.4);
+      tl.to("#f02-w-queues", { color: "#6983FF", duration: 0.3, ease: "power2.inOut" }, 9.3);
+      tl.to("#f02-w-primary", { color: "#6983FF", duration: 0.3, ease: "power2.inOut" }, 11.3);
+
+      // ---- Scene 4 (13.4-17.8s): Linux Foundation line; the LF mark fades in beneath on "Linux"
+      tl.set("#f02-p3", { opacity: 0 }, 13.4);
+      tl.set("#f02-p4", { opacity: 1 }, 13.4);
+      tl.fromTo("#f02-lf", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power1.out" }, 14.5);
+
+      // ---- Scene 5 (17.8-20.0s): phrase + mark fall away, closing statement arrives by waterfall-entry
+      tl.to(["#f02-p4", "#f02-lf"], { opacity: 0, duration: 0.25, ease: "power1.in" }, 17.8);
+
+      // waterfall-entry: binary reveal via tl.set, whip from below on power4.out, overlapping starts,
+      // weight-scaled travel; the final word is split into two fragments to extend the climax
+      const cascade = (id, at, travel, dur) => {
+        tl.set(id, { opacity: 1, y: travel }, at);
+        tl.to(id, { y: 0, duration: dur, ease: "power4.out" }, at);
+      };
+      const t0 = 18.0;                      // anchor word, heaviest: biggest travel, longest settle
+      cascade("#f02-hw-open", t0, 80, 0.18);
+      const t1 = t0 + 0.18 + F;             // one frame after the anchor settles
+      cascade("#f02-hw-source", t1, 45, 0.15);
+      const t2 = t1 + 0.15 - F;             // one frame BEFORE the previous settles (overlap)
+      cascade("#f02-hw-for", t2, 70, 0.16);
+      const t3 = t2 + 0.16 - F;
+      cascade("#f02-hw-ever", t3, 70, 0.15); // lands at ~18.61s
+
+      tl.fromTo("#f02-attrib", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 18.8);
+
+      // hold composed to the frame's full 20s
+      const hold = { v: 0 };
+      tl.set(hold, { v: 1 }, 20);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["f02-definition"] = tl;
+    })();
+  </script>
+</template>

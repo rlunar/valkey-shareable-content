@@ -1,0 +1,149 @@
+<template>
+  <style>
+    @font-face { font-family: "Open Sans"; src: url("assets/fonts/OpenSans-Variable.woff2") format("woff2"); font-weight: 300 800; font-style: normal; }
+    @font-face { font-family: "Cascadia Code"; src: url("assets/fonts/CascadiaCode-Variable.woff2") format("woff2"); font-weight: 200 700; font-style: normal; }
+
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: "Open Sans", sans-serif; color: #1A2026; }
+    .clip { position: absolute; inset: 0; }
+
+    /* ground — the film's one gradient, on its own clip */
+    .f14-docker-cta-ground { background: linear-gradient(135deg, #FFFFFF 0%, #F7FBFE 62%, #F1EFFD 100%); }
+
+    /* frame title — portrait slot: x 72, baseline ≈ y 200 */
+    .f14-docker-cta-title {
+      position: absolute; left: 72px; top: 160px; margin: 0;
+      font-family: "Open Sans", sans-serif; font-size: 40px; font-weight: 800; line-height: 1;
+      letter-spacing: 0.04em; text-transform: uppercase; color: #30176E;
+    }
+
+    /* terminal_card: a macOS Terminal window, 936×420 centred (x 72–1008, y 620–1040) — title bar with traffic lights, light body */
+    .f14-docker-cta-card {
+      position: absolute; left: 72px; top: 620px; width: 936px; height: 420px; box-sizing: border-box;
+      background: #FFFFFF; border: 2px solid #D3DDE7; border-radius: 14px; box-shadow: 0 18px 48px rgba(48, 23, 110, 0.10); overflow: hidden;
+    }
+    .f14-docker-cta-bar { position: absolute; left: 0; top: 0; width: 100%; height: 56px; background: #ECEFF4; border-bottom: 1px solid #D3DDE7; }
+    .f14-docker-cta-dot { position: absolute; top: 20px; width: 16px; height: 16px; border-radius: 50%; }
+    .f14-docker-cta-dot-r { left: 22px; background: #FF5F57; }
+    .f14-docker-cta-dot-y { left: 50px; background: #FEBC2E; }
+    .f14-docker-cta-dot-g { left: 78px; background: #28C840; }
+    .f14-docker-cta-bar-title { position: absolute; left: 0; top: 0; width: 100%; height: 56px; line-height: 56px; text-align: center; font-family: "Cascadia Code", monospace; font-size: 22px; font-weight: 500; color: #596672; }
+    .f14-docker-cta-body { position: absolute; left: 0; top: 57px; width: 100%; height: 359px; display: flex; align-items: center; padding-left: 56px; box-sizing: border-box; }
+
+    /* the hero command — ONE string, soft-wrapped onto two visual lines at the space before the image name;
+       each visual line is a block so the wrap point is fixed and the layout never jumps as characters arrive */
+    .f14-docker-cta-cmd {
+      display: block; white-space: normal;
+      font-family: "Cascadia Code", monospace; font-size: 52px; font-weight: 500; line-height: 65px; color: #1A2026;
+    }
+    .f14-docker-cta-cmd-line { display: block; min-height: 65px; white-space: nowrap; }
+    .f14-docker-cta-cmd-text { white-space: pre; } /* keeps the trailing space of "docker run --rm " */
+    .f14-docker-cta-cmd-image { color: #6983FF; }
+    .f14-docker-cta-cursor { display: inline-block; width: 14px; height: 0.9em; margin-left: 4px; background: #1A2026; vertical-align: -0.12em; }
+
+    /* caption under the window */
+    .f14-docker-cta-caption {
+      position: absolute; left: 72px; top: 1096px; width: 936px; margin: 0; text-align: center;
+      font-family: "Open Sans", sans-serif; font-size: 26px; font-weight: 400; line-height: 30px; color: #596672;
+    }
+
+    /* secondary links — bottom-LEFT only, above the caption keep-out (y 1594); bottom-right belongs to the master timeline */
+    .f14-docker-cta-links {
+      position: absolute; left: 72px; top: 1500px; margin: 0;
+      font-family: "Open Sans", sans-serif; font-size: 26px; font-weight: 400; line-height: 30px; color: #596672;
+    }
+  </style>
+
+  <div data-hf-id="hf-zz32" id="root" data-composition-id="f14-docker-cta" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-u6f3" id="f14-docker-cta-layer-1" class="clip f14-docker-cta-ground" data-start="0" data-duration="8.5" data-track-index="0"></div>
+    <div data-hf-id="hf-7vvu" id="f14-docker-cta-layer-2" class="clip f14-docker-cta-stage" data-start="0" data-duration="8.5" data-track-index="1">
+
+      <h2 data-hf-id="hf-uaig" id="f14-docker-cta-title" class="f14-docker-cta-title">Try Valkey</h2>
+
+      <div data-hf-id="hf-u4tm" id="f14-docker-cta-card" class="f14-docker-cta-card">
+        <div data-hf-id="hf-bt3m" id="f14-docker-cta-bar" class="f14-docker-cta-bar"><span data-hf-id="hf-3wu4" class="f14-docker-cta-dot f14-docker-cta-dot-r"></span><span data-hf-id="hf-ncq7" class="f14-docker-cta-dot f14-docker-cta-dot-y"></span><span data-hf-id="hf-0mwh" class="f14-docker-cta-dot f14-docker-cta-dot-g"></span><span data-hf-id="hf-hkje" id="f14-docker-cta-bar-title" class="f14-docker-cta-bar-title">Terminal — zsh</span></div>
+        <div data-hf-id="hf-sdmi" id="f14-docker-cta-body" class="f14-docker-cta-body">
+          <div data-hf-id="hf-6ncy" id="f14-docker-cta-cmd" class="f14-docker-cta-cmd">
+            <span data-hf-id="hf-k82r" id="f14-docker-cta-cmd-line-1" class="f14-docker-cta-cmd-line"><span data-hf-id="hf-4631" id="f14-docker-cta-cmd-base" class="f14-docker-cta-cmd-text"></span><i data-hf-id="hf-nid0" id="f14-docker-cta-cursor-a" class="f14-docker-cta-cursor"></i></span>
+            <span data-hf-id="hf-9cl4" id="f14-docker-cta-cmd-line-2" class="f14-docker-cta-cmd-line"><span data-hf-id="hf-6v4n" id="f14-docker-cta-cmd-image" class="f14-docker-cta-cmd-text f14-docker-cta-cmd-image"></span><i data-hf-id="hf-i2ct" id="f14-docker-cta-cursor-b" class="f14-docker-cta-cursor" style="opacity: 0;"></i></span>
+          </div>
+        </div>
+      </div>
+
+      <p data-hf-id="hf-p5np" id="f14-docker-cta-caption" class="f14-docker-cta-caption">Core server · Docker required</p>
+      <p data-hf-id="hf-lbh4" id="f14-docker-cta-links" class="f14-docker-cta-links">valkey.io · github.com/valkey-io</p>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const ID = "f14-docker-cta";
+      const S = (name) => "#" + ID + "-" + name;
+      const DURATION = 8.5;
+
+      // The command is exact and final: typed by 1.0s, then never changes.
+      const COMMAND = "docker run --rm valkey/valkey:alpine";
+      const BASE_LEN = "docker run --rm ".length; // 16 chars in ink on visual line 1, then valkey/valkey:alpine in periwinkle on line 2
+
+      // discrete-text-sequence: keystroke clusters, then bulk completions — every state is a true prefix of the command
+      const SEQUENCE = [
+        { t: 0.00, n: 0 },
+        { t: 0.30, n: 1 },   // d
+        { t: 0.38, n: 2 },   // do
+        { t: 0.46, n: 3 },   // doc
+        { t: 0.54, n: 4 },   // dock
+        { t: 0.60, n: 6 },   // docker
+        { t: 0.68, n: 8 },   // docker r
+        { t: 0.74, n: 10 },  // docker run
+        { t: 0.80, n: 15 },  // docker run --rm
+        { t: 0.88, n: 23 },  // docker run --rm valkey/
+        { t: 0.94, n: 30 },  // docker run --rm valkey/valkey:
+        { t: 1.00, n: 36 },  // docker run --rm valkey/valkey:alpine
+      ];
+      const charsAt = (time) => {
+        for (let i = SEQUENCE.length - 1; i >= 0; i--) if (time >= SEQUENCE[i].t) return SEQUENCE[i].n;
+        return 0;
+      };
+
+      const baseEl = document.querySelector(S("cmd-base"));
+      const imageEl = document.querySelector(S("cmd-image"));
+      const cursorA = document.querySelector(S("cursor-a")); // end of visual line 1
+      const cursorB = document.querySelector(S("cursor-b")); // end of visual line 2
+
+      const tl = gsap.timeline({ paused: true });
+
+      // Scene 1 (0.0–1.0): title and the empty terminal window enter, the command types in
+      tl.fromTo(S("title"), { y: 32, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.0);
+      tl.fromTo(S("card"), { y: 32, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.05);
+
+      // one time driver spanning the whole frame: text state + cursor are pure functions of time (seek-safe)
+      const driver = { t: 0 };
+      let shown = -1;
+      tl.to(driver, {
+        t: DURATION, duration: DURATION, ease: "none",
+        onUpdate: () => {
+          const n = charsAt(driver.t);
+          if (n !== shown) {
+            shown = n;
+            const s = COMMAND.slice(0, n);
+            baseEl.textContent = s.slice(0, BASE_LEN);
+            imageEl.textContent = s.slice(BASE_LEN);
+          }
+          // cursor: solid while typing, a deterministic sin square-wave blink after completion, gone once the caption lands;
+          // it sits at the end of whichever visual line is currently being typed
+          let visible = 1;
+          if (driver.t >= 1.0) visible = driver.t < 3.2 && Math.sin((driver.t - 1.0) * (Math.PI * 2 / 0.6)) >= 0 ? 1 : 0;
+          const onLine1 = n < BASE_LEN;
+          cursorA.style.opacity = onLine1 ? String(visible) : "0";
+          cursorB.style.opacity = onLine1 ? "0" : String(visible);
+        },
+      }, 0);
+
+      // Scene 2 (1.0–8.5): the command holds; caption at 3.2s, links bottom-left at 5.0s; quiet settle, no exit (final frame)
+      tl.fromTo(S("caption"), { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 3.2);
+      tl.fromTo(S("links"), { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 5.0);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

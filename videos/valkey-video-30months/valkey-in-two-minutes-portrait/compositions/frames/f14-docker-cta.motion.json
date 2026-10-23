@@ -1,0 +1,7 @@
+{
+  "scene": "f14-docker-cta",
+  "duration_s": 8.5,
+  "rules": ["discrete-text-sequence"],
+  "exit": { "vector": "static (hold)", "still_moving": false },
+  "entry": { "vector": "y +32px → 0 over 0.5s power3.out (title at 0.0s, terminal window at 0.05s)", "from_rest": true }
+}

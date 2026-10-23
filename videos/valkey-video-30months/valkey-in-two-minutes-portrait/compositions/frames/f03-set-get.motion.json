@@ -1,0 +1,7 @@
+{
+  "scene": "f03-set-get",
+  "duration_s": 6.5,
+  "rules": ["discrete-text-sequence", "context-sensitive-cursor"],
+  "exit": { "vector": "static (hold); only the idle caret blinks on the fresh prompt line", "still_moving": false },
+  "entry": { "vector": "y -32px over 0.55s power3.out (title at 0.10s, terminal card at 0.30s)", "from_rest": true }
+}

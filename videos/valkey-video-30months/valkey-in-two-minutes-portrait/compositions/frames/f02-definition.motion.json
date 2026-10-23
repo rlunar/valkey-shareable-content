@@ -1,0 +1,7 @@
+{
+  "scene": "f02-definition",
+  "duration_s": 20,
+  "rules": ["waterfall-entry"],
+  "exit": { "vector": "static (hold)", "still_moving": false },
+  "entry": { "vector": "frame opens on the bare ground with the hero-lockup zone (x 240-840, y 420-560) empty; phrase 1 y -32px over 0.55s power3.out at 0.45s", "from_rest": true }
+}

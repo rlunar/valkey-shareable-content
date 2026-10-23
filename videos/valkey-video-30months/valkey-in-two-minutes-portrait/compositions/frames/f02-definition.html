@@ -1,0 +1,93 @@
+<template>
+  <style>
+    @font-face { font-family: "Open Sans"; src: url("assets/fonts/OpenSans-Variable.woff2") format("woff2"); font-weight: 300 800; font-style: normal; }
+    @font-face { font-family: "Cascadia Code"; src: url("assets/fonts/CascadiaCode-Variable.woff2") format("woff2"); font-weight: 200 700; font-style: normal; }
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: "Open Sans", sans-serif; color: #1A2026; }
+    .clip { position: absolute; inset: 0; }
+    .f02-definition-ground { background: linear-gradient(135deg, #FFFFFF 0%, #F7FBFE 62%, #F1EFFD 100%); }
+
+    /* hero-lockup zone x 240-840, y 420-560 is intentionally EMPTY: the master timeline flies the brand lockup there */
+
+    /* one phrase at a time (phrase_caption 48px/600), centred on y 760, wrapped to at most two lines inside x 108-972 */
+    .f02-definition-phrase { position: absolute; left: 108px; width: 864px; margin: 0; text-align: center; font-size: 48px; line-height: 60px; font-weight: 600; color: #30176E; white-space: nowrap; }
+    .f02-definition-phrase-one { top: 730px; }
+    .f02-definition-phrase-two { top: 700px; }
+    .f02-definition-phrase-next { opacity: 0; }
+
+    /* Linux Foundation mark, as shipped, directly on the ground, 480px wide centred on y 1000 (1000 x 59.5 viewBox) */
+    .f02-definition-lf { position: absolute; left: 300px; top: 986px; width: 480px; height: 29px; object-fit: contain; }
+
+    /* closing statement (hero_statement 72px/800 periwinkle) centred on y 760, two lines, words arrive by waterfall */
+    .f02-definition-hero { position: absolute; left: 108px; width: 864px; top: 680px; margin: 0; text-align: center; font-size: 72px; line-height: 80px; font-weight: 800; color: #6983FF; white-space: nowrap; letter-spacing: 0.01em; }
+    .f02-definition-hero-w { display: inline-block; opacity: 0; }
+
+    /* attribution (caption_size) centred on y 920 */
+    .f02-definition-attrib { position: absolute; left: 108px; width: 864px; top: 902px; margin: 0; text-align: center; font-size: 26px; line-height: 36px; font-weight: 400; color: #596672; }
+  </style>
+  <div data-hf-id="hf-j059" id="root" data-composition-id="f02-definition" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-39hq" id="f02-definition-ground" class="clip f02-definition-ground" data-start="0" data-duration="20" data-track-index="0"></div>
+    <div data-hf-id="hf-c5qx" id="f02-definition-stage" class="clip f02-definition-stage" data-start="0" data-duration="20" data-track-index="1">
+      <p data-hf-id="hf-wpgc" id="f02-definition-p1" class="f02-definition-phrase f02-definition-phrase-one">Open source · BSD licensed</p>
+      <p data-hf-id="hf-16wi" id="f02-definition-p2" class="f02-definition-phrase f02-definition-phrase-two f02-definition-phrase-next">High-performance<br data-hf-id="hf-x5px">key/value datastore</p>
+      <p data-hf-id="hf-gdr2" id="f02-definition-p3" class="f02-definition-phrase f02-definition-phrase-two f02-definition-phrase-next"><span data-hf-id="hf-454p" id="f02-definition-w-caching">Caching</span> · <span data-hf-id="hf-6vew" id="f02-definition-w-queues">Message queues</span> ·<br data-hf-id="hf-rsrt"><span data-hf-id="hf-lvxi" id="f02-definition-w-primary">Primary database</span></p>
+      <p data-hf-id="hf-wc92" id="f02-definition-p4" class="f02-definition-phrase f02-definition-phrase-two f02-definition-phrase-next">Backed by the<br data-hf-id="hf-szow">Linux Foundation</p>
+      <img data-hf-id="hf-9pdq" id="f02-definition-lf" class="f02-definition-lf" src="assets/external/lf-horizontal-color.svg" alt="">
+      <p data-hf-id="hf-60mr" id="f02-definition-hero" class="f02-definition-hero"><span data-hf-id="hf-6quz" id="f02-definition-hw-open" class="f02-definition-hero-w">OPEN</span> <span data-hf-id="hf-wmwx" id="f02-definition-hw-source" class="f02-definition-hero-w">SOURCE</span><br data-hf-id="hf-sldv"><span data-hf-id="hf-wedf" id="f02-definition-hw-for" class="f02-definition-hero-w">FOR</span><span data-hf-id="hf-vozv" id="f02-definition-hw-ever" class="f02-definition-hero-w">EVER</span></p>
+      <p data-hf-id="hf-1gl9" id="f02-definition-attrib" class="f02-definition-attrib">valkey.io</p>
+    </div>
+  </div>
+  <script>
+    (() => {
+      const P = "f02-definition";
+      const sel = (name) => "#" + P + "-" + name;
+      const tl = gsap.timeline({ paused: true });
+      const F = 1 / 30; // one frame at the project's 30 fps
+
+      // ---- Scene 1 (0.0-4.0s): phrase 1 enters with the frame.md entrance token; hero zone stays empty
+      tl.fromTo(sel("p1"), { y: 32, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, 0.45);
+
+      // ---- Scene 2 (4.0-8.2s): hard token swap in place (kinetic-type-beats) - binary, no crossfade
+      tl.set(sel("p1"), { opacity: 0 }, 4.0);
+      tl.set(sel("p2"), { opacity: 1 }, 4.0);
+
+      // ---- Scene 3 (8.2-13.4s): workloads line; each word tints periwinkle on its voice cue, separators stay deep purple
+      tl.set(sel("p2"), { opacity: 0 }, 8.2);
+      tl.set(sel("p3"), { opacity: 1 }, 8.2);
+      tl.to(sel("w-caching"), { color: "#6983FF", duration: 0.3, ease: "power2.inOut" }, 8.4);
+      tl.to(sel("w-queues"), { color: "#6983FF", duration: 0.3, ease: "power2.inOut" }, 9.3);
+      tl.to(sel("w-primary"), { color: "#6983FF", duration: 0.3, ease: "power2.inOut" }, 11.3);
+
+      // ---- Scene 4 (13.4-17.8s): Linux Foundation line; the LF mark fades in beneath on "Linux"
+      tl.set(sel("p3"), { opacity: 0 }, 13.4);
+      tl.set(sel("p4"), { opacity: 1 }, 13.4);
+      tl.fromTo(sel("lf"), { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power1.out" }, 14.5);
+
+      // ---- Scene 5 (17.8-20.0s): phrase + mark fall away, closing statement arrives by waterfall-entry
+      tl.to([sel("p4"), sel("lf")], { opacity: 0, duration: 0.25, ease: "power1.in" }, 17.8);
+
+      // waterfall-entry: binary reveal via tl.set, whip from below on power4.out, overlapping starts,
+      // weight-scaled travel; the final word is split into two fragments to extend the climax
+      const cascade = (id, at, travel, dur) => {
+        tl.set(id, { opacity: 1, y: travel }, at);
+        tl.to(id, { y: 0, duration: dur, ease: "power4.out" }, at);
+      };
+      const t0 = 18.0;                           // anchor word, heaviest: biggest travel, longest settle
+      cascade(sel("hw-open"), t0, 80, 0.18);
+      const t1 = t0 + 0.18 + F;                  // one frame after the anchor settles
+      cascade(sel("hw-source"), t1, 45, 0.15);
+      const t2 = t1 + 0.15 - F;                  // one frame BEFORE the previous settles (overlap)
+      cascade(sel("hw-for"), t2, 70, 0.16);
+      const t3 = t2 + 0.16 - F;
+      cascade(sel("hw-ever"), t3, 70, 0.15);     // lands at ~18.61s
+
+      tl.fromTo(sel("attrib"), { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 18.8);
+
+      // hold composed to the frame's full 20s
+      const hold = { v: 0 };
+      tl.set(hold, { v: 1 }, 20);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[P] = tl;
+    })();
+  </script>
+</template>

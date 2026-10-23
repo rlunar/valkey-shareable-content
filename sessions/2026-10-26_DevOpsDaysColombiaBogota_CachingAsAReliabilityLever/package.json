@@ -1,0 +1,26 @@
+{
+  "name": "valkey-caching-reliability-lever-talk",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "slidev slides.md --open=false",
+    "build": "slidev build slides.md",
+    "export": "slidev export slides.md --output caching-as-a-reliability-lever.pdf",
+    "export:clicks": "slidev export slides.md --with-clicks --output caching-as-a-reliability-lever-with-clicks.pdf",
+    "export:pptx": "slidev export slides.md --format pptx --with-clicks --output caching-as-a-reliability-lever.pptx"
+  },
+  "dependencies": {
+    "d3": "7.9.0"
+  },
+  "devDependencies": {
+    "@slidev/cli": "52.19.1",
+    "@slidev/theme-default": "0.25.0",
+    "playwright-chromium": "1.63.0",
+    "vite": "8.2.2",
+    "vue": "3.5.42"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

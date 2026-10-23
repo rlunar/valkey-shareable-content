@@ -1,0 +1,7 @@
+{
+  "scene": "f12-semantic-cache",
+  "duration_s": 17,
+  "rules": ["svg-path-draw"],
+  "exit": { "vector": "static (hold)", "still_moving": false },
+  "entry": { "vector": "y +32px → 0 over 0.55s power3.out (title at 0.0s, five cards staggered 0.1s from 0.05s)", "from_rest": true }
+}

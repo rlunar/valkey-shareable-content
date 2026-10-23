@@ -1,0 +1,7 @@
+{
+  "scene": "f07-integrations",
+  "duration_s": 6.5,
+  "rules": ["svg-path-draw"],
+  "exit": { "vector": "static (hold)", "still_moving": false },
+  "entry": { "vector": "y -32px over 0.55s power3.out (title at 0.0s; cards, band, Valkey node staggered 0.1s to 0.5s)", "from_rest": true }
+}

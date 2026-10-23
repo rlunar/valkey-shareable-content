@@ -70,7 +70,7 @@ The OpenClaw and KiroCrew examples are speaker-confirmed and appear on two dedic
 - `components/OpenSourcePyramid.vue`: recurring four-tier stack visual with reveal and focus modes.
 - `components/SemanticCacheDiagram.vue`: semantic-cache request trace.
 - `components/AgenticDataPath.vue`: five-step agent data path.
-- `components/ValkeyProfile.vue`: the “What is Valkey” visual (workload icons, BSD license, Linux Foundation backing, the eight-day origin story, and the Technical Steering Committee affiliations), using the shared stroke icons from the repository’s `slides/icons/` through the `@valkey-slide-icons` alias and participant logos from `ValkeyDesignSystem/assets/participants/` through `@valkey-assets`; Tencent Cloud and Alibaba Cloud live in `assets/public/logos/tsc/`, while Apple® is rendered as plain text.
+- `components/ValkeyProfile.vue`: the “What is Valkey” visual (workload icons, BSD license, Linux Foundation backing, the eight-day origin story, and the Technical Steering Committee affiliations), using the shared stroke icons from the repository’s `valkey-brand/icons/` through the `@valkey-slide-icons` alias and participant logos from `valkey-brand/ValkeyDesignSystem/assets/participants/` through `@valkey-assets`; Tencent Cloud and Alibaba Cloud live in `assets/public/logos/tsc/`, while Apple® is rendered as plain text.
 - `assets/images/`: the OpenClaw banner and star-growth chart, the KiroCrew session screenshot, and the LinkedIn QR code used on the closing slide. These are referenced relatively from `slides.md`, so they stay outside the public folder.
 - `assets/public/logos/`: local project SVGs; provenance is documented in `assets/public/logos/README.md`.
 - `Keynote_Outline.md` and `Keynote_Script.md`: editorial sources.

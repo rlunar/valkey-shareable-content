@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "pass": "final",
+  "submitted_at": "2026-09-11T00:37:27.042Z",
+  "comments": [
+    {
+      "frame": 1,
+      "src": "compositions/frames/01-hook.html",
+      "title": "Hook: FAST. RELIABLE.",
+      "text": "enlarge valkey.io by 2x"
+    },
+    {
+      "frame": 2,
+      "src": "compositions/frames/02-promise.html",
+      "title": "Promise: OPEN SOURCE, FOREVER.",
+      "text": "the background of the valkey logo and valkey.io should match the frame background"
+    },
+    {
+      "frame": 3,
+      "src": "compositions/frames/03-capability.html",
+      "title": "Capability: one store, eight jobs",
+      "text": "the background of the valkey logo and valkey.io should match the frame background"
+    },
+    {
+      "frame": 4,
+      "src": "compositions/frames/04-proof.html",
+      "title": "Proof: shipping, right now",
+      "text": "the terminal window should be 2x size\nthe background of the valkey logo and valkey.io should match the frame background"
+    },
+    {
+      "frame": 5,
+      "src": "compositions/frames/05-participants.html",
+      "title": "Credibility: the industry runs on it",
+      "text": "the valkey.io bellow the logos is unnecessary, we already have the footer"
+    },
+    {
+      "frame": 6,
+      "src": "compositions/frames/07-caching.html",
+      "title": "Use case: caching",
+      "text": "the background of the valkey logo and valkey.io should match the frame background\nadd a speed sound\nadd submillisecond latency and a dynamic random access memory (DRAM) stick from the hygen stock"
+    },
+    {
+      "frame": 7,
+      "src": "compositions/frames/08-sessions.html",
+      "title": "Use case: sessions",
+      "text": "reduce the size of the shopping cart\n\nadd valkey.io at the bottom right and the valkey logo at the bottom left (like frame 1)"
+    },
+    {
+      "frame": 8,
+      "src": "compositions/frames/09-message-queues.html",
+      "title": "Use case: message queues",
+      "text": "add valkey.io at the bottom right and the valkey logo at the bottom left (like frame 1)"
+    },
+    {
+      "frame": 9,
+      "src": "compositions/frames/10-leaderboards.html",
+      "title": "Use case: leaderboards",
+      "text": "add valkey.io at the bottom right and the valkey logo at the bottom left (like frame 1)"
+    },
+    {
+      "frame": 10,
+      "src": "compositions/frames/11-chatbots.html",
+      "title": "Use case: chatbots",
+      "text": "add valkey.io at the bottom right and the valkey logo at the bottom left (like frame 1)"
+    },
+    {
+      "frame": 11,
+      "src": "compositions/frames/12-iot.html",
+      "title": "Use case: IoT streams",
+      "text": "add valkey.io at the bottom right and the valkey logo at the bottom left (like frame 1)"
+    },
+    {
+      "frame": 12,
+      "src": "compositions/frames/13-geospatial.html",
+      "title": "Use case: geospatial",
+      "text": "add valkey.io at the bottom right and the valkey logo at the bottom left (like frame 1)"
+    },
+    {
+      "frame": 13,
+      "src": "compositions/frames/06-call.html",
+      "title": "Call: get started",
+      "text": "increase by 2x label \"valkey.io\""
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+<template>
+  <style>
+    @font-face { font-family: "Open Sans"; src: url("assets/fonts/OpenSans-Variable.woff2") format("woff2"); font-weight: 300 800; font-style: normal; }
+    @font-face { font-family: "Cascadia Code"; src: url("assets/fonts/CascadiaCode-Variable.woff2") format("woff2"); font-weight: 200 700; font-style: normal; }
+
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: "Open Sans", sans-serif; color: #1A2026; }
+    .clip { position: absolute; inset: 0; }
+
+    .f05-ground { background: linear-gradient(135deg, #FFFFFF 0%, #F7FBFE 62%, #F1EFFD 100%); }
+
+    .f05-title { position: absolute; left: 96px; top: 94px; margin: 0; font-size: 44px; line-height: 48px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: #30176E; opacity: 0; }
+
+    /* release_card = node_card anatomy: eyebrow above the version number */
+    .f05-card { position: absolute; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px 8px; background: #FFFDFA; border: 3px solid #BCB5E7; box-shadow: rgba(48, 23, 110, 0.08) 0px 12px 36px 0px; text-align: center; opacity: 0; }
+    .f05-eyebrow { font-family: "Cascadia Code", monospace; font-size: 18px; line-height: 22px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #30176E; white-space: nowrap; }
+    .f05-version { margin-top: 14px; font-size: 64px; line-height: 72px; font-weight: 800; color: #30176E; white-space: nowrap; }
+    .f05-card-featured .f05-version { color: #6983FF; }
+
+    /* PREVIEW region: dashed hairline, secondary text, no fill, no shadow — a slot, not a release card */
+    .f05-preview { position: absolute; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px 8px; border: 3px dashed #D3DDE7; text-align: center; opacity: 0; }
+    .f05-preview .f05-eyebrow { color: #596672; }
+    .f05-preview .f05-version { color: #596672; }
+
+    .f05-date { position: absolute; left: 96px; top: 858px; margin: 0; font-size: 26px; line-height: 30px; font-weight: 400; color: #596672; opacity: 0; }
+  </style>
+
+  <div data-hf-id="hf-4ild" id="root" data-composition-id="f05-releases" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-fulb" id="f05-releases-layer-1" class="clip f05-ground" data-start="0" data-duration="6" data-track-index="0"></div>
+
+    <div data-hf-id="hf-b3ly" id="f05-releases-layer-2" class="clip f05-stage" data-start="0" data-duration="6" data-track-index="1">
+      <h2 data-hf-id="hf-2bqz" id="f05-title" class="f05-title">Releases</h2>
+
+      <!-- stable row: 440 · 36 · 300 · 36 · 300 -->
+      <div data-hf-id="hf-xiu1" id="f05-card-912" class="f05-card f05-card-featured" style="left: 124px; top: 410px; width: 440px; height: 260px;">
+        <div data-hf-id="hf-nenu" class="f05-eyebrow">Featured stable</div>
+        <div data-hf-id="hf-s3oa" class="f05-version">9.1.2</div>
+      </div>
+      <div data-hf-id="hf-bqkv" id="f05-card-8110" class="f05-card" style="left: 600px; top: 440px; width: 300px; height: 200px;">
+        <div data-hf-id="hf-x9yd" class="f05-eyebrow">Supported prior line</div>
+        <div data-hf-id="hf-jqzo" class="f05-version">8.1.10</div>
+      </div>
+      <div data-hf-id="hf-7jx5" id="f05-card-7214" class="f05-card" style="left: 936px; top: 440px; width: 300px; height: 200px;">
+        <div data-hf-id="hf-5nuh" class="f05-eyebrow">Supported prior line</div>
+        <div data-hf-id="hf-b67c" class="f05-version">7.2.14</div>
+      </div>
+
+      <!-- preview slot, 200px clear of the stable row -->
+      <div data-hf-id="hf-je4a" id="f05-preview" class="f05-preview" style="left: 1436px; top: 440px; width: 360px; height: 200px;">
+        <div data-hf-id="hf-hrwn" class="f05-eyebrow">Preview</div>
+        <div data-hf-id="hf-zp12" class="f05-version">9.2.0-rc1</div>
+      </div>
+
+      <p data-hf-id="hf-qrof" id="f05-date" class="f05-date">As of 2026-10-02</p>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      const $ = (id) => document.getElementById(id);
+      const F = 1 / 30; // one frame at 30 fps
+      const ENTER = { duration: 0.55, ease: "power3.out" };
+
+      // ---- Scene 1 (0.0–1.2): title, then the three stable cards as a waterfall-entry cascade
+      tl.fromTo($("f05-title"), { y: 32, opacity: 0 }, { y: 0, opacity: 1, ...ENTER }, 0.1);
+
+      // waterfall-entry: binary opacity via set, whip up from below on power4.out, one direction; the anchor travels
+      // furthest and longest, each lighter card starts two frames before the previous settles — 0.267s wave, landed by 0.72s
+      const t0 = 0.45;                 // 9.1.2 — anchor
+      const t1 = t0 + 0.16 - 2 * F;    // 8.1.10 — normal
+      const t2 = t1 + 0.13 - 2 * F;    // 7.2.14 — light
+      tl.set($("f05-card-912"), { opacity: 1 }, t0);
+      tl.fromTo($("f05-card-912"), { y: 80 }, { y: 0, duration: 0.16, ease: "power4.out" }, t0);
+      tl.set($("f05-card-8110"), { opacity: 1 }, t1);
+      tl.fromTo($("f05-card-8110"), { y: 48 }, { y: 0, duration: 0.13, ease: "power4.out" }, t1);
+      tl.set($("f05-card-7214"), { opacity: 1 }, t2);
+      tl.fromTo($("f05-card-7214"), { y: 40 }, { y: 0, duration: 0.11, ease: "power4.out" }, t2);
+
+      // ---- Scene 2 (1.2–3.4): hold; 9.1.2 takes the current state on "stable" (≈1.4)
+      tl.to($("f05-card-912"), { borderColor: "#6983FF", backgroundColor: "#F1EFFD", y: -6, boxShadow: "rgba(105, 131, 255, 0.22) 0px 16px 44px 0px", duration: 0.3, ease: "power2.inOut" }, 1.4);
+
+      // ---- Scene 3 (3.4–6.0): the dashed PREVIEW slot enters on "next release candidate"; the date stamp follows; hold
+      tl.fromTo($("f05-preview"), { y: 32, opacity: 0 }, { y: 0, opacity: 1, ...ENTER }, 3.4);
+      tl.fromTo($("f05-date"), { y: 8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power1.out" }, 4.0);
+
+      window.__timelines["f05-releases"] = tl;
+    })();
+  </script>
+</template>

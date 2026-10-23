@@ -1,0 +1,162 @@
+<template>
+  <style>
+    @font-face { font-family: "Open Sans"; src: url("assets/fonts/OpenSans-Variable.woff2") format("woff2"); font-weight: 300 800; font-style: normal; }
+    @font-face { font-family: "Cascadia Code"; src: url("assets/fonts/CascadiaCode-Variable.woff2") format("woff2"); font-weight: 200 700; font-style: normal; }
+
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: "Open Sans", sans-serif; color: #1A2026; }
+    .clip { position: absolute; inset: 0; }
+
+    /* ground: the film's one gradient, on its own full-duration clip */
+    .f07-integrations-ground { background: linear-gradient(135deg, #FFFFFF 0%, #F7FBFE 62%, #F1EFFD 100%); }
+
+    /* frame_title (portrait ramp): 40px / 800 / deep_purple / 0.04em / uppercase; title slot x 72, baseline y 200 */
+    .f07-integrations-title { position: absolute; left: 72px; top: 160px; margin: 0; font-size: 40px; line-height: 48px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: #30176E; white-space: nowrap; }
+
+    /* flows: cubic beziers + chevron heads, drawn via stroke-dashoffset, resting at 0.32 once drawn.
+       Portrait: the flow runs downward, apps (top) -> client band (middle) -> Valkey (bottom). */
+    .f07-integrations-flows { position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow: visible; }
+    .f07-integrations-flows path { fill: none; stroke: #6983FF; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* node_card anatomy: paper fill, 3px node_border, no radius, rest shadow */
+    .f07-integrations-node { position: absolute; width: 264px; height: 130px; }
+    .f07-integrations-node-shadow { position: absolute; inset: 0; box-shadow: 0 12px 36px rgba(48, 23, 110, 0.08); }
+    .f07-integrations-node-shadow-current { position: absolute; inset: 0; box-shadow: 0 16px 44px rgba(105, 131, 255, 0.22); opacity: 0; }
+    .f07-integrations-node-box { position: absolute; inset: 0; box-sizing: border-box; background: #FFFDFA; border: 3px solid #BCB5E7; display: flex; flex-direction: column; justify-content: center; gap: 12px; padding: 0 24px; }
+    .f07-integrations-eyebrow { font-family: "Cascadia Code", monospace; font-size: 18px; font-weight: 700; line-height: 22px; letter-spacing: 0.12em; text-transform: uppercase; color: #30176E; }
+    .f07-integrations-node-label { font-size: 30px; font-weight: 700; line-height: 36px; color: #1A2026; }
+    .f07-integrations-mark { display: block; width: 72px; height: 72px; object-fit: contain; }
+
+    /* three app cards in a row, centred on y 460, 32px apart, inside the title-safe box (x 112-968) */
+    #f07-integrations-node-app { left: 112px; top: 395px; }
+    #f07-integrations-node-service { left: 408px; top: 395px; }
+    #f07-integrations-node-function { left: 704px; top: 395px; }
+    /* the Valkey card: 300 x 140 centred on (540, 1300) */
+    #f07-integrations-node-valkey { left: 390px; top: 1230px; width: 300px; height: 140px; }
+    #f07-integrations-valkey-box { align-items: center; }
+
+    /* client band: 820 x 360 centred on y 840, hairline-bordered; GLIDE on top, the three integrations in a row beneath */
+    .f07-integrations-band { position: absolute; left: 130px; top: 660px; width: 820px; height: 360px; box-sizing: border-box; background: #FFFDFA; border: 2px solid #D3DDE7; }
+    .f07-integrations-band-label { position: absolute; margin: 0; text-align: center; font-size: 30px; font-weight: 700; line-height: 40px; color: #30176E; white-space: nowrap; }
+    #f07-integrations-glide { left: 0; top: 60px; width: 100%; font-size: 36px; line-height: 48px; color: #6983FF; }
+    #f07-integrations-spring { left: 0; top: 196px; width: 272px; }
+    #f07-integrations-fastify { left: 272px; top: 196px; width: 272px; }
+    #f07-integrations-powertools { left: 544px; top: 196px; width: 272px; }
+  </style>
+
+  <div data-hf-id="hf-muki" id="root" data-composition-id="f07-integrations" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-s83x" id="f07-integrations-layer-1" class="clip f07-integrations-ground" data-start="0" data-duration="6.5" data-track-index="0"></div>
+
+    <div data-hf-id="hf-oatq" id="f07-integrations-layer-2" class="clip" data-start="0" data-duration="6.5" data-track-index="1">
+      <h2 data-hf-id="hf-pco0" id="f07-integrations-title" class="f07-integrations-title">Connect your stack</h2>
+
+      <!-- connectors: three app cards down into the band (gentle fan-in), the band down to Valkey (drawn in Scene 2) -->
+      <svg data-hf-id="hf-lty0" id="f07-integrations-flows" class="f07-integrations-flows" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path data-hf-id="hf-akq8" id="f07-integrations-flow-1" d="M 244 525 C 244 592, 380 592, 380 660" />
+        <path data-hf-id="hf-y6gk" id="f07-integrations-head-1" d="M 370 644 L 380 660 L 390 644" />
+        <path data-hf-id="hf-n0rn" id="f07-integrations-flow-2" d="M 540 525 C 540 592, 540 592, 540 660" />
+        <path data-hf-id="hf-bgfx" id="f07-integrations-head-2" d="M 530 644 L 540 660 L 550 644" />
+        <path data-hf-id="hf-neze" id="f07-integrations-flow-3" d="M 836 525 C 836 592, 700 592, 700 660" />
+        <path data-hf-id="hf-lv9r" id="f07-integrations-head-3" d="M 690 644 L 700 660 L 710 644" />
+        <path data-hf-id="hf-fqgo" id="f07-integrations-flow-4" d="M 540 1020 C 540 1125, 540 1125, 540 1230" />
+        <path data-hf-id="hf-qsel" id="f07-integrations-head-4" d="M 530 1214 L 540 1230 L 550 1214" />
+      </svg>
+
+      <!-- three resting application cards (top row) -->
+      <div data-hf-id="hf-b5w0" class="f07-integrations-node" id="f07-integrations-node-app">
+        <div data-hf-id="hf-tbz5" class="f07-integrations-node-shadow"></div>
+        <div data-hf-id="hf-311w" class="f07-integrations-node-box">
+          <div data-hf-id="hf-h46p" class="f07-integrations-eyebrow">Application</div>
+          <div data-hf-id="hf-a4ww" class="f07-integrations-node-label">App</div>
+        </div>
+      </div>
+      <div data-hf-id="hf-k3u0" class="f07-integrations-node" id="f07-integrations-node-service">
+        <div data-hf-id="hf-yoz9" class="f07-integrations-node-shadow"></div>
+        <div data-hf-id="hf-irl8" class="f07-integrations-node-box">
+          <div data-hf-id="hf-m6hx" class="f07-integrations-eyebrow">Application</div>
+          <div data-hf-id="hf-jsgg" class="f07-integrations-node-label">Service</div>
+        </div>
+      </div>
+      <div data-hf-id="hf-b53j" class="f07-integrations-node" id="f07-integrations-node-function">
+        <div data-hf-id="hf-zvwc" class="f07-integrations-node-shadow"></div>
+        <div data-hf-id="hf-hko5" class="f07-integrations-node-box">
+          <div data-hf-id="hf-ndf0" class="f07-integrations-eyebrow">Application</div>
+          <div data-hf-id="hf-cx45" class="f07-integrations-node-label">Function</div>
+        </div>
+      </div>
+
+      <!-- client / integration band (middle): text labels only, no third-party logos -->
+      <div data-hf-id="hf-h6uw" class="f07-integrations-band" id="f07-integrations-band">
+        <p data-hf-id="hf-ytaf" class="f07-integrations-band-label" id="f07-integrations-glide">Valkey GLIDE</p>
+        <p data-hf-id="hf-yo39" class="f07-integrations-band-label" id="f07-integrations-spring">Spring Boot</p>
+        <p data-hf-id="hf-yejp" class="f07-integrations-band-label" id="f07-integrations-fastify">Fastify</p>
+        <p data-hf-id="hf-9s3q" class="f07-integrations-band-label" id="f07-integrations-powertools">Powertools for<br data-hf-id="hf-x5px">AWS Lambda</p>
+      </div>
+
+      <!-- the Valkey node (bottom): identified by the icon mark, never a lockup -->
+      <div data-hf-id="hf-aidx" class="f07-integrations-node" id="f07-integrations-node-valkey">
+        <div data-hf-id="hf-dayj" class="f07-integrations-node-shadow" id="f07-integrations-valkey-shadow-rest"></div>
+        <div data-hf-id="hf-7kio" class="f07-integrations-node-shadow-current" id="f07-integrations-valkey-shadow-current"></div>
+        <div data-hf-id="hf-pbhs" class="f07-integrations-node-box" id="f07-integrations-valkey-box">
+          <div data-hf-id="hf-aeoi" class="f07-integrations-eyebrow">Datastore</div>
+          <img data-hf-id="hf-iggs" class="f07-integrations-mark" src="assets/brand/valkey-icon-periwinkle.svg" alt="" width="72" height="72">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const ID = "f07-integrations";
+      const tl = gsap.timeline({ paused: true });
+
+      // entrance token: fromTo, y 32 -> 0 + opacity 0 -> 1, 0.55s, power3.out
+      const enter = (sel, at) =>
+        tl.fromTo(sel, { y: 32, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, at);
+
+      // svg-path-draw: measure the path, make it one dash, tween the offset to 0.
+      // `fallback` is the path's geometric length, used only if the SVG is not measurable yet.
+      const draw = (sel, at, dur, fallback) => {
+        const p = document.querySelector(sel);
+        if (!p) return;
+        const len = (p.getTotalLength() || fallback) * 1.02;
+        p.style.strokeDasharray = `${len}`;
+        p.style.strokeDashoffset = `${len}`;
+        tl.fromTo(p, { strokeDashoffset: len }, { strokeDashoffset: 0, duration: dur, ease: "power2.out" }, at);
+      };
+
+      // Scene 1 (0.0-1.0s): title, the three app cards, the empty band, the Valkey card (0.1s stagger)
+      enter("#f07-integrations-title", 0.0);
+      enter("#f07-integrations-node-app", 0.1);
+      enter("#f07-integrations-node-service", 0.2);
+      enter("#f07-integrations-node-function", 0.3);
+      enter("#f07-integrations-band", 0.4);
+      enter("#f07-integrations-node-valkey", 0.5);
+
+      // Scene 2 (1.0-4.6s): "Valkey GLIDE" lands on its cue; connectors draw downward in periwinkle.
+      // The three app->band flows fan in as one 0.5s draw; the band->Valkey flow starts at
+      // ~75% of the last one so the signal reads as a continuous trace down through the band.
+      enter("#f07-integrations-glide", 1.0);
+      draw("#f07-integrations-flow-1", 1.00, 0.5, 215); draw("#f07-integrations-head-1", 1.42, 0.15, 38);
+      draw("#f07-integrations-flow-2", 1.08, 0.5, 135); draw("#f07-integrations-head-2", 1.50, 0.15, 38);
+      draw("#f07-integrations-flow-3", 1.16, 0.5, 215); draw("#f07-integrations-head-3", 1.58, 0.15, 38);
+      draw("#f07-integrations-flow-4", 1.54, 0.4, 210); draw("#f07-integrations-head-4", 1.86, 0.12, 38);
+      // drawn flows settle to the resting opacity so periwinkle stays on one thing at a time
+      tl.fromTo("#f07-integrations-flows", { opacity: 1 }, { opacity: 0.32, duration: 0.35, ease: "power1.out" }, 2.05);
+
+      // the remaining integrations land on their voice cues
+      enter("#f07-integrations-spring", 1.9);
+      enter("#f07-integrations-fastify", 2.8);
+      enter("#f07-integrations-powertools", 4.1);
+
+      // Scene 3 (4.6-6.5s): hold; the Valkey card takes the current state (current_swap: 0.3s, power2.inOut)
+      const SWAP = { duration: 0.3, ease: "power2.inOut" };
+      tl.to("#f07-integrations-node-valkey", { y: -6, ...SWAP }, 4.8);
+      tl.fromTo("#f07-integrations-valkey-box", { borderColor: "#BCB5E7", backgroundColor: "#FFFDFA" }, { borderColor: "#6983FF", backgroundColor: "#F1EFFD", ...SWAP }, 4.8);
+      tl.fromTo("#f07-integrations-valkey-shadow-rest", { opacity: 1 }, { opacity: 0, ...SWAP }, 4.8);
+      tl.fromTo("#f07-integrations-valkey-shadow-current", { opacity: 0 }, { opacity: 1, ...SWAP }, 4.8);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

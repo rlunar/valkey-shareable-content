@@ -1,0 +1,26 @@
+{
+  "fps": 30,
+  "policy": "FRAME.md Register B. Every one of the seven use-case scenes hands LEFT into a 10-second QR interstitial; the QR frame then continues LEFT into the next use case. Ordinary exits are 0.78s and entries 0.84s. UP is spent at 14.4, and the final QR interstitial hands into the call with a Z-pull at 105.6. The call resumes LEFT into the 15-second QR closer at 108.6. Stamp master seams from this file.",
+  "seams": [
+    {"id":"hook→promise","cut":3.1,"technique":"cut-the-curve LEFT","exit":{"selector":"#el-01-hook","axis":"x","dir":-1,"dur":0.78},"entry":{"selector":"#el-02-promise","axis":"x","dir":-1,"dur":0.84,"travel":12}},
+    {"id":"promise→capability","cut":6.0,"technique":"cut-the-curve LEFT","exit":{"selector":"#el-02-promise","axis":"x","dir":-1,"dur":0.78},"entry":{"selector":"#el-03-capability","axis":"x","dir":-1,"dur":0.84,"travel":12}},
+    {"id":"capability→proof","cut":11.3,"technique":"cut-the-curve LEFT","exit":{"selector":"#el-03-capability","axis":"x","dir":-1,"dur":0.78},"entry":{"selector":"#el-04-proof","axis":"x","dir":-1,"dur":0.84,"travel":12}},
+    {"id":"proof→participants","cut":14.4,"technique":"cut-the-curve UP","exit":{"selector":"#el-04-proof","axis":"y","dir":-1,"dur":0.78},"entry":{"selector":"#el-05-participants","axis":"y","dir":-1,"dur":0.84,"travel":12}},
+    {"id":"participants→caching","cut":17.4,"technique":"cut-the-curve LEFT","exit":{"selector":"#el-05-participants","axis":"x","dir":-1,"dur":0.78},"entry":{"selector":"#el-07-caching","axis":"x","dir":-1,"dur":0.84,"travel":12}},
+    {"id":"caching→qr","cut":20.0,"technique":"cut-the-curve LEFT","exit":{"selector":"#el-07-caching","axis":"x","dir":-1,"dur":0.78},"entry":{"selector":"#el-qr-after-caching","axis":"x","dir":-1,"dur":0.84,"travel":12}},
+    {"id":"qr→sessions","cut":30.0,"technique":"cut-the-curve LEFT","exit":{"selector":"#el-qr-after-caching","axis":"x","dir":-1,"dur":0.78},"entry":{"selector":"#el-08-sessions","axis":"x","dir":-1,"dur":0.84,"travel":12}},
+    {"id":"sessions→qr","cut":32.6,"technique":"cut-the-curve LEFT","exit":{"selector":"#el-08-sessions","axis":"x","dir":-1,"dur":0.78},"entry":{"selector":"#el-qr-after-sessions","axis":"x","dir":-1,"dur":0.84,"travel":12}},
+    {"id":"qr→queues","cut":42.6,"technique":"cut-the-curve LEFT","exit":{"selector":"#el-qr-after-sessions","axis":"x","dir":-1,"dur":0.78},"entry":{"selector":"#el-09-message-queues","axis":"x","dir":-1,"dur":0.84,"travel":12}},
+    {"id":"queues→qr","cut":45.2,"technique":"cut-the-curve LEFT","exit":{"selector":"#el-09-message-queues","axis":"x","dir":-1,"dur":0.78},"entry":{"selector":"#el-qr-after-queues","axis":"x","dir":-1,"dur":0.84,"travel":12}},
+    {"id":"qr→leaderboards","cut":55.2,"technique":"cut-the-curve LEFT","exit":{"selector":"#el-qr-after-queues","axis":"x","dir":-1,"dur":0.78},"entry":{"selector":"#el-10-leaderboards","axis":"x","dir":-1,"dur":0.84,"travel":12}},
+    {"id":"leaderboards→qr","cut":57.8,"technique":"cut-the-curve LEFT","exit":{"selector":"#el-10-leaderboards","axis":"x","dir":-1,"dur":0.78},"entry":{"selector":"#el-qr-after-leaderboards","axis":"x","dir":-1,"dur":0.84,"travel":12}},
+    {"id":"qr→chatbots","cut":67.8,"technique":"cut-the-curve LEFT","exit":{"selector":"#el-qr-after-leaderboards","axis":"x","dir":-1,"dur":0.78},"entry":{"selector":"#el-11-chatbots","axis":"x","dir":-1,"dur":0.84,"travel":12}},
+    {"id":"chatbots→qr","cut":70.4,"technique":"cut-the-curve LEFT","exit":{"selector":"#el-11-chatbots","axis":"x","dir":-1,"dur":0.78},"entry":{"selector":"#el-qr-after-chatbots","axis":"x","dir":-1,"dur":0.84,"travel":12}},
+    {"id":"qr→iot","cut":80.4,"technique":"cut-the-curve LEFT","exit":{"selector":"#el-qr-after-chatbots","axis":"x","dir":-1,"dur":0.78},"entry":{"selector":"#el-12-iot","axis":"x","dir":-1,"dur":0.84,"travel":12}},
+    {"id":"iot→qr","cut":83.0,"technique":"cut-the-curve LEFT","exit":{"selector":"#el-12-iot","axis":"x","dir":-1,"dur":0.78},"entry":{"selector":"#el-qr-after-iot","axis":"x","dir":-1,"dur":0.84,"travel":12}},
+    {"id":"qr→geospatial","cut":93.0,"technique":"cut-the-curve LEFT","exit":{"selector":"#el-qr-after-iot","axis":"x","dir":-1,"dur":0.78},"entry":{"selector":"#el-13-geospatial","axis":"x","dir":-1,"dur":0.84,"travel":12}},
+    {"id":"geospatial→qr","cut":95.6,"technique":"cut-the-curve LEFT","exit":{"selector":"#el-13-geospatial","axis":"x","dir":-1,"dur":0.78},"entry":{"selector":"#el-qr-after-geospatial","axis":"x","dir":-1,"dur":0.84,"travel":12}},
+    {"id":"qr→call","cut":105.6,"technique":"inverse zoom-through","blur":18,"exit":{"selector":"#el-qr-after-geospatial","axis":"z","dir":-1,"dur":0.7},"entry":{"selector":"#el-06-call","axis":"z","dir":-1,"dur":1.0,"scanRoot":"#el-06-call"}},
+    {"id":"call→final-qr","cut":108.6,"technique":"cut-the-curve LEFT","exit":{"selector":"#el-06-call","axis":"x","dir":-1,"dur":0.78},"entry":{"selector":"#el-14-qr-finale","axis":"x","dir":-1,"dur":0.84,"travel":12}}
+  ]
+}

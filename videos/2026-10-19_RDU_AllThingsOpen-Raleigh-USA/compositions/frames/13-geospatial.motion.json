@@ -1,0 +1,9 @@
+{
+  "duration": 2.1,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#f13-claim", "bySec": 0.6 },
+    { "kind": "before", "a": "#f13-claim", "b": "#f13-grid" },
+    { "kind": "staysInFrame", "selector": "#f13-focal" },
+    { "kind": "keepsMoving", "withinSelector": "#f13-map-layer", "maxStaticSec": 1.2 }
+  ]
+}

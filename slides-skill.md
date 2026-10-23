@@ -32,7 +32,7 @@ Chrome for the icon and rendering tooling.
 | `slides/pptx_svg.py` | `add_svg(slide, svg, png_fallback, left, top, w, h)` to embed an SVG. |
 | `slides/pptx_layout.py` | Add slide layouts to the master, which python-pptx cannot do. See Adding a Layout to the Master. |
 | `slides/build_placeholder_deck.py` | Re-runnable builder for the placeholder deck. Good worked example of cards, icon embedding, and building a deck from scratch. |
-| `slides/icons/` | 16 reusable Valkey-blue outline icons, plus 4x PNG fallbacks in `icons/png/`. |
+| `valkey-brand/icons/` | 16 reusable Valkey-blue outline icons, plus 4x PNG fallbacks in `valkey-brand/icons/png/`. |
 
 ## Template Facts
 
@@ -617,7 +617,7 @@ logo at `(10389732, 5943597)` renders bottom-right on every slide. Two consequen
 
 ### Icon Library
 
-`slides/icons/` holds 16 reusable outline icons, all `96x96` viewBox, `#6983FF` stroke at width 4,
+`valkey-brand/icons/` holds 16 reusable outline icons, all `96x96` viewBox, `#6983FF` stroke at width 4,
 no fills: `community`, `cost-efficiency`, `data-hash`, `data-list`, `durability`, `general-scaling`,
 `hardening`, `horizontal-scaling`, `memory-efficiency`, `migration`, `observability`, `performance`,
 `reliability`, `replication`, `security`, `vertical-scaling`.
@@ -646,7 +646,7 @@ Use `slides/pptx_svg.py`:
 
 ```python
 from pptx_svg import add_svg
-add_svg(slide, "slides/icons/security.svg", "slides/icons/png/security.png",
+add_svg(slide, "../valkey-brand/icons/security.svg", "../valkey-brand/icons/png/security.png",
         left, top, 1097280, 1097280, name="security")
 ```
 

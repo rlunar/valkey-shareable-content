@@ -1,0 +1,7 @@
+{
+  "scene": "f09-usecases-coordination",
+  "duration_s": 5,
+  "rules": ["waterfall-entry"],
+  "exit": { "vector": "static (hold)", "still_moving": false },
+  "entry": { "vector": "title y -32px over 0.55s power3.out at 0.0s; five cells whip up from +72/+60/+48/+40/+30px, one frame apart from 0.033s, all settled by 0.287s (power4.out, binary opacity); identical grid geometry and timing to f08", "from_rest": true }
+}

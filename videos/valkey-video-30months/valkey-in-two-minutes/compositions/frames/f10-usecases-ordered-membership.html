@@ -1,0 +1,108 @@
+<template>
+  <style>
+    @font-face { font-family: "Open Sans"; src: url("assets/fonts/OpenSans-Variable.woff2") format("woff2"); font-weight: 300 800; font-style: normal; }
+    @font-face { font-family: "Cascadia Code"; src: url("assets/fonts/CascadiaCode-Variable.woff2") format("woff2"); font-weight: 200 700; font-style: normal; }
+
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: "Open Sans", sans-serif; color: #1A2026; }
+    .clip { position: absolute; inset: 0; }
+
+    /* ground: the film's one gradient, full-bleed on the lowest track */
+    .f10-ground { background: linear-gradient(135deg, #FFFFFF 0%, #F7FBFE 62%, #F1EFFD 100%); }
+
+    /* frame_title: 44px / 800 / deep_purple / 0.04em / uppercase, top-left slot */
+    .f10-title { position: absolute; left: 96px; top: 88px; margin: 0; font-size: 44px; line-height: 52px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: #30176E; white-space: nowrap; }
+
+    /* panel grid: 3 x 2 cells of 480 x 300; cell centres at x 480 / 960 / 1440 and y 400 / 700 */
+    .f10-cell { position: absolute; width: 480px; height: 300px; opacity: 0; }
+    .f10-col1 { left: 240px; }
+    .f10-col2 { left: 720px; }
+    .f10-col3 { left: 1200px; }
+    .f10-row1 { top: 250px; }
+    .f10-row2 { top: 550px; }
+
+    /* panel_cell: one 120px outline glyph centred above a 40px / 700 deep_purple label; no border, fill, or stripe */
+    .f10-glyph { position: absolute; left: 180px; top: 44px; width: 120px; height: 120px; display: block; object-fit: contain; }
+    .f10-labelgroup { position: absolute; left: 8px; top: 188px; width: 464px; text-align: center; }
+    .f10-label { margin: 0; font-size: 40px; line-height: 46px; font-weight: 700; color: #30176E; }
+    .f10-sub { margin: 4px 0 0; font-size: 26px; line-height: 30px; font-weight: 400; color: #596672; }
+
+    /* layer marker in the sixth cell: caption_size secondary, sitting on the row-2 label line */
+    .f10-marker { position: absolute; left: 1208px; top: 746px; width: 464px; margin: 0; text-align: center; font-size: 26px; line-height: 30px; font-weight: 400; color: #596672; opacity: 0; }
+  </style>
+
+  <div data-hf-id="hf-0kyg" id="root" data-composition-id="f10-usecases-ordered-membership" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-tlm6" id="f10-usecases-ordered-membership-layer-1" class="clip f10-ground" data-start="0" data-duration="6" data-track-index="0"></div>
+    <div data-hf-id="hf-xjgz" id="f10-usecases-ordered-membership-layer-2" class="clip f10-stage" data-start="0" data-duration="6" data-track-index="1">
+      <h2 data-hf-id="hf-fmtl" id="f10-title" class="f10-title">Ordered data + membership</h2>
+
+      <!-- row 1 -->
+      <div data-hf-id="hf-yr7u" id="f10-c1" class="f10-cell f10-col1 f10-row1">
+        <img data-hf-id="hf-tnmb" class="f10-glyph" src="assets/icons/vertical-scaling.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-r375" class="f10-labelgroup">
+          <p data-hf-id="hf-5rx8" id="f10-l1" class="f10-label">Rank / leaderboard</p>
+        </div>
+      </div>
+      <div data-hf-id="hf-rh4w" id="f10-c2" class="f10-cell f10-col2 f10-row1">
+        <img data-hf-id="hf-2btk" class="f10-glyph" src="assets/icons/observability.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-n55x" class="f10-labelgroup">
+          <p data-hf-id="hf-963k" id="f10-l2" class="f10-label">Time-series</p>
+        </div>
+      </div>
+      <div data-hf-id="hf-s726" id="f10-c3" class="f10-cell f10-col3 f10-row1">
+        <img data-hf-id="hf-9yay" class="f10-glyph" src="assets/icons/data-list.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-oc30" class="f10-labelgroup">
+          <p data-hf-id="hf-gzp5" id="f10-l3" class="f10-label">Append-only log ·<br data-hf-id="hf-x5px">Streams</p>
+        </div>
+      </div>
+
+      <!-- row 2: cell 4 with its paired sub-label, an empty fifth cell, and the layer marker in the sixth -->
+      <div data-hf-id="hf-5a7g" id="f10-c4" class="f10-cell f10-col1 f10-row2">
+        <img data-hf-id="hf-oet0" class="f10-glyph" src="assets/icons/durability.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-nxrz" class="f10-labelgroup">
+          <p data-hf-id="hf-e1n8" id="f10-l4" class="f10-label">Probabilistic<br data-hf-id="hf-rsrt">membership</p>
+          <p data-hf-id="hf-q70f" id="f10-sub4" class="f10-sub">Fraud prechecks · Bloom module</p>
+        </div>
+      </div>
+      <p data-hf-id="hf-ijrw" id="f10-marker" class="f10-marker">Core + Bloom module</p>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const tl = gsap.timeline({ paused: true });
+      const PERI = "#6983FF";
+      const DEEP = "#30176E";
+      const SECONDARY = "#596672";
+
+      // Scene 1 (0.0-0.5s): title lands with the frame.md entrance token.
+      tl.fromTo("#f10-title", { y: 32, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, 0);
+
+      // waterfall-entry (adapted to land by 0.3s): binary opacity via set, then one whip from below.
+      // Anchor cells travel further and longer, the gaps shrink across the cascade, the last cell snaps.
+      const arrive = (sel, t, offset, dur) => {
+        tl.set(sel, { opacity: 1 }, t);
+        tl.fromTo(sel, { y: offset }, { y: 0, duration: dur, ease: "power4.out" }, t);
+      };
+      arrive("#f10-c1", 0.02, 72, 0.18); // settles 0.20
+      arrive("#f10-c2", 0.07, 60, 0.16); // settles 0.23
+      arrive("#f10-c3", 0.11, 48, 0.15); // settles 0.26
+      arrive("#f10-c4", 0.14, 30, 0.13); // settles 0.27 (row 2 keeps a short travel so its sub-line never dips toward the caption band)
+
+      // The layer marker fades in at 0.5s.
+      tl.fromTo("#f10-marker", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.5);
+
+      // Scene 2 (0.5-6.0s): hold. Each named label tints periwinkle for 0.6s on its voice cue, then rests again.
+      const tint = (sel, at, rest) => {
+        tl.fromTo(sel, { color: rest }, { color: PERI, duration: 0.12, ease: "power2.out", immediateRender: false }, at);
+        tl.fromTo(sel, { color: PERI }, { color: rest, duration: 0.18, ease: "power2.inOut", immediateRender: false }, at + 0.42);
+      };
+      tint("#f10-l1", 0.7, DEEP);        // "rankings"
+      tint("#f10-l3", 1.4, DEEP);        // "histories"
+      tint("#f10-l4", 2.6, DEEP);        // "Bloom"
+      tint("#f10-sub4", 4.6, SECONDARY); // "prechecks"
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["f10-usecases-ordered-membership"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,7 @@
+{
+  "scene": "f09-usecases-coordination",
+  "duration_s": 5,
+  "rules": ["waterfall-entry"],
+  "exit": { "vector": "static (hold); last motion is the Idempotency tint returning to deep purple at 2.9s", "still_moving": false },
+  "entry": { "vector": "y -32px over 0.55s power3.out (title at t=0, ~175 px/s at the first frame); cells whip up from y 72/60/48/40/30 to 0 over 0.18-0.12s power4.out, one per frame from frame 1, all settled by 0.29s", "from_rest": true }
+}

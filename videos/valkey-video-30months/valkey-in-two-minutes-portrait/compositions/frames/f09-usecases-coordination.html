@@ -1,0 +1,124 @@
+<template>
+  <style>
+    @font-face { font-family: "Open Sans"; src: url("assets/fonts/OpenSans-Variable.woff2") format("woff2"); font-weight: 300 800; font-style: normal; }
+    @font-face { font-family: "Cascadia Code"; src: url("assets/fonts/CascadiaCode-Variable.woff2") format("woff2"); font-weight: 200 700; font-style: normal; }
+
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: "Open Sans", sans-serif; color: #1A2026; }
+    .clip { position: absolute; inset: 0; }
+
+    /* ground: the film's one gradient, on its own full-duration clip */
+    .f09-usecases-coordination-ground { background: linear-gradient(135deg, #FFFFFF 0%, #F7FBFE 62%, #F1EFFD 100%); }
+
+    /* frame_title (portrait ramp): 40px / 800 / deep_purple / 0.04em / uppercase; title slot x 72, baseline y 200 */
+    .f09-usecases-coordination-title { position: absolute; left: 72px; top: 160px; margin: 0; font-size: 40px; line-height: 48px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: #30176E; white-space: nowrap; }
+
+    /* panel grid (portrait): 2 cols x 3 rows of 440 x 360; cell centres at x 310 / 770 and y 520 / 920 / 1320.
+       This geometry (cells, in-cell glyph/label offsets, marker) is shared verbatim by Frames 8-11 so the four
+       use-case frames cut as one grid. */
+    .f09-usecases-coordination-cell { position: absolute; width: 440px; height: 360px; }
+    .f09-usecases-coordination-col1 { left: 90px; }
+    .f09-usecases-coordination-col2 { left: 550px; }
+    .f09-usecases-coordination-row1 { top: 340px; }
+    .f09-usecases-coordination-row2 { top: 740px; }
+    .f09-usecases-coordination-row3 { top: 1140px; }
+
+    /* panel_cell: one 120px outline glyph centred above a 36px / 700 deep_purple label; no border, fill, or stripe */
+    .f09-usecases-coordination-glyph { position: absolute; left: 160px; top: 56px; width: 120px; height: 120px; display: block; object-fit: contain; }
+    .f09-usecases-coordination-labelgroup { position: absolute; left: 0; top: 200px; width: 440px; text-align: center; }
+    .f09-usecases-coordination-label { margin: 0; font-size: 36px; line-height: 42px; font-weight: 700; color: #30176E; }
+
+    /* layer marker in the sixth cell (col 2, row 3): caption_size secondary, sitting on the row-3 label line */
+    .f09-usecases-coordination-marker { position: absolute; left: 550px; top: 1346px; width: 440px; margin: 0; text-align: center; font-size: 26px; line-height: 30px; font-weight: 400; color: #596672; }
+  </style>
+
+  <div data-hf-id="hf-ucj9" id="root" data-composition-id="f09-usecases-coordination" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-p4n1" id="f09-usecases-coordination-layer-1" class="clip f09-usecases-coordination-ground" data-start="0" data-duration="5" data-track-index="0"></div>
+
+    <div data-hf-id="hf-xxnt" id="f09-usecases-coordination-layer-2" class="clip" data-start="0" data-duration="5" data-track-index="1">
+      <h2 data-hf-id="hf-0fjh" id="f09-usecases-coordination-title" class="f09-usecases-coordination-title">Service coordination</h2>
+
+      <!-- row 1 -->
+      <div data-hf-id="hf-qulw" id="f09-usecases-coordination-c1" class="f09-usecases-coordination-cell f09-usecases-coordination-col1 f09-usecases-coordination-row1">
+        <img data-hf-id="hf-rfcg" class="f09-usecases-coordination-glyph" src="assets/icons/hardening.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-vi7i" class="f09-usecases-coordination-labelgroup">
+          <p data-hf-id="hf-ulqz" id="f09-usecases-coordination-l1" class="f09-usecases-coordination-label">Distributed locks</p>
+        </div>
+      </div>
+      <div data-hf-id="hf-h85e" id="f09-usecases-coordination-c2" class="f09-usecases-coordination-cell f09-usecases-coordination-col2 f09-usecases-coordination-row1">
+        <img data-hf-id="hf-emye" class="f09-usecases-coordination-glyph" src="assets/icons/horizontal-scaling.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-tn1u" class="f09-usecases-coordination-labelgroup">
+          <p data-hf-id="hf-5l4v" id="f09-usecases-coordination-l2" class="f09-usecases-coordination-label">Message queue</p>
+        </div>
+      </div>
+
+      <!-- row 2 -->
+      <div data-hf-id="hf-40wx" id="f09-usecases-coordination-c3" class="f09-usecases-coordination-cell f09-usecases-coordination-col1 f09-usecases-coordination-row2">
+        <img data-hf-id="hf-3h5c" class="f09-usecases-coordination-glyph" src="assets/icons/replication.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-u1cv" class="f09-usecases-coordination-labelgroup">
+          <p data-hf-id="hf-7t3s" id="f09-usecases-coordination-l3" class="f09-usecases-coordination-label">Chats / Pub/Sub</p>
+        </div>
+      </div>
+      <div data-hf-id="hf-za43" id="f09-usecases-coordination-c4" class="f09-usecases-coordination-cell f09-usecases-coordination-col2 f09-usecases-coordination-row2">
+        <img data-hf-id="hf-jv6u" class="f09-usecases-coordination-glyph" src="assets/icons/reliability.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-ufnw" class="f09-usecases-coordination-labelgroup">
+          <p data-hf-id="hf-ztqc" id="f09-usecases-coordination-l4" class="f09-usecases-coordination-label">Idempotency</p>
+        </div>
+      </div>
+
+      <!-- row 3: the fifth cell and the layer marker in the sixth slot -->
+      <div data-hf-id="hf-c30y" id="f09-usecases-coordination-c5" class="f09-usecases-coordination-cell f09-usecases-coordination-col1 f09-usecases-coordination-row3">
+        <img data-hf-id="hf-0w5p" class="f09-usecases-coordination-glyph" src="assets/icons/community.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-utyx" class="f09-usecases-coordination-labelgroup">
+          <p data-hf-id="hf-jds6" id="f09-usecases-coordination-l5" class="f09-usecases-coordination-label">Microservices</p>
+        </div>
+      </div>
+      <p data-hf-id="hf-uogc" id="f09-usecases-coordination-marker" class="f09-usecases-coordination-marker">Application patterns</p>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const ID = "f09-usecases-coordination";
+      const F = 1 / 30; // one frame at the project's 30 fps
+      const PERI = "#6983FF";
+      const DEEP = "#30176E";
+      const tl = gsap.timeline({ paused: true });
+
+      // Scene 1 (0.0-0.5s): title lands with the frame.md entrance token.
+      tl.fromTo("#f09-usecases-coordination-title", { y: 32, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, 0);
+
+      // waterfall-entry (adapted to land by 0.3s): five cells whip in from below as one accelerating cascade.
+      // Opacity is binary, never a fade: a one-frame step from an explicit from-state (opacity 0) that completes
+      // exactly on the arrival frame, so a cell first appears at its full y offset and reverts cleanly on a
+      // backward seek. Starts are frame-aligned one frame apart; the anchor travels furthest and longest, each
+      // later cell travels less and settles sooner, and the last one snaps. Timing and cell positions are
+      // identical to Frame 8 so the two frames read as a cut, not a rebuild.
+      const arrive = (sel, frame, offset, dur) => {
+        const at = frame * F;
+        tl.fromTo(sel, { opacity: 0 }, { opacity: 1, duration: F, ease: "none" }, at - F);
+        tl.fromTo(sel, { y: offset }, { y: 0, duration: dur, ease: "power4.out" }, at);
+      };
+      arrive("#f09-usecases-coordination-c1", 1, 72, 0.18); // anchor: visible 0.033, settles 0.213
+      arrive("#f09-usecases-coordination-c2", 2, 60, 0.16); // visible 0.067, settles 0.227
+      arrive("#f09-usecases-coordination-c3", 3, 48, 0.15); // visible 0.100, settles 0.250
+      arrive("#f09-usecases-coordination-c4", 4, 40, 0.13); // visible 0.133, settles 0.263
+      arrive("#f09-usecases-coordination-c5", 5, 30, 0.12); // visible 0.167, settles 0.287 (last one snaps; row 3 stays clear of the caption band)
+
+      // The layer marker fades in at 0.5s.
+      tl.fromTo("#f09-usecases-coordination-marker", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.5);
+
+      // Scene 2 (0.5-5.0s): hold. On each voice cue the matching label tints periwinkle, holds, and is back at
+      // deep purple 0.6s after the cue. Labels never swap; nothing is drawn behind the grid.
+      // (immediateRender: false keeps each leg's from-state from pre-rendering over the resting colour.)
+      const tint = (sel, at) => {
+        tl.fromTo(sel, { color: DEEP }, { color: PERI, duration: 0.12, ease: "power2.out", immediateRender: false }, at);
+        tl.fromTo(sel, { color: PERI }, { color: DEEP, duration: 0.18, ease: "power2.inOut", immediateRender: false }, at + 0.42);
+      };
+      tint("#f09-usecases-coordination-l5", 0.4); // "Coordinate services"
+      tint("#f09-usecases-coordination-l4", 2.3); // "retries"
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

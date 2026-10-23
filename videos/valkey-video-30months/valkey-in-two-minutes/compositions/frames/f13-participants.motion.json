@@ -1,0 +1,7 @@
+{
+  "scene": "f13-participants",
+  "duration_s": 5.5,
+  "rules": ["waterfall-entry"],
+  "exit": { "vector": "static (hold)", "still_moving": false },
+  "entry": { "vector": "21 marks whip up row by row from +64/+48/+30px between t=0.02 and t=0.29 (power4.out, binary opacity); eyebrow and URLs y -32px over 0.5s power3.out from t=0.2", "from_rest": true }
+}

@@ -1,0 +1,7 @@
+{
+  "scene": "f07-integrations",
+  "duration_s": 6.5,
+  "rules": ["svg-path-draw"],
+  "exit": { "vector": "static (hold); last motion is the Valkey current_swap (y 0 to -6px, 0.3s power2.inOut) ending at 5.1s", "still_moving": false },
+  "entry": { "vector": "y -32px over 0.55s power3.out (title at t=0, ~175 px/s at the first frame); app cards, band, Valkey card repeat the token at 0.1s stagger from 0.1s", "from_rest": true }
+}

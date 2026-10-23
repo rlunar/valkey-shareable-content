@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<title>Valkey booth raffle · All Things Open</title>
+<!--
+  Valkey booth raffle — All Things Open.
+  Source: booth-raffle/src/raffle.html. Do not edit booth-raffle/index.html by hand;
+  run `uv run build.py` from booth-raffle and choose an entrant CSV. The builder
+  inlines the fonts, logo and selected CSV so the page works offline.
+-->
+<link rel="icon" type="image/svg+xml" href="{{data:../valkey-brand/logo-svgs/valkey-icon-periwinkle.svg}}">
+<style>
+/* Valkey Brand Guidelines v2.0 §3: Play for display, Open Sans for UI, Cascadia Code for identifiers. */
+@font-face{font-family:"Play";src:url("{{data:../valkey-brand/Valkey-Fonts/Play/Play-Bold.woff2}}") format("woff2");font-weight:700;font-style:normal;font-display:block}
+@font-face{font-family:"Open Sans";src:url("{{data:../valkey-brand/Valkey-Fonts/Open_Sans/static/OpenSans-Regular.woff2}}") format("woff2");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"Open Sans";src:url("{{data:../valkey-brand/Valkey-Fonts/Open_Sans/static/OpenSans-SemiBold.woff2}}") format("woff2");font-weight:600;font-style:normal;font-display:block}
+@font-face{font-family:"Cascadia Code";src:url("{{data:../valkey-brand/Valkey-Fonts/Cascadia_Code/static/CascadiaCode-Regular.woff2}}") format("woff2");font-weight:400;font-style:normal;font-display:block}
+
+:root{
+  /* Canonical palette (Brand Guidelines §2) */
+  --valkey-blue-aura:#6983FF;
+  --valkey-black-denim:#1A2026;
+  --valkey-best-white:#FFFDFA;
+  --valkey-purple-indigo:#30176E;
+  --valkey-palace-burgundy:#642637;
+  --valkey-summer-lavender:#BCB5E7;
+  --valkey-cold-cream-3:#F7FBFE;
+  --valkey-misty-ice:#D3DDE7;
+  --valkey-pure-white:#FFFFFF;
+  /* Card grammar shared with the Valkey diagrams: resting lavender border, current card lit periwinkle on a lavender tint. */
+  --surface-current:#F1EFFD;
+  /* BlackDenim-derived neutral for secondary copy: 5.8:1 on white, so it may carry normal-size text. */
+  --ink-secondary:#596672;
+
+  --ground:linear-gradient(135deg,#FFFFFF 0%,#F7FBFE 62%,#F1EFFD 100%);
+  --font-display:"Play","Arial Narrow",sans-serif;
+  --font-body:"Open Sans","Segoe UI",sans-serif;
+  --font-code:"Cascadia Code","SFMono-Regular",Consolas,monospace;
+
+  --radius-card:20px;
+  --radius-inner:10px;
+  --radius-pill:999px;
+  --shadow-card:0 4px 24px rgba(105,131,255,.10);
+  --shadow-card-hover:0 8px 32px rgba(105,131,255,.18);
+  --ease:cubic-bezier(.4,0,.2,1);
+
+  --page-x:clamp(20px,2.5vw,48px);
+  --sidebar-w:clamp(300px,21vw,420px);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none !important}
+html{height:100%}
+body{
+  margin:0;min-height:100%;
+  display:grid;grid-template-rows:auto minmax(0,1fr) auto;
+  background-image:var(--ground);background-attachment:fixed;background-color:#FFFFFF;
+  color:var(--valkey-black-denim);
+  font-family:var(--font-body);font-size:18px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+@media (min-width:1100px) and (min-height:640px){
+  body{height:100dvh;overflow:hidden}
+}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--valkey-blue-aura);outline-offset:3px}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ── Top bar ── */
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:40px;padding:clamp(16px,2.2vh,28px) var(--page-x) 0}
+.topbar img{display:block;width:auto}
+.topbar__valkey{height:clamp(40px,6vh,66px)}
+.topbar__event{font:700 clamp(20px,2vw,34px)/1 var(--font-display);color:var(--valkey-purple-indigo);text-align:right}
+
+/* ── Layout ── */
+.layout{display:grid;grid-template-columns:minmax(0,1fr) var(--sidebar-w);gap:clamp(16px,1.8vw,32px);padding:clamp(14px,2vh,24px) var(--page-x) clamp(8px,1.2vh,14px);min-height:0}
+.main{display:flex;flex-direction:column;gap:clamp(14px,2.2vh,26px);min-height:0}
+
+/* ── Stage card ── */
+.stage{
+  position:relative;flex:1;min-height:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(10px,2vh,22px);
+  padding:clamp(24px,3.4vh,44px) clamp(24px,3vw,56px);text-align:center;
+  background:var(--valkey-pure-white);
+  border:3px solid var(--valkey-summer-lavender);border-radius:var(--radius-card);
+  box-shadow:var(--shadow-card);
+  transition:border-color .2s var(--ease),background-color .2s var(--ease),box-shadow .2s var(--ease);
+}
+.stage.is-landed{border-color:var(--valkey-blue-aura);background:var(--surface-current);box-shadow:var(--shadow-card-hover)}
+.stage.is-landed::after{
+  content:"";position:absolute;inset:-3px;border:3px solid var(--valkey-blue-aura);border-radius:inherit;pointer-events:none;
+  animation:ring .7s ease-out .05s both;
+}
+.eyebrow{margin:0;font:600 clamp(13px,1vw,19px)/1.2 var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--valkey-purple-indigo)}
+.stage__name{flex:1;min-height:0;width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.stage__name>span{display:block;max-width:100%;min-width:0;font:700 120px/1.02 var(--font-display);color:var(--valkey-purple-indigo);text-wrap:balance;overflow-wrap:normal}
+.stage.is-drawing .stage__name>span{color:var(--ink-secondary)}
+.stage.is-landed .stage__name>span{animation:land .42s cubic-bezier(.2,.8,.2,1) both}
+.stage__meta{
+  margin:0;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0 clamp(14px,1.4vw,28px);
+  font:400 clamp(15px,1.45vw,28px)/1.5 var(--font-code);color:var(--ink-secondary);min-height:1.5em;
+  opacity:0;transform:translateY(6px);transition:opacity .3s var(--ease) .18s,transform .3s var(--ease) .18s;
+}
+.stage.is-idle .stage__meta,.stage.is-landed .stage__meta,.stage.is-empty .stage__meta{opacity:1;transform:none}
+.stage__meta .sep{color:var(--valkey-summer-lavender)}
+
+/* ── Controls ── */
+.controls{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center}
+.btn{
+  appearance:none;border:1px solid transparent;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;
+  font:600 clamp(15px,1.15vw,22px)/1 var(--font-body);
+  height:clamp(46px,3.5vw,66px);padding:0 clamp(24px,2.4vw,46px);border-radius:var(--radius-pill);
+  transition:box-shadow .2s var(--ease),border-color .2s var(--ease),background-color .2s var(--ease),color .2s var(--ease);
+}
+.btn--primary{background:var(--valkey-purple-indigo);color:var(--valkey-best-white);border-color:var(--valkey-purple-indigo)}
+.btn--primary:hover{box-shadow:0 8px 24px rgba(105,131,255,.35)}
+.btn--primary:disabled{background:var(--valkey-misty-ice);border-color:var(--valkey-misty-ice);color:var(--ink-secondary);box-shadow:none;cursor:default}
+.btn--ghost{background:var(--valkey-pure-white);color:var(--valkey-black-denim);border-color:var(--valkey-misty-ice)}
+.btn--ghost:hover{border-color:var(--valkey-blue-aura);box-shadow:var(--shadow-card)}
+.btn--sm{height:38px;padding:0 18px;font-size:15px}
+.btn--editorial{color:var(--valkey-palace-burgundy)}
+.status{margin:0;min-height:1.6em;text-align:center;font-size:clamp(14px,1vw,19px);color:var(--ink-secondary)}
+
+/* ── Winners sidebar ── */
+.winners{display:flex;flex-direction:column;min-height:0;background:var(--valkey-pure-white);border:1px solid var(--valkey-misty-ice);border-radius:var(--radius-card);box-shadow:var(--shadow-card)}
+.winners__head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:clamp(16px,2.4vh,26px) clamp(18px,1.6vw,28px) 10px}
+.winners__title{margin:0;font:700 clamp(22px,1.5vw,30px)/1.2 var(--font-display);color:var(--valkey-purple-indigo)}
+.winners__count{font:400 15px/1.2 var(--font-code);color:var(--ink-secondary)}
+.winners__list{list-style:none;margin:0;padding:0 12px 14px;overflow:auto;flex:1;min-height:0;display:flex;flex-direction:column;gap:6px;scrollbar-width:thin}
+.win{display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;align-items:center;padding:10px 10px 10px 12px;border-radius:12px}
+.win__ord{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--surface-current);color:var(--valkey-purple-indigo);font:400 16px/1 var(--font-code)}
+.win__body{min-width:0;display:grid;gap:4px}
+.win__name{display:block;font:600 clamp(16px,1.05vw,19px)/1.3 var(--font-body);color:var(--valkey-black-denim)}
+.win__row{display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0}
+.win__meta{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:400 13px/1.6 var(--font-code);color:var(--ink-secondary)}
+.win__actions{display:flex;align-items:center;gap:8px;flex:none}
+.win__state{font:600 12px/1 var(--font-body);letter-spacing:.04em;text-transform:uppercase;color:var(--valkey-palace-burgundy)}
+.win__toggle{appearance:none;background:none;border:1px solid var(--valkey-misty-ice);border-radius:var(--radius-pill);padding:6px 12px;font:600 13px/1 var(--font-body);color:var(--ink-secondary);cursor:pointer;white-space:nowrap;transition:border-color .2s var(--ease),color .2s var(--ease)}
+.win__toggle:hover{border-color:var(--valkey-blue-aura);color:var(--valkey-black-denim)}
+.win.is-absent .win__ord{background:var(--valkey-cold-cream-3);color:var(--ink-secondary)}
+.win.is-absent .win__name{text-decoration:line-through;color:var(--ink-secondary)}
+.winners__empty{margin:0;padding:4px clamp(18px,1.6vw,28px) 24px;font-size:16px;color:var(--ink-secondary)}
+
+/* ── Footer hints ── */
+.hints{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:0 var(--page-x) clamp(10px,1.6vh,20px);font-size:15px;color:var(--ink-secondary)}
+.hints p{margin:0}
+.hints .dot{margin:0 4px;color:var(--valkey-summer-lavender)}
+.hints__actions{display:flex;gap:10px}
+kbd{font:400 13px/1 var(--font-code);border:1px solid var(--valkey-misty-ice);border-radius:6px;padding:4px 7px;background:var(--valkey-pure-white);color:var(--valkey-black-denim)}
+
+/* ── Dialogs ── */
+.dialog{border:1px solid var(--valkey-misty-ice);border-radius:var(--radius-card);padding:0;width:min(560px,calc(100% - 48px));box-shadow:var(--shadow-card-hover);color:var(--valkey-black-denim);background:var(--valkey-pure-white)}
+.dialog::backdrop{background:rgba(26,32,38,.45)}
+.dialog__body{padding:28px 32px 8px}
+.dialog h2{margin:0 0 10px;font:700 26px/1.2 var(--font-display);color:var(--valkey-purple-indigo)}
+.dialog p{margin:0 0 12px;font-size:16px;line-height:1.6}
+.dialog ol,.dialog ul{margin:0 0 12px;padding-left:22px;font-size:16px;line-height:1.6}
+.dialog li{margin:0 0 4px}
+.dialog__actions{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;padding:12px 32px 28px}
+.menu{display:grid;gap:10px;margin:8px 0 6px}
+.menu .btn{justify-content:flex-start;width:100%;height:46px;font-size:16px;padding:0 18px;border-radius:12px}
+.check{display:flex;align-items:center;gap:12px;font-size:16px;padding:6px 2px}
+.check input{width:20px;height:20px;accent-color:var(--valkey-purple-indigo)}
+.note{min-height:1.4em;font-size:14px;color:var(--ink-secondary)}
+.dialog .fine{font-size:14px;color:var(--ink-secondary)}
+.dialog code{font-family:var(--font-code);font-variant-ligatures:none;font-size:.95em}
+
+/* ── Motion ── */
+@keyframes land{from{transform:scale(.88);opacity:.4}to{transform:none;opacity:1}}
+@keyframes ring{from{opacity:.9;transform:scale(1)}to{opacity:0;transform:scale(1.035)}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+}
+
+/* ── Narrow screens: stack the winners under the stage ── */
+@media (max-width:1099px){
+  .layout{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(58vh,auto) auto}
+  .winners{max-height:60vh}
+  .topbar__event{height:clamp(48px,12vw,84px)}
+}
+@media (max-width:640px){
+  .topbar{flex-direction:column;align-items:flex-start;gap:14px}
+  .hints{justify-content:center;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <img class="topbar__valkey" src="{{data:../valkey-brand/logo-svgs/valkey-horizontal-color.svg}}" alt="Valkey" width="188" height="64">
+  <span class="topbar__event">All Things Open</span>
+</header>
+
+<div class="layout">
+  <main class="main">
+    <section class="stage is-idle" id="stage" aria-labelledby="eyebrow">
+      <p class="eyebrow" id="eyebrow">Valkey booth raffle</p>
+      <div class="stage__name" id="nameBox"><span id="name">Ready to draw</span></div>
+      <p class="stage__meta" id="meta"></p>
+    </section>
+
+    <div class="controls">
+      <button class="btn btn--primary" id="drawBtn" type="button">Draw a winner</button>
+      <button class="btn btn--ghost" id="absentBtn" type="button" hidden>Not present, draw again</button>
+      <button class="btn btn--ghost" id="emptyResetBtn" type="button" hidden>Reset raffle</button>
+    </div>
+    <p class="status" id="status"></p>
+  </main>
+
+  <aside class="winners" aria-labelledby="winnersTitle">
+    <div class="winners__head">
+      <h2 class="winners__title" id="winnersTitle">Winners</h2>
+      <span class="winners__count" id="winnersCount" aria-live="polite"></span>
+    </div>
+    <p class="winners__empty" id="winnersEmpty">No winners yet. Press Draw to start.</p>
+    <ol class="winners__list" id="winnersList"></ol>
+  </aside>
+</div>
+
+<footer class="hints">
+  <p><kbd>Space</kbd> draw <span class="dot">·</span> <kbd>N</kbd> not present <span class="dot">·</span> <kbd>F</kbd> fullscreen <span class="dot">·</span> <kbd>?</kbd> help</p>
+  <div class="hints__actions">
+    <button class="btn btn--ghost btn--sm" id="helpBtn" type="button">Help</button>
+    <button class="btn btn--ghost btn--sm" id="menuBtn" type="button">Menu</button>
+  </div>
+</footer>
+
+<div class="sr-only" aria-live="polite" id="live"></div>
+
+<dialog class="dialog" id="menuDlg" aria-labelledby="menuTitle">
+  <div class="dialog__body">
+    <h2 id="menuTitle">Raffle menu</h2>
+    <div class="menu">
+      <button class="btn btn--ghost" id="fullscreenBtn" type="button">Toggle fullscreen</button>
+      <button class="btn btn--ghost" id="exportBtn" type="button">Export winners as CSV</button>
+      <button class="btn btn--ghost" id="importBtn" type="button">Import a different entrant list (CSV)</button>
+      <button class="btn btn--ghost" id="builtinBtn" type="button" hidden>Return to the built-in entrant list</button>
+      <button class="btn btn--ghost btn--editorial" id="resetBtn" type="button">Reset the raffle</button>
+    </div>
+    <label class="check"><input type="checkbox" id="showEmail"> Show the masked email with the winner</label>
+    <p class="note" id="menuNote"></p>
+    <p class="fine" id="menuFine"></p>
+  </div>
+  <div class="dialog__actions">
+    <button class="btn btn--ghost btn--sm" type="button" data-close>Close</button>
+  </div>
+</dialog>
+
+<dialog class="dialog" id="helpDlg" aria-labelledby="helpTitle">
+  <div class="dialog__body">
+    <h2 id="helpTitle">Running the raffle</h2>
+    <ol>
+      <li>Press <strong>Draw a winner</strong> or <kbd>Space</kbd>. Names shuffle for a few seconds, then one lands.</li>
+      <li>Read the name out loud. The entry number and masked email help the winner recognise themselves.</li>
+      <li>If they are not at the booth, press <strong>Not present, draw again</strong> or <kbd>N</kbd>. They leave the pool and the next name is drawn straight away.</li>
+      <li>Everyone drawn is listed under Winners and saved in this browser, so a reload keeps the list. Export it from the menu when the raffle is over.</li>
+    </ol>
+    <p><kbd>F</kbd> fullscreen <span class="dot">·</span> <kbd>?</kbd> this help <span class="dot">·</span> <kbd>Esc</kbd> close</p>
+    <p class="fine" id="helpList"></p>
+  </div>
+  <div class="dialog__actions">
+    <button class="btn btn--ghost btn--sm" type="button" data-close>Close</button>
+  </div>
+</dialog>
+
+<dialog class="dialog" id="resetDlg" aria-labelledby="resetTitle">
+  <div class="dialog__body">
+    <h2 id="resetTitle">Reset the raffle?</h2>
+    <p id="resetText"></p>
+    <p class="fine">The entrant list is not affected. Export the winners first if you still need them.</p>
+  </div>
+  <div class="dialog__actions">
+    <button class="btn btn--ghost btn--sm" type="button" data-close>Cancel</button>
+    <button class="btn btn--primary btn--sm" id="resetConfirmBtn" type="button">Reset</button>
+  </div>
+</dialog>
+
+<input type="file" id="fileInput" accept=".csv,text/csv,text/plain" hidden>
+
+<script>
+(() => {
+'use strict';
+
+/* The selected CSV is inlined at build time. Imported CSVs use the same parser. */
+const CSV_TEXT = {{entrants}};
+const STORE_KEY = 'valkey-booth-raffle/' + {{entrant_id}};
+const SHUFFLE_MS = 3600;
+
+const $ = id => document.getElementById(id);
+const el = {
+  stage: $('stage'), eyebrow: $('eyebrow'), nameBox: $('nameBox'), name: $('name'), meta: $('meta'),
+  drawBtn: $('drawBtn'), absentBtn: $('absentBtn'), emptyResetBtn: $('emptyResetBtn'), status: $('status'),
+  winnersList: $('winnersList'), winnersCount: $('winnersCount'), winnersEmpty: $('winnersEmpty'), live: $('live'),
+  menuDlg: $('menuDlg'), helpDlg: $('helpDlg'), resetDlg: $('resetDlg'), resetText: $('resetText'),
+  helpBtn: $('helpBtn'), menuBtn: $('menuBtn'), fullscreenBtn: $('fullscreenBtn'), exportBtn: $('exportBtn'),
+  importBtn: $('importBtn'), builtinBtn: $('builtinBtn'), resetBtn: $('resetBtn'), resetConfirmBtn: $('resetConfirmBtn'),
+  showEmail: $('showEmail'), menuNote: $('menuNote'), menuFine: $('menuFine'), helpList: $('helpList'), fileInput: $('fileInput'),
+};
+
+/* ───────────── CSV parsing and cleaning ───────────── */
+
+function parseCsv(text) {
+  const rows = []; let row = [], field = '', quoted = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (quoted) {
+      if (c === '"') { if (text[i + 1] === '"') { field += '"'; i++; } else quoted = false; }
+      else field += c;
+    } else if (c === '"') quoted = true;
+    else if (c === ',') { row.push(field); field = ''; }
+    else if (c === '\n' || c === '\r') {
+      if (c === '\r' && text[i + 1] === '\n') i++;
+      row.push(field); rows.push(row); row = []; field = '';
+    } else field += c;
+  }
+  if (field.length || row.length) { row.push(field); rows.push(row); }
+  return rows;
+}
+
+const SP_MARK = /\s*\(sp\)\s*/gi;             // "(sp)" = spelling uncertain on the sign-up sheet
+function cleanName(raw) {
+  let s = (raw || '').replace(SP_MARK, ' ').replace(/\s+/g, ' ').trim();
+  s = s.replace(/[?\s]+$/, '').trim();          // trailing "?" = uncertain reading
+  return s;                                     // "???" collapses to "" → unknown name
+}
+function cleanEmail(raw) {
+  return (raw || '').replace(SP_MARK, ' ').replace(/\s+/g, '').replace(/[,;.]+$/, '');
+}
+function columnsFor(row) {
+  const headers = row.map(value => value.replace(/^\uFEFF/, '').trim().toLowerCase());
+  const index = name => headers.indexOf(name);
+  const ato = ['timestamp', 'first name', 'last name', 'email address', 'github alias', 'primary social media platform'];
+  if (ato.every(name => index(name) >= 0)) {
+    return {
+      timestamp: index('timestamp'), firstName: index('first name'), lastName: index('last name'),
+      email: index('email address'), githubAlias: index('github alias'),
+      socialPlatform: index('primary social media platform'),
+    };
+  }
+  if (index('name') >= 0 && index('email') >= 0) {
+    return { name: index('name'), email: index('email') };
+  }
+  return null;
+}
+function toEntrants(rows) {
+  const entrants = [], seen = new Set(); let duplicates = 0, unnamed = 0;
+  let headerRow = rows.findIndex(row => row.some(cell => cell.trim()));
+  if (headerRow < 0) return { entrants, duplicates, unnamed, error: 'The CSV is empty.' };
+  if (rows[headerRow][0].trim().toLowerCase() === 'valkey raffle list') headerRow++;
+  const columns = columnsFor(rows[headerRow] || []);
+  if (!columns) {
+    return {
+      entrants, duplicates, unnamed,
+      error: 'Expected the ATO columns (Timestamp, First Name, Last Name, Email Address, GitHub Alias, Primary Social Media Platform) or Name,Email.',
+    };
+  }
+  for (const r of rows.slice(headerRow + 1)) {
+    const firstName = cleanName(r[columns.firstName ?? columns.name]);
+    const lastName = columns.lastName === undefined ? '' : cleanName(r[columns.lastName]);
+    const name = [firstName, lastName].filter(Boolean).join(' ');
+    const email = cleanEmail(r[columns.email]);
+    if (!name && !email) continue;
+    const id = (name + '|' + email).toLowerCase();
+    if (seen.has(id)) { duplicates++; continue; }
+    seen.add(id);
+    if (!name) unnamed++;
+    const handle = email.includes('@') ? email.slice(0, email.indexOf('@')) : email;
+    entrants.push({
+      id, name, firstName, lastName, email,
+      timestamp: columns.timestamp === undefined ? '' : (r[columns.timestamp] || '').trim(),
+      githubAlias: columns.githubAlias === undefined ? '' : (r[columns.githubAlias] || '').trim(),
+      socialPlatform: columns.socialPlatform === undefined ? '' : (r[columns.socialPlatform] || '').trim(),
+      entry: entrants.length + 1, display: name || handle || 'Unnamed entrant',
+    });
+  }
+  return { entrants, duplicates, unnamed, error: null };
+}
+
+function maskEmail(email) {
+  if (!email) return '';
+  const at = email.indexOf('@');
+  if (at < 1) return email;                     // not an address — show the fragment as written
+  const local = email.slice(0, at), domain = email.slice(at);
+  const keep = local.length <= 3 ? 1 : 2;
+  return local.slice(0, keep) + '•'.repeat(Math.min(6, Math.max(3, local.length - keep))) + domain;
+}
+const pad = n => String(n).padStart(3, '0');
+const timeOf = iso => new Date(iso).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+/* ───────────── State ───────────── */
+
+const state = {
+  entrants: [], duplicates: 0, unnamed: 0,
+  drawn: [],                 // entrant fields plus status and draw time
+  settings: { showEmail: true },
+  csvOverride: null,         // imported CSV text, if any
+  phase: 'idle',             // idle | drawing | landed | empty
+  current: null,
+};
+
+function load() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORE_KEY) || '{}');
+    if (Array.isArray(saved.drawn)) state.drawn = saved.drawn;
+    if (saved.settings) Object.assign(state.settings, saved.settings);
+    if (typeof saved.csvOverride === 'string') state.csvOverride = saved.csvOverride;
+  } catch (_) { /* corrupt storage — start clean */ }
+}
+function save() {
+  try {
+    localStorage.setItem(STORE_KEY, JSON.stringify({ drawn: state.drawn, settings: state.settings, csvOverride: state.csvOverride }));
+  } catch (_) { /* private mode or quota — the session still works, it just will not survive a reload */ }
+}
+function loadEntrants() {
+  const { entrants, duplicates, unnamed } = toEntrants(parseCsv(state.csvOverride ?? CSV_TEXT));
+  state.entrants = entrants; state.duplicates = duplicates; state.unnamed = unnamed;
+}
+function pool() {
+  const drawn = new Set(state.drawn.map(d => d.id));
+  return state.entrants.filter(e => !drawn.has(e.id));
+}
+/* Back to the resting state: idle if anyone is left to draw, otherwise empty. */
+function rest() {
+  state.current = null;
+  state.phase = pool().length ? 'idle' : 'empty';
+}
+
+/* Uniform pick from crypto randomness (rejection sampling avoids modulo bias). */
+function randomIndex(n) {
+  const buf = new Uint32Array(1);
+  const limit = Math.floor(0x100000000 / n) * n;
+  do { crypto.getRandomValues(buf); } while (buf[0] >= limit);
+  return buf[0] % n;
+}
+const reducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ───────────── Fit the headline to the stage ───────────── */
+
+function fitName(text) {
+  const box = el.nameBox, span = el.name;
+  span.textContent = text;
+  const maxPx = Math.max(48, Math.min(176, box.clientHeight * 0.46));
+  let lo = 28, hi = maxPx, best = lo;
+  for (let i = 0; i < 9; i++) {
+    const mid = (lo + hi) / 2;
+    span.style.fontSize = mid + 'px';
+    const fits = span.scrollWidth <= box.clientWidth + 1 && span.offsetHeight <= box.clientHeight + 1;
+    if (fits) { best = mid; lo = mid; } else hi = mid;
+  }
+  span.style.fontSize = best + 'px';
+}
+
+/* ───────────── The draw ───────────── */
+
+let drawToken = 0;
+
+async function draw() {
+  if (state.phase === 'drawing') return;
+  const candidates = pool();
+  if (!candidates.length) { state.phase = 'empty'; state.current = null; render(); return; }
+  const winner = candidates[randomIndex(candidates.length)];
+  const token = ++drawToken;
+
+  state.phase = 'drawing'; state.current = null; render();
+  if (!reducedMotion()) await shuffle(candidates, () => token !== drawToken);
+  if (token !== drawToken) { render(); return; }   // a reset or import interrupted this draw
+
+  state.current = winner;
+  state.drawn.push({ ...winner, status: 'winner', at: new Date().toISOString() });
+  save();
+  state.phase = 'landed'; render();
+  el.live.textContent = `Winner: ${winner.display}, entry number ${winner.entry}.`;
+}
+
+/* Names flip quickly at first and slow down like a wheel; the final tick is the reveal.
+   During the shuffle every name sits on one line at a steady size (the size that fits the
+   longest names), so only the words change — the winner then lands at full size. */
+function shuffle(candidates, cancelled) {
+  return new Promise(resolve => {
+    const ticks = []; let gap = 45, total = 0;
+    while (total < SHUFFLE_MS) { total += gap; ticks.push(total); gap *= 1.075; }
+
+    const span = el.name;
+    span.style.whiteSpace = 'nowrap';
+    const longest = [...candidates].sort((a, b) => b.display.length - a.display.length).slice(0, 3);
+    const size = Math.min(...longest.map(c => { fitName(c.display); return parseFloat(span.style.fontSize); }));
+    span.style.fontSize = size + 'px';
+
+    const finish = () => { span.style.whiteSpace = ''; resolve(); };
+    const start = performance.now(); let i = 0, last = null;
+    const frame = now => {
+      if (cancelled()) { finish(); return; }
+      const elapsed = now - start;
+      while (i < ticks.length && elapsed >= ticks[i]) {
+        if (i === ticks.length - 1) { finish(); return; }
+        let pick;
+        do { pick = candidates[Math.floor(Math.random() * candidates.length)]; } while (candidates.length > 1 && pick === last);
+        last = pick; span.textContent = pick.display; i++;
+      }
+      requestAnimationFrame(frame);
+    };
+    requestAnimationFrame(frame);
+  });
+}
+
+function markAbsentAndRedraw() {
+  if (state.phase !== 'landed' || !state.current) return;
+  const lastDraw = state.drawn[state.drawn.length - 1];
+  if (lastDraw && lastDraw.id === state.current.id) { lastDraw.status = 'absent'; save(); }
+  draw();
+}
+function toggleStatus(id) {
+  const d = state.drawn.find(x => x.id === id);
+  if (!d) return;
+  d.status = d.status === 'absent' ? 'winner' : 'absent';
+  save(); render();
+}
+function resetRaffle() {
+  drawToken++;
+  state.drawn = [];
+  rest(); save(); render();
+}
+
+/* ───────────── Rendering ───────────── */
+
+function render() {
+  const remaining = pool().length, drawnCount = state.drawn.length;
+  const winners = state.drawn.filter(d => d.status !== 'absent').length;
+  const { phase, current } = state;
+
+  el.stage.className = 'stage is-' + phase;
+  el.stage.setAttribute('aria-busy', phase === 'drawing' ? 'true' : 'false');
+  el.eyebrow.textContent = { idle: 'Valkey booth raffle', drawing: 'Drawing…', landed: 'Winner', empty: 'Pool empty' }[phase];
+
+  if (phase === 'idle') fitName('Ready to draw');
+  else if (phase === 'empty') fitName('Everyone has been drawn');
+  else if (phase === 'landed') fitName(current.display);
+
+  el.meta.replaceChildren();
+  if (phase === 'idle') {
+    el.meta.append(remaining === 1 ? '1 entrant in the pool' : `${remaining} entrants in the pool`);
+  } else if (phase === 'landed') {
+    const parts = [];
+    if (state.settings.showEmail && current.email) parts.push(maskEmail(current.email));
+    parts.push(`Entry #${pad(current.entry)}`);
+    parts.forEach((p, i) => {
+      if (i) { const s = document.createElement('span'); s.className = 'sep'; s.textContent = '·'; el.meta.append(s); }
+      el.meta.append(document.createTextNode(p));
+    });
+  } else if (phase === 'empty') {
+    el.meta.append('Reset the raffle to start over');
+  }
+
+  el.drawBtn.disabled = phase === 'drawing' || phase === 'empty';
+  el.drawBtn.textContent = phase === 'drawing' ? 'Drawing…' : phase === 'landed' ? 'Draw the next winner' : 'Draw a winner';
+  el.absentBtn.hidden = phase !== 'landed';
+  el.emptyResetBtn.hidden = phase !== 'empty';
+  el.status.textContent = phase === 'idle' && drawnCount === 0 ? '' : `${remaining} in the pool · ${drawnCount} drawn`;
+
+  el.winnersCount.textContent = winners === 1 ? '1 winner' : `${winners} winners`;
+  el.winnersEmpty.hidden = drawnCount > 0;
+  el.winnersList.replaceChildren();
+  let ordinal = 0;
+  state.drawn.forEach(d => {
+    const absent = d.status === 'absent';
+    if (!absent) ordinal++;
+    const li = document.createElement('li');
+    li.className = 'win' + (absent ? ' is-absent' : '');
+    const ord = document.createElement('span'); ord.className = 'win__ord'; ord.textContent = absent ? '–' : String(ordinal);
+    const body = document.createElement('div'); body.className = 'win__body';
+    const name = document.createElement('span'); name.className = 'win__name'; name.textContent = d.name;
+    const row = document.createElement('div'); row.className = 'win__row';
+    const meta = document.createElement('span'); meta.className = 'win__meta';
+    meta.textContent = `#${pad(d.entry)}` + (state.settings.showEmail && d.email ? ` · ${maskEmail(d.email)}` : '');
+    meta.title = `Drawn at ${timeOf(d.at)}`;
+    const actions = document.createElement('div'); actions.className = 'win__actions';
+    if (absent) { const s = document.createElement('span'); s.className = 'win__state'; s.textContent = 'Not present'; actions.append(s); }
+    const toggle = document.createElement('button');
+    toggle.type = 'button'; toggle.className = 'win__toggle'; toggle.dataset.id = d.id;
+    toggle.textContent = absent ? 'Undo' : 'Not present';
+    toggle.setAttribute('aria-label', (absent ? 'Mark present again: ' : 'Mark as not present: ') + d.name);
+    actions.append(toggle);
+    row.append(meta, actions);
+    body.append(name, row);
+    li.append(ord, body);
+    el.winnersList.append(li);
+  });
+  if (phase === 'landed' && el.winnersList.lastElementChild) el.winnersList.lastElementChild.scrollIntoView({ block: 'nearest' });
+
+  el.showEmail.checked = state.settings.showEmail;
+  el.builtinBtn.hidden = state.csvOverride === null;
+  el.menuFine.textContent = `${state.entrants.length} entrants ${state.csvOverride === null ? 'from the built-in list' : 'from the imported list'}. Winners are saved in this browser only.`;
+  const notes = [`${state.entrants.length} entrants loaded.`];
+  if (state.unnamed) notes.push(`${state.unnamed} without a name show their email handle instead.`);
+  if (state.duplicates) notes.push(`${state.duplicates} duplicate ${state.duplicates === 1 ? 'row' : 'rows'} skipped.`);
+  notes.push('Spelling markers such as "(sp)" and trailing "?" from the sign-up sheet are not shown.');
+  el.helpList.textContent = notes.join(' ');
+}
+
+/* ───────────── Menu actions ───────────── */
+
+function toggleFullscreen() {
+  const d = document, root = d.documentElement;
+  if (d.fullscreenElement || d.webkitFullscreenElement) (d.exitFullscreen || d.webkitExitFullscreen).call(d);
+  else (root.requestFullscreen || root.webkitRequestFullscreen).call(root);
+}
+
+function exportCsv() {
+  const esc = v => '"' + String(v ?? '').replace(/"/g, '""') + '"';
+  const lines = ['prize,Timestamp,First Name,Last Name,Email Address,GitHub Alias,Primary Social Media Platform,entry,status,drawn_at'];
+  let n = 0;
+  for (const d of state.drawn) {
+    const absent = d.status === 'absent';
+    lines.push([
+      absent ? '' : ++n, d.timestamp, d.firstName, d.lastName, d.email,
+      d.githubAlias, d.socialPlatform, d.entry, absent ? 'not present' : 'winner', d.at,
+    ].map(esc).join(','));
+  }
+  const stamp = new Date().toISOString().slice(0, 16).replace(/[-:T]/g, '');
+  const blob = new Blob([lines.join('\r\n') + '\r\n'], { type: 'text/csv;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = `valkey-raffle-winners-${stamp}.csv`;
+  document.body.append(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  note(state.drawn.length ? `Exported ${state.drawn.length} ${state.drawn.length === 1 ? 'row' : 'rows'}.` : 'Exported an empty list — nobody has been drawn yet.');
+}
+
+function note(text) { el.menuNote.textContent = text; }
+
+async function importCsv(file) {
+  const text = await file.text();
+  const { entrants, error } = toEntrants(parseCsv(text));
+  if (error) { note(`${file.name}: ${error}`); return; }
+  if (!entrants.length) { note(`No entrants found in ${file.name}.`); return; }
+  drawToken++;
+  state.csvOverride = text; save(); loadEntrants();
+  rest(); render();
+  note(`Loaded ${entrants.length} entrants from ${file.name}. Anyone already drawn stays out of the pool.`);
+}
+function useBuiltinList() {
+  drawToken++;
+  state.csvOverride = null; save(); loadEntrants();
+  rest(); render();
+  note(`Back to the built-in list: ${state.entrants.length} entrants.`);
+}
+
+/* ───────────── Wiring ───────────── */
+
+el.drawBtn.addEventListener('click', draw);
+el.absentBtn.addEventListener('click', markAbsentAndRedraw);
+el.emptyResetBtn.addEventListener('click', () => openReset());
+el.winnersList.addEventListener('click', e => {
+  const b = e.target.closest('.win__toggle');
+  if (b) toggleStatus(b.dataset.id);
+});
+el.helpBtn.addEventListener('click', () => el.helpDlg.showModal());
+el.menuBtn.addEventListener('click', () => { note(''); el.menuDlg.showModal(); });
+el.fullscreenBtn.addEventListener('click', () => { el.menuDlg.close(); toggleFullscreen(); });
+el.exportBtn.addEventListener('click', exportCsv);
+el.importBtn.addEventListener('click', () => el.fileInput.click());
+el.fileInput.addEventListener('change', () => { const f = el.fileInput.files[0]; if (f) importCsv(f); el.fileInput.value = ''; });
+el.builtinBtn.addEventListener('click', useBuiltinList);
+el.showEmail.addEventListener('change', () => { state.settings.showEmail = el.showEmail.checked; save(); render(); });
+el.resetBtn.addEventListener('click', openReset);
+el.resetConfirmBtn.addEventListener('click', () => { resetRaffle(); el.resetDlg.close(); if (el.menuDlg.open) el.menuDlg.close(); });
+document.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', () => b.closest('dialog').close()));
+
+function openReset() {
+  const n = state.drawn.length;
+  el.resetText.textContent = n ? `This clears ${n} drawn ${n === 1 ? 'name' : 'names'} from this browser and puts everyone back in the pool.` : 'Nobody has been drawn yet; this just clears the saved state.';
+  el.resetDlg.showModal();
+}
+
+document.addEventListener('keydown', e => {
+  if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.altKey) return;
+  if (document.querySelector('dialog[open]')) return;
+  if (e.target instanceof Element && e.target.matches('button, input, textarea, select, a')) return;
+  switch (e.key) {
+    case ' ': case 'Enter': e.preventDefault(); draw(); break;
+    case 'n': case 'N': markAbsentAndRedraw(); break;
+    case 'f': case 'F': toggleFullscreen(); break;
+    case '?': el.helpDlg.showModal(); break;
+  }
+});
+
+let resizeRaf = 0;
+addEventListener('resize', () => {
+  cancelAnimationFrame(resizeRaf);
+  resizeRaf = requestAnimationFrame(() => { if (state.phase !== 'drawing') render(); });
+});
+
+load();
+loadEntrants();
+rest();
+render();
+document.fonts.ready.then(render);      // refit the headline once Play is in
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<template>
+  <style>
+    @font-face { font-family: "Open Sans"; src: url("assets/fonts/OpenSans-Variable.woff2") format("woff2"); font-weight: 300 800; font-style: normal; }
+    @font-face { font-family: "Cascadia Code"; src: url("assets/fonts/CascadiaCode-Variable.woff2") format("woff2"); font-weight: 200 700; font-style: normal; }
+
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: "Open Sans", sans-serif; color: #1A2026; }
+    .clip { position: absolute; inset: 0; }
+
+    /* ground: the film's one gradient, full-bleed on the lowest track */
+    .f11-usecases-documents-ai-ground { background: linear-gradient(135deg, #FFFFFF 0%, #F7FBFE 62%, #F1EFFD 100%); }
+
+    /* frame_title: 40px / 800 / deep_purple / 0.04em / uppercase; title slot top-left at x 72, baseline y 200 */
+    .f11-usecases-documents-ai-title { position: absolute; left: 72px; top: 160px; margin: 0; font-size: 40px; line-height: 48px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: #30176E; white-space: nowrap; }
+
+    /* portrait panel grid (identical cell positions to Frame 8): 2 x 3 cells of 440 x 360;
+       cell centres at x 310 / 770 and y 520 / 920 / 1320, 40px gaps, nothing drawn behind a cell */
+    .f11-usecases-documents-ai-cell { position: absolute; width: 440px; height: 360px; opacity: 0; }
+    .f11-usecases-documents-ai-col1 { left: 90px; }
+    .f11-usecases-documents-ai-col2 { left: 550px; }
+    .f11-usecases-documents-ai-row1 { top: 340px; }
+    .f11-usecases-documents-ai-row2 { top: 740px; }
+    .f11-usecases-documents-ai-row3 { top: 1140px; }
+
+    /* panel_cell: one 120px outline glyph centred above a 36px / 700 deep_purple label; no border, fill, or stripe */
+    .f11-usecases-documents-ai-glyph { position: absolute; left: 160px; top: 56px; width: 120px; height: 120px; display: block; object-fit: contain; }
+    .f11-usecases-documents-ai-labelgroup { position: absolute; left: 0; top: 200px; width: 440px; text-align: center; }
+    .f11-usecases-documents-ai-label { margin: 0; font-size: 36px; line-height: 42px; font-weight: 700; color: #30176E; }
+
+    /* layer marker in the sixth cell (row 3, column 2): caption_size secondary, sitting on the row-3 label line */
+    .f11-usecases-documents-ai-marker { position: absolute; left: 550px; top: 1346px; width: 440px; margin: 0; text-align: center; font-size: 26px; line-height: 30px; font-weight: 400; color: #596672; opacity: 0; }
+  </style>
+
+  <div data-hf-id="hf-2ao4" id="root" data-composition-id="f11-usecases-documents-ai" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-jvqy" id="f11-usecases-documents-ai-ground" class="clip f11-usecases-documents-ai-ground" data-start="0" data-duration="10.5" data-track-index="0"></div>
+    <div data-hf-id="hf-mmd1" id="f11-usecases-documents-ai-stage" class="clip" data-start="0" data-duration="10.5" data-track-index="1">
+      <h2 data-hf-id="hf-55su" id="f11-usecases-documents-ai-title" class="f11-usecases-documents-ai-title">Documents, search + AI</h2>
+
+      <!-- row 1 -->
+      <div data-hf-id="hf-dtye" id="f11-usecases-documents-ai-c1" class="f11-usecases-documents-ai-cell f11-usecases-documents-ai-col1 f11-usecases-documents-ai-row1">
+        <img data-hf-id="hf-9ezs" class="f11-usecases-documents-ai-glyph" src="assets/icons/data-hash.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-gw9v" class="f11-usecases-documents-ai-labelgroup">
+          <p data-hf-id="hf-71nh" id="f11-usecases-documents-ai-l1" class="f11-usecases-documents-ai-label">Document database /<br data-hf-id="hf-x5px">JSON</p>
+        </div>
+      </div>
+      <div data-hf-id="hf-r55w" id="f11-usecases-documents-ai-c2" class="f11-usecases-documents-ai-cell f11-usecases-documents-ai-col2 f11-usecases-documents-ai-row1">
+        <img data-hf-id="hf-7b4v" class="f11-usecases-documents-ai-glyph" src="assets/icons/hardening.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-equb" class="f11-usecases-documents-ai-labelgroup">
+          <p data-hf-id="hf-fu50" id="f11-usecases-documents-ai-l2" class="f11-usecases-documents-ai-label">Full-text search<br data-hf-id="hf-rsrt">engine</p>
+        </div>
+      </div>
+
+      <!-- row 2 -->
+      <div data-hf-id="hf-kt2j" id="f11-usecases-documents-ai-c3" class="f11-usecases-documents-ai-cell f11-usecases-documents-ai-col1 f11-usecases-documents-ai-row2">
+        <img data-hf-id="hf-dhfp" class="f11-usecases-documents-ai-glyph" src="assets/icons/general-scaling.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-ecja" class="f11-usecases-documents-ai-labelgroup">
+          <p data-hf-id="hf-z946" id="f11-usecases-documents-ai-l3" class="f11-usecases-documents-ai-label">Vector database</p>
+        </div>
+      </div>
+      <div data-hf-id="hf-yfxx" id="f11-usecases-documents-ai-c4" class="f11-usecases-documents-ai-cell f11-usecases-documents-ai-col2 f11-usecases-documents-ai-row2">
+        <img data-hf-id="hf-wsy4" class="f11-usecases-documents-ai-glyph" src="assets/icons/memory-efficiency.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-dy89" class="f11-usecases-documents-ai-labelgroup">
+          <p data-hf-id="hf-hhjw" id="f11-usecases-documents-ai-l4" class="f11-usecases-documents-ai-label">LLM KV cache<br data-hf-id="hf-szow">offload</p>
+        </div>
+      </div>
+
+      <!-- row 3: the fifth cell and the layer marker in the sixth -->
+      <div data-hf-id="hf-scvo" id="f11-usecases-documents-ai-c5" class="f11-usecases-documents-ai-cell f11-usecases-documents-ai-col1 f11-usecases-documents-ai-row3">
+        <img data-hf-id="hf-scr7" class="f11-usecases-documents-ai-glyph" src="assets/icons/performance.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-djx8" class="f11-usecases-documents-ai-labelgroup">
+          <p data-hf-id="hf-4onm" id="f11-usecases-documents-ai-l5" class="f11-usecases-documents-ai-label">Semantic cache</p>
+        </div>
+      </div>
+      <p data-hf-id="hf-ccxu" id="f11-usecases-documents-ai-marker" class="f11-usecases-documents-ai-marker">Modules + integrations</p>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const tl = gsap.timeline({ paused: true });
+      const PERI = "#6983FF";
+      const DEEP = "#30176E";
+      const id = (s) => "#f11-usecases-documents-ai-" + s;
+
+      // Scene 1 (0.0-0.5s): title lands with the frame.md entrance token.
+      tl.fromTo(id("title"), { y: 32, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, 0);
+
+      // waterfall-entry (adapted to land by 0.3s): binary opacity via set, then one whip from below.
+      // Anchor cells travel further and longer, the gaps shrink across the cascade, the last cell snaps.
+      const arrive = (sel, t, offset, dur) => {
+        tl.set(sel, { opacity: 1 }, t);
+        tl.fromTo(sel, { y: offset }, { y: 0, duration: dur, ease: "power4.out" }, t);
+      };
+      arrive(id("c1"), 0.02, 72, 0.18);  // settles 0.20
+      arrive(id("c2"), 0.065, 60, 0.16); // settles 0.225
+      arrive(id("c3"), 0.10, 50, 0.15);  // settles 0.25
+      arrive(id("c4"), 0.125, 38, 0.14); // settles 0.265
+      arrive(id("c5"), 0.15, 30, 0.13);  // settles 0.28 (row 3 keeps a short travel, well clear of the caption band)
+
+      // The layer marker fades in at 0.5s.
+      tl.fromTo(id("marker"), { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.5);
+
+      // Scene 2 (0.5-10.5s): hold. Each label tints periwinkle for 0.6s on its voice cue, then rests again.
+      // The seconds after the last cue are a hold, not more content.
+      const tint = (sel, at) => {
+        tl.fromTo(sel, { color: DEEP }, { color: PERI, duration: 0.12, ease: "power2.out", immediateRender: false }, at);
+        tl.fromTo(sel, { color: PERI }, { color: DEEP, duration: 0.18, ease: "power2.inOut", immediateRender: false }, at + 0.42);
+      };
+      tint(id("l1"), 0.9); // "JSON"
+      tint(id("l2"), 2.4); // "full-text"
+      tint(id("l3"), 4.6); // "vector"
+      tint(id("l4"), 6.1); // "KV-cache"
+      tint(id("l5"), 8.1); // "semantic"
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["f11-usecases-documents-ai"] = tl;
+    })();
+  </script>
+</template>

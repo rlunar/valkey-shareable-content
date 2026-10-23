@@ -1,0 +1,63 @@
+<template>
+  <link rel="stylesheet" href="open-sans-embedded.css">
+  <style>
+    /* Persistent top-right valkey.io lockup for every frame after the opener. */
+    #f14qr-root, #f14qr-root * {
+      box-sizing: border-box;
+    }
+
+    #f14qr-root {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      container-type: size;
+      pointer-events: none;
+      font-family: "Open Sans";
+    }
+
+    #f14qr-label {
+      position: absolute;
+      top: 4.6cqw;
+      right: 18.1cqw;
+      display: block;
+      width: auto;
+      height: auto;
+      padding: .6cqw .75cqw;
+      border: 2px solid rgba(255, 255, 255, .3);
+      border-radius: 10px;
+      background: #30176e;
+      color: #fff;
+      font-size: clamp(24px, 1.6cqw, 32px);
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: .14cqw;
+      white-space: nowrap;
+    }
+
+    #f14qr-image {
+      position: absolute;
+      top: .4cqw;
+      right: 5cqw;
+      display: block;
+      width: 11.6cqw;
+      height: 11.6cqw;
+      padding: .35cqw;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+      object-fit: contain;
+    }
+  </style>
+
+  <div data-hf-id="hf-f14qr-root" id="f14qr-root" data-composition-id="14-valkey-qr-overlay" data-duration="120.5" data-width="1920" data-height="1080">
+    <span data-hf-id="hf-f14qr-label" id="f14qr-label" class="clip" data-start="0" data-duration="120.5" data-track-index="0">valkey.io</span>
+    <img data-hf-id="hf-f14qr-image" id="f14qr-image" class="clip" src="assets/valkey_io.svg" alt="QR code for valkey.io" data-start="0" data-duration="120.5" data-track-index="1">
+  </div>
+
+  <script>
+    window.__timelines = window.__timelines || {};
+    window.__timelines["14-valkey-qr-overlay"] = gsap.timeline({ paused: true });
+  </script>
+</template>

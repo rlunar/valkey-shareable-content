@@ -1,0 +1,9 @@
+{
+  "duration": 2.1,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#f10-headline", "bySec": 0.6 },
+    { "kind": "before", "a": "#f10-headline", "b": "#f10-player-a" },
+    { "kind": "staysInFrame", "selector": "#f10-board" },
+    { "kind": "keepsMoving", "withinSelector": "#f10-carrier", "maxStaticSec": 1.2 }
+  ]
+}

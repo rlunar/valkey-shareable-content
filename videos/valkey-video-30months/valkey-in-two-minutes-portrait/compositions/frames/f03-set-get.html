@@ -1,0 +1,128 @@
+<template>
+  <style>
+    @font-face { font-family: "Open Sans"; src: url("assets/fonts/OpenSans-Variable.woff2") format("woff2"); font-weight: 300 800; font-style: normal; }
+    @font-face { font-family: "Cascadia Code"; src: url("assets/fonts/CascadiaCode-Variable.woff2") format("woff2"); font-weight: 200 700; font-style: normal; }
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: "Open Sans", sans-serif; color: #1A2026; }
+    .clip { position: absolute; inset: 0; }
+    .f03-set-get-ground { background: linear-gradient(135deg, #FFFFFF 0%, #F7FBFE 62%, #F1EFFD 100%); }
+
+    /* frame_title: 40px / 800 / deep_purple / 0.04em / uppercase — title slot top-left, baseline ≈ y 200 */
+    .f03-set-get-title { position: absolute; left: 72px; top: 158px; margin: 0; font-size: 40px; line-height: 54px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: #30176E; white-space: nowrap; }
+
+    /* terminal_card: a macOS Terminal window 936x560 centred (x 72-1008, y 560-1120); title bar with traffic lights, light body; mono 48px / 60px lines */
+    .f03-set-get-term { position: absolute; left: 72px; top: 560px; width: 936px; height: 560px; box-sizing: border-box; background: #FFFFFF; border: 2px solid #D3DDE7; border-radius: 14px; box-shadow: 0 18px 48px rgba(48, 23, 110, 0.10); overflow: hidden; font-family: "Cascadia Code", monospace; font-size: 48px; line-height: 60px; font-weight: 500; color: #1A2026; }
+    .f03-set-get-bar { position: absolute; left: 0; top: 0; width: 100%; height: 56px; background: #ECEFF4; border-bottom: 1px solid #D3DDE7; }
+    .f03-set-get-dot { position: absolute; top: 20px; width: 16px; height: 16px; border-radius: 50%; }
+    .f03-set-get-dot-r { left: 22px; background: #FF5F57; }
+    .f03-set-get-dot-y { left: 50px; background: #FEBC2E; }
+    .f03-set-get-dot-g { left: 78px; background: #28C840; }
+    .f03-set-get-bar-title { position: absolute; left: 0; top: 0; width: 100%; height: 56px; line-height: 56px; text-align: center; font-size: 22px; font-weight: 500; color: #596672; }
+    .f03-set-get-body { position: absolute; left: 0; top: 57px; width: 100%; padding: 32px 56px 0; box-sizing: border-box; }
+    .f03-set-get-line { height: 60px; white-space: pre; }
+    .f03-set-get-line-later { opacity: 0; }
+    .f03-set-get-prompt { color: #596672; }
+    .f03-set-get-result { color: #6983FF; }
+    .f03-set-get-cmd { white-space: pre; }
+    .f03-set-get-caret { display: inline-block; width: 18px; height: 42px; margin-left: 2px; vertical-align: -8px; background: #596672; opacity: 0; }
+  </style>
+  <div data-hf-id="hf-8umu" id="root" data-composition-id="f03-set-get" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-6vrt" id="f03-set-get-ground" class="clip f03-set-get-ground" data-start="0" data-duration="6.5" data-track-index="0"></div>
+    <div data-hf-id="hf-8eto" id="f03-set-get-stage" class="clip f03-set-get-stage" data-start="0" data-duration="6.5" data-track-index="1">
+      <h2 data-hf-id="hf-ngn1" id="f03-set-get-title" class="f03-set-get-title">START WITH A KEY AND VALUE</h2>
+      <div data-hf-id="hf-s8z6" id="f03-set-get-term" class="f03-set-get-term">
+        <div data-hf-id="hf-pr4p" class="f03-set-get-bar"><span data-hf-id="hf-7d1q" class="f03-set-get-dot f03-set-get-dot-r"></span><span data-hf-id="hf-uuj9" class="f03-set-get-dot f03-set-get-dot-y"></span><span data-hf-id="hf-8zyj" class="f03-set-get-dot f03-set-get-dot-g"></span><span data-hf-id="hf-3l4u" class="f03-set-get-bar-title">valkey-cli</span></div>
+        <div data-hf-id="hf-i2eq" class="f03-set-get-body">
+          <div data-hf-id="hf-b4mh" id="f03-set-get-l1" class="f03-set-get-line"><span data-hf-id="hf-7vwz" class="f03-set-get-prompt">valkey&gt; </span><span data-hf-id="hf-6jjg" id="f03-set-get-cmd1" class="f03-set-get-cmd"></span><span data-hf-id="hf-owsa" id="f03-set-get-caret1" class="f03-set-get-caret"></span></div>
+          <div data-hf-id="hf-28ku" id="f03-set-get-l2" class="f03-set-get-line f03-set-get-result f03-set-get-line-later">OK</div>
+          <div data-hf-id="hf-cld6" id="f03-set-get-l3" class="f03-set-get-line f03-set-get-line-later"><span data-hf-id="hf-9a5v" class="f03-set-get-prompt">valkey&gt; </span><span data-hf-id="hf-f7fb" id="f03-set-get-cmd2" class="f03-set-get-cmd"></span><span data-hf-id="hf-kyo9" id="f03-set-get-caret2" class="f03-set-get-caret"></span></div>
+          <div data-hf-id="hf-20g1" id="f03-set-get-l4" class="f03-set-get-line f03-set-get-result f03-set-get-line-later">"Value"</div>
+          <div data-hf-id="hf-t1zo" id="f03-set-get-l5" class="f03-set-get-line f03-set-get-line-later"><span data-hf-id="hf-8vuu" class="f03-set-get-prompt">valkey&gt; </span><span data-hf-id="hf-hzeo" id="f03-set-get-caret3" class="f03-set-get-caret"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (() => {
+      const P = "f03-set-get";
+      const el = (name) => document.getElementById(P + "-" + name);
+      const sel = (name) => "#" + P + "-" + name;
+      const tl = gsap.timeline({ paused: true });
+      const DURATION = 6.5;
+
+      // ---- Scene 1 (0.0-2.4s): title and the empty terminal card enter (frame.md entrance token)
+      tl.fromTo(sel("title"), { y: 32, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, 0.1);
+      tl.fromTo(sel("term"), { y: 32, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, 0.3);
+
+      // ---- discrete-text-sequence: sparse { t, text } states, reverse-searched each frame.
+      // Keystroke clusters 0.03-0.08s apart with short pauses at the word breaks.
+      const SEQ_SET = [
+        [0.00, ""],
+        [2.50, "S"], [2.55, "SE"], [2.60, "SET"],
+        [2.68, "SET "],
+        [2.73, "SET K"], [2.78, "SET Ke"], [2.83, "SET Key"],
+        [2.89, "SET Key "],
+        [2.93, "SET Key V"], [2.96, "SET Key Va"], [2.99, "SET Key Val"], [3.02, "SET Key Valu"], [3.05, "SET Key Value"]
+      ];
+      const SEQ_GET = [
+        [0.00, ""],
+        [3.60, "G"], [3.65, "GE"], [3.70, "GET"],
+        [3.78, "GET "],
+        [3.83, "GET K"], [3.88, "GET Ke"], [3.93, "GET Key"]
+      ];
+      // Line milestones (Enter on the SET line at 3.05, OK prints at 3.12; Enter on GET at 4.05, "Value" prints at 4.30)
+      const T_SET_ENTER = 3.05, T_OK = 3.12, T_PROMPT2 = 3.40, T_GET_ENTER = 4.05, T_VALUE = 4.30, T_PROMPT3 = 4.60;
+
+      const textAt = (seq, time) => {
+        for (let i = seq.length - 1; i >= 0; i--) { if (time >= seq[i][0]) return seq[i][1]; }
+        return "";
+      };
+      // Baked typing events: every state whose text differs from its predecessor (seek-safe, no runtime tracker)
+      const CHANGE_TIMES = [].concat(
+        SEQ_SET.filter((s, i) => i > 0 && s[1] !== SEQ_SET[i - 1][1]).map((s) => s[0]),
+        SEQ_GET.filter((s, i) => i > 0 && s[1] !== SEQ_GET[i - 1][1]).map((s) => s[0])
+      );
+      const TYPING_GRACE = 0.2;
+
+      // context-sensitive-cursor: colour on background; ink while typing (solid), secondary while idle (blinking)
+      const COLOR_TYPING = "#1A2026";
+      const COLOR_IDLE = "#596672";
+      const BLINK_CYCLES = 8; // whole number over the fixed duration: period 0.8125s, never pops on the last frame
+
+      const cmd1 = el("cmd1"), cmd2 = el("cmd2");
+      const l2 = el("l2"), l3 = el("l3"), l4 = el("l4"), l5 = el("l5");
+      const carets = [el("caret1"), el("caret2"), el("caret3")];
+
+      const render = (t) => {
+        cmd1.textContent = textAt(SEQ_SET, t);
+        cmd2.textContent = textAt(SEQ_GET, t);
+        l2.style.opacity = t >= T_OK ? "1" : "0";
+        l3.style.opacity = t >= T_PROMPT2 ? "1" : "0";
+        l4.style.opacity = t >= T_VALUE ? "1" : "0";
+        l5.style.opacity = t >= T_PROMPT3 ? "1" : "0";
+
+        // which prompt line owns the caret: hidden while a command is executing
+        let active = -1;
+        if (t < T_SET_ENTER) active = 0;
+        else if (t >= T_PROMPT2 && t < T_GET_ENTER) active = 1;
+        else if (t >= T_PROMPT3) active = 2;
+
+        const typing = CHANGE_TIMES.some((ct) => ct <= t && t - ct < TYPING_GRACE);
+        const blinkOn = Math.sin(2 * Math.PI * BLINK_CYCLES * (t / DURATION)) >= 0;
+        for (let i = 0; i < carets.length; i++) {
+          const c = carets[i];
+          if (i !== active) { c.style.opacity = "0"; continue; }
+          c.style.background = typing ? COLOR_TYPING : COLOR_IDLE;
+          c.style.opacity = typing || blinkOn ? "1" : "0";
+        }
+      };
+
+      // Linear driver across the whole frame; every visual state is a pure function of driver.t
+      const driver = { t: 0 };
+      render(0);
+      tl.to(driver, { t: DURATION, duration: DURATION, ease: "none", onUpdate: () => render(driver.t) }, 0);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[P] = tl;
+    })();
+  </script>
+</template>

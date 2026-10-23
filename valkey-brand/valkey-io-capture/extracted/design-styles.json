@@ -1,0 +1,329 @@
+{
+  "typography": [
+    {
+      "role": "display",
+      "fontFamily": "Open Sans",
+      "fontSize": "70px",
+      "fontWeight": "700",
+      "lineHeight": "70px",
+      "letterSpacing": "2px",
+      "color": "#FFFFFF",
+      "sampleText": "FAST. RELIABLE."
+    },
+    {
+      "role": "heading",
+      "fontFamily": "Open Sans",
+      "fontSize": "60px",
+      "fontWeight": "700",
+      "lineHeight": "72px",
+      "letterSpacing": "normal",
+      "color": "#FFFFFF",
+      "sampleText": "Documentation"
+    },
+    {
+      "role": "heading-2",
+      "fontFamily": "Open Sans",
+      "fontSize": "48px",
+      "fontWeight": "700",
+      "lineHeight": "normal",
+      "letterSpacing": "-1px",
+      "color": "#FFFFFF",
+      "sampleText": "Participants"
+    },
+    {
+      "role": "heading-3",
+      "fontFamily": "Open Sans",
+      "fontSize": "27.5px",
+      "fontWeight": "700",
+      "lineHeight": "33px",
+      "letterSpacing": "normal",
+      "color": "#FFFFFF",
+      "sampleText": "Version 9.x.x"
+    },
+    {
+      "role": "heading-2",
+      "fontFamily": "Open Sans",
+      "fontSize": "24px",
+      "fontWeight": "400",
+      "lineHeight": "normal",
+      "letterSpacing": "normal",
+      "color": "#FFFFFF",
+      "sampleText": "Subscribe for updates, event info, and the latest Valkey new"
+    },
+    {
+      "role": "heading-3",
+      "fontFamily": "Open Sans",
+      "fontSize": "20px",
+      "fontWeight": "700",
+      "lineHeight": "24px",
+      "letterSpacing": "normal",
+      "color": "#FFFFFF",
+      "sampleText": "Install"
+    },
+    {
+      "role": "body",
+      "fontFamily": "Open Sans",
+      "fontSize": "18px",
+      "fontWeight": "400",
+      "lineHeight": "normal",
+      "letterSpacing": "normal",
+      "color": "#FFFFFF",
+      "sampleText": "Save Your Spot for ValkeyConf 2026 | October 5, 2026 | Pragu"
+    },
+    {
+      "role": "code",
+      "fontFamily": "monospace",
+      "fontSize": "18px",
+      "fontWeight": "400",
+      "lineHeight": "normal",
+      "letterSpacing": "normal",
+      "color": "#000000",
+      "sampleText": "valkey/valkey:9.1.2"
+    },
+    {
+      "role": "heading-4",
+      "fontFamily": "Open Sans",
+      "fontSize": "16px",
+      "fontWeight": "700",
+      "lineHeight": "19.2px",
+      "letterSpacing": "normal",
+      "color": "#000000",
+      "sampleText": "Docker Hub (valkey/valkey)"
+    },
+    {
+      "role": "link",
+      "fontFamily": "Open Sans",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "lineHeight": "normal",
+      "letterSpacing": "normal",
+      "color": "#6983FF",
+      "sampleText": "Download"
+    },
+    {
+      "role": "body-small",
+      "fontFamily": "Open Sans",
+      "fontSize": "15px",
+      "fontWeight": "400",
+      "lineHeight": "normal",
+      "letterSpacing": "normal",
+      "color": "#000000",
+      "sampleText": "(sha256)"
+    },
+    {
+      "role": "label",
+      "fontFamily": "Open Sans",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "normal",
+      "letterSpacing": "normal",
+      "color": "#FFFFFF",
+      "sampleText": "First name*"
+    }
+  ],
+  "spacing": {
+    "observed": [
+      5,
+      7,
+      8,
+      9,
+      10,
+      12,
+      15,
+      16,
+      18,
+      20,
+      30,
+      40,
+      80
+    ],
+    "baseUnit": 8
+  },
+  "radius": [
+    "10px",
+    "12px",
+    "20px",
+    "24px",
+    "50px"
+  ],
+  "shadows": [
+    {
+      "value": "rgba(0, 0, 0, 0.1) 0px 2px 8px 0px",
+      "count": 3
+    },
+    {
+      "value": "rgba(0, 0, 0, 0.25) 0px 4px 10px 0px",
+      "count": 1
+    },
+    {
+      "value": "rgb(128, 128, 128) 0px 0px 5px 0px",
+      "count": 1
+    }
+  ],
+  "buttons": [
+    {
+      "label": "button",
+      "background": "transparent",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#000000",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "border": "0px none rgb(0, 0, 0)",
+      "boxShadow": "none",
+      "fontSize": "13.3333px",
+      "fontWeight": "400",
+      "height": "40px"
+    },
+    {
+      "label": "GitHub\n          \n        27.4k ★",
+      "background": "#F8F9FA",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#444444",
+      "padding": "5px 10px",
+      "borderRadius": "6px",
+      "border": "1px solid rgb(223, 225, 228)",
+      "boxShadow": "none",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "height": "45px"
+    },
+    {
+      "label": "GET STARTED",
+      "background": "transparent",
+      "backgroundImage": "linear-gradient(to right, rgb(255, 255, 255), rgb(183, 194, 247))",
+      "backdropFilter": "",
+      "color": "#6983FF",
+      "padding": "8px 15px",
+      "borderRadius": "30px",
+      "border": "0px none rgb(105, 131, 255)",
+      "boxShadow": "rgba(0, 0, 0, 0.25) 0px 4px 10px 0px",
+      "fontSize": "22px",
+      "fontWeight": "600",
+      "height": "42.3906px"
+    },
+    {
+      "label": "See Installation Guide",
+      "background": "transparent",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#FFFFFF",
+      "padding": "10px",
+      "borderRadius": "24px",
+      "border": "1px solid rgb(255, 255, 255)",
+      "boxShadow": "none",
+      "fontSize": "18px",
+      "fontWeight": "400",
+      "height": "46px"
+    },
+    {
+      "label": "button",
+      "background": "#000000",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#000000",
+      "padding": "0px",
+      "borderRadius": "50%",
+      "border": "0px none rgb(0, 0, 0)",
+      "boxShadow": "none",
+      "fontSize": "13.3333px",
+      "fontWeight": "400",
+      "height": "5px"
+    }
+  ],
+  "cards": [
+    {
+      "label": "card",
+      "background": "#FFFFFF",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#000000",
+      "padding": "30px",
+      "borderRadius": "10px",
+      "border": "0px none rgb(0, 0, 0)",
+      "boxShadow": "none",
+      "fontSize": "18px",
+      "fontWeight": "400",
+      "height": "524.375px"
+    },
+    {
+      "label": "card",
+      "background": "transparent",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#000000",
+      "padding": "15px",
+      "borderRadius": "0px",
+      "border": "0px none rgb(0, 0, 0)",
+      "boxShadow": "none",
+      "fontSize": "18px",
+      "fontWeight": "400",
+      "height": "245.359px"
+    },
+    {
+      "label": "card",
+      "background": "transparent",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#4A5568",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "border": "0px none rgb(74, 85, 104)",
+      "boxShadow": "none",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "height": "97.9688px"
+    },
+    {
+      "label": "card",
+      "background": "transparent",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#FFFFFF",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "border": "0px none rgb(255, 255, 255)",
+      "boxShadow": "none",
+      "fontSize": "18px",
+      "fontWeight": "400",
+      "height": "440px"
+    }
+  ],
+  "nav": null,
+  "chips": [
+    {
+      "label": "Explore",
+      "background": "#FFFFFF",
+      "color": "#2D3748",
+      "padding": "8px 16px",
+      "borderRadius": "50px",
+      "border": "1px solid rgb(226, 232, 240)",
+      "boxShadow": "none",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "height": "34.7969px"
+    }
+  ],
+  "statCells": [],
+  "tabs": [],
+  "backgrounds": [
+    {
+      "value": "linear-gradient(rgb(48, 23, 110), rgb(105, 131, 255))",
+      "area": 3604800
+    },
+    {
+      "value": "linear-gradient(rgb(105, 131, 255) 0%, rgb(188, 181, 231) 100%)",
+      "area": 1601790
+    },
+    {
+      "value": "linear-gradient(rgba(48, 24, 110, 0.15), rgba(48, 24, 110, 0.75)), url(\"https://valkey.io/img/hero-bg.webp\")",
+      "area": 1070550
+    },
+    {
+      "value": "linear-gradient(rgba(48, 24, 110, 0), rgb(48, 24, 110))",
+      "area": 1070550
+    }
+  ],
+  "glass": []
+}

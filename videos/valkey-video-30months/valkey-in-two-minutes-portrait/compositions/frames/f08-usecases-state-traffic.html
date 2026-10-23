@@ -1,0 +1,125 @@
+<template>
+  <style>
+    @font-face { font-family: "Open Sans"; src: url("assets/fonts/OpenSans-Variable.woff2") format("woff2"); font-weight: 300 800; font-style: normal; }
+    @font-face { font-family: "Cascadia Code"; src: url("assets/fonts/CascadiaCode-Variable.woff2") format("woff2"); font-weight: 200 700; font-style: normal; }
+
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: "Open Sans", sans-serif; color: #1A2026; }
+    .clip { position: absolute; inset: 0; }
+
+    /* ground: the film's one gradient, on its own full-duration clip */
+    .f08-usecases-state-traffic-ground { background: linear-gradient(135deg, #FFFFFF 0%, #F7FBFE 62%, #F1EFFD 100%); }
+
+    /* frame_title (portrait ramp): 40px / 800 / deep_purple / 0.04em / uppercase; title slot x 72, baseline y 200 */
+    .f08-usecases-state-traffic-title { position: absolute; left: 72px; top: 160px; margin: 0; font-size: 40px; line-height: 48px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: #30176E; white-space: nowrap; }
+
+    /* panel grid (portrait): 2 cols x 3 rows of 440 x 360; cell centres at x 310 / 770 and y 520 / 920 / 1320.
+       This geometry (cells, in-cell glyph/label offsets, marker) is shared verbatim by Frames 8-11 so the four
+       use-case frames cut as one grid. */
+    .f08-usecases-state-traffic-cell { position: absolute; width: 440px; height: 360px; }
+    .f08-usecases-state-traffic-col1 { left: 90px; }
+    .f08-usecases-state-traffic-col2 { left: 550px; }
+    .f08-usecases-state-traffic-row1 { top: 340px; }
+    .f08-usecases-state-traffic-row2 { top: 740px; }
+    .f08-usecases-state-traffic-row3 { top: 1140px; }
+
+    /* panel_cell: one 120px outline glyph centred above a 36px / 700 deep_purple label; no border, fill, or stripe */
+    .f08-usecases-state-traffic-glyph { position: absolute; left: 160px; top: 56px; width: 120px; height: 120px; display: block; object-fit: contain; }
+    .f08-usecases-state-traffic-labelgroup { position: absolute; left: 0; top: 200px; width: 440px; text-align: center; }
+    .f08-usecases-state-traffic-label { margin: 0; font-size: 36px; line-height: 42px; font-weight: 700; color: #30176E; }
+
+    /* layer marker in the sixth cell (col 2, row 3): caption_size secondary, sitting on the row-3 label line */
+    .f08-usecases-state-traffic-marker { position: absolute; left: 550px; top: 1346px; width: 440px; margin: 0; text-align: center; font-size: 26px; line-height: 30px; font-weight: 400; color: #596672; }
+  </style>
+
+  <div data-hf-id="hf-zimu" id="root" data-composition-id="f08-usecases-state-traffic" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-1wid" id="f08-usecases-state-traffic-layer-1" class="clip f08-usecases-state-traffic-ground" data-start="0" data-duration="5" data-track-index="0"></div>
+
+    <div data-hf-id="hf-odxm" id="f08-usecases-state-traffic-layer-2" class="clip" data-start="0" data-duration="5" data-track-index="1">
+      <h2 data-hf-id="hf-6mao" id="f08-usecases-state-traffic-title" class="f08-usecases-state-traffic-title">Application state + traffic</h2>
+
+      <!-- row 1 -->
+      <div data-hf-id="hf-d9dw" id="f08-usecases-state-traffic-c1" class="f08-usecases-state-traffic-cell f08-usecases-state-traffic-col1 f08-usecases-state-traffic-row1">
+        <img data-hf-id="hf-a2jn" class="f08-usecases-state-traffic-glyph" src="assets/icons/performance.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-n6cj" class="f08-usecases-state-traffic-labelgroup">
+          <p data-hf-id="hf-pmui" id="f08-usecases-state-traffic-l1" class="f08-usecases-state-traffic-label">Cache</p>
+        </div>
+      </div>
+      <div data-hf-id="hf-urbi" id="f08-usecases-state-traffic-c2" class="f08-usecases-state-traffic-cell f08-usecases-state-traffic-col2 f08-usecases-state-traffic-row1">
+        <img data-hf-id="hf-h5so" class="f08-usecases-state-traffic-glyph" src="assets/icons/data-hash.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-asir" class="f08-usecases-state-traffic-labelgroup">
+          <p data-hf-id="hf-ihfm" id="f08-usecases-state-traffic-l2" class="f08-usecases-state-traffic-label">Sessions</p>
+        </div>
+      </div>
+
+      <!-- row 2 -->
+      <div data-hf-id="hf-7al7" id="f08-usecases-state-traffic-c3" class="f08-usecases-state-traffic-cell f08-usecases-state-traffic-col1 f08-usecases-state-traffic-row2">
+        <img data-hf-id="hf-o0xc" class="f08-usecases-state-traffic-glyph" src="assets/icons/data-list.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-ae7q" class="f08-usecases-state-traffic-labelgroup">
+          <p data-hf-id="hf-gmp7" id="f08-usecases-state-traffic-l3" class="f08-usecases-state-traffic-label">Counters</p>
+        </div>
+      </div>
+      <div data-hf-id="hf-xeb9" id="f08-usecases-state-traffic-c4" class="f08-usecases-state-traffic-cell f08-usecases-state-traffic-col2 f08-usecases-state-traffic-row2">
+        <img data-hf-id="hf-wtmd" class="f08-usecases-state-traffic-glyph" src="assets/icons/security.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-9zwp" class="f08-usecases-state-traffic-labelgroup">
+          <p data-hf-id="hf-mj3v" id="f08-usecases-state-traffic-l4" class="f08-usecases-state-traffic-label">Rate limiter</p>
+        </div>
+      </div>
+
+      <!-- row 3: the fifth cell and the layer marker in the sixth slot -->
+      <div data-hf-id="hf-y7i6" id="f08-usecases-state-traffic-c5" class="f08-usecases-state-traffic-cell f08-usecases-state-traffic-col1 f08-usecases-state-traffic-row3">
+        <img data-hf-id="hf-9v05" class="f08-usecases-state-traffic-glyph" src="assets/icons/vertical-scaling.svg" alt="" width="120" height="120">
+        <div data-hf-id="hf-9llo" class="f08-usecases-state-traffic-labelgroup">
+          <p data-hf-id="hf-6vr9" id="f08-usecases-state-traffic-l5" class="f08-usecases-state-traffic-label">Global IDs</p>
+        </div>
+      </div>
+      <p data-hf-id="hf-mphs" id="f08-usecases-state-traffic-marker" class="f08-usecases-state-traffic-marker">Application patterns</p>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const ID = "f08-usecases-state-traffic";
+      const F = 1 / 30; // one frame at the project's 30 fps
+      const PERI = "#6983FF";
+      const DEEP = "#30176E";
+      const tl = gsap.timeline({ paused: true });
+
+      // Scene 1 (0.0-0.5s): title lands with the frame.md entrance token.
+      tl.fromTo("#f08-usecases-state-traffic-title", { y: 32, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, 0);
+
+      // waterfall-entry (adapted to land by 0.3s): five cells whip in from below as one accelerating cascade.
+      // Opacity is binary, never a fade: a one-frame step from an explicit from-state (opacity 0) that completes
+      // exactly on the arrival frame, so a cell first appears at its full y offset and reverts cleanly on a
+      // backward seek. Starts are frame-aligned one frame apart; the anchor travels furthest and longest, each
+      // later cell travels less and settles sooner, and the last one snaps. Timing is identical to the landscape
+      // build and to Frame 9, so the two frames read as a cut, not a rebuild.
+      const arrive = (sel, frame, offset, dur) => {
+        const at = frame * F;
+        tl.fromTo(sel, { opacity: 0 }, { opacity: 1, duration: F, ease: "none" }, at - F);
+        tl.fromTo(sel, { y: offset }, { y: 0, duration: dur, ease: "power4.out" }, at);
+      };
+      arrive("#f08-usecases-state-traffic-c1", 1, 72, 0.18); // anchor: visible 0.033, settles 0.213
+      arrive("#f08-usecases-state-traffic-c2", 2, 60, 0.16); // visible 0.067, settles 0.227
+      arrive("#f08-usecases-state-traffic-c3", 3, 48, 0.15); // visible 0.100, settles 0.250
+      arrive("#f08-usecases-state-traffic-c4", 4, 40, 0.13); // visible 0.133, settles 0.263
+      arrive("#f08-usecases-state-traffic-c5", 5, 30, 0.12); // visible 0.167, settles 0.287 (last one snaps; row 3 stays clear of the caption band)
+
+      // The layer marker fades in at 0.5s.
+      tl.fromTo("#f08-usecases-state-traffic-marker", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.5);
+
+      // Scene 2 (0.5-5.0s): hold. On each voice cue the matching label tints periwinkle, holds, and is back at
+      // deep purple 0.6s after the cue. Labels never swap; nothing is drawn behind the grid.
+      // (immediateRender: false keeps each leg's from-state from pre-rendering over the resting colour.)
+      const tint = (sel, at) => {
+        tl.fromTo(sel, { color: DEEP }, { color: PERI, duration: 0.12, ease: "power2.out", immediateRender: false }, at);
+        tl.fromTo(sel, { color: PERI }, { color: DEEP, duration: 0.18, ease: "power2.inOut", immediateRender: false }, at + 0.42);
+      };
+      tint("#f08-usecases-state-traffic-l1", 0.3); // "Cache"
+      tint("#f08-usecases-state-traffic-l2", 1.4); // "sessions"
+      tint("#f08-usecases-state-traffic-l4", 3.3); // "traffic"
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
