@@ -1,6 +1,6 @@
 # Caching as a Reliability Lever
 
-Slidev deck for DevOpsDays Bogotá, October 26, 2026 (30 minutes, L300). 31 slides, visual first: every concept is a click-driven D3 or CSS diagram, code samples are full-width Monokai inside a macOS Terminal frame, and the explanations live in the speaker notes.
+Slidev deck for DevOpsDays Bogotá, October 23, 2026, Compensar Av. 68 (30 minutes, L300). 32 slides, visual first: every concept is a click-driven D3 or CSS diagram, code samples are full-width Monokai inside a macOS Terminal frame, and the explanations live in the speaker notes.
 
 ## Run
 
@@ -24,11 +24,12 @@ pnpm run export:pptx
 
 ## Layout
 
+- The cover follows the organizers' template (`assets/DevOpsDays-Bogota-2026-Template.pptx`, slide 1): their pipeline scene and DevOpsDays Bogotá 2026 logo, copied to `assets/public/devopsdays/`, with the Valkey logo as the speaker's company mark. Keep the cover text inside the scene's white left strip and never stretch the scene (organizer rule).
 - `slides.md` is the canonical presentation, speaker notes included. No em dashes anywhere, by request.
 - `style.css` holds the whole visual system (Valkey palette, Open Sans and Cascadia Code from `valkey-brand/`, header pattern, cards, cover and closing, Terminal frame colors). Slide-level `<style>` blocks are intentionally absent: they are scoped per slide in Slidev.
 - `setup/shiki.ts` selects the Monokai theme for all code blocks. Swap to `catppuccin-mocha` or `catppuccin-latte` there if preferred.
 - `slide-top.vue` renders the footer (page counter plus logo) and switches to the light logo on dark slides.
-- `assets/public/` is the Vite public directory: `flaticon/` (three outline icons from Flaticon via the Magnific MCP server, recolored to Valkey deep purple), `images/` (Freepik stock photo for the Prime Day slide, speaker headshot), `qr/` (LinkedIn and valkey.io QR codes).
+- `assets/public/` is the Vite public directory: `flaticon/` (three outline icons from Flaticon via the Magnific MCP server, recolored to Valkey deep purple), `images/` (Freepik stock photo for the Prime Day slide, speaker headshot), `qr/` (LinkedIn and valkey.io QR codes), `logos/` (Linux Foundation mark and the Alibaba Cloud and Tencent Cloud TSC logos, copied from `sessions/open-source-as-the-foundation-for-the-ai-era/assets/public/logos/`, see the provenance README there).
 - `docs/` keeps the long-form source, run sheet, and earlier drafts.
 - Presenter identity defaults are defined in `vite.config.mjs`; copy `.env.example` to `.env` to override them locally.
 
@@ -44,6 +45,7 @@ All diagrams take a `step` prop and are wired as `<Component :step="$clicks" />`
 | `StrategyFlow.vue` | read-through, write-through, write-behind traces (`scenario` prop); narratives follow `animations/Valkey_Demo_Library` | 5 each |
 | `TtlTimeline.vue` | one key over 12 minutes, expiry, delete-on-write; synchronized expiry versus jitter on a log scale | 6 |
 | `FailureModeDiagram.vue` | stampede, penetration, avalanche (`mode` prop), each with its fix | 4 each |
+| `ValkeyProfile.vue` | what is Valkey: workloads, BSD license and Linux Foundation backing, the 8-day origin and the TSC logos; ported verbatim from `sessions/open-source-as-the-foundation-for-the-ai-era` (slide 10) | 3 |
 | `SemanticCacheDiagram.vue`, `ThresholdDial.vue` | ported verbatim from `sessions/well-architected-on-a-budget` | 5, 2 |
 | `FailoverDiagram.vue` | multi-AZ: lose AZ a, fail open to the origin, promote the replica, recover | 5 |
 | `GatewayShedDiagram.vue` | cache unavailable: the API gateway rate limits while Valkey warms up | 4 |

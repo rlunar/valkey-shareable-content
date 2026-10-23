@@ -100,6 +100,21 @@ body,
   max-width: 1080px;
 }
 
+.deck-header--compact h1 {
+  margin-top: 3px;
+}
+
+/* What is Valkey (ValkeyProfile.vue, from the open-source-as-the-foundation deck) */
+.valkey-profile-slide .valkey-profile {
+  margin-top: 14px;
+}
+
+/* Slidev indents every li by default; the profile tiles are a grid, not a list. */
+.valkey-profile-slide .valkey-profile li {
+  margin-left: 0;
+  padding-left: 0;
+}
+
 .eyebrow {
   margin-bottom: 8px !important;
   color: var(--vk-purple);
@@ -532,9 +547,8 @@ body,
   font-size: 20px;
 }
 
-/* Cover and closing */
+/* Closing (dark Valkey ground) */
 
-.cover-slide,
 .closing-slide {
   background-color: var(--vk-black) !important;
   background-image:
@@ -545,7 +559,6 @@ body,
   color: var(--vk-white3);
 }
 
-.cover-slide::after,
 .closing-slide::after {
   position: absolute;
   right: -170px;
@@ -558,69 +571,119 @@ body,
   content: '';
 }
 
-.cover-content {
-  position: relative;
-  z-index: 2;
-  width: 900px;
-  padding-top: 10px;
-}
-
-.cover-logo {
-  width: 170px;
-  margin-bottom: 54px;
-}
-
-.cover-slide h1 {
-  max-width: 900px;
-  color: var(--vk-white3);
-  font-size: 60px;
-  line-height: 0.98;
-  letter-spacing: -0.04em;
-}
-
-.cover-slide h1 span {
-  color: var(--vk-pink);
-}
-
-.cover-deck {
-  max-width: 760px;
-  margin-top: 20px !important;
-  color: #e7e4f4;
-  font-size: 19px;
-}
-
-.cover-presenter {
-  margin-top: 24px;
-}
-
-.cover-presenter strong,
 .closing-presenter strong {
   color: var(--vk-white3);
   font-size: 18px;
 }
 
-.cover-presenter span,
 .closing-presenter span {
   color: var(--vk-lav);
   font-family: var(--font-code);
   font-size: 11px;
 }
 
-.cover-meta {
-  display: flex;
-  gap: 8px;
-  margin-top: 20px;
+/*
+ * Cover: the DevOpsDays Bogota 2026 organizer template (assets/DevOpsDays-Bogota-2026-Template.pptx,
+ * slide 1). The scene keeps its left strip white for text; positions are the template's, scaled from
+ * its 1280 px width to this 1200 px canvas. Organizer rule: keep the text in the strip, never stretch
+ * the scene. Fonts stay Open Sans and Cascadia Code; colors are the template's.
+ */
+
+.cover-slide {
+  --dod-navy: #071329;
+  --dod-slate: #475569;
+  --dod-purple: #6d28d9;
+
+  overflow: hidden;
+  padding: 0 !important;
+  background: #fff !important;
+  color: var(--dod-navy);
 }
 
-.cover-meta span {
-  padding: 7px 12px;
-  border: 1px solid rgb(188 181 231 / 45%);
-  border-radius: 999px;
-  color: var(--vk-white3);
-  font-family: var(--font-code);
-  font-size: 10px;
+.cover-scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cover-content {
+  position: absolute;
+  z-index: 2;
+  top: 56px;
+  left: 63px;
+  width: 400px;
+}
+
+.cover-event-logo {
+  display: block;
+  width: 189px;
+  height: auto;
+}
+
+.slidev-layout.cover-slide h1 {
+  margin-top: 26px !important;
+  color: var(--dod-navy);
+  font-size: 42px !important;
+  line-height: 1.04 !important;
+  letter-spacing: -0.035em;
+}
+
+.slidev-layout.cover-slide h1 span {
+  color: var(--dod-purple);
+}
+
+.slidev-layout.cover-slide p {
+  opacity: 1;
+}
+
+.cover-deck {
+  max-width: 360px;
+  margin-top: 12px !important;
+  color: var(--dod-slate);
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.cover-speaker {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.cover-presenter strong {
+  color: var(--dod-navy);
+  font-size: 18px;
+}
+
+.cover-presenter span {
+  color: var(--dod-slate);
+  font-size: 14px;
+}
+
+.cover-company-logo {
+  width: 96px;
+}
+
+/* Event data and hashtag sit where the template puts them (y 540 and 636 of 720). */
+.cover-event {
+  position: absolute;
+  top: 450px;
+  color: var(--dod-navy);
+  font-size: 17px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  line-height: 1.35;
+}
+
+.cover-hashtag {
+  position: absolute;
+  top: 540px;
+  color: var(--dod-purple);
+  font-family: var(--font-code);
+  font-size: 13px;
 }
 
 .presenter-identity {

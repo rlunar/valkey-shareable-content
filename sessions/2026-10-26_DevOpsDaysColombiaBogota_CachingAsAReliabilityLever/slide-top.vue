@@ -4,7 +4,7 @@ import { useNav } from '@slidev/client'
 
 const nav = useNav()
 const slideClass = computed(() => String(nav.currentSlideRoute.value?.meta?.slide?.frontmatter?.class || ''))
-const dark = computed(() => /section-slide|closing-slide|cover-slide|prime-slide/.test(slideClass.value))
+const dark = computed(() => /section-slide|closing-slide|prime-slide/.test(slideClass.value))
 const show = computed(() => nav.currentPage.value > 1 && nav.currentPage.value < nav.total.value && !/prime-slide/.test(slideClass.value))
 </script>
 

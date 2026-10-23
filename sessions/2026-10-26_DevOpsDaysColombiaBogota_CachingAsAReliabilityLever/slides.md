@@ -3,7 +3,7 @@ theme: default
 title: Caching as a Reliability Lever
 titleTemplate: '%s · Valkey'
 info: |
-  Caching as a Reliability Lever. DevOpsDays Bogotá 2026.
+  Caching as a Reliability Lever. DevOpsDays Bogotá, October 23, 2026.
   Roberto Luna Rojas, Valkey project, AWS.
 canvasWidth: 1200
 aspectRatio: 16/9
@@ -18,18 +18,21 @@ layout: cover
 class: cover-slide
 ---
 
+<img class="cover-scene" src="/devopsdays/cover-pipeline-scene.jpg" alt="" />
+
 <div class="cover-content">
-  <BrandLogo tone="dark" class="cover-logo" />
+  <img class="cover-event-logo" src="/devopsdays/devopsdays-bogota-2026-logo.png" alt="DevOpsDays Bogotá 2026" />
 
-  <p class="eyebrow eyebrow--dark">DEVOPSDAYS BOGOTÁ · OCTOBER 26, 2026</p>
   <h1>Caching as a<br><span>Reliability Lever.</span></h1>
-  <p class="cover-deck">Cut database spend and tame tail latency with query caching and semantic caching on Valkey.</p>
+  <p class="cover-deck">Cut database spend and tame tail latency with query and semantic caching.</p>
 
-  <PresenterIdentity class="cover-presenter" />
-
-  <div class="cover-meta">
-    <span>30 MIN</span><span>L300</span><span>SRE · CLOUD · PLATFORM</span><span>VALKEY</span>
+  <div class="cover-speaker">
+    <PresenterIdentity class="cover-presenter" />
+    <BrandLogo class="cover-company-logo" />
   </div>
+
+  <p class="cover-event">23 · 10 · 2026<br>Compensar Av. 68 · Bogotá</p>
+  <p class="cover-hashtag">#DevOpsDaysBogota</p>
 </div>
 
 <!--
@@ -83,6 +86,39 @@ Three failure modes, each with its own signature.
 
 [click] Do not let the audience treat these as three separate problems. They are three faces of one thing: repeated work with nowhere to remember the answer. A cache tier addresses all three at once, and the rest of the talk is how to pull that lever without creating new problems.
 Time check: 1:30.
+-->
+
+---
+layout: default
+class: valkey-profile-slide
+routeAlias: what-is-valkey
+clicks: 3
+---
+
+<div class="deck-header deck-header--compact">
+  <p class="eyebrow">THE PLACE TO REMEMBER THE ANSWER · WHAT IS VALKEY</p>
+  <h1>Valkey: open source, high performance, forever.</h1>
+</div>
+
+<ValkeyProfile :step="$clicks" />
+<p class="interaction-hint"><kbd>→</kbd> workloads, backing, community</p>
+
+<!--
+So we need somewhere to remember the answer. For the rest of this talk, that place is Valkey. What is it?
+
+[click] Valkey is an open source, high-performance key/value datastore. It handles caching, the classic workload and the one this talk is about. It handles message queues. And it can act as a primary database.
+
+[click] It is BSD licensed, and the project is backed by the Linux Foundation, which means it will remain open source forever. Nobody can change that license on you.
+
+[click] And here is the community part. In March 2024, Redis changed its license. Eight days later, the community launched Valkey: vendor neutral, under the Linux Foundation. Today the Technical Steering Committee has maintainers from AWS, Google Cloud, Oracle, Alibaba, Tencent, Ericsson, Percona, and Apple®. Eight companies, one project, no single owner.
+
+***
+
+- The icons carry the description; name the workloads instead of reading the tiles.
+- Keep this to about 45 seconds: the audience is here for caching, not project history.
+- The panel shows the seven permitted TSC affiliation logos from MAINTAINERS.md in github.com/valkey-io/valkey; Apple® is rendered as plain text because this presentation does not have permission to use the Apple logo.
+- Dates: Redis relicensed on March 20, 2024; the Linux Foundation announced Valkey on March 28, 2024.
+- Time check: 2:30.
 -->
 
 ---
