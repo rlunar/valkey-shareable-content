@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "src": "assets/voice/f03.wav",
+  "sha": "536fd495f5d9b92b57c2423964e27f46bfd0a5f80140394733f2b3509ce85aec",
+  "engine": "scribe",
+  "model": "scribe-v2",
+  "detectedLanguage": "en",
+  "words": [
+    {
+      "id": "w0",
+      "text": "Start",
+      "start": 0.38,
+      "end": 0.6,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w1",
+      "text": "with",
+      "start": 0.64,
+      "end": 0.74,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w2",
+      "text": "a",
+      "start": 0.76,
+      "end": 0.86,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w3",
+      "text": "key",
+      "start": 0.94,
+      "end": 1.26,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w4",
+      "text": "and",
+      "start": 1.52,
+      "end": 1.62,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w5",
+      "text": "a",
+      "start": 1.66,
+      "end": 1.72,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w6",
+      "text": "value.",
+      "start": 1.76,
+      "end": 2.16,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w7",
+      "text": "Set",
+      "start": 2.78,
+      "end": 2.98,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w8",
+      "text": "stores",
+      "start": 3.06,
+      "end": 3.3,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w9",
+      "text": "it,",
+      "start": 3.34,
+      "end": 3.46,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w10",
+      "text": "get",
+      "start": 3.82,
+      "end": 3.98,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w11",
+      "text": "reads",
+      "start": 4.019,
+      "end": 4.18,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w12",
+      "text": "it",
+      "start": 4.2,
+      "end": 4.28,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w13",
+      "text": "back",
+      "start": 4.32,
+      "end": 4.6,
+      "speaker": "speaker_0"
+    }
+  ],
+  "language": "auto",
+  "generatedWordsHash": "214adcc028598f9121c7362323aa65f133cb73123f213130cf36411e81edcd5a",
+  "createdAt": "2026-10-27T15:30:55.739Z"
+}

@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "src": "assets/sfx/keystroke-soft.mp3",
+  "sha": "4fdc2b434699b6aab1bffca8e22ea1ff6c47d3cfee2114bbefa78dd14c675688",
+  "engine": "scribe",
+  "model": "scribe-v2",
+  "detectedLanguage": "en",
+  "words": [],
+  "language": "auto",
+  "generatedWordsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "createdAt": "2026-10-27T15:50:53.702Z"
+}

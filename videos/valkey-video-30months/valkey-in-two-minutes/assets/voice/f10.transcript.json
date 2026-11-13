@@ -1,0 +1,78 @@
+{
+  "audio": "assets/voice/f10.wav",
+  "language": "en",
+  "words": [
+    {
+      "text": "Track",
+      "start": 0.3,
+      "end": 0.6,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "rankings",
+      "start": 0.68,
+      "end": 1,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "and",
+      "start": 1.02,
+      "end": 1.08,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "event",
+      "start": 1.12,
+      "end": 1.36,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "histories",
+      "start": 1.4,
+      "end": 1.86,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Add",
+      "start": 2.3,
+      "end": 2.48,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "bloom",
+      "start": 2.6,
+      "end": 2.86,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "filters",
+      "start": 2.98,
+      "end": 3.38,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "for",
+      "start": 3.42,
+      "end": 3.58,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "fraud",
+      "start": 3.62,
+      "end": 3.88,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "screening",
+      "start": 3.94,
+      "end": 4.28,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "pre-checks",
+      "start": 4.38,
+      "end": 4.9,
+      "speaker": "speaker_0"
+    }
+  ]
+}

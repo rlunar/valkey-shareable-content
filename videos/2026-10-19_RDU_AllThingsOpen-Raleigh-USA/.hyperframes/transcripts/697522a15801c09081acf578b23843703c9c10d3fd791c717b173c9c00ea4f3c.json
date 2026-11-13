@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "src": "assets/sfx/raw/impact-deep.mp3",
+  "sha": "697522a15801c09081acf578b23843703c9c10d3fd791c717b173c9c00ea4f3c",
+  "engine": "scribe",
+  "model": "scribe-v2",
+  "detectedLanguage": "en",
+  "words": [],
+  "language": "auto",
+  "generatedWordsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "createdAt": "2026-10-27T15:51:28.043Z"
+}

@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "src": "assets/voice/f10.wav",
+  "sha": "c4d33fae1300f34fc99a954778119fccf8c2513d7948c66b11e6ed2486b64fa7",
+  "engine": "scribe",
+  "model": "scribe-v2",
+  "detectedLanguage": "en",
+  "words": [
+    {
+      "id": "w0",
+      "text": "Track",
+      "start": 0.3,
+      "end": 0.6,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w1",
+      "text": "rankings",
+      "start": 0.68,
+      "end": 1,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w2",
+      "text": "and",
+      "start": 1.02,
+      "end": 1.08,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w3",
+      "text": "event",
+      "start": 1.12,
+      "end": 1.36,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w4",
+      "text": "histories",
+      "start": 1.4,
+      "end": 1.86,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w5",
+      "text": "Add",
+      "start": 2.3,
+      "end": 2.48,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w6",
+      "text": "bloom",
+      "start": 2.6,
+      "end": 2.86,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w7",
+      "text": "filters",
+      "start": 2.98,
+      "end": 3.38,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w8",
+      "text": "for",
+      "start": 3.42,
+      "end": 3.58,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w9",
+      "text": "fraud",
+      "start": 3.62,
+      "end": 3.88,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w10",
+      "text": "screening",
+      "start": 3.94,
+      "end": 4.28,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w11",
+      "text": "pre-checks",
+      "start": 4.38,
+      "end": 4.9,
+      "speaker": "speaker_0"
+    }
+  ],
+  "language": "auto",
+  "generatedWordsHash": "8e8d3218bce745b6620cd8e79209e15f07e54bf8302828810a663f3e0c3d8d72",
+  "createdAt": "2026-10-27T15:31:15.323Z"
+}

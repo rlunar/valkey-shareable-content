@@ -1,0 +1,60 @@
+{
+  "audio": "assets/voice/f06.wav",
+  "language": "en",
+  "words": [
+    {
+      "text": "Extend",
+      "start": 0.32,
+      "end": 0.82,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Valkey",
+      "start": 0.92,
+      "end": 1.28,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "with",
+      "start": 1.42,
+      "end": 1.54,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "JSON,",
+      "start": 1.7,
+      "end": 2.2,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Search,",
+      "start": 2.5,
+      "end": 2.84,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Bloom,",
+      "start": 3.14,
+      "end": 3.48,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "and",
+      "start": 3.82,
+      "end": 3.92,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "LDAP",
+      "start": 4.12,
+      "end": 4.5,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "modules",
+      "start": 4.6,
+      "end": 5.12,
+      "speaker": "speaker_0"
+    }
+  ]
+}

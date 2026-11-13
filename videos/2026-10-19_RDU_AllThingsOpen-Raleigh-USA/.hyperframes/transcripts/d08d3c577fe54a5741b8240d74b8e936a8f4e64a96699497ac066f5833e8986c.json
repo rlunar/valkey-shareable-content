@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "src": "assets/sfx/impact-soft.mp3",
+  "sha": "d08d3c577fe54a5741b8240d74b8e936a8f4e64a96699497ac066f5833e8986c",
+  "engine": "scribe",
+  "model": "scribe-v2",
+  "detectedLanguage": "en",
+  "words": [],
+  "language": "auto",
+  "generatedWordsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "createdAt": "2026-10-27T15:50:48.832Z"
+}

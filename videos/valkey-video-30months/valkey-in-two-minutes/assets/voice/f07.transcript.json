@@ -1,0 +1,66 @@
+{
+  "audio": "assets/voice/f07.wav",
+  "language": "en",
+  "words": [
+    {
+      "text": "Connect",
+      "start": 0.34,
+      "end": 0.72,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "through",
+      "start": 0.8,
+      "end": 0.96,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Glide,",
+      "start": 1.08,
+      "end": 1.62,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Spring",
+      "start": 2.02,
+      "end": 2.28,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Boot,",
+      "start": 2.36,
+      "end": 2.6,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Fastify,",
+      "start": 2.94,
+      "end": 3.56,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "and",
+      "start": 3.92,
+      "end": 4.019,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Lambda",
+      "start": 4.12,
+      "end": 4.42,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Power",
+      "start": 4.52,
+      "end": 4.78,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Tools",
+      "start": 4.88,
+      "end": 5.22,
+      "speaker": "speaker_0"
+    }
+  ]
+}

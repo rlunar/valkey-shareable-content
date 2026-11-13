@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "src": ".media/audio/bgm/bgm_001.wav",
+  "sha": "398004d2dc4594bf24f638d0bc571b4ed52417036b38d116824ee2625b07ab9c",
+  "engine": "scribe",
+  "model": "scribe-v2",
+  "detectedLanguage": "en",
+  "words": [],
+  "language": "auto",
+  "generatedWordsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "createdAt": "2026-10-27T15:50:46.440Z"
+}

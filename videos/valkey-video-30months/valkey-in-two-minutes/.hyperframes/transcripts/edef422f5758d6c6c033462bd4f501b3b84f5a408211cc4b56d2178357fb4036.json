@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "src": "assets/bgm/bed.wav",
+  "sha": "edef422f5758d6c6c033462bd4f501b3b84f5a408211cc4b56d2178357fb4036",
+  "engine": "scribe",
+  "model": "scribe-v2",
+  "detectedLanguage": "en",
+  "words": [],
+  "language": "auto",
+  "generatedWordsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "createdAt": "2026-10-27T15:31:31.733Z"
+}

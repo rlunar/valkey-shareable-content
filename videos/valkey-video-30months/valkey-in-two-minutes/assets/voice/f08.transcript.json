@@ -1,0 +1,48 @@
+{
+  "audio": "assets/voice/f08.wav",
+  "language": "en",
+  "words": [
+    {
+      "text": "cache",
+      "start": 0.34,
+      "end": 0.6,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "data,",
+      "start": 0.66,
+      "end": 0.96,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "manage",
+      "start": 1.56,
+      "end": 1.88,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "sessions,",
+      "start": 1.98,
+      "end": 2.44,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "and",
+      "start": 2.8,
+      "end": 2.88,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "control",
+      "start": 2.96,
+      "end": 3.36,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "traffic",
+      "start": 3.48,
+      "end": 3.92,
+      "speaker": "speaker_0"
+    }
+  ]
+}

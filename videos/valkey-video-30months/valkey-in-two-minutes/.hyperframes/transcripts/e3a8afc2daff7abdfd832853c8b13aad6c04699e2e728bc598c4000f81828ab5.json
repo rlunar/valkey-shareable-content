@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "src": "assets/voice/f07.wav",
+  "sha": "e3a8afc2daff7abdfd832853c8b13aad6c04699e2e728bc598c4000f81828ab5",
+  "engine": "scribe",
+  "model": "scribe-v2",
+  "detectedLanguage": "en",
+  "words": [
+    {
+      "id": "w0",
+      "text": "Connect",
+      "start": 0.34,
+      "end": 0.72,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w1",
+      "text": "through",
+      "start": 0.8,
+      "end": 0.96,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w2",
+      "text": "Glide,",
+      "start": 1.08,
+      "end": 1.62,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w3",
+      "text": "Spring",
+      "start": 2.02,
+      "end": 2.28,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w4",
+      "text": "Boot,",
+      "start": 2.36,
+      "end": 2.6,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w5",
+      "text": "Fastify,",
+      "start": 2.94,
+      "end": 3.56,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w6",
+      "text": "and",
+      "start": 3.92,
+      "end": 4.019,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w7",
+      "text": "Lambda",
+      "start": 4.12,
+      "end": 4.42,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w8",
+      "text": "Power",
+      "start": 4.52,
+      "end": 4.78,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w9",
+      "text": "Tools",
+      "start": 4.88,
+      "end": 5.22,
+      "speaker": "speaker_0"
+    }
+  ],
+  "language": "auto",
+  "generatedWordsHash": "d8a7f31e4d67d89fe79ecf1927415e6334f002c2a3c62b030aa330681c46905f",
+  "createdAt": "2026-10-27T15:31:07.312Z"
+}

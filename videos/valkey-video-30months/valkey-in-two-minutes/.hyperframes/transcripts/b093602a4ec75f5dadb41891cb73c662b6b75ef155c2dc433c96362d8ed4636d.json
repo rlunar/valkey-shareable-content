@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "src": "assets/voice/f08.wav",
+  "sha": "b093602a4ec75f5dadb41891cb73c662b6b75ef155c2dc433c96362d8ed4636d",
+  "engine": "scribe",
+  "model": "scribe-v2",
+  "detectedLanguage": "en",
+  "words": [
+    {
+      "id": "w0",
+      "text": "cache",
+      "start": 0.34,
+      "end": 0.6,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w1",
+      "text": "data,",
+      "start": 0.66,
+      "end": 0.96,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w2",
+      "text": "manage",
+      "start": 1.56,
+      "end": 1.88,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w3",
+      "text": "sessions,",
+      "start": 1.98,
+      "end": 2.44,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w4",
+      "text": "and",
+      "start": 2.8,
+      "end": 2.88,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w5",
+      "text": "control",
+      "start": 2.96,
+      "end": 3.36,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w6",
+      "text": "traffic",
+      "start": 3.48,
+      "end": 3.92,
+      "speaker": "speaker_0"
+    }
+  ],
+  "language": "auto",
+  "generatedWordsHash": "1ca6a2f200f1861a4422ce06e00cfbf73e231d4518210882017375d676dab76f",
+  "createdAt": "2026-10-27T15:31:10.278Z"
+}

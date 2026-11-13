@@ -1,0 +1,108 @@
+{
+  "audio": "assets/voice/f01.wav",
+  "language": "en",
+  "words": [
+    {
+      "text": "Memory",
+      "start": 0.34,
+      "end": 0.62,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "access",
+      "start": 0.78,
+      "end": 1.14,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "is",
+      "start": 1.24,
+      "end": 1.44,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "faster",
+      "start": 1.5,
+      "end": 1.86,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "than",
+      "start": 1.92,
+      "end": 2.08,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "disk",
+      "start": 2.12,
+      "end": 2.32,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "access.",
+      "start": 2.38,
+      "end": 2.8,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "Valkey",
+      "start": 3.42,
+      "end": 3.7,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "keeps",
+      "start": 3.8,
+      "end": 3.98,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "working",
+      "start": 4.12,
+      "end": 4.38,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "data",
+      "start": 4.46,
+      "end": 4.7,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "in",
+      "start": 4.74,
+      "end": 4.82,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "memory",
+      "start": 4.86,
+      "end": 5.2,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "with",
+      "start": 5.58,
+      "end": 5.76,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "optional",
+      "start": 5.86,
+      "end": 6.22,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "disk",
+      "start": 6.32,
+      "end": 6.54,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "persistence",
+      "start": 6.6,
+      "end": 7.2,
+      "speaker": "speaker_0"
+    }
+  ]
+}

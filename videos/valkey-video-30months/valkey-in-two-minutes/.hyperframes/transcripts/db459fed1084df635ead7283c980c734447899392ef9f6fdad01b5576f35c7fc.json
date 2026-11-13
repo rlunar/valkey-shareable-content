@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "src": "assets/voice/f09.wav",
+  "sha": "db459fed1084df635ead7283c980c734447899392ef9f6fdad01b5576f35c7fc",
+  "engine": "scribe",
+  "model": "scribe-v2",
+  "detectedLanguage": "en",
+  "words": [
+    {
+      "id": "w0",
+      "text": "Coordinate",
+      "start": 0.34,
+      "end": 0.88,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w1",
+      "text": "services",
+      "start": 0.96,
+      "end": 1.54,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w2",
+      "text": "and",
+      "start": 1.8,
+      "end": 1.88,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w3",
+      "text": "keep",
+      "start": 2.04,
+      "end": 2.26,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w4",
+      "text": "retries",
+      "start": 2.38,
+      "end": 2.88,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w5",
+      "text": "under",
+      "start": 3.06,
+      "end": 3.26,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w6",
+      "text": "control",
+      "start": 3.34,
+      "end": 3.78,
+      "speaker": "speaker_0"
+    }
+  ],
+  "language": "auto",
+  "generatedWordsHash": "7eb8c0d86a4705beef200a094cbb59881e4d4acd192705e7520e13ff1b0a05d0",
+  "createdAt": "2026-10-27T15:31:12.794Z"
+}

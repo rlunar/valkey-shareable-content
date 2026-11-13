@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "src": "assets/voice/f14.wav",
+  "sha": "fffa68268eadb44ba75bc54d7c172c7d527b873b299a6239af2472a60ce7949c",
+  "engine": "scribe",
+  "model": "scribe-v2",
+  "detectedLanguage": "en",
+  "words": [
+    {
+      "id": "w0",
+      "text": "Run",
+      "start": 0.34,
+      "end": 0.5,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w1",
+      "text": "Valkey's",
+      "start": 0.58,
+      "end": 0.98,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w2",
+      "text": "core",
+      "start": 1.02,
+      "end": 1.18,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w3",
+      "text": "server",
+      "start": 1.3,
+      "end": 1.6,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w4",
+      "text": "with",
+      "start": 1.64,
+      "end": 1.74,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w5",
+      "text": "Docker",
+      "start": 1.82,
+      "end": 2.14,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w6",
+      "text": "using",
+      "start": 2.54,
+      "end": 2.84,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w7",
+      "text": "this",
+      "start": 2.88,
+      "end": 3.1,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w8",
+      "text": "command.",
+      "start": 3.14,
+      "end": 3.64,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w9",
+      "text": "Start",
+      "start": 4.16,
+      "end": 4.38,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w10",
+      "text": "building",
+      "start": 4.46,
+      "end": 4.76,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w11",
+      "text": "at",
+      "start": 4.86,
+      "end": 4.98,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w12",
+      "text": "valkey.io.",
+      "start": 5.06,
+      "end": 6.72,
+      "speaker": "speaker_0"
+    }
+  ],
+  "language": "auto",
+  "generatedWordsHash": "83d6114f36ad6fd602933f5556b0ea9f8ada94ce4da769afdf193ddc18d97a80",
+  "createdAt": "2026-10-27T15:31:28.035Z"
+}

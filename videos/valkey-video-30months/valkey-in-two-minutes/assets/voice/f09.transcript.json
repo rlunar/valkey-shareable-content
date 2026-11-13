@@ -1,0 +1,48 @@
+{
+  "audio": "assets/voice/f09.wav",
+  "language": "en",
+  "words": [
+    {
+      "text": "Coordinate",
+      "start": 0.34,
+      "end": 0.88,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "services",
+      "start": 0.96,
+      "end": 1.54,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "and",
+      "start": 1.8,
+      "end": 1.88,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "keep",
+      "start": 2.04,
+      "end": 2.26,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "retries",
+      "start": 2.38,
+      "end": 2.88,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "under",
+      "start": 3.06,
+      "end": 3.26,
+      "speaker": "speaker_0"
+    },
+    {
+      "text": "control",
+      "start": 3.34,
+      "end": 3.78,
+      "speaker": "speaker_0"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "src": "assets/voice/f05.wav",
+  "sha": "cfb963b491e1e0cea674653a2533e923d46963f0be49f2a3189038ac1636b522",
+  "engine": "scribe",
+  "model": "scribe-v2",
+  "detectedLanguage": "en",
+  "words": [
+    {
+      "id": "w0",
+      "text": "Choose",
+      "start": 0.34,
+      "end": 0.76,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w1",
+      "text": "stable",
+      "start": 1.04,
+      "end": 1.48,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w2",
+      "text": "releases",
+      "start": 1.56,
+      "end": 2.16,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w3",
+      "text": "or",
+      "start": 2.48,
+      "end": 2.76,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w4",
+      "text": "explore",
+      "start": 2.8,
+      "end": 3.32,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w5",
+      "text": "the",
+      "start": 3.36,
+      "end": 3.44,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w6",
+      "text": "next",
+      "start": 3.5,
+      "end": 3.74,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w7",
+      "text": "release",
+      "start": 3.8,
+      "end": 4.12,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w8",
+      "text": "candidate",
+      "start": 4.22,
+      "end": 4.72,
+      "speaker": "speaker_0"
+    }
+  ],
+  "language": "auto",
+  "generatedWordsHash": "26129350daf8bc6ac8fd2dbf7fa12171f9eb9dbb7582eb088b3f8d3e3dfdb361",
+  "createdAt": "2026-10-27T15:31:01.818Z"
+}

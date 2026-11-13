@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "src": "assets/voice/f06.wav",
+  "sha": "f8f15199f84859c7c604bd07761fb42fe8440f7b984ae6d52090b40937418591",
+  "engine": "scribe",
+  "model": "scribe-v2",
+  "detectedLanguage": "en",
+  "words": [
+    {
+      "id": "w0",
+      "text": "Extend",
+      "start": 0.32,
+      "end": 0.82,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w1",
+      "text": "Valkey",
+      "start": 0.92,
+      "end": 1.28,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w2",
+      "text": "with",
+      "start": 1.42,
+      "end": 1.54,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w3",
+      "text": "JSON,",
+      "start": 1.7,
+      "end": 2.2,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w4",
+      "text": "Search,",
+      "start": 2.5,
+      "end": 2.84,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w5",
+      "text": "Bloom,",
+      "start": 3.14,
+      "end": 3.48,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w6",
+      "text": "and",
+      "start": 3.82,
+      "end": 3.92,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w7",
+      "text": "LDAP",
+      "start": 4.12,
+      "end": 4.5,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w8",
+      "text": "modules",
+      "start": 4.6,
+      "end": 5.12,
+      "speaker": "speaker_0"
+    }
+  ],
+  "language": "auto",
+  "generatedWordsHash": "910b16b8ef559aa8721a3e4a4d9cb1b4f8ba0962de1b4be191eaf736b0c26da5",
+  "createdAt": "2026-10-27T15:31:04.806Z"
+}

@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "src": ".media/audio/sfx/sfx_006.mp3",
+  "sha": "b343a2fecafc6448fb4c220dab5d24ba7638861442341a1fe8c8941a770822b0",
+  "engine": "scribe",
+  "model": "scribe-v2",
+  "detectedLanguage": "en",
+  "words": [],
+  "language": "auto",
+  "generatedWordsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "createdAt": "2026-10-27T15:51:19.120Z"
+}

@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "src": "assets/voice/f01.wav",
+  "sha": "8e4858031e4050e24251a0a6262ba7b1d46c932136b983313ed7a3fa397712d5",
+  "engine": "scribe",
+  "model": "scribe-v2",
+  "detectedLanguage": "en",
+  "words": [
+    {
+      "id": "w0",
+      "text": "Memory",
+      "start": 0.34,
+      "end": 0.62,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w1",
+      "text": "access",
+      "start": 0.78,
+      "end": 1.14,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w2",
+      "text": "is",
+      "start": 1.24,
+      "end": 1.44,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w3",
+      "text": "faster",
+      "start": 1.5,
+      "end": 1.86,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w4",
+      "text": "than",
+      "start": 1.92,
+      "end": 2.08,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w5",
+      "text": "disk",
+      "start": 2.12,
+      "end": 2.32,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w6",
+      "text": "access.",
+      "start": 2.38,
+      "end": 2.8,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w7",
+      "text": "Valkey",
+      "start": 3.42,
+      "end": 3.7,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w8",
+      "text": "keeps",
+      "start": 3.8,
+      "end": 3.98,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w9",
+      "text": "working",
+      "start": 4.12,
+      "end": 4.38,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w10",
+      "text": "data",
+      "start": 4.46,
+      "end": 4.7,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w11",
+      "text": "in",
+      "start": 4.74,
+      "end": 4.82,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w12",
+      "text": "memory",
+      "start": 4.86,
+      "end": 5.2,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w13",
+      "text": "with",
+      "start": 5.58,
+      "end": 5.76,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w14",
+      "text": "optional",
+      "start": 5.86,
+      "end": 6.22,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w15",
+      "text": "disk",
+      "start": 6.32,
+      "end": 6.54,
+      "speaker": "speaker_0"
+    },
+    {
+      "id": "w16",
+      "text": "persistence",
+      "start": 6.6,
+      "end": 7.2,
+      "speaker": "speaker_0"
+    }
+  ],
+  "language": "auto",
+  "generatedWordsHash": "f9f54717bc932432038b723b74e4b08eb3ec9afc02c2581732a4ead5a4affa4a",
+  "createdAt": "2026-10-27T15:30:45.822Z"
+}
