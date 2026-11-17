@@ -1,0 +1,43 @@
+# Valkey Admin for the PgDay MX demo: a web UI to browse the keys the
+# Remote Query Cache Plugin writes (jdbc-demo:*), watch TTLs count down, and
+# see memory per key.
+#
+# It joins the network of the postgrespro-demo compose stack
+# (rlunar/rberoj/databases/postgresql/postgrespro/infrastructure), so it reaches
+# Valkey by its service name, `valkey`, and publishes nothing but its own UI.
+#
+# Security: Valkey Admin web mode has NO login. Anyone who can reach the port can
+# read and modify every key. The port is therefore published on 127.0.0.1 only;
+# to view it from another machine use an SSH tunnel
+# (ssh -N -L 8081:127.0.0.1:8081 <host>), never a wider bind.
+#
+# Usage (from this folder), reusing the stack's .env so no password is copied:
+#   docker compose --env-file <postgrespro>/infrastructure/.env \
+#     -f compose.valkey-admin.yaml up -d
+# Then open http://127.0.0.1:8081
+#
+# Port 8081 on the host because the demo's Spring Boot backend already uses 8080.
+
+name: pgday-valkey-admin
+
+services:
+  valkey-admin:
+    image: valkey/valkey-admin:1.3.0
+    environment:
+      DEPLOYMENT_MODE: Web
+      VALKEY_HOST: valkey
+      VALKEY_PORT: "6379"
+      VALKEY_TLS: "false"
+      VALKEY_AUTH_TYPE: password
+      VALKEY_USERNAME: default
+      VALKEY_PASSWORD: ${VALKEY_PASSWORD:?set VALKEY_PASSWORD, e.g. with --env-file pointing at the postgrespro-demo .env}
+    ports:
+      - "127.0.0.1:${VALKEY_ADMIN_PORT:-8081}:8080"
+    networks:
+      - postgrespro
+    restart: unless-stopped
+
+networks:
+  postgrespro:
+    external: true
+    name: postgrespro-demo_default

@@ -1,0 +1,1 @@
+EVAL "local out = {} for _, k in ipairs(redis.call('SCAN', '0', 'MATCH', 'jdbc-demo:*', 'COUNT', '1000')[2]) do table.insert(out, string.sub(k, 1, 10) .. '<hash ' .. (#k - 10) .. ' bytes>  type=' .. redis.call('TYPE', k)['ok'] .. '  ttl=' .. redis.call('TTL', k) .. 's  size=' .. redis.call('STRLEN', k) .. ' B') end return out" 0
