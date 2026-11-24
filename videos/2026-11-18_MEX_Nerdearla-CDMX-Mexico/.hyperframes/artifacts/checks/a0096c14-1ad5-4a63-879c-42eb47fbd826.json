@@ -1,0 +1,844 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 16
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "duration": 123.6,
+    "samples": [
+      6.867,
+      20.6,
+      34.333,
+      48.067,
+      61.8,
+      75.533,
+      89.267,
+      103,
+      116.733
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 0,
+    "truncated": false,
+    "faceCheck": {
+      "ran": true,
+      "candidates": 0,
+      "faces": 0
+    }
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      6.867,
+      34.333,
+      61.8,
+      89.267,
+      116.733
+    ],
+    "checked": 47,
+    "passed": 47
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 21,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "first_frame_empty",
+        "severity": "warning",
+        "message": "Frame 0 shows only the background, and the first frame is the thumbnail on social players: have the title or key image already on screen at 0 s instead of entering from nothing; see references/review.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and \"valkey.io\" renders at 27 px for 2.68 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "valkey.io",
+        "selector": "#f2-stage > div:nth-of-type(2) > span:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/02-promise.html",
+        "bbox": {
+          "x": 1734.55,
+          "y": 987.61,
+          "width": 148.61,
+          "height": 37
+        },
+        "time": 3.302,
+        "times": [
+          3.302
+        ],
+        "fontPx": 26.88,
+        "floorPx": 28,
+        "seconds": 2.682,
+        "elements": [
+          {
+            "selector": "#f2-stage > div:nth-of-type(2) > span:nth-of-type(1)",
+            "text": "valkey.io",
+            "fontPx": 26.88,
+            "time": 3.302,
+            "seconds": 2.682
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 3 text elements stay under it for 0.5 s or more, the smallest \"CHATBOTS.\" at 0 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "CHATBOTS.",
+        "selector": "#f3-cyl > div:nth-of-type(2) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/03-capability.html",
+        "bbox": {
+          "x": 639.63,
+          "y": 505.27,
+          "width": 614.95,
+          "height": 60.22
+        },
+        "time": 8.047,
+        "times": [
+          6.19,
+          8.047,
+          8.047
+        ],
+        "fontPx": 0,
+        "floorPx": 28,
+        "seconds": 1.032,
+        "elements": [
+          {
+            "selector": "#f3-cyl > div:nth-of-type(2) > div:nth-of-type(1)",
+            "text": "CHATBOTS.",
+            "fontPx": 0,
+            "time": 8.047,
+            "seconds": 1.032
+          },
+          {
+            "selector": "#f3-cyl > div:nth-of-type(8) > div:nth-of-type(1)",
+            "text": "SESSIONS.",
+            "fontPx": 0,
+            "time": 8.047,
+            "seconds": 1.032
+          },
+          {
+            "selector": "#f3-feedback-brand-url",
+            "text": "valkey.io",
+            "fontPx": 26.88,
+            "time": 6.19,
+            "seconds": 5.159
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and \"valkey.io\" renders at 27 px for 2.89 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "valkey.io",
+        "selector": "#f4-plate > div:nth-of-type(3) > span:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/04-proof.html",
+        "bbox": {
+          "x": 1720.66,
+          "y": 987.61,
+          "width": 148.61,
+          "height": 37
+        },
+        "time": 11.555,
+        "times": [
+          11.555
+        ],
+        "fontPx": 26.88,
+        "floorPx": 28,
+        "seconds": 2.889,
+        "elements": [
+          {
+            "selector": "#f4-plate > div:nth-of-type(3) > span:nth-of-type(1)",
+            "text": "valkey.io",
+            "fontPx": 26.88,
+            "time": 11.555,
+            "seconds": 2.889
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"Released 2026-11-18\" (4 words) is on screen 1.20 s (±0.01 s), under its 1.27 s floor: hold it about 0.5 s + 0.3 s a word (1.70 s here) before it leaves or changes; see references/motion.md.",
+        "text": "Released 2026-11-18",
+        "selector": "#f4-released",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/04-proof.html",
+        "bbox": {
+          "x": 706,
+          "y": 564.94,
+          "width": 449.53,
+          "height": 52
+        },
+        "time": 13.103,
+        "words": 4,
+        "seconds": 1.199,
+        "floorSeconds": 1.275,
+        "measured": [
+          {
+            "time": 12.587,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 12.793,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 13,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 13.206,
+            "opacity": 0.99,
+            "heightPx": 52
+          },
+          {
+            "time": 13.412,
+            "opacity": 1,
+            "heightPx": 52
+          },
+          {
+            "time": 13.619,
+            "opacity": 1,
+            "heightPx": 52
+          },
+          {
+            "time": 13.825,
+            "opacity": 1,
+            "heightPx": 52
+          },
+          {
+            "time": 14.031,
+            "opacity": 0.94,
+            "heightPx": 52
+          },
+          {
+            "time": 14.238,
+            "opacity": 0.62,
+            "heightPx": 52
+          },
+          {
+            "time": 14.444,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 14.65,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 14.857,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 5 text elements stay under it for 0.5 s or more, the smallest \"SUB-MILLISECOND LATENCY\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "SUB-MILLISECOND LATENCY",
+        "selector": "#f7-response-copy",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/07-caching.html",
+        "bbox": {
+          "x": 186.78,
+          "y": 866.33,
+          "width": 359.03,
+          "height": 30
+        },
+        "time": 17.952,
+        "times": [
+          17.539,
+          17.952,
+          17.952,
+          18.158,
+          18.777
+        ],
+        "fontPx": 22.08,
+        "floorPx": 28,
+        "seconds": 2.063,
+        "elements": [
+          {
+            "selector": "#f7-response-copy",
+            "text": "SUB-MILLISECOND LATENCY",
+            "fontPx": 22.08,
+            "time": 17.952,
+            "seconds": 2.063
+          },
+          {
+            "selector": "#f7-content > div:nth-of-type(3) > span:nth-of-type(1)",
+            "text": "valkey.io",
+            "fontPx": 26.88,
+            "time": 17.539,
+            "seconds": 2.476
+          },
+          {
+            "selector": "#f7-speed-label",
+            "text": "HOT PATH",
+            "fontPx": 26.88,
+            "time": 17.952,
+            "seconds": 2.063
+          },
+          {
+            "selector": "#f7-memory-title",
+            "text": "MEMORY",
+            "fontPx": 26.88,
+            "time": 18.158,
+            "seconds": 1.857
+          },
+          {
+            "selector": "#f7-key",
+            "text": "KEY / 42",
+            "fontPx": 26.88,
+            "time": 18.777,
+            "seconds": 1.238
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 7.84 s (21.25–29.09 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 21.253,
+        "seconds": 7.841,
+        "floorSeconds": 3,
+        "until": 29.094
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 3 text elements stay under it for 0.5 s or more, the smallest \"valkey.io\" at 27 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "valkey.io",
+        "selector": "#f8-content > div:nth-of-type(3) > span:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/08-sessions.html",
+        "bbox": {
+          "x": 1797.64,
+          "y": 987.61,
+          "width": 122.36,
+          "height": 37
+        },
+        "time": 30.126,
+        "times": [
+          30.126,
+          31.571,
+          31.983
+        ],
+        "fontPx": 26.88,
+        "floorPx": 28,
+        "seconds": 2.476,
+        "elements": [
+          {
+            "selector": "#f8-content > div:nth-of-type(3) > span:nth-of-type(1)",
+            "text": "valkey.io",
+            "fontPx": 26.88,
+            "time": 30.126,
+            "seconds": 2.476
+          },
+          {
+            "selector": "#f8-session-tag",
+            "text": "SESSION / A91F",
+            "fontPx": 26.88,
+            "time": 31.571,
+            "seconds": 1.031
+          },
+          {
+            "selector": "#f8-state-label",
+            "text": "STATE SAVED",
+            "fontPx": 26.88,
+            "time": 31.983,
+            "seconds": 0.619
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 8.05 s (33.84–41.89 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 33.84,
+        "seconds": 8.048,
+        "floorSeconds": 3,
+        "until": 41.888
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 3 text elements stay under it for 0.5 s or more, the smallest \"valkey.io\" at 27 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "valkey.io",
+        "selector": "#f9-content > div:nth-of-type(3) > span:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/09-message-queues.html",
+        "bbox": {
+          "x": 1797.64,
+          "y": 987.61,
+          "width": 122.36,
+          "height": 37
+        },
+        "time": 42.713,
+        "times": [
+          42.713,
+          43.126,
+          43.539
+        ],
+        "fontPx": 26.88,
+        "floorPx": 28,
+        "seconds": 2.476,
+        "elements": [
+          {
+            "selector": "#f9-content > div:nth-of-type(3) > span:nth-of-type(1)",
+            "text": "valkey.io",
+            "fontPx": 26.88,
+            "time": 42.713,
+            "seconds": 2.476
+          },
+          {
+            "selector": "#f9-source-label",
+            "text": "QUEUE",
+            "fontPx": 26.88,
+            "time": 43.126,
+            "seconds": 2.063
+          },
+          {
+            "selector": "#f9-endpoint-label",
+            "text": "DELIVERED",
+            "fontPx": 26.88,
+            "time": 43.539,
+            "seconds": 1.65
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 8.05 s (46.43–54.48 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 46.427,
+        "seconds": 8.048,
+        "floorSeconds": 3,
+        "until": 54.475
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 4 text elements stay under it for 0.5 s or more, the smallest \"valkey.io\" at 27 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "valkey.io",
+        "selector": "#f10-carrier > div:nth-of-type(3) > span:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/10-leaderboards.html",
+        "bbox": {
+          "x": 1797.64,
+          "y": 987.61,
+          "width": 122.36,
+          "height": 37
+        },
+        "time": 55.3,
+        "times": [
+          55.3,
+          55.713,
+          55.713,
+          56.538
+        ],
+        "fontPx": 26.88,
+        "floorPx": 28,
+        "seconds": 2.476,
+        "elements": [
+          {
+            "selector": "#f10-carrier > div:nth-of-type(3) > span:nth-of-type(1)",
+            "text": "valkey.io",
+            "fontPx": 26.88,
+            "time": 55.3,
+            "seconds": 2.476
+          },
+          {
+            "selector": "#f10-board-label",
+            "text": "LIVE RANK",
+            "fontPx": 26.88,
+            "time": 55.713,
+            "seconds": 2.063
+          },
+          {
+            "selector": "#f10-score-label",
+            "text": "SCORE VELOCITY",
+            "fontPx": 26.88,
+            "time": 55.713,
+            "seconds": 2.063
+          },
+          {
+            "selector": "#f10-live-label",
+            "text": "LIVE",
+            "fontPx": 26.88,
+            "time": 56.538,
+            "seconds": 1.238
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 8.05 s (59.01–67.06 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 59.014,
+        "seconds": 8.048,
+        "floorSeconds": 3,
+        "until": 67.062
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 4 text elements stay under it for 0.5 s or more, the smallest \"SUB 03\" at 26 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "SUB 03",
+        "selector": "#f11-node-three",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/11-chatbots.html",
+        "bbox": {
+          "x": 1482.03,
+          "y": 675.47,
+          "width": 96.71,
+          "height": 36.01
+        },
+        "time": 69.332,
+        "times": [
+          67.887,
+          69.332,
+          69.332,
+          69.332
+        ],
+        "fontPx": 26.16,
+        "floorPx": 28,
+        "seconds": 1.031,
+        "elements": [
+          {
+            "selector": "#f11-node-three",
+            "text": "SUB 03",
+            "fontPx": 26.16,
+            "time": 69.332,
+            "seconds": 1.031
+          },
+          {
+            "selector": "#f11-node-two",
+            "text": "SUB 02",
+            "fontPx": 26.82,
+            "time": 69.332,
+            "seconds": 1.031
+          },
+          {
+            "selector": "#f11-carrier > div:nth-of-type(3) > span:nth-of-type(1)",
+            "text": "valkey.io",
+            "fontPx": 26.88,
+            "time": 67.887,
+            "seconds": 2.476
+          },
+          {
+            "selector": "#f11-node-one",
+            "text": "SUB 01",
+            "fontPx": 26.88,
+            "time": 69.332,
+            "seconds": 1.031
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 8.05 s (71.60–79.65 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 71.601,
+        "seconds": 8.048,
+        "floorSeconds": 3,
+        "until": 79.649
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 3 text elements stay under it for 0.5 s or more, the smallest \"valkey.io\" at 27 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "valkey.io",
+        "selector": "#f12-carrier > div:nth-of-type(4) > span:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/12-iot.html",
+        "bbox": {
+          "x": 1827.77,
+          "y": 987.61,
+          "width": 92.23,
+          "height": 37
+        },
+        "time": 80.474,
+        "times": [
+          80.474,
+          80.68,
+          81.712
+        ],
+        "fontPx": 26.88,
+        "floorPx": 28,
+        "seconds": 2.476,
+        "elements": [
+          {
+            "selector": "#f12-carrier > div:nth-of-type(4) > span:nth-of-type(1)",
+            "text": "valkey.io",
+            "fontPx": 26.88,
+            "time": 80.474,
+            "seconds": 2.476
+          },
+          {
+            "selector": "#f12-kicker",
+            "text": "IOT STREAMS",
+            "fontPx": 27,
+            "time": 80.68,
+            "seconds": 2.27
+          },
+          {
+            "selector": "#f12-chart-title",
+            "text": "LIVE SIGNAL FLOW",
+            "fontPx": 27,
+            "time": 81.712,
+            "seconds": 1.238
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 8.05 s (84.19–92.24 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 84.188,
+        "seconds": 8.048,
+        "floorSeconds": 3,
+        "until": 92.236
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 2 text elements stay under it for 0.5 s or more, the smallest \"valkey.io\" at 27 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "valkey.io",
+        "selector": "#f13-carrier > div:nth-of-type(4) > span:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/13-geospatial.html",
+        "bbox": {
+          "x": 1709.52,
+          "y": 987.61,
+          "width": 148.61,
+          "height": 37
+        },
+        "time": 93.267,
+        "times": [
+          93.267,
+          93.267
+        ],
+        "fontPx": 26.88,
+        "floorPx": 28,
+        "seconds": 2.27,
+        "elements": [
+          {
+            "selector": "#f13-carrier > div:nth-of-type(4) > span:nth-of-type(1)",
+            "text": "valkey.io",
+            "fontPx": 26.88,
+            "time": 93.267,
+            "seconds": 2.27
+          },
+          {
+            "selector": "#f13-kicker > span:nth-of-type(1)",
+            "text": "GEOSPATIAL",
+            "fontPx": 27,
+            "time": 93.267,
+            "seconds": 2.27
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 8.05 s (96.78–104.82 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 96.775,
+        "seconds": 8.048,
+        "floorSeconds": 3,
+        "until": 104.823
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 2 text elements stay under it for 0.5 s or more, the smallest \"OPEN SOURCE (BSD)\" at 27 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "OPEN SOURCE (BSD)",
+        "selector": "#f6-colophon-note",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/06-call.html",
+        "bbox": {
+          "x": 96,
+          "y": 843.27,
+          "width": 327.39,
+          "height": 37
+        },
+        "time": 107.092,
+        "times": [
+          107.092,
+          107.299
+        ],
+        "fontPx": 26.88,
+        "floorPx": 28,
+        "seconds": 1.445,
+        "elements": [
+          {
+            "selector": "#f6-colophon-note",
+            "text": "OPEN SOURCE (BSD)",
+            "fontPx": 26.88,
+            "time": 107.092,
+            "seconds": 1.445
+          },
+          {
+            "selector": "#f6-colophon-url",
+            "text": "valkey.io",
+            "fontPx": 26.88,
+            "time": 107.299,
+            "seconds": 1.238
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 10.82 s (109.78–120.60 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 109.775,
+        "seconds": 10.825,
+        "floorSeconds": 3,
+        "until": 120.6
+      }
+    ],
+    "enabled": true,
+    "step": 0.20600000000000307,
+    "samples": 599
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

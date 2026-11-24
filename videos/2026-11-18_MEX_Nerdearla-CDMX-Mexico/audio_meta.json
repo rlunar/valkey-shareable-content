@@ -1,0 +1,34 @@
+{
+  "bgm": {
+    "path": "assets/bgm/track.mp3",
+    "volume": 0.9,
+    "query": "driving minimal tech, tight percussive pulse, rising energy, no vocals",
+    "duration_s": 15,
+    "source": "assets/bgm/track-full-55s.mp3",
+    "trim": {
+      "from_s": 15.66,
+      "length_s": 15.0,
+      "fade_in_s": 0.12,
+      "fade_out_at_s": 13.8,
+      "fade_out_s": 1.2,
+      "reason": "The library track opened on a 15s quiet build at -28 dB mean, 16 dB under the body of the track — it would have drained the whole sizzle. The drop lands at 15.66s, so the track is trimmed from there: frame 1 sits on the downbeat at full energy (-12.8 dB) and holds through the cut, with a 1.2s tail fade."
+    }
+  },
+  "bgm_pending": false,
+  "voices": [],
+  "sfx": [
+    { "frame": 1, "file": "assets/sfx/impact-soft.mp3", "offset_s": 0.0, "duration_s": 0.9, "volume": 0.3 },
+    { "frame": 2, "file": "assets/sfx/impact-soft.mp3", "offset_s": 0.0, "duration_s": 0.9, "volume": 0.3 },
+    { "frame": 3, "file": "assets/sfx/tick.mp3", "offset_s": 0.6, "duration_s": 0.3, "volume": 0.22 },
+    { "frame": 3, "file": "assets/sfx/tick.mp3", "offset_s": 1.07, "duration_s": 0.3, "volume": 0.22 },
+    { "frame": 3, "file": "assets/sfx/tick.mp3", "offset_s": 1.53, "duration_s": 0.3, "volume": 0.22 },
+    { "frame": 4, "file": "assets/sfx/keystroke-soft.mp3", "offset_s": 1.0, "duration_s": 1.0, "volume": 0.18 },
+    { "frame": 4, "file": "assets/sfx/riser.mp3", "offset_s": 1.0, "duration_s": 1.6, "volume": 0.28 },
+    { "frame": 5, "file": "assets/sfx/impact-soft.mp3", "offset_s": 0.0, "duration_s": 0.9, "volume": 0.32 },
+    { "frame": 6, "file": "assets/sfx/impact-deep.mp3", "offset_s": 0.0, "duration_s": 1.5, "volume": 0.42 }
+  ],
+  "_sfx_plan": {
+    "frame_starts_s": { "1": 0.0, "2": 2.6, "3": 5.0, "4": 7.4, "5": 10.0, "6": 12.5 },
+    "note": "HeyGen retrieval returned cues far longer than their frames (a 39.6s keystroke bed on a 2.6s frame, a 7.0s tick pattern whose 1.0s spacing did not match the 0.47s token cycle). Each file is clipped to its actual beat window; originals kept in assets/sfx/raw/. The riser peaks at its end and is placed to land its peak exactly on the 10.0s UP cut, so frame 4's dead-still beat plays as loaded silence under a build."
+  }
+}

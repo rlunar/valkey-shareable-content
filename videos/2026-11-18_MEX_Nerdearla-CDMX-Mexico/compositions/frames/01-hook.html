@@ -1,0 +1,298 @@
+<template>
+  <link rel="stylesheet" href="open-sans-embedded.css">
+  <style>
+    /* ── Frame 1 · Hook — FAST. RELIABLE. ─────────────────────────────────────
+       Ground: components.ground-hero-plate (the site's real light-streak plate,
+       screen-blended over colors.hero-purple). Root is styled by #root, never a
+       class, and carries NO background — the full-bleed ground rides on the
+       .clip layer below it. */
+    #root {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      container-type: size;
+      color: #fff;
+      font-family: 'Open Sans';
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .clip {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    /* ── Track 0 · the ground ─────────────────────────────────────────────── */
+    /* Scene background lives on the .clip (the "scene"), NOT on the camera —
+       a camera-borne ground warps with the transform and reveals the void. */
+    #f1-ground { background-color: #30186e; z-index: 0; }
+
+    /* multi-phase-camera wrapper: the ONE element whose transform the drift
+       writer touches. transform-origin stays dead centre. */
+    #f1-camera {
+      position: absolute;
+      inset: 0;
+      transform-origin: 50% 50%;
+      will-change: transform;
+    }
+
+    /* Layer 1 — the plate. Oversized past the clip so the depth-of-field blur
+       never exposes a soft transparent edge. `screen` over hero-purple is what
+       makes the streaks read as LIGHT rather than a pasted photo. */
+    #f1-plate {
+      --dof: 0px;
+      position: absolute;
+      inset: -60px;
+      background-color: #30186e;
+      background-image: url('assets/hero-plate.webp');
+      background-size: cover;
+      background-position: 50% 46%;
+      background-repeat: no-repeat;
+      background-blend-mode: screen;
+      filter: blur(var(--dof));
+      will-change: filter, opacity;
+    }
+
+    /* Layer 2 — the type well / lens vignette. Pinned to the frame (a grade is a
+       property of the lens, not of the world), built only from hero-purple so no
+       colour outside the six tokens enters the frame. */
+    #f1-vignette {
+      position: absolute;
+      inset: 0;
+      opacity: 0.62;
+      background:
+        radial-gradient(78% 40% at 50% 39%,
+          rgba(48, 24, 110, 0.72) 0%,
+          rgba(48, 24, 110, 0.42) 55%,
+          rgba(48, 24, 110, 0) 100%),
+        radial-gradient(112% 108% at 60% 42%,
+          rgba(48, 24, 110, 0) 40%,
+          rgba(48, 24, 110, 0.42) 76%,
+          rgba(48, 24, 110, 0.88) 100%);
+      will-change: opacity;
+    }
+
+    /* ── Track 1 · the focal plane (stays sharp, sits above the blurred plate) ─ */
+    #f1-type {
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 5cqw;
+    }
+
+    /* typography.display-hero — 700, two lines, block capped at 78cqw.
+       12cqw of bottom margin lifts the block 6cqw above frame centre
+       (Frame Treatment 2 · Oversized Claim). NO css transform here: the master
+       seam block owns this element's transform at the 3.1s cut. */
+    #f1-headline {
+      margin-bottom: 12cqw;
+      max-width: 78cqw;
+      font-size: 14cqw;
+      font-weight: 700;
+      line-height: 0.92;
+      letter-spacing: -0.35cqw;
+      text-align: center;
+      color: #fff;
+      will-change: transform, opacity;
+    }
+
+    .f1-line { white-space: nowrap; }
+
+    /* Waterfall entry: elements start hidden in authored CSS and are revealed by
+       a binary tl.set — never a fade. inline-block so each can carry its own y. */
+    .f1-word {
+      display: inline-block;
+      opacity: 0;
+      will-change: transform;
+    }
+
+    /* ── Track 2 · components.colophon-bar in the bottom safe rail ─────────── */
+    #f1-rail {
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 5cqw;
+    }
+
+    /* components.rule-hairline — wipes right-to-left, riding the film's LEFT current. */
+    #f1-hair {
+      height: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.35);
+      opacity: 0;
+      transform-origin: 100% 50%;
+      will-change: transform;
+    }
+
+    #f1-railrow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    /* The Valkey wordmark is a RIGID BODY: uniform box, position + opacity only.
+       Wordmark set in white per the source pairing law (ink is never on purple);
+       the mark keeps its own accent-periwinkle. Geometry untouched. */
+    #f1-mark {
+      display: block;
+      width: 26.04cqw;
+      height: 8.8cqw;
+      opacity: 0;
+      will-change: transform;
+    }
+
+    /* typography.micro-label — the legibility floor, chrome only. */
+    #f1-url {
+      font-size: 2.8cqw;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: 0.2cqw;
+      color: #fff;
+      opacity: 0;
+      will-change: transform;
+    }
+  </style>
+
+  <div data-hf-id="hf-lutg" id="root" data-composition-id="01-hook" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-1rqb" id="f1-ground" class="clip" data-start="0" data-duration="3.1" data-track-index="0">
+      <!-- Overflow is the point: the camera push scales the plate past the ground clip,
+           which crops it. Declared so `check` reports it as intentional, not a layout bug. -->
+      <div data-hf-id="hf-18ah" id="f1-camera" data-layout-allow-overflow="">
+        <div data-hf-id="hf-88r1" id="f1-plate"></div>
+      </div>
+      <div data-hf-id="hf-nge5" id="f1-vignette"></div>
+    </div>
+
+    <div data-hf-id="hf-h6ch" id="f1-type" class="clip" data-start="0" data-duration="3.1" data-track-index="1">
+      <div data-hf-id="hf-nuq7" id="f1-headline">
+        <div data-hf-id="hf-wl42" class="f1-line"><span data-hf-id="hf-kt5b" class="f1-word" id="f1-w-fast">FAST</span><span data-hf-id="hf-k5y5" class="f1-word" id="f1-w-dot1">.</span></div>
+        <div data-hf-id="hf-8ekm" class="f1-line"><span data-hf-id="hf-536q" class="f1-word" id="f1-w-rel">RELIABLE</span><span data-hf-id="hf-5gtw" class="f1-word" id="f1-w-dot2">.</span></div>
+      </div>
+    </div>
+
+    <div data-hf-id="hf-4nic" id="f1-rail" class="clip" data-start="0" data-duration="3.1" data-track-index="2">
+      <div data-hf-id="hf-tvr3" id="f1-hair"></div>
+      <div data-hf-id="hf-sxu9" id="f1-railrow">
+        <svg data-hf-id="hf-vuli" id="f1-mark" viewBox="0 0 187.9 63.5" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path data-hf-id="hf-i7hn" fill="#6983ff" fill-rule="evenodd" d="M15.2,50l-9.4-5.9v-25L28.8,6l22.3,13.1v26.3l-22.7,12.8-7.9-4.9v-12l-4.3-2.7v-13.6l12.4-7.1,12.1,7.1v14.2l-9.6,5.4v-5.7c2.9-1.1,4.9-3.9,4.9-7.3s-3.4-7.8-7.6-7.8-7.6,3.5-7.6,7.8,2.1,6.2,4.9,7.3v10.9l2.7,1.7,16.8-9.5v-19.7l-16.6-9.8-17.1,9.8v18.5l3.6,2.3v6.8ZM28.5,28.1c1.9,0,3.4,1.6,3.4,3.6s-1.5,3.6-3.4,3.6-3.4-1.6-3.4-3.6,1.5-3.6,3.4-3.6Z" />
+          <path data-hf-id="hf-ph2k" fill="#ffffff" d="M85.2,11.4l-12.1,33.8h-4l-12.1-33.8h4.1l7.9,22.3c.3.9.6,1.8.9,2.6.3.8.5,1.6.7,2.4.2.8.4,1.5.5,2.2.2-.7.3-1.4.5-2.2.2-.8.4-1.6.7-2.4.3-.8.6-1.7.9-2.6l7.9-22.2h4.2Z M94,19.5c3,0,5.3.7,6.7,2,1.5,1.4,2.2,3.5,2.2,6.5v17.2h-2.8l-.7-3.7h-.2c-.7.9-1.4,1.7-2.2,2.3-.8.6-1.7,1.1-2.7,1.4-1,.3-2.2.5-3.7.5s-2.9-.3-4.1-.8c-1.2-.5-2.1-1.4-2.8-2.5-.7-1.1-1-2.5-1-4.2,0-2.5,1-4.5,3-5.8,2-1.4,5.1-2.1,9.2-2.2l4.4-.2v-1.5c0-2.2-.5-3.7-1.4-4.6-.9-.9-2.3-1.3-4-1.3-1.3,0-2.6.2-3.8.6-1.2.4-2.3.8-3.4,1.4l-1.2-2.9c1.1-.6,2.5-1.1,3.9-1.5,1.5-.4,3-.6,4.7-.6h0ZM99.1,32.8l-3.9.2c-3.2.1-5.4.6-6.7,1.5s-1.9,2.2-1.9,3.9.4,2.5,1.3,3.2c.9.7,2,1,3.5,1,2.3,0,4.1-.6,5.5-1.9s2.2-3.1,2.2-5.6v-2.3Z M112.1,45.3h-3.9V9.3h3.9v36Z M121.3,9.3v18.7c0,.6,0,1.4,0,2.3,0,.9,0,1.7-.1,2.3h.2c.3-.4.8-1,1.4-1.8.6-.8,1.2-1.4,1.6-1.9l8.4-9h4.5l-10.2,10.8,10.9,14.5h-4.6l-9-12-3.1,2.8v9.2h-3.8V9.3h3.8Z M148.2,19.4c2.2,0,4,.5,5.6,1.4,1.5,1,2.7,2.3,3.5,4,.8,1.7,1.2,3.7,1.2,6v2.4h-17.5c0,3,.8,5.2,2.2,6.8s3.5,2.3,6.1,2.3,3-.1,4.3-.4c1.2-.3,2.5-.7,3.8-1.3v3.4c-1.3.6-2.6,1-3.8,1.2-1.2.3-2.7.4-4.4.4-2.4,0-4.6-.5-6.4-1.5-1.8-1-3.2-2.5-4.2-4.4-1-1.9-1.5-4.3-1.5-7.1,0-2.7.5-5.1,1.4-7.1.9-2,2.2-3.5,3.9-4.6,1.7-1.1,3.7-1.6,5.9-1.6h0ZM148.2,22.6c-2.1,0-3.7.7-4.9,2-1.2,1.3-1.9,3.2-2.2,5.6h13.4c0-1.5-.3-2.8-.7-4-.4-1.2-1.1-2.1-2.1-2.7-.9-.6-2.1-1-3.6-1Z M158.4,19.9h4.1l5.6,14.7c.3.9.6,1.7.9,2.5.3.8.5,1.5.7,2.3.2.7.4,1.4.5,2.1h.2c.2-.8.5-1.8.9-3,.4-1.3.8-2.6,1.3-3.9l5.3-14.7h4.1l-11,29.1c-.6,1.6-1.3,2.9-2.1,4.1-.8,1.2-1.7,2-2.8,2.7-1.1.6-2.5.9-4,.9s-1.4,0-1.9-.1c-.6,0-1-.2-1.4-.3v-3.1c.3,0,.7.1,1.2.2.5,0,1,0,1.5,0,1,0,1.8-.2,2.5-.6.7-.4,1.3-.9,1.8-1.6.5-.7.9-1.5,1.3-2.5l1.4-3.6-10.2-25.4Z" />
+        </svg>
+        <span data-hf-id="hf-tatj" id="f1-url">valkey.io</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var DURATION = 2.6;
+      var F = 1 / 30;
+
+      var tl = gsap.timeline({ paused: true });
+
+      /* ── Scene 1 (0.00–0.90s) · multi-phase-camera ─────────────────────────
+         One intentful establishing push under the plate — the "steady push"
+         phase pattern (neutral -> push) collapsed to establish-only, because the
+         storyboard forbids a back-half re-push. GSAP owns #f1-camera's whole
+         transform and is its ONLY writer; the drift is folded in as x/y on the
+         same element rather than a sine onUpdate, because a render seek can pass
+         suppressEvents and silently kill a callback writer. X runs over the full
+         duration and Y over the push window, so the two axes advance at
+         different rates — the organic path the rule's DRIFT_FREQ_RATIO buys —
+         and both are monotonic leans, never a breath (FRAME.md bans idle wobble). */
+      var PHASE_1_SCALE = 1.02;
+      var PHASE_2_SCALE = 1.088;
+      var PHASE_2_DUR = 2.0;
+      /* X leans LEFT — the film's current — so the camera is already travelling
+         the way the 3.1s cut will travel. Y is neutral (down); UP is a reserved
+         vector spent later in the film and must not be pre-echoed here. */
+      var DRIFT_AMP_X = -3.2;
+      var DRIFT_AMP_Y = 1.6;
+
+      tl.fromTo("#f1-camera",
+        { scale: PHASE_1_SCALE, y: 0 },
+        { scale: PHASE_2_SCALE, y: DRIFT_AMP_Y, duration: PHASE_2_DUR, ease: "power3.out" }, 0);
+      tl.fromTo("#f1-camera",
+        { x: 0 },
+        { x: DRIFT_AMP_X, duration: DURATION, ease: "power3.out" }, 0);
+
+      /* ── Scene 2 (0.90–1.70s) · depth-of-field-blur, mechanic 1 (focal pull) ─
+         The plate is the only off-focus plane; the type plane stays at --dof:0
+         and sits above it in z. 10px is FRAME.md's text-scale blur ceiling — the
+         opacity DIM does most of the push-back work, as the rule prescribes. */
+      var CUE_TYPE = 0.90;
+      var BLUR_PX = 10;
+      var DIM_LEVEL = 0.62;
+      var FOCUS_DUR = 0.80;
+
+      tl.fromTo("#f1-plate",
+        { "--dof": "0px" },
+        { "--dof": BLUR_PX + "px", duration: FOCUS_DUR, ease: "power3.out" }, CUE_TYPE);
+      tl.fromTo("#f1-plate",
+        { opacity: 1 },
+        { opacity: DIM_LEVEL, duration: FOCUS_DUR, ease: "power3.out" }, CUE_TYPE);
+      /* The type well deepens on the same window — "the world recedes" and "the
+         type takes the focal plane" read as one move. */
+      tl.fromTo("#f1-vignette",
+        { opacity: 0.62 },
+        { opacity: 1, duration: FOCUS_DUR, ease: "power3.out" }, CUE_TYPE);
+
+      /* ── Scene 2 (0.90–1.41s) · waterfall-entry ────────────────────────────
+         FAST. then RELIABLE. from below, one direction. Opacity is BINARY via
+         tl.set — never a fade on an arrival. y offset and settle duration vary
+         by weight (anchors travel further and longer, punctuation snaps), and
+         the gap between starts SHRINKS across the cascade: 0.257 → 0.087 →
+         0.060s, so the second phrase snaps tighter than the first. */
+      var CASCADE = [
+        { sel: "#f1-w-fast", y: 78, dur: 0.19, lead: 0, ease: "power4.out" },
+        { sel: "#f1-w-dot1", y: 46, dur: 0.12, lead: -2, ease: "power4.out" },
+        { sel: "#f1-w-rel", y: 62, dur: 0.16, lead: 1, ease: "power4.out" },
+        { sel: "#f1-w-dot2", y: 40, dur: 0.11, lead: 3, ease: "expo.out" }
+      ];
+
+      var at = CUE_TYPE;
+      for (var i = 0; i < CASCADE.length; i += 1) {
+        var step = CASCADE[i];
+        if (i > 0) {
+          var prev = CASCADE[i - 1];
+          at = at + prev.dur - step.lead * F;
+        }
+        tl.set(step.sel, { opacity: 1 }, at);
+        tl.fromTo(step.sel, { y: step.y }, { y: 0, duration: step.dur, ease: step.ease }, at);
+      }
+
+      /* ── Scene 3 (1.70–1.98s) · the last reveal, in the back half ──────────
+         colophon-bar settles into the bottom safe rail: hairline wipes in
+         right-to-left (riding the film's LEFT current), then the rigid wordmark,
+         then valkey.io — a shrinking two-beat cascade off the same grammar. */
+      var CUE_RAIL = 1.70;
+
+      tl.set("#f1-hair", { opacity: 1 }, CUE_RAIL);
+      tl.fromTo("#f1-hair", { scaleX: 0 }, { scaleX: 1, duration: 0.30, ease: "power3.out" }, CUE_RAIL);
+
+      var MARK_AT = CUE_RAIL + 2 * F;
+      tl.set("#f1-mark", { opacity: 1 }, MARK_AT);
+      tl.fromTo("#f1-mark", { y: 34 }, { y: 0, duration: 0.20, ease: "power4.out" }, MARK_AT);
+
+      var URL_AT = MARK_AT + 0.20 - 2 * F;
+      tl.set("#f1-url", { opacity: 1 }, URL_AT);
+      tl.fromTo("#f1-url", { y: 24 }, { y: 0, duration: 0.13, ease: "power4.out" }, URL_AT);
+
+      /* 1.98–3.10s is deliberate stillness — the poster read at 2.1s. The LEFT
+         exit at the 3.1s cut belongs to the master seam block, not to this file. */
+
+      tl.seek(0);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["01-hook"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,9 @@
+{
+  "duration": 2.1,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#f12-claim", "bySec": 0.6 },
+    { "kind": "before", "a": "#f12-claim", "b": "#f12-stream-stage" },
+    { "kind": "staysInFrame", "selector": "#f12-focal" },
+    { "kind": "keepsMoving", "withinSelector": "#f12-visual-layer", "maxStaticSec": 1.2 }
+  ]
+}

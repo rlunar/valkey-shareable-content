@@ -1,0 +1,104 @@
+{
+  "tts_provider": null,
+  "voice_id": null,
+  "bgm": {
+    "path": "assets/bgm/track.mp3",
+    "volume": 0.9,
+    "query": "driving minimal tech, tight percussive pulse, rising energy, no vocals",
+    "mode": "retrieve",
+    "duration_s": 55
+  },
+  "bgm_pending": false,
+  "bgm_provider": "heygen",
+  "bgm_pid": null,
+  "bgm_log": null,
+  "bgm_mode": "retrieve",
+  "bgm_target_duration_s": null,
+  "bgm_seed_duration_s": null,
+  "bgm_loop_count": null,
+  "voices": [],
+  "sfx": [
+    {
+      "id": "01",
+      "name": "impact-soft",
+      "file": "assets/sfx/impact-soft.mp3",
+      "source": "heygen",
+      "offset_s": 0,
+      "duration_s": 2.758,
+      "volume": 0.35
+    },
+    {
+      "id": "01",
+      "name": "riser",
+      "file": "assets/sfx/riser.mp3",
+      "source": "heygen",
+      "offset_s": 0,
+      "duration_s": 4.97,
+      "volume": 0.35
+    },
+    {
+      "id": "02",
+      "name": "impact-soft",
+      "file": "assets/sfx/impact-soft.mp3",
+      "source": "heygen",
+      "offset_s": 0,
+      "duration_s": 2.758,
+      "volume": 0.35
+    },
+    {
+      "id": "03",
+      "name": "click-tick ×3",
+      "file": "assets/sfx/click-tick-3.mp3",
+      "source": "heygen",
+      "offset_s": 0,
+      "duration_s": 7.016,
+      "volume": 0.35
+    },
+    {
+      "id": "04",
+      "name": "keystroke-soft",
+      "file": "assets/sfx/keystroke-soft.mp3",
+      "source": "heygen",
+      "offset_s": 0,
+      "duration_s": 39.631,
+      "volume": 0.35
+    },
+    {
+      "id": "04",
+      "name": "impact-soft",
+      "file": "assets/sfx/impact-soft.mp3",
+      "source": "heygen",
+      "offset_s": 0,
+      "duration_s": 2.758,
+      "volume": 0.35
+    },
+    {
+      "id": "05",
+      "name": "riser",
+      "file": "assets/sfx/riser.mp3",
+      "source": "heygen",
+      "offset_s": 0,
+      "duration_s": 4.97,
+      "volume": 0.35
+    },
+    {
+      "id": "05",
+      "name": "impact-soft",
+      "file": "assets/sfx/impact-soft.mp3",
+      "source": "heygen",
+      "offset_s": 0,
+      "duration_s": 2.758,
+      "volume": 0.35
+    },
+    {
+      "id": "06",
+      "name": "impact-deep",
+      "file": "assets/sfx/impact-deep.mp3",
+      "source": "heygen",
+      "offset_s": 0,
+      "duration_s": 2.758,
+      "volume": 0.35
+    }
+  ],
+  "total_duration_s": 0
+}

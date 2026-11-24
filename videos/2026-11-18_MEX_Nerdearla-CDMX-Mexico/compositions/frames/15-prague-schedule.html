@@ -1,0 +1,267 @@
+<template>
+  <link rel="stylesheet" href="open-sans-embedded.css">
+  <style>
+    /* 15-prague-schedule · final-only event schedule; no QR assets. */
+    #f15-root, #f15-root *, #f15-root *::before, #f15-root *::after {
+      box-sizing: border-box;
+    }
+
+    #f15-root {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      container-type: size;
+      font-family: "Open Sans";
+    }
+
+    #f15-ground,
+    #f15-content {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #f15-ground {
+      background: #30176e;
+    }
+
+    #f15-content {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      gap: 2.2cqw;
+      padding: 4.5cqw 5cqw 3cqw;
+    }
+
+    #f15-topbar {
+      display: block;
+    }
+
+    #f15-nerdearla-logo {
+      display: block;
+      height: 5.2cqw;
+      width: auto;
+      object-fit: contain;
+    }
+
+    #f15-event {
+      margin-top: 1cqw;
+    }
+
+    #f15-location {
+      margin: 0;
+      font-size: 1.7cqw;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #fff;
+    }
+
+    #f15-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.1cqw;
+      padding-top: 1cqw;
+      border-top: 2px solid rgba(255, 255, 255, .22);
+    }
+
+    #f15-footer-logo {
+      display: block;
+      height: 3cqw;
+      width: auto;
+    }
+
+    #f15-footer-url {
+      margin: 0;
+      font-size: 2.3cqw;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0.08cqw;
+      color: #fff;
+    }
+
+    #f15-title {
+      margin: 0;
+      font-size: 3.2cqw;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0.06cqw;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    #f15-event {
+      margin-top: 1cqw;
+    }
+
+    #f15-location {
+      margin: 0;
+      font-size: 1.7cqw;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #fff;
+    }
+
+    #f15-site {
+      margin: 0;
+      padding-top: 0.35cqw;
+      font-size: 1.6cqw;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: 0.14cqw;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    #f15-table {
+      min-height: 0;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      overflow: hidden;
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+    }
+
+    .f15-table-row {
+      display: grid;
+      grid-template-columns: 24cqw minmax(0, 1fr);
+      align-items: center;
+      min-height: 0;
+    }
+
+    .f15-table-row + .f15-table-row {
+      border-top: 2px solid rgba(0, 42, 58, .14);
+    }
+
+    .f15-time,
+    .f15-session {
+      min-width: 0;
+      margin: 0;
+      padding: 1.15cqw 1.5cqw;
+    }
+
+    .f15-time {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0.3cqw;
+      border-right: 2px solid rgba(0, 42, 58, .14);
+      font-size: 1.4cqw;
+      font-weight: 700;
+      line-height: 1.15;
+      color: #0053b8;
+      white-space: normal;
+    }
+
+    .f15-time span,
+    .f15-session span {
+      display: block;
+    }
+
+    .f15-speaker {
+      margin-top: 0.55cqw;
+      color: #596672;
+      font-size: 0.9em;
+      font-weight: 700;
+    }
+
+    .f15-session {
+      font-size: 1.45cqw;
+      font-weight: 600;
+      line-height: 1.22;
+      color: #002a3a;
+    }
+
+    #f15-table-head {
+      background: #0053b8;
+    }
+
+    #f15-table-head .f15-time,
+    #f15-table-head .f15-session {
+      padding-top: 0.8cqw;
+      padding-bottom: 0.8cqw;
+      font-size: 1.4cqw;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0.1cqw;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    #f15-table-head .f15-time {
+      border-right-color: rgba(255, 255, 255, .3);
+    }
+
+    /* Larger session-table typography for distance viewing. */
+    #f15-table .f15-time {
+      font-size: 1.6cqw;
+    }
+
+    #f15-table .f15-session {
+      font-size: 1.65cqw;
+    }
+
+    #f15-table-head .f15-time,
+    #f15-table-head .f15-session {
+      font-size: 1.55cqw;
+    }
+  </style>
+
+  <div data-hf-id="hf-f15-root" id="f15-root" data-composition-id="15-prague-schedule" data-duration="15" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-f15-ground" id="f15-ground" class="clip" data-start="0" data-duration="15" data-track-index="0"></div>
+    <div data-hf-id="hf-f15-content" id="f15-content" class="clip" data-start="0" data-duration="15" data-track-index="1">
+      <header data-hf-id="hf-f15-topbar" id="f15-topbar">
+        <img data-hf-id="hf-f15-nerdearla-logo" id="f15-nerdearla-logo" src="assets/nerdearla-simplificado.png" alt="Nerdearla">
+        <div data-hf-id="hf-f15-event" id="f15-event">
+          <p data-hf-id="hf-f15-location" id="f15-location">Mexico City, Mexico</p>
+        </div>
+        <p data-hf-studio-original-display="flex" data-hf-studio-original-box-sizing="" data-hf-studio-original-flex-shrink="" data-hf-studio-original-flex-grow="" data-hf-studio-original-flex-basis="" data-hf-studio-original-max-height="" data-hf-studio-original-max-width="" data-hf-studio-original-min-height="" data-hf-studio-original-min-width="" data-hf-studio-original-box-height="140" data-hf-studio-original-box-width="314" data-hf-studio-original-height="" data-hf-studio-original-width="" data-hf-studio-box-size="true" data-hf-studio-original-inline-translate="" data-hf-id="hf-f15-site" id="f15-site" data-hidden style="display: none !important; align-items: center; justify-content: flex-end; gap: 1cqw; padding-top: 0; translate: -75.027px -40.584px; --hf-studio-width: 174px; --hf-studio-height: 77px; width: 174px; height: 77px; min-width: 0px; min-height: 0px; max-width: none; max-height: none; box-sizing: border-box"><span data-hf-id="hf-f15-site-label">valkey.io</span><img data-hf-studio-original-inline-translate="" data-hf-studio-original-display="block" data-hf-studio-original-box-sizing="" data-hf-studio-original-flex-shrink="" data-hf-studio-original-flex-grow="" data-hf-studio-original-flex-basis="" data-hf-studio-original-max-height="" data-hf-studio-original-max-width="" data-hf-studio-original-min-height="" data-hf-studio-original-min-width="" data-hf-studio-original-box-height="140" data-hf-studio-original-box-width="140" data-hf-studio-original-height="min(11cqw, 140px)" data-hf-studio-original-width="min(11cqw, 140px)" data-hf-studio-box-size="true" data-hf-id="hf-f15-site-qr" id="f15-site-qr" src="assets/valkey_nerdearla_qr.png" alt="QR code for Valkey at Nerdearla" style="display: block; width: 223px; height: 223px; padding: .35cqw; border-radius: 10px; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.1); object-fit: contain; --hf-studio-width: 223px; --hf-studio-height: 223px; min-width: 0px; min-height: 0px; max-width: none; max-height: none; flex-basis: 223px; flex-grow: 0; flex-shrink: 0; box-sizing: border-box; translate: 41.5px 31.128px"></p>
+      </header>
+
+      <div data-hf-id="hf-f15-table" id="f15-table" role="table" aria-label="Valkey session at Nerdearla">
+        <div data-hf-id="hf-f15-table-head" id="f15-table-head" class="f15-table-row" role="row">
+          <p style="font-size: 32px" data-hf-id="hf-f15-head-time" class="f15-time" role="columnheader">Time</p>
+          <p data-hf-id="hf-f15-head-session" class="f15-session" role="columnheader">Valkey Session</p>
+        </div>
+        <div data-hf-id="hf-f15-row-1" id="f15-row-1" class="f15-table-row f15-session-row" role="row">
+          <p style="font-size: 32px" data-hf-id="hf-f15-time-1" class="f15-time" role="cell"><span data-hf-id="hf-e2as">Friday, Nov 20</span><span data-hf-id="hf-0ase">2:35 – 3:15 PM CST</span><span data-hf-id="hf-wht6">Escenario verde</span><span data-hf-id="hf-1efy">In English</span></p>
+          <p style="font-size: 34px" data-hf-id="hf-f15-session-1" class="f15-session" role="cell"><span data-hf-id="hf-jvt1">Cache the Meaning, Not the Message: Building Faster Chatbots with Valkey</span><span data-hf-id="hf-dr94" class="f15-speaker">Roberto Luna Rojas · Sr Developer Advocate, Valkey</span></p>
+        </div>
+      </div>
+
+      <footer data-hf-id="hf-f15-footer" id="f15-footer">
+        <svg data-hf-id="hf-f15-footer-logo" id="f15-footer-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 187.9 63.5" role="img" aria-label="Valkey">
+          <path data-hf-id="hf-f15-logo-mark" fill="#6983ff" fill-rule="evenodd" d="M15.2,50l-9.4-5.9v-25L28.8,6l22.3,13.1v26.3l-22.7,12.8-7.9-4.9v-12l-4.3-2.7v-13.6l12.4-7.1,12.1,7.1v14.2l-9.6,5.4v-5.7c2.9-1.1,4.9-3.9,4.9-7.3s-3.4-7.8-7.6-7.8-7.6,3.5-7.6,7.8,2.1,6.2,4.9,7.3v10.9l2.7,1.7,16.8-9.5v-19.7l-16.6-9.8-17.1,9.8v18.5l3.6,2.3v6.8ZM28.5,28.1c1.9,0,3.4,1.6,3.4,3.6s-1.5,3.6-3.4,3.6-3.4-1.6-3.4-3.6,1.5-3.6,3.4-3.6Z" />
+          <path data-hf-id="hf-f15-logo-v" fill="#fff" d="M85.2,11.4l-12.1,33.8h-4l-12.1-33.8h4.1l7.9,22.3c.3.9.6,1.8.9,2.6.3.8.5,1.6.7,2.4.2.8.4,1.5.5,2.2.2-.7.3-1.4.5-2.2.2-.8.4-1.6.7-2.4.3-.8.6-1.7.9-2.6l7.9-22.2h4.2Z" />
+          <path data-hf-id="hf-f15-logo-a" fill="#fff" d="M94,19.5c3,0,5.3.7,6.7,2,1.5,1.4,2.2,3.5,2.2,6.5v17.2h-2.8l-.7-3.7h-.2c-.7.9-1.4,1.7-2.2,2.3-.8.6-1.7,1.1-2.7,1.4-1,.3-2.2.5-3.7.5s-2.9-.3-4.1-.8c-1.2-.5-2.1-1.4-2.8-2.5-.7-1.1-1-2.5-1-4.2,0-2.5,1-4.5,3-5.8,2-1.4,5.1-2.1,9.2-2.2l4.4-.2v-1.5c0-2.2-.5-3.7-1.4-4.6-.9-.9-2.3-1.3-4-1.3-1.3,0-2.6.2-3.8.6-1.2.4-2.3.8-3.4,1.4l-1.2-2.9c1.1-.6,2.5-1.1,3.9-1.5,1.5-.4,3-.6,4.7-.6h0ZM99.1,32.8l-3.9.2c-3.2.1-5.4.6-6.7,1.5s-1.9,2.2-1.9,3.9.4,2.5,1.3,3.2c.9.7,2,1,3.5,1,2.3,0,4.1-.6,5.5-1.9s2.2-3.1,2.2-5.6v-2.3Z" />
+          <path data-hf-id="hf-f15-logo-l" fill="#fff" d="M112.1,45.3h-3.9V9.3h3.9v36Z" />
+          <path data-hf-id="hf-f15-logo-k" fill="#fff" d="M121.3,9.3v18.7c0,.6,0,1.4,0,2.3,0,.9,0,1.7-.1,2.3h.2c.3-.4.8-1,1.4-1.8.6-.8,1.2-1.4,1.6-1.9l8.4-9h4.5l-10.2,10.8,10.9,14.5h-4.6l-9-12-3.1,2.8v9.2h-3.8V9.3h3.8Z" />
+          <path data-hf-id="hf-f15-logo-e" fill="#fff" d="M148.2,19.4c2.2,0,4,.5,5.6,1.4,1.5,1,2.7,2.3,3.5,4,.8,1.7,1.2,3.7,1.2,6v2.4h-17.5c0,3,.8,5.2,2.2,6.8s3.5,2.3,6.1,2.3,3-.1,4.3-.4c1.2-.3,2.5-.7,3.8-1.3v3.4c-1.3.6-2.6,1-3.8,1.2-1.2.3-2.7.4-4.4.4-2.4,0-4.6-.5-6.4-1.5-1.8-1-3.2-2.5-4.2-4.4-1-1.9-1.5-4.3-1.5-7.1,0-2.7.5-5.1,1.4-7.1.9-2,2.2-3.5,3.9-4.6,1.7-1.1,3.7-1.6,5.9-1.6h0ZM148.2,22.6c-2.1,0-3.7.7-4.9,2-1.2,1.3-1.9,3.2-2.2,5.6h13.4c0-1.5-.3-2.8-.7-4-.4-1.2-1.1-2.1-2.1-2.7-.9-.6-2.1-1-3.6-1Z" />
+          <path data-hf-id="hf-f15-logo-y" fill="#fff" d="M158.4,19.9h4.1l5.6,14.7c.3.9.6,1.7.9,2.5.3.8.5,1.5.7,2.3.2.7.4,1.4.5,2.1h.2c.2-.8.5-1.8.9-3,.4-1.3.8-2.6,1.3-3.9l5.3-14.7h4.1l-11,29.1c-.6,1.6-1.3,2.9-2.1,4.1-.8,1.2-1.7,2-2.8,2.7-1.1.6-2.5.9-4,.9s-1.4,0-1.9-.1c-.6,0-1-.2-1.4-.3v-3.1c.3,0,.7.1,1.2.2.5,0,1,0,1.5,0,1,0,1.8-.2,2.5-.6.7-.4,1.3-.9,1.8-1.6.5-.7.9-1.5,1.3-2.5l1.4-3.6-10.2-25.4Z" />
+        </svg>
+        <p data-hf-id="hf-f15-footer-url" id="f15-footer-url">valkey.io</p>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    window.__timelines = window.__timelines || {};
+    var tl = gsap.timeline({ paused: true });
+    var rows = ["#f15-row-1"];
+
+    tl.set(rows, { y: 48, opacity: 0 }, 0);
+    rows.forEach(function (row, index) {
+      var revealAt = 1 + index * 1.8;
+      tl.set(row, { opacity: 1 }, revealAt);
+      tl.to(row, { y: 0, duration: 0.18, ease: "power4.out" }, revealAt);
+    });
+
+    window.__timelines["15-prague-schedule"] = tl;
+  </script>
+</template>

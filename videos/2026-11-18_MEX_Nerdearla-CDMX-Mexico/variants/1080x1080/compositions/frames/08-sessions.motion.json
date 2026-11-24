@@ -1,0 +1,9 @@
+{
+  "duration": 2.1,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#f8-headline", "bySec": 0.6 },
+    { "kind": "before", "a": "#f8-headline", "b": "#f8-detail" },
+    { "kind": "staysInFrame", "selector": "#f8-focal" },
+    { "kind": "keepsMoving", "withinSelector": "#f8-content", "maxStaticSec": 1.2 }
+  ]
+}

@@ -1,0 +1,43 @@
+<template>
+  <link rel="stylesheet" href="open-sans-embedded.css">
+  <style>
+    /* Persistent top-right valkey.io lockup for every frame after the opener. */
+    #f14qr-root, #f14qr-root * {
+      box-sizing: border-box;
+    }
+
+    #f14qr-root {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      container-type: size;
+      pointer-events: none;
+      font-family: "Open Sans";
+    }
+
+    #f14qr-image {
+      position: absolute;
+      top: .4cqw;
+      right: 5cqw;
+      display: block;
+      width: 11.6cqw;
+      height: 11.6cqw;
+      padding: .35cqw;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+      object-fit: contain;
+    }
+  </style>
+
+  <div data-hf-id="hf-f14qr-root" id="f14qr-root" data-composition-id="14-valkey-qr-overlay" data-duration="120.5" data-width="1920" data-height="1080">
+    <img data-hf-id="hf-f14qr-image" id="f14qr-image" class="clip" src="assets/valkey_nerdearla_qr.png" alt="QR code for Valkey at Nerdearla" data-start="0" data-duration="120.5" data-track-index="1">
+  </div>
+
+  <script>
+    window.__timelines = window.__timelines || {};
+    window.__timelines["14-valkey-qr-overlay"] = gsap.timeline({ paused: true });
+  </script>
+</template>

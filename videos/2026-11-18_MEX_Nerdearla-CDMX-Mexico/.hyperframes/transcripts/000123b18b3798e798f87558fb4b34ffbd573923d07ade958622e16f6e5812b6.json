@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "src": "assets/sfx/raw/click-tick-3.mp3",
+  "sha": "000123b18b3798e798f87558fb4b34ffbd573923d07ade958622e16f6e5812b6",
+  "engine": "scribe",
+  "model": "scribe-v2",
+  "detectedLanguage": "en",
+  "words": [],
+  "language": "auto",
+  "generatedWordsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "createdAt": "2026-10-27T15:51:25.835Z"
+}
